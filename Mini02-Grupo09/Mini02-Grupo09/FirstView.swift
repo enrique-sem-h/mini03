@@ -13,6 +13,7 @@ class FirstView: UIViewController {
         super.viewDidLoad()
         title = "First Screen"
         navigationController?.navigationBar.prefersLargeTitles = true
+        self.view.backgroundColor = .systemRed
     }
 
 
