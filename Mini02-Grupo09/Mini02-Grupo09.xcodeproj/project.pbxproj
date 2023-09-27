@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E6B49B32ABE266A00DB149B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6B49B22ABE266A00DB149B /* RegisterViewController.swift */; };
+		2E6B49B52AC1FFF600DB149B /* CustomPetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6B49B42AC1FFF600DB149B /* CustomPetViewCell.swift */; };
 		31B21E7C2ABE059A0096F1AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B21E7B2ABE059A0096F1AB /* AppDelegate.swift */; };
 		31B21E7E2ABE059A0096F1AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B21E7D2ABE059A0096F1AB /* SceneDelegate.swift */; };
 		31B21E802ABE059A0096F1AB /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B21E7F2ABE059A0096F1AB /* FirstView.swift */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E6B49B22ABE266A00DB149B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		2E6B49B42AC1FFF600DB149B /* CustomPetViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPetViewCell.swift; sourceTree = "<group>"; };
 		31B21E782ABE059A0096F1AB /* Mini02-Grupo09.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mini02-Grupo09.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31B21E7B2ABE059A0096F1AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31B21E7D2ABE059A0096F1AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +39,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E6B49B62AC219A300DB149B /* ListPet */ = {
+			isa = PBXGroup;
+			children = (
+				2E6B49B42AC1FFF600DB149B /* CustomPetViewCell.swift */,
+				2E6B49B22ABE266A00DB149B /* RegisterViewController.swift */,
+			);
+			path = ListPet;
+			sourceTree = "<group>";
+		};
 		31B21E6F2ABE059A0096F1AB = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +67,7 @@
 		31B21E7A2ABE059A0096F1AB /* Mini02-Grupo09 */ = {
 			isa = PBXGroup;
 			children = (
+				2E6B49B62AC219A300DB149B /* ListPet */,
 				31B21E7B2ABE059A0096F1AB /* AppDelegate.swift */,
 				31B21E7D2ABE059A0096F1AB /* SceneDelegate.swift */,
 				31B21E7F2ABE059A0096F1AB /* FirstView.swift */,
@@ -135,8 +149,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				31B21E802ABE059A0096F1AB /* FirstView.swift in Sources */,
+				2E6B49B32ABE266A00DB149B /* RegisterViewController.swift in Sources */,
 				31B21E7C2ABE059A0096F1AB /* AppDelegate.swift in Sources */,
 				31B21E7E2ABE059A0096F1AB /* SceneDelegate.swift in Sources */,
+				2E6B49B52AC1FFF600DB149B /* CustomPetViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
