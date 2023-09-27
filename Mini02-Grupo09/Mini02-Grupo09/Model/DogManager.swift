@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 class DogManager: ObservableObject{ // handling the core data stuff
     private let container = NSPersistentContainer(name: "DogModel") // defining the container with the model name
@@ -19,12 +20,22 @@ class DogManager: ObservableObject{ // handling the core data stuff
         return array // returning the dog model array
     }
     
-    enum size: String{ // creating an enum with raw values to avoid typos
+    enum Size: String, CaseIterable{ // creating an enum with raw values to avoid typos
         case mini = "mini"
         case small = "small"
         case midSized = "midSized"
         case big = "big"
         case giant = "giant"
+    }
+    
+    var fetchEnum: [Size]{
+        var sizes: [Size] = []
+        
+        for i in Size.allCases{
+            sizes.append(i)
+        }
+        
+        return sizes
     }
     
     init(){ // initializing the class
@@ -43,11 +54,12 @@ class DogManager: ObservableObject{ // handling the core data stuff
         }
     }
     
-    func newDog(name: String, age: Int, weight: Float, size: size){ // defining the create func
+    func newDog(image: UIImage, name: String, age: Int, weight: Float, size: Size){ // defining the create func
         let newDog = Dog(context: self.context)
         
         newDog.id = UUID()
         newDog.dateAdded = Date()
+        newDog.image = image.jpegData(compressionQuality: 0.8)
         newDog.name = name
         newDog.age = Int64(age)
         newDog.size = size.rawValue
@@ -69,7 +81,11 @@ class DogManager: ObservableObject{ // handling the core data stuff
         return (try? context.fetch(request)) ?? [] // try returning the array, else return empty
     }
     
-    func edit(dog: Dog, name: String?, age: Int?, size: size?, weight: Float?){ // editing any attribute
+    func edit(image: UIImage?, dog: Dog, name: String?, age: Int?, size: Size?, weight: Float?){ // editing any attribute
+        
+        if let image = image?.jpegData(compressionQuality: 0.8) { // if the user input the name, edit it here
+            dog.image = image
+        }
         
         if let name = name { // if the user input the name, edit it here
             dog.name = name
