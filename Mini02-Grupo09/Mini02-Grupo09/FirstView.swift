@@ -13,9 +13,27 @@ class FirstView: UIViewController {
         super.viewDidLoad()
         title = "First Screen"
         navigationController?.navigationBar.prefersLargeTitles = true
-        self.view.backgroundColor = .systemRed
+        view.backgroundColor = .systemBackground
+        test()
     }
 
-
+    func test(){
+        let button = UIButton()
+        button.configuration = .borderless()
+        button.configuration?.title = "click"
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(goToView), for: .touchDown)
+        view.addSubview(button)
+        
+        NSLayoutConstraint.activate([
+            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            button.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
+    }
+    @objc func goToView(){
+        let navC = UINavigationController(rootViewController: AddDogViewController())
+        navC.sheetPresentationController
+        navigationController?.present(navC, animated: true)
+    }
 }
 

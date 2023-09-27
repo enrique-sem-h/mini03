@@ -7,18 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31A569092AC4B06400DBBEB1 /* AddDogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A569082AC4B06400DBBEB1 /* AddDogView.swift */; };
 		31B21E7C2ABE059A0096F1AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B21E7B2ABE059A0096F1AB /* AppDelegate.swift */; };
 		31B21E7E2ABE059A0096F1AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B21E7D2ABE059A0096F1AB /* SceneDelegate.swift */; };
 		31B21E802ABE059A0096F1AB /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B21E7F2ABE059A0096F1AB /* FirstView.swift */; };
 		31B21E852ABE059B0096F1AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31B21E842ABE059B0096F1AB /* Assets.xcassets */; };
 		31B21E882ABE059B0096F1AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31B21E862ABE059B0096F1AB /* LaunchScreen.storyboard */; };
-		31D1B8342AC4578700EE0C69 /* AddDogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D1B8332AC4578700EE0C69 /* AddDogView.swift */; };
+		31D1B8342AC4578700EE0C69 /* AddDogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D1B8332AC4578700EE0C69 /* AddDogViewController.swift */; };
 		31D1B8362AC4579200EE0C69 /* AddDogViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D1B8352AC4579200EE0C69 /* AddDogViewVM.swift */; };
 		31E9E45A2AC222EB00AECCEB /* DogModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 31E9E4582AC222EB00AECCEB /* DogModel.xcdatamodeld */; };
 		31E9E45C2AC2242C00AECCEB /* DogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9E45B2AC2242C00AECCEB /* DogManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		31A569082AC4B06400DBBEB1 /* AddDogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDogView.swift; sourceTree = "<group>"; };
 		31B21E782ABE059A0096F1AB /* Mini02-Grupo09.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mini02-Grupo09.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31B21E7B2ABE059A0096F1AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31B21E7D2ABE059A0096F1AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,7 +28,7 @@
 		31B21E842ABE059B0096F1AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31B21E872ABE059B0096F1AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31B21E892ABE059B0096F1AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		31D1B8332AC4578700EE0C69 /* AddDogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDogView.swift; sourceTree = "<group>"; };
+		31D1B8332AC4578700EE0C69 /* AddDogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDogViewController.swift; sourceTree = "<group>"; };
 		31D1B8352AC4579200EE0C69 /* AddDogViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDogViewVM.swift; sourceTree = "<group>"; };
 		31E9E4592AC222EB00AECCEB /* DogModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DogModel.xcdatamodel; sourceTree = "<group>"; };
 		31E9E45B2AC2242C00AECCEB /* DogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogManager.swift; sourceTree = "<group>"; };
@@ -77,8 +79,9 @@
 		31D1B8372AC4579600EE0C69 /* Add Dog */ = {
 			isa = PBXGroup;
 			children = (
-				31D1B8332AC4578700EE0C69 /* AddDogView.swift */,
+				31D1B8332AC4578700EE0C69 /* AddDogViewController.swift */,
 				31D1B8352AC4579200EE0C69 /* AddDogViewVM.swift */,
+				31A569082AC4B06400DBBEB1 /* AddDogView.swift */,
 			);
 			name = "Add Dog";
 			sourceTree = "<group>";
@@ -163,8 +166,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				31D1B8362AC4579200EE0C69 /* AddDogViewVM.swift in Sources */,
+				31A569092AC4B06400DBBEB1 /* AddDogView.swift in Sources */,
 				31E9E45A2AC222EB00AECCEB /* DogModel.xcdatamodeld in Sources */,
-				31D1B8342AC4578700EE0C69 /* AddDogView.swift in Sources */,
+				31D1B8342AC4578700EE0C69 /* AddDogViewController.swift in Sources */,
 				31B21E802ABE059A0096F1AB /* FirstView.swift in Sources */,
 				31E9E45C2AC2242C00AECCEB /* DogManager.swift in Sources */,
 				31B21E7C2ABE059A0096F1AB /* AppDelegate.swift in Sources */,
