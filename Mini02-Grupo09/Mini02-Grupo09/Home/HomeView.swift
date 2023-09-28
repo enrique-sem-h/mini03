@@ -15,6 +15,7 @@ class HomeView: UIView {
     let filterButton = UIButton(type: .system)
     let petsButton = UIButton(type: .system)
     let configButton = UIButton(type: .system)
+    let addTaskButton = UIButton(type: .custom)
     
     let celulas = [CustomTaskCell(), CustomTaskCell(), CustomTaskCell(), CustomTaskCell(), CustomTaskCell(), CustomTaskCell(), CustomTaskCell()] // Dados da TableView temporários
     
@@ -53,19 +54,30 @@ class HomeView: UIView {
         tasksTableView.register(CustomTaskCell.self, forCellReuseIdentifier: "CustomTaskCell")
         self.tasksTableView.separatorStyle = .none
         
+        // Botão de adicionar tarefa
+        addTaskButton.translatesAutoresizingMaskIntoConstraints = false
+        addTaskButton.setImage(UIImage(named: "addTaskButton"), for: .normal)
+        addTaskButton.frame = CGRect(x: 0, y: 0, width: 47, height: 47)
+        self.addSubview(addTaskButton)
+        
         NSLayoutConstraint.activate([
             // Constraints da data
             dateLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 14),
             dateLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             
-            // Constraints d
+            // Constraints da StackView dos botões do topo
             buttonStackView.centerYAnchor.constraint(equalTo: dateLabel.centerYAnchor),
             buttonStackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -18),
             
+            // Constraints da TableView de tarefas
             tasksTableView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 30),
             tasksTableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             tasksTableView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            tasksTableView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+            tasksTableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            
+            // Constraints do botão de adicionar tarefa
+            addTaskButton.trailingAnchor.constraint(equalTo: self.layoutMarginsGuide.trailingAnchor),
+            addTaskButton.bottomAnchor.constraint(equalTo: self.layoutMarginsGuide.bottomAnchor)
         ])
     }
 }
