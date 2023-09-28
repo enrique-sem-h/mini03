@@ -24,6 +24,8 @@ class HomeViewController: UIViewController {
         
         newView.tasksTableView.dataSource = self
         newView.tasksTableView.delegate = self
+        
+        self.viewModel.viewController = self
     }
 }
 
@@ -37,7 +39,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.tableView(tableView, didSelectRowAt: indexPath, viewController: self)
+        viewModel.tableView(tableView, didSelectRowAt: indexPath)
     }
 }
 
