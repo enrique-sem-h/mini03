@@ -32,7 +32,7 @@ public class DayView: UIView {
     }
     
     
-    private static let headerVisibleHeight: Double = 88
+    static let headerVisibleHeight: Double = 88
     public var headerHeight: Double = headerVisibleHeight
     public let dayHeaderView: DayHeaderView
     
@@ -64,8 +64,9 @@ public class DayView: UIView {
         super.init(coder: aDecoder)
         configure()
     }
-    
-    private func configure() {
+   
+    //colocando o setup na view
+   func configure() {
         addSubview(dayHeaderView)
         configureLayout()
         
@@ -76,7 +77,9 @@ public class DayView: UIView {
         }
     }
     
-    private func configureLayout() {
+    
+    //configurando o setup
+    func configureLayout() {
         dayHeaderView.translatesAutoresizingMaskIntoConstraints = false
 
         dayHeaderView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true

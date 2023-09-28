@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     
     let newView = HomeView()
     let viewModel = HomeViewModel()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,7 @@ class HomeViewController: UIViewController {
         newView.frame = view.frame
         self.view = newView
         newView.setup()
+        
         
         newView.tasksTableView.dataSource = self
         newView.tasksTableView.delegate = self
