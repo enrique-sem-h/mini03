@@ -16,6 +16,20 @@
 		31D1B8362AC4579200EE0C69 /* AddDogViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D1B8352AC4579200EE0C69 /* AddDogViewVM.swift */; };
 		31E9E45A2AC222EB00AECCEB /* DogModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 31E9E4582AC222EB00AECCEB /* DogModel.xcdatamodeld */; };
 		31E9E45C2AC2242C00AECCEB /* DogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9E45B2AC2242C00AECCEB /* DogManager.swift */; };
+		553BDD9D2AC4C38900CAF483 /* DayViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BDD9C2AC4C38900CAF483 /* DayViewState.swift */; };
+		553BDD9F2AC4C3C300CAF483 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BDD9E2AC4C3C300CAF483 /* DayViewController.swift */; };
+		553BDDA12AC4C3EC00CAF483 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDA02AC4C3EC00CAF483 /* DayView.swift */; };
+		553BDDA32AC4C40900CAF483 /* CalendarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDA22AC4C40900CAF483 /* CalendarStyle.swift */; };
+		553BDDA62AC4C45500CAF483 /* UIColor+SystemColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDA52AC4C45500CAF483 /* UIColor+SystemColors.swift */; };
+		553BDDA82AC4C4A500CAF483 /* Date+DateOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDA72AC4C4A500CAF483 /* Date+DateOnly.swift */; };
+		553BDDAA2AC4C4C800CAF483 /* Array+Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDA92AC4C4C800CAF483 /* Array+Shift.swift */; };
+		553BDDAE2AC4C50600CAF483 /* DateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDAD2AC4C50600CAF483 /* DateLabel.swift */; };
+		553BDDB02AC4C53100CAF483 /* DayDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDAF2AC4C53100CAF483 /* DayDateCell.swift */; };
+		553BDDB22AC4C55400CAF483 /* DaySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDB12AC4C55400CAF483 /* DaySelector.swift */; };
+		553BDDB42AC4C58700CAF483 /* DaySelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDB32AC4C58700CAF483 /* DaySelectorController.swift */; };
+		553BDDB62AC4C5AE00CAF483 /* DaySymbolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDB52AC4C5AE00CAF483 /* DaySymbolsView.swift */; };
+		553BDDB82AC4C5D600CAF483 /* DayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDB72AC4C5D600CAF483 /* DayHeaderView.swift */; };
+		553BDDBA2AC4C5FD00CAF483 /* SwipeLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDB92AC4C5FD00CAF483 /* SwipeLabelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +44,20 @@
 		31D1B8352AC4579200EE0C69 /* AddDogViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDogViewVM.swift; sourceTree = "<group>"; };
 		31E9E4592AC222EB00AECCEB /* DogModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DogModel.xcdatamodel; sourceTree = "<group>"; };
 		31E9E45B2AC2242C00AECCEB /* DogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogManager.swift; sourceTree = "<group>"; };
+		553BDD9C2AC4C38900CAF483 /* DayViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewState.swift; sourceTree = "<group>"; };
+		553BDD9E2AC4C3C300CAF483 /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
+		553BDDA02AC4C3EC00CAF483 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
+		553BDDA22AC4C40900CAF483 /* CalendarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStyle.swift; sourceTree = "<group>"; };
+		553BDDA52AC4C45500CAF483 /* UIColor+SystemColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+SystemColors.swift"; sourceTree = "<group>"; };
+		553BDDA72AC4C4A500CAF483 /* Date+DateOnly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DateOnly.swift"; sourceTree = "<group>"; };
+		553BDDA92AC4C4C800CAF483 /* Array+Shift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Shift.swift"; sourceTree = "<group>"; };
+		553BDDAD2AC4C50600CAF483 /* DateLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLabel.swift; sourceTree = "<group>"; };
+		553BDDAF2AC4C53100CAF483 /* DayDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDateCell.swift; sourceTree = "<group>"; };
+		553BDDB12AC4C55400CAF483 /* DaySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySelector.swift; sourceTree = "<group>"; };
+		553BDDB32AC4C58700CAF483 /* DaySelectorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySelectorController.swift; sourceTree = "<group>"; };
+		553BDDB52AC4C5AE00CAF483 /* DaySymbolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySymbolsView.swift; sourceTree = "<group>"; };
+		553BDDB72AC4C5D600CAF483 /* DayHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayHeaderView.swift; sourceTree = "<group>"; };
+		553BDDB92AC4C5FD00CAF483 /* SwipeLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeLabelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +93,7 @@
 				31B21E7B2ABE059A0096F1AB /* AppDelegate.swift */,
 				31B21E7D2ABE059A0096F1AB /* SceneDelegate.swift */,
 				31B21E7F2ABE059A0096F1AB /* FirstView.swift */,
+				553BDD9B2AC4C35600CAF483 /* Calendar */,
 				31D1B8372AC4579600EE0C69 /* Add Dog */,
 				31E9E4572AC221D200AECCEB /* Model */,
 				31B21E842ABE059B0096F1AB /* Assets.xcassets */,
@@ -90,6 +119,51 @@
 				31E9E45B2AC2242C00AECCEB /* DogManager.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		553BDD9B2AC4C35600CAF483 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				553BDDAB2AC4C4DD00CAF483 /* CalendarHeader */,
+				553BDDA42AC4C43300CAF483 /* Extension */,
+				553BDD9C2AC4C38900CAF483 /* DayViewState.swift */,
+				553BDD9E2AC4C3C300CAF483 /* DayViewController.swift */,
+				553BDDA02AC4C3EC00CAF483 /* DayView.swift */,
+				553BDDA22AC4C40900CAF483 /* CalendarStyle.swift */,
+			);
+			name = Calendar;
+			sourceTree = "<group>";
+		};
+		553BDDA42AC4C43300CAF483 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				553BDDA52AC4C45500CAF483 /* UIColor+SystemColors.swift */,
+				553BDDA72AC4C4A500CAF483 /* Date+DateOnly.swift */,
+				553BDDA92AC4C4C800CAF483 /* Array+Shift.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
+		553BDDAB2AC4C4DD00CAF483 /* CalendarHeader */ = {
+			isa = PBXGroup;
+			children = (
+				553BDDAC2AC4C4F400CAF483 /* DaySelector */,
+				553BDDB52AC4C5AE00CAF483 /* DaySymbolsView.swift */,
+				553BDDB72AC4C5D600CAF483 /* DayHeaderView.swift */,
+				553BDDB92AC4C5FD00CAF483 /* SwipeLabelView.swift */,
+			);
+			name = CalendarHeader;
+			sourceTree = "<group>";
+		};
+		553BDDAC2AC4C4F400CAF483 /* DaySelector */ = {
+			isa = PBXGroup;
+			children = (
+				553BDDAD2AC4C50600CAF483 /* DateLabel.swift */,
+				553BDDAF2AC4C53100CAF483 /* DayDateCell.swift */,
+				553BDDB12AC4C55400CAF483 /* DaySelector.swift */,
+				553BDDB32AC4C58700CAF483 /* DaySelectorController.swift */,
+			);
+			name = DaySelector;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,13 +236,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				553BDDAE2AC4C50600CAF483 /* DateLabel.swift in Sources */,
 				31D1B8362AC4579200EE0C69 /* AddDogViewVM.swift in Sources */,
+				553BDDA12AC4C3EC00CAF483 /* DayView.swift in Sources */,
+				553BDDAA2AC4C4C800CAF483 /* Array+Shift.swift in Sources */,
 				31E9E45A2AC222EB00AECCEB /* DogModel.xcdatamodeld in Sources */,
 				31D1B8342AC4578700EE0C69 /* AddDogView.swift in Sources */,
 				31B21E802ABE059A0096F1AB /* FirstView.swift in Sources */,
 				31E9E45C2AC2242C00AECCEB /* DogManager.swift in Sources */,
+				553BDDB82AC4C5D600CAF483 /* DayHeaderView.swift in Sources */,
+				553BDDB22AC4C55400CAF483 /* DaySelector.swift in Sources */,
+				553BDDB02AC4C53100CAF483 /* DayDateCell.swift in Sources */,
 				31B21E7C2ABE059A0096F1AB /* AppDelegate.swift in Sources */,
+				553BDDBA2AC4C5FD00CAF483 /* SwipeLabelView.swift in Sources */,
 				31B21E7E2ABE059A0096F1AB /* SceneDelegate.swift in Sources */,
+				553BDDA62AC4C45500CAF483 /* UIColor+SystemColors.swift in Sources */,
+				553BDD9D2AC4C38900CAF483 /* DayViewState.swift in Sources */,
+				553BDDB62AC4C5AE00CAF483 /* DaySymbolsView.swift in Sources */,
+				553BDD9F2AC4C3C300CAF483 /* DayViewController.swift in Sources */,
+				553BDDB42AC4C58700CAF483 /* DaySelectorController.swift in Sources */,
+				553BDDA32AC4C40900CAF483 /* CalendarStyle.swift in Sources */,
+				553BDDA82AC4C4A500CAF483 /* Date+DateOnly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

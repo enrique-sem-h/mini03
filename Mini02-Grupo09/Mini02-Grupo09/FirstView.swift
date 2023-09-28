@@ -7,13 +7,20 @@
 
 import UIKit
 
-class FirstView: UIViewController {
+class FirstView: DayViewController {
+    
 
+    override func loadView() {
+        calendar.timeZone = TimeZone(identifier: "Europe/Paris")!
+        dayView = DayView(calendar: calendar)
+        view = dayView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "First Screen"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        self.view.backgroundColor = .systemRed
+//        title = "First Screen"
+//        navigationController?.navigationBar.prefersLargeTitles = true
+//        self.view.backgroundColor = .systemRed
     }
 
 
