@@ -39,8 +39,7 @@ class AddDogViewController: UIViewController{
         guard let newView = newView else {
             return
         }
-        viewModel.addDog(image: newView.imgButton.image, name: newView.nameTF.text, age: newView.ageTF.text ?? "", weight: newView.weightTF.text ?? "", size: newView.sizeTF.text ?? "")
-        dismiss(animated: true) // going back to previous view
+        viewModel.addDog(image: newView.imgButton.image, name: newView.nameTF.text, age: newView.ageTF.text ?? "", weight: newView.weightTF.text ?? "", size: newView.sizeTF.text ?? "", viewController: self)
     }
     
     @objc func imgButtonFunc(){ // presenting the image picker
@@ -55,11 +54,13 @@ class AddDogViewController: UIViewController{
             return
         }
         viewModel.firstResponderHandler(nameTF: newView.nameTF, ageTF: newView.ageTF, sizeTF: newView.sizeTF, weightTF: newView.weightTF, agePicker: newView.agePicker) // viewModel func
+        HapticsManager.shared.vibrate(for: .success)
     }
     
     func tapGesture(){ // defining tap gesture for image
         let tap = UITapGestureRecognizer(target: self, action: #selector(imgButtonFunc)) // creating the recognizer
         newView?.imgButton.isUserInteractionEnabled = true // enabling image's interction
+        HapticsManager.shared.selectionVibrate() // creating vibration
         newView?.imgButton.addGestureRecognizer(tap) // binding tap gesture to the image
     }
     

@@ -14,6 +14,7 @@
 		31B21E852ABE059B0096F1AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31B21E842ABE059B0096F1AB /* Assets.xcassets */; };
 		31B21E882ABE059B0096F1AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31B21E862ABE059B0096F1AB /* LaunchScreen.storyboard */; };
 		31C2C5342AC762F200276D67 /* TasksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C2C5332AC762F200276D67 /* TasksManager.swift */; };
+		31C2C5382AC7667800276D67 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C2C5372AC7667800276D67 /* HapticsManager.swift */; };
 		31D1B8342AC4578700EE0C69 /* AddDogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D1B8332AC4578700EE0C69 /* AddDogViewController.swift */; };
 		31D1B8362AC4579200EE0C69 /* AddDogViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D1B8352AC4579200EE0C69 /* AddDogViewVM.swift */; };
 		31E9E45A2AC222EB00AECCEB /* AppModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 31E9E4582AC222EB00AECCEB /* AppModel.xcdatamodeld */; };
@@ -30,6 +31,7 @@
 		31B21E872ABE059B0096F1AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31B21E892ABE059B0096F1AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31C2C5332AC762F200276D67 /* TasksManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksManager.swift; sourceTree = "<group>"; };
+		31C2C5372AC7667800276D67 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		31D1B8332AC4578700EE0C69 /* AddDogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDogViewController.swift; sourceTree = "<group>"; };
 		31D1B8352AC4579200EE0C69 /* AddDogViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDogViewVM.swift; sourceTree = "<group>"; };
 		31E9E4592AC222EB00AECCEB /* DogModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DogModel.xcdatamodel; sourceTree = "<group>"; };
@@ -71,11 +73,28 @@
 				31B21E7F2ABE059A0096F1AB /* FirstView.swift */,
 				31D1B8372AC4579600EE0C69 /* Add Dog */,
 				31E9E4572AC221D200AECCEB /* Model */,
+				31C2C5352AC7664B00276D67 /* Utils */,
 				31B21E842ABE059B0096F1AB /* Assets.xcassets */,
 				31B21E862ABE059B0096F1AB /* LaunchScreen.storyboard */,
 				31B21E892ABE059B0096F1AB /* Info.plist */,
 			);
 			path = "Mini02-Grupo09";
+			sourceTree = "<group>";
+		};
+		31C2C5352AC7664B00276D67 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				31C2C5362AC7666700276D67 /* Haptics */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		31C2C5362AC7666700276D67 /* Haptics */ = {
+			isa = PBXGroup;
+			children = (
+				31C2C5372AC7667800276D67 /* HapticsManager.swift */,
+			);
+			name = Haptics;
 			sourceTree = "<group>";
 		};
 		31D1B8372AC4579600EE0C69 /* Add Dog */ = {
@@ -176,6 +195,7 @@
 				31C2C5342AC762F200276D67 /* TasksManager.swift in Sources */,
 				31E9E45C2AC2242C00AECCEB /* DogManager.swift in Sources */,
 				31B21E7C2ABE059A0096F1AB /* AppDelegate.swift in Sources */,
+				31C2C5382AC7667800276D67 /* HapticsManager.swift in Sources */,
 				31B21E7E2ABE059A0096F1AB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,7 +340,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J7Y95G67T3;
+				DEVELOPMENT_TEAM = HX623XK8T6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Mini02-Grupo09/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -347,7 +367,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J7Y95G67T3;
+				DEVELOPMENT_TEAM = HX623XK8T6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Mini02-Grupo09/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
