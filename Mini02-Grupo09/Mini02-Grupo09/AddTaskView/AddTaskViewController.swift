@@ -51,19 +51,19 @@ class AddTaskViewController: UIViewController{
         
 //        constraints.append(icon.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30))
 //        constraints.append(icon.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60))
-//        
+//
 //        constraints.append(taskTF.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0))
 //        constraints.append(taskTF.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0))
-//        
+//
 //        constraints.append(datePicker.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0))
 //        constraints.append(datePicker.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0))
 //
 //        constraints.append(taskTF.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0))
 //        constraints.append(taskTF.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0))
-//        
+//
 //        constraints.append(taskTF.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0))
 //        constraints.append(taskTF.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0))
-//        
+//
 //        constraints.append(taskTF.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0))
 //        constraints.append(taskTF.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0))
         
@@ -113,7 +113,7 @@ class AddTaskViewController: UIViewController{
         hTitleStack.addArrangedSubview(icon)
         hTitleStack.addArrangedSubview(taskTF)
         dateStack.addArrangedSubview(datePicker)
-//        
+//
 //        stack.addArrangedSubview(hTitleStack)
 //        stack.addArrangedSubview(petPicker)
 //        stack.addArrangedSubview(dateStack)
