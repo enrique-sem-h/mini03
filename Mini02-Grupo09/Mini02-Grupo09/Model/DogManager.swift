@@ -10,7 +10,7 @@ import CoreData
 import UIKit
 
 class DogManager: ObservableObject{ // handling the core data stuff
-    private let container = NSPersistentContainer(name: "DogModel") // defining the container with the model name
+    private let container = NSPersistentContainer(name: "AppModel") // defining the container with the model name
     private var context: NSManagedObjectContext{
         return container.viewContext
     } // defining the context
