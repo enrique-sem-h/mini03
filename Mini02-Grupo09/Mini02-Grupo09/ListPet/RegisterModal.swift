@@ -7,16 +7,9 @@
 
 import Foundation
 
-class Section {
+struct PetData {
     let title: String
-    let options: [String]
+    let description: String
     var isOpened = false
-    
-    init(title: String, options: [String], isOpened: Bool = false) {
-        self.title = title
-        self.options = options
-        self.isOpened = isOpened
-    }
-    
     
 }
