@@ -32,10 +32,16 @@ class EditTaskModalViewController: UIViewController {
         self.view = newView
         newView.setup()
         
+        self.viewModel.viewController = self
+        
+
         // Configuração dos botões da view
         newView.editButton.addTarget(self, action: #selector(editButtonTapped), for: .touchUpInside)
         
         newView.deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+
+        newView.closeModalButton.addTarget(self, action: #selector(closeModalButtonTapped), for: .touchUpInside)
+
     }
     
     @objc func editButtonTapped() {
@@ -43,6 +49,11 @@ class EditTaskModalViewController: UIViewController {
     }
     
     @objc func deleteButtonTapped() {
-        viewModel.editTask()
+        viewModel.deleteTask()
+    }
+    
+    @objc func closeModalButtonTapped() {
+        viewModel.closeModal()
+
     }
 }

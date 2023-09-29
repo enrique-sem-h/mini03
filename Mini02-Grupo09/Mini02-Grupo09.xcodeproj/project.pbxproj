@@ -16,6 +16,7 @@
 		31D1B8362AC4579200EE0C69 /* AddDogViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D1B8352AC4579200EE0C69 /* AddDogViewVM.swift */; };
 		31E9E45A2AC222EB00AECCEB /* DogModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 31E9E4582AC222EB00AECCEB /* DogModel.xcdatamodeld */; };
 		31E9E45C2AC2242C00AECCEB /* DogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9E45B2AC2242C00AECCEB /* DogManager.swift */; };
+
 		553BDD9D2AC4C38900CAF483 /* DayViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BDD9C2AC4C38900CAF483 /* DayViewState.swift */; };
 		553BDD9F2AC4C3C300CAF483 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BDD9E2AC4C3C300CAF483 /* DayViewController.swift */; };
 		553BDDA12AC4C3EC00CAF483 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDA02AC4C3EC00CAF483 /* DayView.swift */; };
@@ -30,6 +31,15 @@
 		553BDDB62AC4C5AE00CAF483 /* DaySymbolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDB52AC4C5AE00CAF483 /* DaySymbolsView.swift */; };
 		553BDDB82AC4C5D600CAF483 /* DayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDB72AC4C5D600CAF483 /* DayHeaderView.swift */; };
 		553BDDBA2AC4C5FD00CAF483 /* SwipeLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BDDB92AC4C5FD00CAF483 /* SwipeLabelView.swift */; };
+		D3C5EC0A2AC5E57E004FA716 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C5EC092AC5E57E004FA716 /* HomeView.swift */; };
+		D3C5EC0C2AC5E598004FA716 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C5EC0B2AC5E598004FA716 /* HomeViewController.swift */; };
+		D3C5EC0E2AC5E5A8004FA716 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C5EC0D2AC5E5A8004FA716 /* HomeViewModel.swift */; };
+		D3C5EC112AC5E5D3004FA716 /* CustomTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C5EC102AC5E5D3004FA716 /* CustomTaskCell.swift */; };
+		D3C5EC132AC5E609004FA716 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C5EC122AC5E609004FA716 /* CheckboxView.swift */; };
+		D3C5EC162AC5E64E004FA716 /* EditTaskModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C5EC152AC5E64E004FA716 /* EditTaskModalView.swift */; };
+		D3C5EC182AC5E66C004FA716 /* EditTaskModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C5EC172AC5E66C004FA716 /* EditTaskModalViewController.swift */; };
+		D3C5EC1A2AC5E68A004FA716 /* EditTaskModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C5EC192AC5E68A004FA716 /* EditTaskModalViewModel.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +54,7 @@
 		31D1B8352AC4579200EE0C69 /* AddDogViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDogViewVM.swift; sourceTree = "<group>"; };
 		31E9E4592AC222EB00AECCEB /* DogModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DogModel.xcdatamodel; sourceTree = "<group>"; };
 		31E9E45B2AC2242C00AECCEB /* DogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogManager.swift; sourceTree = "<group>"; };
+
 		553BDD9C2AC4C38900CAF483 /* DayViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewState.swift; sourceTree = "<group>"; };
 		553BDD9E2AC4C3C300CAF483 /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
 		553BDDA02AC4C3EC00CAF483 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
@@ -58,6 +69,16 @@
 		553BDDB52AC4C5AE00CAF483 /* DaySymbolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySymbolsView.swift; sourceTree = "<group>"; };
 		553BDDB72AC4C5D600CAF483 /* DayHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayHeaderView.swift; sourceTree = "<group>"; };
 		553BDDB92AC4C5FD00CAF483 /* SwipeLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeLabelView.swift; sourceTree = "<group>"; };
+
+		D3C5EC092AC5E57E004FA716 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		D3C5EC0B2AC5E598004FA716 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D3C5EC0D2AC5E5A8004FA716 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		D3C5EC102AC5E5D3004FA716 /* CustomTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTaskCell.swift; sourceTree = "<group>"; };
+		D3C5EC122AC5E609004FA716 /* CheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
+		D3C5EC152AC5E64E004FA716 /* EditTaskModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskModalView.swift; sourceTree = "<group>"; };
+		D3C5EC172AC5E66C004FA716 /* EditTaskModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskModalViewController.swift; sourceTree = "<group>"; };
+		D3C5EC192AC5E68A004FA716 /* EditTaskModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskModalViewModel.swift; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +114,12 @@
 				31B21E7B2ABE059A0096F1AB /* AppDelegate.swift */,
 				31B21E7D2ABE059A0096F1AB /* SceneDelegate.swift */,
 				31B21E7F2ABE059A0096F1AB /* FirstView.swift */,
+
 				553BDD9B2AC4C35600CAF483 /* Calendar */,
+
+				D3C5EC082AC5E573004FA716 /* Home */,
+				D3C5EC142AC5E62D004FA716 /* EditTaskModal */,
+
 				31D1B8372AC4579600EE0C69 /* Add Dog */,
 				31E9E4572AC221D200AECCEB /* Model */,
 				31B21E842ABE059B0096F1AB /* Assets.xcassets */,
@@ -121,6 +147,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+
 		553BDD9B2AC4C35600CAF483 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +191,36 @@
 				553BDDB32AC4C58700CAF483 /* DaySelectorController.swift */,
 			);
 			name = DaySelector;
+
+		D3C5EC082AC5E573004FA716 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D3C5EC092AC5E57E004FA716 /* HomeView.swift */,
+				D3C5EC0B2AC5E598004FA716 /* HomeViewController.swift */,
+				D3C5EC0D2AC5E5A8004FA716 /* HomeViewModel.swift */,
+				D3C5EC0F2AC5E5BA004FA716 /* Components */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		D3C5EC0F2AC5E5BA004FA716 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D3C5EC102AC5E5D3004FA716 /* CustomTaskCell.swift */,
+				D3C5EC122AC5E609004FA716 /* CheckboxView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D3C5EC142AC5E62D004FA716 /* EditTaskModal */ = {
+			isa = PBXGroup;
+			children = (
+				D3C5EC152AC5E64E004FA716 /* EditTaskModalView.swift */,
+				D3C5EC172AC5E66C004FA716 /* EditTaskModalViewController.swift */,
+				D3C5EC192AC5E68A004FA716 /* EditTaskModalViewModel.swift */,
+			);
+			path = EditTaskModal;
+
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,15 +295,29 @@
 			files = (
 				553BDDAE2AC4C50600CAF483 /* DateLabel.swift in Sources */,
 				31D1B8362AC4579200EE0C69 /* AddDogViewVM.swift in Sources */,
+
 				553BDDA12AC4C3EC00CAF483 /* DayView.swift in Sources */,
 				553BDDAA2AC4C4C800CAF483 /* Array+Shift.swift in Sources */,
+
+				D3C5EC182AC5E66C004FA716 /* EditTaskModalViewController.swift in Sources */,
+
 				31E9E45A2AC222EB00AECCEB /* DogModel.xcdatamodeld in Sources */,
 				31D1B8342AC4578700EE0C69 /* AddDogView.swift in Sources */,
+				D3C5EC132AC5E609004FA716 /* CheckboxView.swift in Sources */,
+				D3C5EC0E2AC5E5A8004FA716 /* HomeViewModel.swift in Sources */,
 				31B21E802ABE059A0096F1AB /* FirstView.swift in Sources */,
+				D3C5EC1A2AC5E68A004FA716 /* EditTaskModalViewModel.swift in Sources */,
+				D3C5EC112AC5E5D3004FA716 /* CustomTaskCell.swift in Sources */,
+				D3C5EC162AC5E64E004FA716 /* EditTaskModalView.swift in Sources */,
 				31E9E45C2AC2242C00AECCEB /* DogManager.swift in Sources */,
+
 				553BDDB82AC4C5D600CAF483 /* DayHeaderView.swift in Sources */,
 				553BDDB22AC4C55400CAF483 /* DaySelector.swift in Sources */,
 				553BDDB02AC4C53100CAF483 /* DayDateCell.swift in Sources */,
+
+				D3C5EC0C2AC5E598004FA716 /* HomeViewController.swift in Sources */,
+				D3C5EC0A2AC5E57E004FA716 /* HomeView.swift in Sources */,
+
 				31B21E7C2ABE059A0096F1AB /* AppDelegate.swift in Sources */,
 				553BDDBA2AC4C5FD00CAF483 /* SwipeLabelView.swift in Sources */,
 				31B21E7E2ABE059A0096F1AB /* SceneDelegate.swift in Sources */,

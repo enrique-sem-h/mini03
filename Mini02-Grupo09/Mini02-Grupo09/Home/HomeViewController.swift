@@ -24,6 +24,16 @@ class HomeViewController: UIViewController {
         
         newView.tasksTableView.dataSource = self
         newView.tasksTableView.delegate = self
+        
+        self.viewModel.viewController = self
+        
+        // Configurando botõe da view
+        newView.addTaskButton.addTarget(self, action: #selector(showAddTaskView), for: .touchUpInside)
+    }
+    
+    @objc func showAddTaskView() {
+        print("Indo para AddTaskView")
+        // Implementação da navegação para a página de adicionar tarefa
     }
 }
 
@@ -37,7 +47,8 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.tableView(tableView, didSelectRowAt: indexPath, viewController: self)
+        
+        viewModel.tableView(tableView, didSelectRowAt: indexPath)
     }
 }
 

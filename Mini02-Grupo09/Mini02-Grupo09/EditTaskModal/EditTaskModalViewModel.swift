@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class EditTaskModalViewModel {
+    weak var viewController: EditTaskModalViewController?
     
     func editTask() {
         // Implementação da edição da task
@@ -16,5 +17,9 @@ class EditTaskModalViewModel {
     
     func deleteTask() {
         // Implementação da deleção da task
+    }
+    
+    func closeModal() {
+        self.viewController?.dismiss(animated: true)
     }
 }
