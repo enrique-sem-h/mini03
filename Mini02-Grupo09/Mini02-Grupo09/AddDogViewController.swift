@@ -11,36 +11,37 @@ import PhotosUI
 
 class AddDogViewController: UIViewController{
     
-    var newView: AddDogView?
+    var newView: AddDogView? // defining view
     
     private let viewModel = AddDogViewModel(dogManager: DogManager()) // creating a viewModel
     
     override func viewDidLoad() { // default viewDidLoad func
         super.viewDidLoad()
         
-        newView = AddDogView(frame: self.view.frame)
-        guard let newView = newView else {
+        newView = AddDogView(frame: self.view.frame) // attributing add dog view to view
+        guard let newView = newView else { // safe unwrapping the view
             return
         }
         
-        self.view = newView
+        self.view = newView // changing the view controller's view
         
-        newView.button.addTarget(self, action: #selector(buttonFunc), for: .touchDown)
+        newView.button.addTarget(self, action: #selector(buttonFunc), for: .touchDown) // attaching target to button in this view controller
         newView.ageTF.inputAccessoryView = createToolbar() // creating the done button
         newView.sizeTF.inputAccessoryView = createToolbar() // creating the done toolbar
         newView.weightTF.inputAccessoryView = createToolbar() // reating done btn
         
-        tapGesture()
+        tapGesture() // calling the tap gesture function when loading the view
         
-        newView.createDelegate(delegate: self)
+        newView.createDelegate(delegate: self) // calling the create delegate function that is declared in the view
     }
+    
+    // MARK: beginning of function delcarations
     
     @objc func buttonFunc() { // defining the submit button (add button) func
         guard let newView = newView else {
             return
         }
-        viewModel.addDog(image: newView.imgButton.image, name: newView.nameTF.text, age: newView.ageTF.text ?? "", weight: newView.weightTF.text ?? "", size: newView.sizeTF.text ?? "")
-        dismiss(animated: true) // going back to previous view
+        viewModel.addDog(image: newView.imgButton.image, name: newView.nameTF.text, age: newView.ageTF.text ?? "", weight: newView.weightTF.text ?? "", size: newView.sizeTF.text ?? "", viewController: self)
     }
     
     @objc func imgButtonFunc(){ // presenting the image picker
@@ -55,11 +56,13 @@ class AddDogViewController: UIViewController{
             return
         }
         viewModel.firstResponderHandler(nameTF: newView.nameTF, ageTF: newView.ageTF, sizeTF: newView.sizeTF, weightTF: newView.weightTF, agePicker: newView.agePicker) // viewModel func
+        HapticsManager.shared.vibrate(for: .success)
     }
     
     func tapGesture(){ // defining tap gesture for image
         let tap = UITapGestureRecognizer(target: self, action: #selector(imgButtonFunc)) // creating the recognizer
         newView?.imgButton.isUserInteractionEnabled = true // enabling image's interction
+        HapticsManager.shared.selectionVibrate() // creating vibration
         newView?.imgButton.addGestureRecognizer(tap) // binding tap gesture to the image
     }
     
@@ -75,6 +78,8 @@ class AddDogViewController: UIViewController{
     }
     
 }
+
+// MARK: making the view controller conform to protocols
 
 extension AddDogViewController: UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate{ // extending the view so it conforms to a few protocols
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

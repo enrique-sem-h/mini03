@@ -21,11 +21,11 @@ class DogManager: ObservableObject{ // handling the core data stuff
     }
     
     enum Size: String, CaseIterable{ // creating an enum with raw values to avoid typos
-        case mini = "mini"
-        case small = "small"
-        case midSized = "midSized"
-        case big = "big"
-        case giant = "giant"
+        case mini = "Mini"
+        case small = "Small"
+        case midSized = "Mid-Sized"
+        case big = "Big"
+        case giant = "Giant"
     }
     
     var fetchEnum: [Size]{
