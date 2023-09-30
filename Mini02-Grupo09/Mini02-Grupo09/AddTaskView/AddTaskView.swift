@@ -10,7 +10,7 @@ import UIKit
 
 class AddTaskView: UIView {
     let taskTitleTF = UITextField()
-    let icon = UIImage()
+    let iconPicker = UIImage()
     let addPetButton = UIButton()
     let datePicker = UIDatePicker()
     let frequencyPicker = UISegmentedControl()
@@ -19,7 +19,7 @@ class AddTaskView: UIView {
     func setup() {
         self.backgroundColor = .systemBackground
         
-        // Configuração do taskTitleTF
+        // Configuração do TextField do título
         taskTitleTF.translatesAutoresizingMaskIntoConstraints = false
         taskTitleTF.placeholder = "Digite algo aqui"
         taskTitleTF.frame = CGRect(x: 20, y: 100, width: 200, height: 30)
@@ -27,10 +27,15 @@ class AddTaskView: UIView {
         taskTitleTF.addBottomBorderWithColor(color: .gray)
         self.addSubview(taskTitleTF)
         
-        NSLayoutConstraint.activate([
-            taskTitleTF.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            taskTitleTF.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        // Configuração do iconPicker
         
+        // Configuração do Botão de adicionar pet
+        
+        // Configuração do datePicker
+        
+        
+        
+        NSLayoutConstraint.activate([
         ])
         
         

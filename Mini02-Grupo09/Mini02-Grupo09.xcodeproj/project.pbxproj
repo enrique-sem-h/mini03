@@ -22,6 +22,7 @@
 		D3622D002AC76B220063FAAE /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622CFF2AC76B220063FAAE /* AddTaskView.swift */; };
 		D3622D022AC76B2F0063FAAE /* AddTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D012AC76B2F0063FAAE /* AddTaskViewModel.swift */; };
 		D3622D042AC76C2B0063FAAE /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D032AC76C2B0063FAAE /* AddTaskViewController.swift */; };
+		D3622D062AC8A4F20063FAAE /* iconPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D052AC8A4F20063FAAE /* iconPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		D3622CFF2AC76B220063FAAE /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		D3622D012AC76B2F0063FAAE /* AddTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewModel.swift; sourceTree = "<group>"; };
 		D3622D032AC76C2B0063FAAE /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		D3622D052AC8A4F20063FAAE /* iconPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iconPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +116,17 @@
 				D3622CFF2AC76B220063FAAE /* AddTaskView.swift */,
 				D3622D032AC76C2B0063FAAE /* AddTaskViewController.swift */,
 				D3622D012AC76B2F0063FAAE /* AddTaskViewModel.swift */,
+				D3622D072AC8A4F50063FAAE /* Components */,
 			);
 			path = AddTaskView;
+			sourceTree = "<group>";
+		};
+		D3622D072AC8A4F50063FAAE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D3622D052AC8A4F20063FAAE /* iconPicker.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +203,7 @@
 				D3622D022AC76B2F0063FAAE /* AddTaskViewModel.swift in Sources */,
 				31D1B8362AC4579200EE0C69 /* AddDogViewVM.swift in Sources */,
 				31A569092AC4B06400DBBEB1 /* AddDogView.swift in Sources */,
+				D3622D062AC8A4F20063FAAE /* iconPicker.swift in Sources */,
 				31E9E45A2AC222EB00AECCEB /* AppModel.xcdatamodeld in Sources */,
 				31D1B8342AC4578700EE0C69 /* AddDogViewController.swift in Sources */,
 				31B21E802ABE059A0096F1AB /* FirstView.swift in Sources */,
