@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class AddDogView: UIView{
-    //setting all view components
+    // MARK: setting all view components
     let sizePicker = UIPickerView() // defining picker for the dog's size (enum)
     let stack = UIStackView()
     let nameTF = UITextField()
@@ -44,7 +44,7 @@ class AddDogView: UIView{
         imgButton.layer.masksToBounds = false // disabling mask to bounds
         imgButton.clipsToBounds = true // enabling bound clipping
         imgButton.translatesAutoresizingMaskIntoConstraints = false // disabling autoresize mask to const.
-        imgButton.layer.cornerRadius = 170 / 2 // rounding it (170 is its height and width constraints)
+        imgButton.layer.cornerRadius = UIDevice.current.userInterfaceIdiom == .phone ? 130 / 2 : 170 / 2 // rounding it (170 is its height and width constraints)
         
         imagePicker.allowsEditing = true // allowing the user to edit the image before inserting it
         imagePicker.sourceType = .photoLibrary // defining source type
@@ -92,21 +92,41 @@ class AddDogView: UIView{
         
         self.addSubview(stack) // adding the stack itself as a subview
         
-        // Constraints for the stack view
-        NSLayoutConstraint.activate([
-            nameTF.heightAnchor.constraint(equalToConstant: 70), // configuring the textfields sizes
-            
-            imgButton.widthAnchor.constraint(equalToConstant: 170), // defining image's size
-            imgButton.heightAnchor.constraint(equalToConstant: 170), // defining image's size
-            
-            imgButton.centerXAnchor.constraint(equalTo: self.centerXAnchor), // defining image's position
-            imgButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 0), // defining image's position
-            
-            stack.topAnchor.constraint(equalTo: imgButton.bottomAnchor, constant: 20), // setting stack's position
-            stack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -100), // setting stack's position
-            stack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 100), // setting stack's position
-        ])
+        if UIDevice.current.userInterfaceIdiom == .phone{
+            // Constraints for the iPhone
+            NSLayoutConstraint.activate([
+                nameTF.heightAnchor.constraint(equalToConstant: 70), // configuring the textfields sizes
+                
+                imgButton.widthAnchor.constraint(equalToConstant: 130), // defining image's size
+                imgButton.heightAnchor.constraint(equalToConstant: 130), // defining image's size
+                
+                imgButton.centerXAnchor.constraint(equalTo: self.centerXAnchor), // defining image's position
+                imgButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 0), // defining image's position
+                
+                stack.topAnchor.constraint(equalTo: imgButton.bottomAnchor, constant: 20), // setting stack's position
+                stack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -50), // setting stack's position
+                stack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 50), // setting stack's position
+                stack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -200), // setting stack's position
+            ])
+        }else{
+            // Constraints for the iPad
+            NSLayoutConstraint.activate([
+                nameTF.heightAnchor.constraint(equalToConstant: 100), // configuring the textfields sizes
+                
+                imgButton.widthAnchor.constraint(equalToConstant: 170), // defining image's size
+                imgButton.heightAnchor.constraint(equalToConstant: 170), // defining image's size
+                
+                imgButton.centerXAnchor.constraint(equalTo: self.centerXAnchor), // defining image's position
+                imgButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 0), // defining image's position
+                
+                stack.topAnchor.constraint(equalTo: imgButton.bottomAnchor, constant: 20), // setting stack's position
+                stack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -70), // setting stack's position
+                stack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 70), // setting stack's position
+            ])
+        }
     }
+    
+    // MARK: defining the delegate function, which is called in the view controller
     
     func createDelegate(delegate: AddDogViewController){
         sizePicker.delegate = delegate // setting its delegate
