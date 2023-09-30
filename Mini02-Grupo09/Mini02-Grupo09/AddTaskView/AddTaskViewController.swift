@@ -20,23 +20,24 @@ class AddTaskViewController: UIViewController {
         newView.frame = view.frame
         self.view = newView
         newView.setup()
+        
+        newView.taskTitleTF.delegate = self
+//        newView.notesTF.delegate = self
     }
 }
 
-extension AddTaskViewController: UIPickerViewDelegate, UIPickerViewDataSource{
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+extension AddTaskViewController: UITextFieldDelegate, UITextViewDelegate {
+    
+    // Essa função faz o teclado dar dismiss ao apertar a tecla return no TextField
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
     }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 1
-    }
-    
-    
 }
 
 extension UITextField {
     func addBottomBorderWithColor(color: UIColor) {
+        self.borderStyle = .none
         let border = CALayer()
         border.backgroundColor = color.cgColor
         border.frame = CGRect(x: 0, y: self.frame.height, width: self.frame.size.width, height: 1)
