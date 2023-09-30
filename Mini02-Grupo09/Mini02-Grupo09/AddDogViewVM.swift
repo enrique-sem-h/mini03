@@ -18,7 +18,7 @@ class AddDogViewModel{
     func addDog(image: UIImage?, name: String?, age: String, weight: String, size: String, viewController: UIViewController) {
         guard let image = image, let name = name, let age = Int(age), let weight = Float(weight), let size = DogManager.Size(rawValue: size) else { return } // safely unwrapping each parameter
         dogManager.newDog(image: image, name: name, age: age, weight: weight, size: size) // adding new dog to core data
-        HapticsManager.shared.vibrate(for: .success)
+        HapticsManager.shared.vibrate(for: .success) // triggering system's default vibration for success
         viewController.dismiss(animated: true) // going back to previous view
     }
     

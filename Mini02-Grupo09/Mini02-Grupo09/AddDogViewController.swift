@@ -11,29 +11,31 @@ import PhotosUI
 
 class AddDogViewController: UIViewController{
     
-    var newView: AddDogView?
+    var newView: AddDogView? // defining view
     
     private let viewModel = AddDogViewModel(dogManager: DogManager()) // creating a viewModel
     
     override func viewDidLoad() { // default viewDidLoad func
         super.viewDidLoad()
         
-        newView = AddDogView(frame: self.view.frame)
-        guard let newView = newView else {
+        newView = AddDogView(frame: self.view.frame) // attributing add dog view to view
+        guard let newView = newView else { // safe unwrapping the view
             return
         }
         
-        self.view = newView
+        self.view = newView // changing the view controller's view
         
-        newView.button.addTarget(self, action: #selector(buttonFunc), for: .touchDown)
+        newView.button.addTarget(self, action: #selector(buttonFunc), for: .touchDown) // attaching target to button in this view controller
         newView.ageTF.inputAccessoryView = createToolbar() // creating the done button
         newView.sizeTF.inputAccessoryView = createToolbar() // creating the done toolbar
         newView.weightTF.inputAccessoryView = createToolbar() // reating done btn
         
-        tapGesture()
+        tapGesture() // calling the tap gesture function when loading the view
         
-        newView.createDelegate(delegate: self)
+        newView.createDelegate(delegate: self) // calling the create delegate function that is declared in the view
     }
+    
+    // MARK: beginning of function delcarations
     
     @objc func buttonFunc() { // defining the submit button (add button) func
         guard let newView = newView else {
@@ -76,6 +78,8 @@ class AddDogViewController: UIViewController{
     }
     
 }
+
+// MARK: making the view controller conform to protocols
 
 extension AddDogViewController: UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate{ // extending the view so it conforms to a few protocols
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
