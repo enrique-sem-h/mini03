@@ -35,11 +35,11 @@ extension AddTaskViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     
 }
 
-extension UIView {
-    func addBottomBorderWithColor(color: UIColor, width: CGFloat) {
+extension UITextField {
+    func addBottomBorderWithColor(color: UIColor) {
         let border = CALayer()
         border.backgroundColor = color.cgColor
-        border.frame = CGRect(x: 290, y: 30, width: self.frame.size.width - 290, height: width)
+        border.frame = CGRect(x: 0, y: self.frame.height, width: self.frame.size.width, height: 1)
         self.layer.addSublayer(border)
     }
 }
