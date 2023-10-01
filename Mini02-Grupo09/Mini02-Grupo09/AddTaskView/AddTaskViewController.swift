@@ -12,7 +12,6 @@ class AddTaskViewController: UIViewController {
     let newView = AddTaskView()
     let viewModel = AddTaskViewModel()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,10 +27,28 @@ class AddTaskViewController: UIViewController {
         
         // Configuração dos botões da view
         newView.closeModalButton.addTarget(self, action: #selector(closeModalButtonTapped), for: .touchUpInside)
+        
+        newView.iconPicker.addTarget(self, action: #selector(iconPickerTapped), for: .touchUpInside)
+        
+        newView.addPetButton.addTarget(self, action: #selector(addPetButtonTapped), for: .touchUpInside)
+        
+        newView.doneButton.addTarget(self, action: #selector(doneButtonTapped), for: .touchUpInside)
     }
     
     @objc func closeModalButtonTapped() {
         viewModel.closeModal()
+    }
+    
+    @objc func iconPickerTapped() {
+        viewModel.chooseIcon()
+    }
+    
+    @objc func addPetButtonTapped() {
+        viewModel.choosePet()
+    }
+    
+    @objc func doneButtonTapped() {
+        viewModel.addTask()
     }
 }
 
