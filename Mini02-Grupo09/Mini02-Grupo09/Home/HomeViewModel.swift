@@ -1,6 +1,6 @@
 //
 //  HomeViewModel.swift
-//  testeLista
+//  Mini02-Grupo09
 //
 //  Created by Gabriel Eduardo on 27/09/23.
 //
