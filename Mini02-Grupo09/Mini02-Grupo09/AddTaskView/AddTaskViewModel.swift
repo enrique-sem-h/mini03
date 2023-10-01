@@ -9,5 +9,9 @@ import Foundation
 import UIKit
 
 class AddTaskViewModel {
+    weak var viewController: AddTaskViewController?
     
+    func closeModal() {
+        self.viewController?.dismiss(animated: true)
+    }
 }

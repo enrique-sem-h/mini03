@@ -27,12 +27,12 @@ class EditTaskModalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.viewModel.viewController = self
+        
         // Configuração da view
         newView.frame = view.frame
         self.view = newView
         newView.setup()
-        
-        self.viewModel.viewController = self
         
         // Configuração dos botões da view
         newView.editButton.addTarget(self, action: #selector(editButtonTapped), for: .touchUpInside)

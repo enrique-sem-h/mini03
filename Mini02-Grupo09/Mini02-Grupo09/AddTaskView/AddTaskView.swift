@@ -10,6 +10,7 @@ import UIKit
 
 class AddTaskView: UIView {
     let viewTitle = UILabel() // Título da view (Criar tarefa ou Editar tarefa)
+    let closeModalButton = UIButton() // Botão para fechar a modal
     
     let taskTitleTF = UITextField() // TextField do título da tarefa
     let iconPicker = UIImage() // Picker de ícones
@@ -26,9 +27,16 @@ class AddTaskView: UIView {
         // Configuração do título da view
         viewTitle.translatesAutoresizingMaskIntoConstraints = false
         viewTitle.text = "Criar Tarefa"
+        viewTitle.font = UIFont.systemFont(ofSize: 24, weight: .heavy)
         viewTitle.textAlignment = .center
         viewTitle.backgroundColor = .gray
         self.addSubview(viewTitle)
+        
+        // Configuração do botão de fechar modal
+        closeModalButton.translatesAutoresizingMaskIntoConstraints = false
+        closeModalButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+        closeModalButton.tintColor = .black
+        self.addSubview(closeModalButton)
         
         // Configuração do TextField do título
 //        taskTitleTF.translatesAutoresizingMaskIntoConstraints = false
@@ -68,6 +76,10 @@ class AddTaskView: UIView {
         
         
         NSLayoutConstraint.activate([
+            
+            // Constraints do botão de fechar modal
+            closeModalButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 28),
+            closeModalButton.centerYAnchor.constraint(equalTo: viewTitle.centerYAnchor),
             
             // Constraints do título da view
             viewTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor),

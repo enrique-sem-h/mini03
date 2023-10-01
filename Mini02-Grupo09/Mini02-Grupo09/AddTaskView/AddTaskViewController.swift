@@ -15,6 +15,8 @@ class AddTaskViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.viewModel.viewController = self
     
         // Configuração da view
         newView.frame = view.frame
@@ -23,6 +25,13 @@ class AddTaskViewController: UIViewController {
         
         newView.taskTitleTF.delegate = self
         newView.notesTF.delegate = self
+        
+        // Configuração dos botões da view
+        newView.closeModalButton.addTarget(self, action: #selector(closeModalButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func closeModalButtonTapped() {
+        viewModel.closeModal()
     }
 }
 
