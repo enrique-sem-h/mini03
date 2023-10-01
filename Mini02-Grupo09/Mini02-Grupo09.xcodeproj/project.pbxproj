@@ -10,7 +10,6 @@
 		31A569092AC4B06400DBBEB1 /* AddDogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A569082AC4B06400DBBEB1 /* AddDogView.swift */; };
 		31B21E7C2ABE059A0096F1AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B21E7B2ABE059A0096F1AB /* AppDelegate.swift */; };
 		31B21E7E2ABE059A0096F1AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B21E7D2ABE059A0096F1AB /* SceneDelegate.swift */; };
-		31B21E802ABE059A0096F1AB /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B21E7F2ABE059A0096F1AB /* FirstView.swift */; };
 		31B21E852ABE059B0096F1AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31B21E842ABE059B0096F1AB /* Assets.xcassets */; };
 		31B21E882ABE059B0096F1AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31B21E862ABE059B0096F1AB /* LaunchScreen.storyboard */; };
 		31C2C5342AC762F200276D67 /* TasksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C2C5332AC762F200276D67 /* TasksManager.swift */; };
@@ -24,6 +23,11 @@
 		D3622D022AC76B2F0063FAAE /* AddTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D012AC76B2F0063FAAE /* AddTaskViewModel.swift */; };
 		D3622D042AC76C2B0063FAAE /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D032AC76C2B0063FAAE /* AddTaskViewController.swift */; };
 		D3622D062AC8A4F20063FAAE /* iconPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D052AC8A4F20063FAAE /* iconPicker.swift */; };
+		D3622D0C2AC9DB180063FAAE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D0B2AC9DB180063FAAE /* HomeView.swift */; };
+		D3622D0E2AC9DB2E0063FAAE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D0D2AC9DB2E0063FAAE /* HomeViewController.swift */; };
+		D3622D102AC9DB400063FAAE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D0F2AC9DB400063FAAE /* HomeViewModel.swift */; };
+		D3622D132AC9DB640063FAAE /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D122AC9DB640063FAAE /* CheckboxView.swift */; };
+		D3622D152AC9DB7A0063FAAE /* CustomTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D142AC9DB7A0063FAAE /* CustomTaskCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +35,6 @@
 		31B21E782ABE059A0096F1AB /* Mini02-Grupo09.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mini02-Grupo09.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31B21E7B2ABE059A0096F1AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31B21E7D2ABE059A0096F1AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		31B21E7F2ABE059A0096F1AB /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
 		31B21E842ABE059B0096F1AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31B21E872ABE059B0096F1AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31B21E892ABE059B0096F1AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -46,6 +49,11 @@
 		D3622D012AC76B2F0063FAAE /* AddTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewModel.swift; sourceTree = "<group>"; };
 		D3622D032AC76C2B0063FAAE /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		D3622D052AC8A4F20063FAAE /* iconPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iconPicker.swift; sourceTree = "<group>"; };
+		D3622D0B2AC9DB180063FAAE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		D3622D0D2AC9DB2E0063FAAE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D3622D0F2AC9DB400063FAAE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		D3622D122AC9DB640063FAAE /* CheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
+		D3622D142AC9DB7A0063FAAE /* CustomTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTaskCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +88,7 @@
 			children = (
 				31B21E7B2ABE059A0096F1AB /* AppDelegate.swift */,
 				31B21E7D2ABE059A0096F1AB /* SceneDelegate.swift */,
-				31B21E7F2ABE059A0096F1AB /* FirstView.swift */,
+				D3622D0A2AC9DAF70063FAAE /* Home */,
 				31D1B8372AC4579600EE0C69 /* Add Dog */,
 				31E9E4572AC221D200AECCEB /* Model */,
 				D3622CFC2AC74FA20063FAAE /* AddTaskView */,
@@ -144,6 +152,26 @@
 			isa = PBXGroup;
 			children = (
 				D3622D052AC8A4F20063FAAE /* iconPicker.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D3622D0A2AC9DAF70063FAAE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D3622D0B2AC9DB180063FAAE /* HomeView.swift */,
+				D3622D0D2AC9DB2E0063FAAE /* HomeViewController.swift */,
+				D3622D0F2AC9DB400063FAAE /* HomeViewModel.swift */,
+				D3622D112AC9DB4B0063FAAE /* Components */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		D3622D112AC9DB4B0063FAAE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D3622D122AC9DB640063FAAE /* CheckboxView.swift */,
+				D3622D142AC9DB7A0063FAAE /* CustomTaskCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -219,18 +247,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3622D002AC76B220063FAAE /* AddTaskView.swift in Sources */,
+				D3622D102AC9DB400063FAAE /* HomeViewModel.swift in Sources */,
 				D3622D022AC76B2F0063FAAE /* AddTaskViewModel.swift in Sources */,
 				31D1B8362AC4579200EE0C69 /* AddDogViewVM.swift in Sources */,
+				D3622D0E2AC9DB2E0063FAAE /* HomeViewController.swift in Sources */,
+				D3622D152AC9DB7A0063FAAE /* CustomTaskCell.swift in Sources */,
 				31A569092AC4B06400DBBEB1 /* AddDogView.swift in Sources */,
 				D3622D062AC8A4F20063FAAE /* iconPicker.swift in Sources */,
 				31E9E45A2AC222EB00AECCEB /* AppModel.xcdatamodeld in Sources */,
 				31D1B8342AC4578700EE0C69 /* AddDogViewController.swift in Sources */,
-				31B21E802ABE059A0096F1AB /* FirstView.swift in Sources */,
 				31C2C5342AC762F200276D67 /* TasksManager.swift in Sources */,
 				31E9E45C2AC2242C00AECCEB /* DogManager.swift in Sources */,
 				31B21E7C2ABE059A0096F1AB /* AppDelegate.swift in Sources */,
 				D3622CFE2AC74FCC0063FAAE /* aaaa.swift in Sources */,
 				31C2C5382AC7667800276D67 /* HapticsManager.swift in Sources */,
+				D3622D0C2AC9DB180063FAAE /* HomeView.swift in Sources */,
+				D3622D132AC9DB640063FAAE /* CheckboxView.swift in Sources */,
 				31B21E7E2ABE059A0096F1AB /* SceneDelegate.swift in Sources */,
 				D3622D042AC76C2B0063FAAE /* AddTaskViewController.swift in Sources */,
 			);
