@@ -24,6 +24,14 @@
 		D3622D022AC76B2F0063FAAE /* AddTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D012AC76B2F0063FAAE /* AddTaskViewModel.swift */; };
 		D3622D042AC76C2B0063FAAE /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D032AC76C2B0063FAAE /* AddTaskViewController.swift */; };
 		D3622D062AC8A4F20063FAAE /* iconPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D052AC8A4F20063FAAE /* iconPicker.swift */; };
+		D3C5EC0A2AC5E57E004FA716 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C5EC092AC5E57E004FA716 /* HomeView.swift */; };
+		D3C5EC0C2AC5E598004FA716 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C5EC0B2AC5E598004FA716 /* HomeViewController.swift */; };
+		D3C5EC0E2AC5E5A8004FA716 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C5EC0D2AC5E5A8004FA716 /* HomeViewModel.swift */; };
+		D3C5EC112AC5E5D3004FA716 /* CustomTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C5EC102AC5E5D3004FA716 /* CustomTaskCell.swift */; };
+		D3C5EC132AC5E609004FA716 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C5EC122AC5E609004FA716 /* CheckboxView.swift */; };
+		D3C5EC162AC5E64E004FA716 /* EditTaskModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C5EC152AC5E64E004FA716 /* EditTaskModalView.swift */; };
+		D3C5EC182AC5E66C004FA716 /* EditTaskModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C5EC172AC5E66C004FA716 /* EditTaskModalViewController.swift */; };
+		D3C5EC1A2AC5E68A004FA716 /* EditTaskModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C5EC192AC5E68A004FA716 /* EditTaskModalViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +54,14 @@
 		D3622D012AC76B2F0063FAAE /* AddTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewModel.swift; sourceTree = "<group>"; };
 		D3622D032AC76C2B0063FAAE /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		D3622D052AC8A4F20063FAAE /* iconPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iconPicker.swift; sourceTree = "<group>"; };
+		D3C5EC092AC5E57E004FA716 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		D3C5EC0B2AC5E598004FA716 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D3C5EC0D2AC5E5A8004FA716 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		D3C5EC102AC5E5D3004FA716 /* CustomTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTaskCell.swift; sourceTree = "<group>"; };
+		D3C5EC122AC5E609004FA716 /* CheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
+		D3C5EC152AC5E64E004FA716 /* EditTaskModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskModalView.swift; sourceTree = "<group>"; };
+		D3C5EC172AC5E66C004FA716 /* EditTaskModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskModalViewController.swift; sourceTree = "<group>"; };
+		D3C5EC192AC5E68A004FA716 /* EditTaskModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskModalViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +97,8 @@
 				31B21E7B2ABE059A0096F1AB /* AppDelegate.swift */,
 				31B21E7D2ABE059A0096F1AB /* SceneDelegate.swift */,
 				31B21E7F2ABE059A0096F1AB /* FirstView.swift */,
+				D3C5EC082AC5E573004FA716 /* Home */,
+				D3C5EC142AC5E62D004FA716 /* EditTaskModal */,
 				31D1B8372AC4579600EE0C69 /* Add Dog */,
 				31E9E4572AC221D200AECCEB /* Model */,
 				D3622CFC2AC74FA20063FAAE /* AddTaskView */,
@@ -144,8 +162,34 @@
 			isa = PBXGroup;
 			children = (
 				D3622D052AC8A4F20063FAAE /* iconPicker.swift */,
+		D3C5EC082AC5E573004FA716 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D3C5EC092AC5E57E004FA716 /* HomeView.swift */,
+				D3C5EC0B2AC5E598004FA716 /* HomeViewController.swift */,
+				D3C5EC0D2AC5E5A8004FA716 /* HomeViewModel.swift */,
+				D3C5EC0F2AC5E5BA004FA716 /* Components */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		D3C5EC0F2AC5E5BA004FA716 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D3C5EC102AC5E5D3004FA716 /* CustomTaskCell.swift */,
+				D3C5EC122AC5E609004FA716 /* CheckboxView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		D3C5EC142AC5E62D004FA716 /* EditTaskModal */ = {
+			isa = PBXGroup;
+			children = (
+				D3C5EC152AC5E64E004FA716 /* EditTaskModalView.swift */,
+				D3C5EC172AC5E66C004FA716 /* EditTaskModalViewController.swift */,
+				D3C5EC192AC5E68A004FA716 /* EditTaskModalViewModel.swift */,
+			);
+			path = EditTaskModal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,7 +271,18 @@
 				31D1B8342AC4578700EE0C69 /* AddDogViewController.swift in Sources */,
 				31B21E802ABE059A0096F1AB /* FirstView.swift in Sources */,
 				31C2C5342AC762F200276D67 /* TasksManager.swift in Sources */,
+				D3C5EC182AC5E66C004FA716 /* EditTaskModalViewController.swift in Sources */,
+				31E9E45A2AC222EB00AECCEB /* DogModel.xcdatamodeld in Sources */,
+				31D1B8342AC4578700EE0C69 /* AddDogView.swift in Sources */,
+				D3C5EC132AC5E609004FA716 /* CheckboxView.swift in Sources */,
+				D3C5EC0E2AC5E5A8004FA716 /* HomeViewModel.swift in Sources */,
+				31B21E802ABE059A0096F1AB /* FirstView.swift in Sources */,
+				D3C5EC1A2AC5E68A004FA716 /* EditTaskModalViewModel.swift in Sources */,
+				D3C5EC112AC5E5D3004FA716 /* CustomTaskCell.swift in Sources */,
+				D3C5EC162AC5E64E004FA716 /* EditTaskModalView.swift in Sources */,
 				31E9E45C2AC2242C00AECCEB /* DogManager.swift in Sources */,
+				D3C5EC0C2AC5E598004FA716 /* HomeViewController.swift in Sources */,
+				D3C5EC0A2AC5E57E004FA716 /* HomeView.swift in Sources */,
 				31B21E7C2ABE059A0096F1AB /* AppDelegate.swift in Sources */,
 				D3622CFE2AC74FCC0063FAAE /* aaaa.swift in Sources */,
 				31C2C5382AC7667800276D67 /* HapticsManager.swift in Sources */,
