@@ -9,17 +9,26 @@ import Foundation
 import UIKit
 
 class AddTaskView: UIView {
-    let taskTitleTF = UITextField()
-    let iconPicker = UIImage()
-    let addPetButton = UIButton()
-    let datePicker = UIDatePicker()
-    let frequencyPicker = UISegmentedControl(items: ["Once", "Daily", "Weekly", "Monthly", "Anually"])
-    let notesTF = UITextField()
+    let viewTitle = UILabel() // Título da view (Criar tarefa ou Editar tarefa)
+    
+    let taskTitleTF = UITextField() // TextField do título da tarefa
+    let iconPicker = UIImage() // Picker de ícones
+    let addPetButton = UIButton() // Botão para adicionar pet
+    let datePicker = UIDatePicker() // Picker de data
+    let frequencyPicker = UISegmentedControl(items: ["Once", "Daily", "Weekly", "Monthly", "Anually"]) // Picker da frequência
+    let notesTF = UITextField() // TextField das anotações
     
     weak var viewController: AddTaskViewController?
     
     func setup() {
         self.backgroundColor = .systemBackground
+        
+        // Configuração do título da view
+        viewTitle.translatesAutoresizingMaskIntoConstraints = false
+        viewTitle.text = "Criar Tarefa"
+        viewTitle.textAlignment = .center
+        viewTitle.backgroundColor = .gray
+        self.addSubview(viewTitle)
         
         // Configuração do TextField do título
 //        taskTitleTF.translatesAutoresizingMaskIntoConstraints = false
@@ -49,19 +58,24 @@ class AddTaskView: UIView {
 //        self.addSubview(frequencyPicker)
         
         // Configuração do TextField das anotações
-        notesTF.translatesAutoresizingMaskIntoConstraints = false
-        notesTF.placeholder = "Digite suas anotações aqui"
-        notesTF.textAlignment = .natural
-        notesTF.borderStyle = .roundedRect
-        notesTF.delegate = viewController
-        notesTF.returnKeyType = .done
-        self.addSubview(notesTF)
+//        notesTF.translatesAutoresizingMaskIntoConstraints = false
+//        notesTF.placeholder = "Digite suas anotações aqui"
+//        notesTF.textAlignment = .natural
+//        notesTF.borderStyle = .roundedRect
+//        notesTF.delegate = viewController
+//        notesTF.returnKeyType = .done
+//        self.addSubview(notesTF)
         
         
         NSLayoutConstraint.activate([
             
-            notesTF.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            notesTF.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            // Constraints do título da view
+            viewTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            viewTitle.topAnchor.constraint(equalTo: self.topAnchor),
+            viewTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            viewTitle.heightAnchor.constraint(equalToConstant: 74),
+            
+            // Constraints do TextField das anotações
             notesTF.widthAnchor.constraint(equalToConstant: 336),
             notesTF.heightAnchor.constraint(equalToConstant: 80)
             

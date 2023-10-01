@@ -22,7 +22,7 @@ class AddTaskViewController: UIViewController {
         newView.setup()
         
         newView.taskTitleTF.delegate = self
-//        newView.notesTF.delegate = self
+        newView.notesTF.delegate = self
     }
 }
 
