@@ -42,6 +42,18 @@ extension AddTaskViewController: UITextFieldDelegate, UITextViewDelegate {
         textField.resignFirstResponder()
         return false
     }
+    
+    // Essa função limita a quantidade de caracteres de um TextField
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == newView.taskTitleTF {
+            if let text = textField.text, let textRange = Range(range, in: text) {
+                let updatedText = text.replacingCharacters(in: textRange, with: string)
+                return updatedText.count <= 27
+            }
+            return true
+        } else {return false}
+        
+    }
 }
 
 extension UITextField {

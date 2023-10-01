@@ -69,6 +69,7 @@ class EditTaskModalView: UIView {
         editButton.setTitle("Editar Tarefa", for: .normal)
         editButton.titleLabel?.font = editButton.titleLabel!.font.withSize(18)
         editButton.setImage(UIImage(systemName: "square.and.pencil"), for: .normal)
+        editButton.tintColor = .black
         editButton.layer.cornerRadius = 14
         self.addSubview(editButton)
         
@@ -78,6 +79,7 @@ class EditTaskModalView: UIView {
         deleteButton.setTitle("Apagar Tarefa", for: .normal)
         deleteButton.titleLabel?.font = deleteButton.titleLabel!.font.withSize(18)
         deleteButton.setImage(UIImage(systemName: "trash"), for: .normal)
+        deleteButton.tintColor = .black
         deleteButton.layer.cornerRadius = 14
         self.addSubview(deleteButton)
         

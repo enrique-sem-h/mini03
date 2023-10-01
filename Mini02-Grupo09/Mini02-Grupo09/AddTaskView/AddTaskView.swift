@@ -13,7 +13,7 @@ class AddTaskView: UIView {
     let closeModalButton = UIButton() // Botão para fechar a modal
     
     let taskTitleTF = UITextField() // TextField do título da tarefa
-    let iconPicker = UIImage() // Picker de ícones
+    let iconPicker = UIButton(type: .custom) // Picker de ícones
     let addPetButton = UIButton() // Botão para adicionar pet
     let datePicker = UIDatePicker() // Picker de data
     let frequencyPicker = UISegmentedControl(items: ["Once", "Daily", "Weekly", "Monthly", "Anually"]) // Picker da frequência
@@ -38,16 +38,34 @@ class AddTaskView: UIView {
         closeModalButton.tintColor = .black
         self.addSubview(closeModalButton)
         
-        // Configuração do TextField do título
-//        taskTitleTF.translatesAutoresizingMaskIntoConstraints = false
-//        taskTitleTF.placeholder = "Digite algo aqui"
-//        taskTitleTF.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
-//        taskTitleTF.addBottomBorderWithColor(color: .gray)
-//        taskTitleTF.delegate = viewController
-//        taskTitleTF.returnKeyType = .done
-//        self.addSubview(taskTitleTF)
+        // Tarefa Label
+        let tarefaLabel = UILabel()
+        tarefaLabel.translatesAutoresizingMaskIntoConstraints = false
+        tarefaLabel.text = "Tarefa"
+        tarefaLabel.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
+        self.addSubview(tarefaLabel)
         
         // Configuração do iconPicker
+        iconPicker.translatesAutoresizingMaskIntoConstraints = false
+        iconPicker.setImage(UIImage(named: "iconPicker"), for: .normal)
+        iconPicker.frame = CGRect(x: 0, y: 0, width: 47, height: 47)
+        self.addSubview(iconPicker)
+        
+        // Configuração do TextField do título
+        taskTitleTF.translatesAutoresizingMaskIntoConstraints = false
+        taskTitleTF.frame = CGRect(x: 0, y: 0, width: 265, height: 40)
+        taskTitleTF.placeholder = "Digite algo aqui"
+        taskTitleTF.addBottomBorderWithColor(color: .gray)
+        taskTitleTF.delegate = viewController
+        taskTitleTF.returnKeyType = .done
+        self.addSubview(taskTitleTF)
+        
+        // StackView iconPicker e taskTitleTF
+        let iPtTStackView = UIStackView(arrangedSubviews: [iconPicker, taskTitleTF])
+        iPtTStackView.translatesAutoresizingMaskIntoConstraints = false
+        iPtTStackView.axis = .horizontal
+        iPtTStackView.spacing = 8
+        self.addSubview(iPtTStackView)
         
         // Configuração do Botão de adicionar pet
         
@@ -86,6 +104,16 @@ class AddTaskView: UIView {
             viewTitle.topAnchor.constraint(equalTo: self.topAnchor),
             viewTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             viewTitle.heightAnchor.constraint(equalToConstant: 74),
+            
+            // Constraints da Label "Tarefa"
+            tarefaLabel.topAnchor.constraint(equalTo: viewTitle.bottomAnchor, constant: 60),
+            tarefaLabel.leadingAnchor.constraint(equalTo: iconPicker.leadingAnchor),
+            
+            // Constraints da StackView do iconPicker e do taskTitleTF e seus elementos
+            taskTitleTF.widthAnchor.constraint(equalToConstant: 265),
+            
+            iPtTStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            iPtTStackView.topAnchor.constraint(equalTo: tarefaLabel.bottomAnchor, constant: 10),
             
             // Constraints do TextField das anotações
             notesTF.widthAnchor.constraint(equalToConstant: 336),
