@@ -50,9 +50,8 @@ extension AddTaskViewController: UITextFieldDelegate, UITextViewDelegate {
                 let updatedText = text.replacingCharacters(in: textRange, with: string)
                 return updatedText.count <= 27
             }
-            return true
-        } else {return false}
-        
+        }
+        return true
     }
 }
 
