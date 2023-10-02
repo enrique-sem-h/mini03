@@ -1,5 +1,5 @@
 //
-//  RegisterViewModel.swift
+//  ListViewModel.swift
 //  Mini02-Grupo09
 //
 //  Created by GABRIEL Ferreira Cardoso on 28/09/23.
@@ -8,11 +8,11 @@
 import Foundation
 import UIKit
 
-extension RegisterViewController: UITableViewDelegate, UITableViewDataSource {
+extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return data[indexPath.row].isOpened ? 200 : 60
+        return data[indexPath.row].isOpened ? 400 : 130
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -28,6 +28,10 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? CustomCell{
+            cell.chevronImage.image = UIImage(systemName: cell.data!.isOpened ? "chevron.down" : "chevron.right")
+        }
+        
         data[indexPath.row].isOpened.toggle()
         
         tableView.beginUpdates()
