@@ -11,11 +11,7 @@ import UIKit
 class AddTaskViewModel {
     weak var viewController: AddTaskViewController?
     
-//    let tasksManager: TasksManager
-//    
-//    init(tasksManager: TasksManager) {
-//        self.tasksManager = tasksManager // initializing CD manager
-//    }
+    let tasksManager = TasksManager()
     
     func chooseIcon() {
         print("Escolhendo icone")
@@ -27,9 +23,13 @@ class AddTaskViewModel {
         // Implementar função de escolher pet
     }
     
-    func addTask() {
-        print("Tarefa adicionada")
-        self.viewController?.dismiss(animated: true) // going back to previous view
+    func addTask(icon: UIImage?, title: String?, dogs: NSSet?, date: Date?, frequency: TasksManager.Frequency?, notes: String?) {
+        if let icon = icon, let title = title, let dogs = dogs, let date = date, let frequency = frequency{
+            tasksManager.newTask(title: title, icon: icon, dogs: dogs, date: date, frequency: frequency, notes: notes)
+            self.viewController?.dismiss(animated: true) // going back to previous view
+        } else {
+            viewController?.errorAlert()
+        }
     }
     
     func firstResponderHandler() { // handling first responder function for view controller

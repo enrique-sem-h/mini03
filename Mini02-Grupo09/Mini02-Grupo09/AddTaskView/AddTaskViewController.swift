@@ -48,7 +48,22 @@ class AddTaskViewController: UIViewController {
     }
     
     @objc func doneButtonTapped() {
-        viewModel.addTask()
+        var frequencyRV = ""
+        let index = newView.frequencyPicker.selectedSegmentIndex
+        if index <= 4 && index >= 0{
+            frequencyRV = newView.frequencyPicker.titleForSegment(at: index)!
+        } else {
+            errorAlert()
+            return
+        }
+        
+        viewModel.addTask(icon: newView.iconPicker.image(for: .normal), title: newView.taskTitleTF.text, dogs: nil, date: newView.datePicker.date, frequency: TasksManager.Frequency(rawValue: frequencyRV), notes: newView.notesTF.text)
+    }
+    
+    func errorAlert (){
+        let alert = UIAlertController(title: "Something Happened", message: "There was an error adding your dog, please verify all fields and try again", preferredStyle: .alert)
+        alert.addAction(.init(title: "OK", style: .default))
+        self.present(alert, animated: true)
     }
 }
 

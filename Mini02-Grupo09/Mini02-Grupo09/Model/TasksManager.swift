@@ -10,7 +10,7 @@ import CoreData
 import UIKit
 
 class TasksManager: ObservableObject{ // handling the core data stuff
-    let container = NSPersistentContainer(name: "PetDogModel") // defining the container with the model name
+    let container = NSPersistentContainer(name: "AppModel") // defining the container with the model name
     
     var context: NSManagedObjectContext{
         return container.viewContext
@@ -82,11 +82,11 @@ class TasksManager: ObservableObject{ // handling the core data stuff
         case yearly = "Yearly"
     }
     
-    var fetchEnum: [Frequency]{ // fetching all values to the enum
-        var frequencies: [Frequency] = [] // creating the array
+    var fetchEnum: [String]{ // fetching all values to the enum
+        var frequencies: [String] = [] // creating the array
         
         for i in Frequency.allCases{
-            frequencies.append(i) // appending all items to the array
+            frequencies.append(i.rawValue) // appending all items to the array
         }
         
         return frequencies // returning it
@@ -108,7 +108,7 @@ class TasksManager: ObservableObject{ // handling the core data stuff
         }
     }
     
-    func newTask(title: String, icon: UIImage, dogs: NSSet, date: Date, frequency: Frequency, notes: String){ // defining the create func
+    func newTask(title: String, icon: UIImage, dogs: NSSet, date: Date, frequency: Frequency, notes: String?){ // defining the create func
         let newTask = DogTask(context: self.context)
         
         newTask.id = UUID()
