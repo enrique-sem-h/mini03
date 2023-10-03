@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		31A569092AC4B06400DBBEB1 /* AddDogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A569082AC4B06400DBBEB1 /* AddDogView.swift */; };
 		2E6B49B32ABE266A00DB149B /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6B49B22ABE266A00DB149B /* ListViewController.swift */; };
 		2ECC58642AC4C249009BF6DD /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECC58632AC4C249009BF6DD /* ListModel.swift */; };
 		2ECC58662AC5A2F7009BF6DD /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECC58652AC5A2F7009BF6DD /* CustomCell.swift */; };
 		2ECC586E2AC61523009BF6DD /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECC586D2AC61523009BF6DD /* ListViewModel.swift */; };
+		31A569092AC4B06400DBBEB1 /* AddDogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A569082AC4B06400DBBEB1 /* AddDogView.swift */; };
 		31B21E7C2ABE059A0096F1AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B21E7B2ABE059A0096F1AB /* AppDelegate.swift */; };
 		31B21E7E2ABE059A0096F1AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B21E7D2ABE059A0096F1AB /* SceneDelegate.swift */; };
 		31B21E852ABE059B0096F1AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31B21E842ABE059B0096F1AB /* Assets.xcassets */; };
@@ -37,11 +37,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		31A569082AC4B06400DBBEB1 /* AddDogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDogView.swift; sourceTree = "<group>"; };
 		2E6B49B22ABE266A00DB149B /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		2ECC58632AC4C249009BF6DD /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		2ECC58652AC5A2F7009BF6DD /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		2ECC586D2AC61523009BF6DD /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		31A569082AC4B06400DBBEB1 /* AddDogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDogView.swift; sourceTree = "<group>"; };
 		31B21E782ABE059A0096F1AB /* Mini02-Grupo09.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mini02-Grupo09.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31B21E7B2ABE059A0096F1AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31B21E7D2ABE059A0096F1AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,10 +117,10 @@
 		31B21E7A2ABE059A0096F1AB /* Mini02-Grupo09 */ = {
 			isa = PBXGroup;
 			children = (
-				2E6B49B62AC219A300DB149B /* ListPet */,
 				31B21E7B2ABE059A0096F1AB /* AppDelegate.swift */,
 				31B21E7D2ABE059A0096F1AB /* SceneDelegate.swift */,
 				D3622D0A2AC9DAF70063FAAE /* Home */,
+				2E6B49B62AC219A300DB149B /* ListPet */,
 				D3622CFC2AC74FA20063FAAE /* AddTaskView */,
 				D3622D162AC9DC080063FAAE /* EditTaskModal */,
 				31D1B8372AC4579600EE0C69 /* Add Dog */,
@@ -302,7 +302,6 @@
 				31D1B8342AC4578700EE0C69 /* AddDogViewController.swift in Sources */,
 				31C2C5342AC762F200276D67 /* TasksManager.swift in Sources */,
 				31E9E45C2AC2242C00AECCEB /* DogManager.swift in Sources */,
-				31B21E802ABE059A0096F1AB /* FirstView.swift in Sources */,
 				2E6B49B32ABE266A00DB149B /* ListViewController.swift in Sources */,
 				2ECC586E2AC61523009BF6DD /* ListViewModel.swift in Sources */,
 				2ECC58642AC4C249009BF6DD /* ListModel.swift in Sources */,
