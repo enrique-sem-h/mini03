@@ -10,13 +10,17 @@ import UIKit
 
 class AddDogViewModel{
     let dogManager: DogManager // defining core data manager
+    weak var controller: AddDogViewController?
     
     init(dogManager: DogManager) {
         self.dogManager = dogManager // initializing CD manager
     }
     
-    func addDog(image: UIImage?, name: String?, age: String, weight: String, size: String, viewController: UIViewController) {
-        guard let image = image, let name = name, let age = Int(age), let weight = Float(weight), let size = DogManager.Size(rawValue: size) else { return } // safely unwrapping each parameter
+    func addDog(image: UIImage, name: String?, age: String, weight: String, size: String, viewController: UIViewController) {
+        guard let name = name, let age = Int(age), let weight = Float(weight), let size = DogManager.Size(rawValue: size) else {
+            controller?.errorAlert()
+            return
+        } // safely unwrapping each parameter
         dogManager.newDog(image: image, name: name, age: age, weight: weight, size: size) // adding new dog to core data
         HapticsManager.shared.vibrate(for: .success) // triggering system's default vibration for success
         viewController.dismiss(animated: true) // going back to previous view
@@ -47,6 +51,7 @@ class AddDogViewModel{
         } else if weightTF.isFirstResponder { // bool for weight textfield's first responder
             weightTF.resignFirstResponder() // resigning the first responder (picker)
         }
+        HapticsManager.shared.vibrate(for: .success)
     }
     
 }

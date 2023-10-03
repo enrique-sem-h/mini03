@@ -10,16 +10,17 @@ import UIKit
 
 class AddDogView: UIView{
     // MARK: setting all view components
+    let title = UILabel() // creating title for the view
     let sizePicker = UIPickerView() // defining picker for the dog's size (enum)
-    let stack = UIStackView()
-    let nameTF = UITextField()
-    let ageTF = UITextField()
-    let sizeTF = UITextField()
-    let weightTF = UITextField()
-    let imgButton = UIImageView()
-    let imagePicker = UIImagePickerController()
-    let agePicker = UIDatePicker()
-    var button = UIButton()
+    let stack = UIStackView() // creating stack for all text fields
+    let nameTF = UITextField() // creating the name textfield
+    let ageTF = UITextField() // creating the age textfield
+    let sizeTF = UITextField() // creating the size textfield
+    let weightTF = UITextField() // creating the weight textfield
+    let imgButton = UIImageView() // creating the image button
+    let imagePicker = UIImagePickerController() // creating the picker controller for the img button
+    let agePicker = UIDatePicker() // creating the date picker for the age text field
+    var button = UIButton(type: .custom) // creating the done button
     
     
     override init(frame: CGRect) {
@@ -34,6 +35,12 @@ class AddDogView: UIView{
     
     
     private func configureStack(){
+        title.translatesAutoresizingMaskIntoConstraints = false
+        title.text = String(localized: "New Dog")
+        title.font = UIFont.systemFont(ofSize: 24, weight: .heavy)
+        title.textAlignment = .center
+        title.backgroundColor = .gray
+        
         stack.axis = .vertical // setting it as a VStack
         stack.distribution = .fillEqually // defining its distribution
         stack.spacing = 10 // defining its spacing
@@ -44,12 +51,12 @@ class AddDogView: UIView{
         imgButton.layer.masksToBounds = false // disabling mask to bounds
         imgButton.clipsToBounds = true // enabling bound clipping
         imgButton.translatesAutoresizingMaskIntoConstraints = false // disabling autoresize mask to const.
-        imgButton.layer.cornerRadius = UIDevice.current.userInterfaceIdiom == .phone ? 130 / 2 : 170 / 2 // rounding it (170 is its height and width constraints)
+        imgButton.layer.cornerRadius = UIDevice.current.userInterfaceIdiom == .phone ? 130 / 10 : 170 / 10 // rounding it (170 is its height and width constraints)
         
         imagePicker.allowsEditing = true // allowing the user to edit the image before inserting it
         imagePicker.sourceType = .photoLibrary // defining source type
 
-        nameTF.placeholder = "Name" // name textfield's placeholder
+        nameTF.placeholder = String(localized: "Name") // name textfield's placeholder
         nameTF.borderStyle = .roundedRect // defining its borders
         nameTF.translatesAutoresizingMaskIntoConstraints = false // disabling autoresize mask to const.
         nameTF.returnKeyType = .done // defining keyboard return button
@@ -59,7 +66,7 @@ class AddDogView: UIView{
         agePicker.datePickerMode = .date // defining datePicker
         agePicker.preferredDatePickerStyle = .wheels // setting its style
         agePicker.maximumDate = .now // limiting date
-        ageTF.placeholder = "Age" // date textfield placeholder
+        ageTF.placeholder = String(localized: "Age") // date textfield placeholder
         ageTF.inputView = agePicker // defining textfield's input mode to picker
         
         ageTF.borderStyle = .roundedRect // rounding textfield's border
@@ -67,22 +74,25 @@ class AddDogView: UIView{
         
         
         sizePicker.tag = 1 // tagging it
-        sizeTF.placeholder = "Size" // size textfield's placeholder
+        sizeTF.placeholder = String(localized: "Size") // size textfield's placeholder
         sizeTF.inputView = sizePicker // defining input to picker
         
         sizeTF.borderStyle = .roundedRect // rounding its borders
         sizeTF.translatesAutoresizingMaskIntoConstraints = false // disabling autoresizing mask translation
         
-        weightTF.placeholder = "Weight" // weight textfield's placeholder
+        weightTF.placeholder = String(localized: "Weight") // weight textfield's placeholder
         weightTF.keyboardType = .decimalPad // setting its keyboard type
         weightTF.borderStyle = .roundedRect // rounding its borders
         
         weightTF.translatesAutoresizingMaskIntoConstraints = false // disabling autoresizing mask translation
                 
-        button.configuration = .borderless() // defining its configs
-        button.configuration?.title = "Add" // setting a text to it
+        button.backgroundColor = UIColor.gray
+        button.setTitle(String(localized: "Done"), for: .normal) // setting a text to it
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 32, weight: .heavy)
+        button.layer.cornerRadius = 14
         
         
+        self.addSubview(title) // adding the title as a subview
         self.addSubview(imgButton) // adding the image as a subview
         stack.addArrangedSubview(nameTF) // adding the name textfield as a stack's arranged subview
         stack.addArrangedSubview(ageTF) // adding the age textfield as a stack's arranged subview
@@ -95,9 +105,14 @@ class AddDogView: UIView{
         if UIDevice.current.userInterfaceIdiom == .phone{
             // Constraints for the iPhone
             NSLayoutConstraint.activate([
+                title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+                title.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
+                title.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
+                title.heightAnchor.constraint(equalToConstant: 74),
+                
                 nameTF.heightAnchor.constraint(equalToConstant: 70), // configuring the textfields sizes
                 
-                imgButton.widthAnchor.constraint(equalToConstant: 130), // defining image's size
+                imgButton.widthAnchor.constraint(equalToConstant: 115), // defining image's size
                 imgButton.heightAnchor.constraint(equalToConstant: 130), // defining image's size
                 
                 imgButton.centerXAnchor.constraint(equalTo: self.centerXAnchor), // defining image's position
@@ -111,13 +126,18 @@ class AddDogView: UIView{
         }else{
             // Constraints for the iPad
             NSLayoutConstraint.activate([
+                title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+                title.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
+                title.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
+                title.heightAnchor.constraint(equalToConstant: 74),
+                
                 nameTF.heightAnchor.constraint(equalToConstant: 100), // configuring the textfields sizes
                 
-                imgButton.widthAnchor.constraint(equalToConstant: 170), // defining image's size
+                imgButton.widthAnchor.constraint(equalToConstant: 150), // defining image's size
                 imgButton.heightAnchor.constraint(equalToConstant: 170), // defining image's size
                 
                 imgButton.centerXAnchor.constraint(equalTo: self.centerXAnchor), // defining image's position
-                imgButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 0), // defining image's position
+                imgButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 30), // defining image's position
                 
                 stack.topAnchor.constraint(equalTo: imgButton.bottomAnchor, constant: 20), // setting stack's position
                 stack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -70), // setting stack's position

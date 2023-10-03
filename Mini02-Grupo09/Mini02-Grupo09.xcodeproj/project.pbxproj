@@ -136,6 +136,7 @@
 		31C2C5352AC7664B00276D67 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3196591F2ACB5ABC005C5451 /* Localization */,
 				31C2C5362AC7666700276D67 /* Haptics */,
 			);
 			name = Utils;
@@ -260,6 +261,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 31B21E6F2ABE059A0096F1AB;
 			productRefGroup = 31B21E792ABE059A0096F1AB /* Products */;
@@ -278,6 +280,7 @@
 			files = (
 				31B21E882ABE059B0096F1AB /* LaunchScreen.storyboard in Resources */,
 				31B21E852ABE059B0096F1AB /* Assets.xcassets in Resources */,
+				3196591E2ACB5AB1005C5451 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +316,7 @@
 				2ECC58662AC5A2F7009BF6DD /* CustomCell.swift in Sources */,
 				31B21E7E2ABE059A0096F1AB /* SceneDelegate.swift in Sources */,
 				D3622D042AC76C2B0063FAAE /* AddTaskViewController.swift in Sources */,
+				319659262ACB9F26005C5451 /* EnumLocalization.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

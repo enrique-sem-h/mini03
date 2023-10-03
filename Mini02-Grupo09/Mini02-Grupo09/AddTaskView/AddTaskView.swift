@@ -28,7 +28,7 @@ class AddTaskView: UIView {
         
         // Configuração do título da view
         viewTitle.translatesAutoresizingMaskIntoConstraints = false
-        viewTitle.text = "Criar Tarefa"
+        viewTitle.text = String(localized: "New Task")
         viewTitle.font = UIFont.systemFont(ofSize: 24, weight: .heavy)
         viewTitle.textAlignment = .center
         viewTitle.backgroundColor = .gray
@@ -43,7 +43,7 @@ class AddTaskView: UIView {
         // Tarefa Label
         let tarefaLabel = UILabel()
         tarefaLabel.translatesAutoresizingMaskIntoConstraints = false
-        tarefaLabel.text = "Tarefa"
+        tarefaLabel.text = String(localized: "Task")
         tarefaLabel.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
         self.addSubview(tarefaLabel)
         
@@ -55,7 +55,7 @@ class AddTaskView: UIView {
         // Configuração do TextField do título
         taskTitleTF.translatesAutoresizingMaskIntoConstraints = false
         taskTitleTF.frame = CGRect(x: 0, y: 0, width: 265, height: 40)
-        taskTitleTF.placeholder = "Digite algo aqui"
+        taskTitleTF.placeholder = String(localized: "Type something")
         taskTitleTF.addBottomBorderWithColor(color: .gray)
         taskTitleTF.delegate = viewController
         taskTitleTF.returnKeyType = .done
@@ -71,7 +71,7 @@ class AddTaskView: UIView {
         // Pet Label
         let petsLabel = UILabel()
         petsLabel.translatesAutoresizingMaskIntoConstraints = false
-        petsLabel.text = "Pets"
+        petsLabel.text = String(localized: "Pets")
         petsLabel.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
         self.addSubview(petsLabel)
         
@@ -101,7 +101,7 @@ class AddTaskView: UIView {
         
         // Configuração do TextField das anotações
         notesTF.translatesAutoresizingMaskIntoConstraints = false
-        notesTF.placeholder = "Digite suas anotações aqui"
+        notesTF.placeholder = String(localized: "Type your annotations here")
         notesTF.textAlignment = .natural
         notesTF.borderStyle = .roundedRect
         notesTF.delegate = viewController
@@ -111,7 +111,7 @@ class AddTaskView: UIView {
         // Configuração do botão de pronto
         doneButton.translatesAutoresizingMaskIntoConstraints = false
         doneButton.backgroundColor = UIColor.gray
-        doneButton.setTitle("Pronto", for: .normal)
+        doneButton.setTitle(String(localized: "Done"), for: .normal)
         doneButton.titleLabel?.font = UIFont.systemFont(ofSize: 32, weight: .heavy)
         doneButton.layer.cornerRadius = 14
         self.addSubview(doneButton)
