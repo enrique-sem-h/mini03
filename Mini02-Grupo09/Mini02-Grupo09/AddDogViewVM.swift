@@ -10,6 +10,7 @@ import UIKit
 
 class AddDogViewModel{
     let dogManager: DogManager // defining core data manager
+    weak var controller: AddDogViewController?
     
     init(dogManager: DogManager) {
         self.dogManager = dogManager // initializing CD manager

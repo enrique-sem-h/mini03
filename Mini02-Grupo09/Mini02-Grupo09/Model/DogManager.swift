@@ -20,7 +20,7 @@ class DogManager: ObservableObject{ // handling the core data stuff
         return array // returning the dog model array
     }
     
-    enum Size: String, CaseIterable{ // creating an enum with raw values to avoid typos
+    enum Size: String, EnumLocalization{ // creating an enum with raw values to avoid typos
         case mini = "Mini"
         case small = "Small"
         case midSized = "Mid-Sized"

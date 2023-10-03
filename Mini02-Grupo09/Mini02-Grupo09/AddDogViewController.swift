@@ -59,6 +59,12 @@ class AddDogViewController: UIViewController{
         HapticsManager.shared.vibrate(for: .success)
     }
     
+    func errorAlert (){
+        let alert = UIAlertController(title: "Something Happened", message: "There was an error adding your dog, please verify all fields and try again", preferredStyle: .alert)
+        alert.addAction(.init(title: "OK", style: .default))
+        self.present(alert, animated: true)
+    }
+    
     func tapGesture(){ // defining tap gesture for image
         let tap = UITapGestureRecognizer(target: self, action: #selector(imgButtonFunc)) // creating the recognizer
         newView?.imgButton.isUserInteractionEnabled = true // enabling image's interction
@@ -91,7 +97,7 @@ extension AddDogViewController: UIPickerViewDelegate, UIPickerViewDataSource, UI
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return viewModel.dogManager.fetchEnum[row].rawValue // returning each text for picker rows (only used for size picker)
+        return viewModel.dogManager.fetchEnum[row].localized // returning each text for picker rows (only used for size picker)
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

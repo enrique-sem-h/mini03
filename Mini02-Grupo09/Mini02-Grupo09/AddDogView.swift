@@ -19,7 +19,7 @@ class AddDogView: UIView{
     let imgButton = UIImageView()
     let imagePicker = UIImagePickerController()
     let agePicker = UIDatePicker()
-    var button = UIButton()
+    var button = UIButton(type: .custom)
     
     
     override init(frame: CGRect) {
@@ -49,7 +49,7 @@ class AddDogView: UIView{
         imagePicker.allowsEditing = true // allowing the user to edit the image before inserting it
         imagePicker.sourceType = .photoLibrary // defining source type
 
-        nameTF.placeholder = "Name" // name textfield's placeholder
+        nameTF.placeholder = String(localized: "Name") // name textfield's placeholder
         nameTF.borderStyle = .roundedRect // defining its borders
         nameTF.translatesAutoresizingMaskIntoConstraints = false // disabling autoresize mask to const.
         nameTF.returnKeyType = .done // defining keyboard return button
@@ -59,7 +59,7 @@ class AddDogView: UIView{
         agePicker.datePickerMode = .date // defining datePicker
         agePicker.preferredDatePickerStyle = .wheels // setting its style
         agePicker.maximumDate = .now // limiting date
-        ageTF.placeholder = "Age" // date textfield placeholder
+        ageTF.placeholder = String(localized: "Age") // date textfield placeholder
         ageTF.inputView = agePicker // defining textfield's input mode to picker
         
         ageTF.borderStyle = .roundedRect // rounding textfield's border
@@ -67,20 +67,23 @@ class AddDogView: UIView{
         
         
         sizePicker.tag = 1 // tagging it
-        sizeTF.placeholder = "Size" // size textfield's placeholder
+        sizeTF.placeholder = String(localized: "Size") // size textfield's placeholder
         sizeTF.inputView = sizePicker // defining input to picker
         
         sizeTF.borderStyle = .roundedRect // rounding its borders
         sizeTF.translatesAutoresizingMaskIntoConstraints = false // disabling autoresizing mask translation
         
-        weightTF.placeholder = "Weight" // weight textfield's placeholder
+        weightTF.placeholder = String(localized: "Weight") // weight textfield's placeholder
         weightTF.keyboardType = .decimalPad // setting its keyboard type
         weightTF.borderStyle = .roundedRect // rounding its borders
         
         weightTF.translatesAutoresizingMaskIntoConstraints = false // disabling autoresizing mask translation
                 
         button.configuration = .borderless() // defining its configs
-        button.configuration?.title = "Add" // setting a text to it
+        button.backgroundColor = UIColor.gray
+        button.setTitle(String(localized: "Done"), for: .normal) // setting a text to it
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 32, weight: .heavy)
+        button.layer.cornerRadius = 14
         
         
         self.addSubview(imgButton) // adding the image as a subview

@@ -74,7 +74,7 @@ class TasksManager: ObservableObject{ // handling the core data stuff
         return yearlyArray
     }
     
-    public enum Frequency: String, CaseIterable{ // creating an enum with raw values to avoid typos
+    public enum Frequency: String, EnumLocalization{ // creating an enum with raw values to avoid typos
         case once = "Once"
         case daily = "Daily"
         case weekly = "Weekly"
@@ -86,7 +86,7 @@ class TasksManager: ObservableObject{ // handling the core data stuff
         var frequencies: [String] = [] // creating the array
         
         for i in Frequency.allCases{
-            frequencies.append(i.rawValue) // appending all items to the array
+            frequencies.append(i.localized) // appending all items to the array
         }
         
         return frequencies // returning it
