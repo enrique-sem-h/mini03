@@ -34,6 +34,7 @@
 		D3622D182AC9DC220063FAAE /* EditTaskModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D172AC9DC220063FAAE /* EditTaskModalView.swift */; };
 		D3622D1A2AC9DC3D0063FAAE /* EditTaskModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D192AC9DC3D0063FAAE /* EditTaskModalViewController.swift */; };
 		D3622D1C2AC9DC560063FAAE /* EditTaskModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D1B2AC9DC560063FAAE /* EditTaskModalViewModel.swift */; };
+		D3622D3E2ACC9FCE0063FAAE /* iconPickerModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D3D2ACC9FCE0063FAAE /* iconPickerModal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		D3622D172AC9DC220063FAAE /* EditTaskModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskModalView.swift; sourceTree = "<group>"; };
 		D3622D192AC9DC3D0063FAAE /* EditTaskModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskModalViewController.swift; sourceTree = "<group>"; };
 		D3622D1B2AC9DC560063FAAE /* EditTaskModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskModalViewModel.swift; sourceTree = "<group>"; };
+		D3622D3D2ACC9FCE0063FAAE /* iconPickerModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iconPickerModal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				D3622D052AC8A4F20063FAAE /* iconPicker.swift */,
+				D3622D3D2ACC9FCE0063FAAE /* iconPickerModal.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3622D3E2ACC9FCE0063FAAE /* iconPickerModal.swift in Sources */,
 				D3622D002AC76B220063FAAE /* AddTaskView.swift in Sources */,
 				D3622D1A2AC9DC3D0063FAAE /* EditTaskModalViewController.swift in Sources */,
 				D3622D102AC9DB400063FAAE /* HomeViewModel.swift in Sources */,

@@ -13,7 +13,7 @@ class AddTaskView: UIView {
     let closeModalButton = UIButton() // Botão para fechar a modal
     
     let taskTitleTF = UITextField() // TextField do título da tarefa
-    let iconPicker = UIButton(type: .custom) // Picker de ícones
+    let iconPicker = IconPicker() // Picker de ícones
     let addPetButton = UIButton(type: .custom) // Botão para adicionar pet
     let datePicker = UIDatePicker() // Picker de data
     let frequencyPicker = UISegmentedControl(items: TasksManager().fetchEnum) // Picker da frequência
@@ -48,8 +48,7 @@ class AddTaskView: UIView {
         self.addSubview(tarefaLabel)
         
         // Configuração do iconPicker
-        iconPicker.translatesAutoresizingMaskIntoConstraints = false
-        iconPicker.setImage(UIImage(named: "iconPicker"), for: .normal)
+        iconPicker.viewController = self.viewController
         self.addSubview(iconPicker)
         
         // Configuração do TextField do título
