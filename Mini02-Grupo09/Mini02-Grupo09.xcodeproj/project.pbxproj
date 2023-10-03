@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3196591E2ACB5AB1005C5451 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 3196591D2ACB5AB1005C5451 /* Localizable.xcstrings */; };
-		319659262ACB9F26005C5451 /* EnumLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319659252ACB9F26005C5451 /* EnumLocalization.swift */; };
+		2E6B49B32ABE266A00DB149B /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6B49B22ABE266A00DB149B /* ListViewController.swift */; };
+		2ECC58642AC4C249009BF6DD /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECC58632AC4C249009BF6DD /* ListModel.swift */; };
+		2ECC58662AC5A2F7009BF6DD /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECC58652AC5A2F7009BF6DD /* CustomCell.swift */; };
+		2ECC586E2AC61523009BF6DD /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECC586D2AC61523009BF6DD /* ListViewModel.swift */; };
 		31A569092AC4B06400DBBEB1 /* AddDogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A569082AC4B06400DBBEB1 /* AddDogView.swift */; };
 		31B21E7C2ABE059A0096F1AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B21E7B2ABE059A0096F1AB /* AppDelegate.swift */; };
 		31B21E7E2ABE059A0096F1AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B21E7D2ABE059A0096F1AB /* SceneDelegate.swift */; };
@@ -35,8 +37,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3196591D2ACB5AB1005C5451 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = Localizable.xcstrings; path = AddTaskView/Localizable.xcstrings; sourceTree = "<group>"; };
-		319659252ACB9F26005C5451 /* EnumLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumLocalization.swift; sourceTree = "<group>"; };
+		2E6B49B22ABE266A00DB149B /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		2ECC58632AC4C249009BF6DD /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		2ECC58652AC5A2F7009BF6DD /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		2ECC586D2AC61523009BF6DD /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		31A569082AC4B06400DBBEB1 /* AddDogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDogView.swift; sourceTree = "<group>"; };
 		31B21E782ABE059A0096F1AB /* Mini02-Grupo09.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mini02-Grupo09.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31B21E7B2ABE059A0096F1AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,13 +79,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3196591F2ACB5ABC005C5451 /* Localization */ = {
+		2E6B49B62AC219A300DB149B /* ListPet */ = {
 			isa = PBXGroup;
 			children = (
-				3196591D2ACB5AB1005C5451 /* Localizable.xcstrings */,
-				319659252ACB9F26005C5451 /* EnumLocalization.swift */,
+				2E6B49B22ABE266A00DB149B /* ListViewController.swift */,
+				2ECC586D2AC61523009BF6DD /* ListViewModel.swift */,
+				2ECC58632AC4C249009BF6DD /* ListModel.swift */,
+				2ECC58702ACB4164009BF6DD /* Components */,
 			);
-			name = Localization;
+			path = ListPet;
+			sourceTree = "<group>";
+		};
+		2ECC58702ACB4164009BF6DD /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2ECC58652AC5A2F7009BF6DD /* CustomCell.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		31B21E6F2ABE059A0096F1AB = {
@@ -106,6 +120,7 @@
 				31B21E7B2ABE059A0096F1AB /* AppDelegate.swift */,
 				31B21E7D2ABE059A0096F1AB /* SceneDelegate.swift */,
 				D3622D0A2AC9DAF70063FAAE /* Home */,
+				2E6B49B62AC219A300DB149B /* ListPet */,
 				D3622CFC2AC74FA20063FAAE /* AddTaskView */,
 				D3622D162AC9DC080063FAAE /* EditTaskModal */,
 				31D1B8372AC4579600EE0C69 /* Add Dog */,
@@ -290,11 +305,15 @@
 				31D1B8342AC4578700EE0C69 /* AddDogViewController.swift in Sources */,
 				31C2C5342AC762F200276D67 /* TasksManager.swift in Sources */,
 				31E9E45C2AC2242C00AECCEB /* DogManager.swift in Sources */,
+				2E6B49B32ABE266A00DB149B /* ListViewController.swift in Sources */,
+				2ECC586E2AC61523009BF6DD /* ListViewModel.swift in Sources */,
+				2ECC58642AC4C249009BF6DD /* ListModel.swift in Sources */,
 				31B21E7C2ABE059A0096F1AB /* AppDelegate.swift in Sources */,
 				31C2C5382AC7667800276D67 /* HapticsManager.swift in Sources */,
 				D3622D1C2AC9DC560063FAAE /* EditTaskModalViewModel.swift in Sources */,
 				D3622D0C2AC9DB180063FAAE /* HomeView.swift in Sources */,
 				D3622D132AC9DB640063FAAE /* CheckboxView.swift in Sources */,
+				2ECC58662AC5A2F7009BF6DD /* CustomCell.swift in Sources */,
 				31B21E7E2ABE059A0096F1AB /* SceneDelegate.swift in Sources */,
 				D3622D042AC76C2B0063FAAE /* AddTaskViewController.swift in Sources */,
 				319659262ACB9F26005C5451 /* EnumLocalization.swift in Sources */,
