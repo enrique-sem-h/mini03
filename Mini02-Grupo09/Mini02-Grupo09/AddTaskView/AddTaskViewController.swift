@@ -40,7 +40,7 @@ class AddTaskViewController: UIViewController {
     }
     
     @objc func iconPickerTapped() {
-        viewModel.chooseIcon()
+        viewModel.chooseIcon(iconPickerRoot: newView.iconPicker)
     }
     
     @objc func addPetButtonTapped() {

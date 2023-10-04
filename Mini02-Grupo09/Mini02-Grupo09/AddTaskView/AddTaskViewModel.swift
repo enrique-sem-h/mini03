@@ -10,11 +10,12 @@ import UIKit
 
 class AddTaskViewModel {
     weak var viewController: AddTaskViewController?
+    weak var view: AddTaskView?
     
     let tasksManager = TasksManager()
     
-    func chooseIcon() {
-        let vc = iconPickerModalViewController()
+    func chooseIcon(iconPickerRoot: IconPicker) {
+        let vc = iconPickerModalViewController(iconPickerRoot: iconPickerRoot)
         
         let navVC = UINavigationController(rootViewController: vc)
         navVC.setNavigationBarHidden(true, animated: false)

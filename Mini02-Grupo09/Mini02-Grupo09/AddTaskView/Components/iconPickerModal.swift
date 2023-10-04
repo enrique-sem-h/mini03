@@ -12,6 +12,7 @@ import UIKit
 import UIKit
 
 class Icon: UIControl {
+    weak var viewController: iconPickerModalViewController!
     private let backgroundView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -26,10 +27,11 @@ class Icon: UIControl {
         return imageView
     }()
     
-    init(frame: CGRect, image: UIImage) {
+    init(frame: CGRect, image: UIImage, viewController: iconPickerModalViewController) {
         super.init(frame: frame)
         setup()
         imageView.image = image
+        self.viewController = viewController
     }
     
     required init?(coder: NSCoder) {
@@ -39,7 +41,9 @@ class Icon: UIControl {
     
     private func setup() {
         self.translatesAutoresizingMaskIntoConstraints = false
+        
         addSubview(backgroundView)
+        
         addSubview(imageView)
         
         NSLayoutConstraint.activate([
@@ -48,18 +52,36 @@ class Icon: UIControl {
             backgroundView.widthAnchor.constraint(equalToConstant: 64),
             backgroundView.heightAnchor.constraint(equalToConstant: 56),
             
+            
             imageView.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
             imageView.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
             imageView.widthAnchor.constraint(equalToConstant: 20),
             imageView.heightAnchor.constraint(equalToConstant: 20),
         ])
+        imageView.contentMode = .scaleAspectFit
+        
+        addTarget(self, action: #selector(changeIcon), for: .touchUpInside)
+    }
+    @objc func changeIcon() {
+        viewController.iconPickerRoot.iconView.image = self.imageView.image
     }
 }
 
 
 class iconPickerModalViewController: UIViewController {
+    var iconPickerRoot: IconPicker!
     let iconsLabel = UILabel()
     let closeModalButton = UIButton()
+    
+    init(iconPickerRoot: IconPicker) {
+        self.iconPickerRoot = iconPickerRoot
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         
@@ -91,12 +113,13 @@ class iconPickerModalViewController: UIViewController {
         // Configurações das Stacks
         let firstStack = UIStackView()
         let secondStack = UIStackView()
-        let rowsStack = UIStackView(arrangedSubviews: [firstStack, secondStack])
-        let allStack = UIStackView(arrangedSubviews: [topStackView, separator, rowsStack])
+        
+        
         
         // Icones
         for icon in Icons.allCases {
-            let aux = Icon(frame: CGRect(x: 0, y: 0, width: 0, height: 0), image: UIImage(named: icon.rawValue)!)
+            let aux = Icon(frame: CGRect(x: 0, y: 0, width: 0, height: 0), image: UIImage(named: icon.rawValue)!, viewController: self)
+            aux.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(aux)
             if firstStack.arrangedSubviews.count < 4 {
                 firstStack.addArrangedSubview(aux)
@@ -110,38 +133,36 @@ class iconPickerModalViewController: UIViewController {
         // Primeira linha
         firstStack.translatesAutoresizingMaskIntoConstraints = false
         firstStack.axis = .horizontal
-        firstStack.spacing = 80
+        firstStack.distribution = .fillEqually
+        firstStack.spacing = 20
         view.addSubview(firstStack)
         
         // Segunda linha
         secondStack.translatesAutoresizingMaskIntoConstraints = false
         secondStack.axis = .horizontal
-        secondStack.spacing = 80
+        secondStack.distribution = .fillEqually
+        secondStack.spacing = 20
         view.addSubview(secondStack)
         
         // Primeira e segunda linha juntas
-        rowsStack.translatesAutoresizingMaskIntoConstraints = false
-        rowsStack.axis = .vertical
-        rowsStack.spacing = 25
-        view.addSubview(rowsStack)
         
+        let allStack = UIStackView(arrangedSubviews: [topStackView, separator, firstStack, secondStack])
         allStack.translatesAutoresizingMaskIntoConstraints = false
         allStack.axis = .vertical
         allStack.setCustomSpacing(5, after: topStackView)
-        allStack.setCustomSpacing(30, after: separator)
+        allStack.setCustomSpacing(60, after: separator)
+        allStack.setCustomSpacing(80, after: firstStack)
         view.addSubview(allStack)
         
 
         NSLayoutConstraint.activate([
             
-            separator.widthAnchor.constraint(equalToConstant: 292),
+            separator.widthAnchor.constraint(equalToConstant: 316),
             separator.heightAnchor.constraint(equalToConstant: 1),
             
-//            allStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            allStack.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            allStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            allStack.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -28)
             
-            rowsStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            rowsStack.centerYAnchor.constraint(equalTo: view.centerYAnchor)
             
 
         ])
