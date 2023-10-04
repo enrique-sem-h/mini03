@@ -91,7 +91,6 @@ class AddTaskView: UIView {
         datePicker.preferredDatePickerStyle = .compact
         datePicker.minimumDate = Calendar.current.date(byAdding: .day, value: 0, to: Date())
         datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: 1, to: Date())
-//        datePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
         self.addSubview(datePicker)
         
         // Configuração do frequencyPicker
@@ -117,7 +116,7 @@ class AddTaskView: UIView {
         
         
         NSLayoutConstraint.activate([
-            
+                
             // Constraints do botão de fechar modal
             closeModalButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 28),
             closeModalButton.centerYAnchor.constraint(equalTo: viewTitle.centerYAnchor),

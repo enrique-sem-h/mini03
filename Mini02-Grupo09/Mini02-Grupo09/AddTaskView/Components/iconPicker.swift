@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum Icon: String {
+enum Icons: String, CaseIterable {
     case vaccine = "VaccineImage"
     case remedy = "RemedyImage"
     case food = "FoodImage"
@@ -25,14 +25,13 @@ class IconPicker: UIControl {
     var iconView: UIImageView!
     
     private func setup() {
-        self.translatesAutoresizingMaskIntoConstraints = false
         
         iconPicker.translatesAutoresizingMaskIntoConstraints = false
         iconPicker.image = UIImage(named: "iconPicker")
         addSubview(iconPicker)
         
         iconView.translatesAutoresizingMaskIntoConstraints = false
-        iconView.image = UIImage(named: Icon.food.rawValue)
+        iconView.image = UIImage(named: Icons.food.rawValue)
         iconPicker.addSubview(iconView)
         
         NSLayoutConstraint.activate([
