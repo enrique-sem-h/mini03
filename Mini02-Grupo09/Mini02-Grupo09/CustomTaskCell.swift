@@ -16,7 +16,7 @@ class CustomTaskCell: UITableViewCell {
 
         override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
-            
+
             // Configuração da label do horário
             hourLabel.text = "18:00"
             hourLabel.translatesAutoresizingMaskIntoConstraints = false
