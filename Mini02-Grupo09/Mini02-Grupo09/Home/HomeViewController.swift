@@ -32,8 +32,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func showAddTaskView() {
-        print("Indo para AddTaskView")
-        // Implementação da navegação para a página de adicionar tarefa
+        viewModel.showAddTaskView()
     }
 }
 

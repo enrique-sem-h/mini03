@@ -35,4 +35,17 @@ class HomeViewModel {
             viewController?.present(navVC, animated: true)
         }
     }
+    
+    func showAddTaskView() {
+        let vc = AddTaskViewController()
+        
+        let navVC = UINavigationController(rootViewController: vc)
+        navVC.setNavigationBarHidden(true, animated: false)
+        
+        if let sheet = navVC.sheetPresentationController {
+            sheet.preferredCornerRadius = 12
+            sheet.detents = [.large()]
+        }
+        viewController?.present(navVC, animated: true)
+    }
 }

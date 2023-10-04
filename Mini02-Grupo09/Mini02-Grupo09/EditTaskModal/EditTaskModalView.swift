@@ -69,18 +69,20 @@ class EditTaskModalView: UIView {
         // Configuração do botão de editar
         editButton.translatesAutoresizingMaskIntoConstraints = false
         editButton.backgroundColor = UIColor.gray
-        editButton.setTitle("Editar Tarefa", for: .normal)
+        editButton.setTitle(String(localized: "Edit Task"), for: .normal)
         editButton.titleLabel?.font = editButton.titleLabel!.font.withSize(18)
         editButton.setImage(UIImage(systemName: "square.and.pencil"), for: .normal)
+        editButton.tintColor = .black
         editButton.layer.cornerRadius = 14
         self.addSubview(editButton)
         
         // Configuração do botão de apagar
         deleteButton.translatesAutoresizingMaskIntoConstraints = false
         deleteButton.backgroundColor = UIColor.gray
-        deleteButton.setTitle("Apagar Tarefa", for: .normal)
+        deleteButton.setTitle(String(localized: "Delete Task"), for: .normal)
         deleteButton.titleLabel?.font = deleteButton.titleLabel!.font.withSize(18)
         deleteButton.setImage(UIImage(systemName: "trash"), for: .normal)
+        deleteButton.tintColor = .black
         deleteButton.layer.cornerRadius = 14
         self.addSubview(deleteButton)
         

@@ -86,6 +86,3 @@ class CustomTaskCell: UITableViewCell {
     }
 }
 // ------------------- FIM DA CÉLULA DA TAREFA CUSTOMIZADA -------------------
-
-
-

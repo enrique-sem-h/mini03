@@ -10,7 +10,7 @@ import CoreData
 import UIKit
 
 class DogManager: ObservableObject{ // handling the core data stuff
-    private let container = NSPersistentContainer(name: "DogModel") // defining the container with the model name
+    private let container = NSPersistentContainer(name: "AppModel") // defining the container with the model name
     private var context: NSManagedObjectContext{
         return container.viewContext
     } // defining the context
@@ -20,12 +20,12 @@ class DogManager: ObservableObject{ // handling the core data stuff
         return array // returning the dog model array
     }
     
-    enum Size: String, CaseIterable{ // creating an enum with raw values to avoid typos
-        case mini = "mini"
-        case small = "small"
-        case midSized = "midSized"
-        case big = "big"
-        case giant = "giant"
+    enum Size: String, EnumLocalization{ // creating an enum with raw values to avoid typos
+        case mini = "Mini"
+        case small = "Small"
+        case midSized = "Mid-Sized"
+        case big = "Big"
+        case giant = "Giant"
     }
     
     var fetchEnum: [Size]{
