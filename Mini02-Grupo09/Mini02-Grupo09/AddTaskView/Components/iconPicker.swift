@@ -21,8 +21,17 @@ enum Icons: String, CaseIterable {
 
 class IconPicker: UIControl {
     weak var viewController: AddTaskViewController?
-    private var iconPicker: UIImageView!
-    var iconView: UIImageView!
+    private var iconPicker = UIImageView()
+    var iconView: UIImageView = UIImageView()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private func setup() {
         
@@ -38,26 +47,12 @@ class IconPicker: UIControl {
             iconPicker.leadingAnchor.constraint(equalTo: leadingAnchor),
             iconPicker.bottomAnchor.constraint(equalTo: bottomAnchor),
             iconPicker.trailingAnchor.constraint(equalTo: trailingAnchor),
-            iconPicker.topAnchor.constraint(equalTo: topAnchor)
+            iconPicker.topAnchor.constraint(equalTo: topAnchor),
+            
+            iconView.centerXAnchor.constraint(equalTo: iconPicker.centerXAnchor),
+            iconView.centerYAnchor.constraint(equalTo: iconPicker.centerYAnchor),
+            iconView.widthAnchor.constraint(equalToConstant: 20),
+            iconView.heightAnchor.constraint(equalToConstant: 20)
         ])
-        
-        addTarget(self, action: #selector(touchUpInside), for: .touchUpInside)
-    }
-    
-    @objc func touchUpInside() {
-        let vc = iconPickerModalViewController()
-        
-        let navVC = UINavigationController(rootViewController: vc)
-        navVC.setNavigationBarHidden(true, animated: false)
-        
-        if let sheet = navVC.sheetPresentationController {
-            sheet.preferredCornerRadius = 12
-            sheet.detents = [.custom(resolver: { context in
-                226
-            })]
-        }
-        viewController?.present(navVC, animated: true)
-
-    }
-    
+    }    
 }

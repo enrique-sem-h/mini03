@@ -132,6 +132,9 @@ class AddTaskView: UIView {
             tarefaLabel.leadingAnchor.constraint(equalTo: iconPicker.leadingAnchor),
             
             // Constraints da StackView do iconPicker e do taskTitleTF e seus elementos
+            iconPicker.widthAnchor.constraint(equalToConstant: 54),
+            iconPicker.heightAnchor.constraint(equalToConstant: 50),
+            
             taskTitleTF.widthAnchor.constraint(equalToConstant: 265),
             
             iPtTStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),

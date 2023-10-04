@@ -14,8 +14,18 @@ class AddTaskViewModel {
     let tasksManager = TasksManager()
     
     func chooseIcon() {
-        print("Escolhendo icone")
-        // Implementar função de escolher icone
+        let vc = iconPickerModalViewController()
+        
+        let navVC = UINavigationController(rootViewController: vc)
+        navVC.setNavigationBarHidden(true, animated: false)
+        
+        if let sheet = navVC.sheetPresentationController {
+            sheet.preferredCornerRadius = 12
+            sheet.detents = [.custom(resolver: { context in
+                262
+            })]
+        }
+        viewController?.present(navVC, animated: true)
     }
     
     func choosePet() {
