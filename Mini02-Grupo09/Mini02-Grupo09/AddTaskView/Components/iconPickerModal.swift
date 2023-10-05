@@ -16,6 +16,7 @@ class Icon: UIControl {
     private let backgroundView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.isUserInteractionEnabled = false
         view.backgroundColor = .gray
         view.layer.cornerRadius = 8
         return view
@@ -47,8 +48,11 @@ class Icon: UIControl {
         addSubview(imageView)
         
         NSLayoutConstraint.activate([
-            backgroundView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            backgroundView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            
+            backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundView.topAnchor.constraint(equalTo: topAnchor),
             backgroundView.widthAnchor.constraint(equalToConstant: 64),
             backgroundView.heightAnchor.constraint(equalToConstant: 56),
             
@@ -58,12 +62,7 @@ class Icon: UIControl {
             imageView.widthAnchor.constraint(equalToConstant: 20),
             imageView.heightAnchor.constraint(equalToConstant: 20),
         ])
-        imageView.contentMode = .scaleAspectFit
-        
-        addTarget(self, action: #selector(changeIcon), for: .touchUpInside)
-    }
-    @objc func changeIcon() {
-        viewController.iconPickerRoot.iconView.image = self.imageView.image
+        backgroundView.contentMode = .scaleAspectFit
     }
 }
 
@@ -119,7 +118,7 @@ class iconPickerModalViewController: UIViewController {
         // Icones
         for icon in Icons.allCases {
             let aux = Icon(frame: CGRect(x: 0, y: 0, width: 0, height: 0), image: UIImage(named: icon.rawValue)!, viewController: self)
-            aux.translatesAutoresizingMaskIntoConstraints = false
+            aux.addTarget(self, action: #selector(changeIcon(_:)), for: .touchUpInside)
             view.addSubview(aux)
             if firstStack.arrangedSubviews.count < 4 {
                 firstStack.addArrangedSubview(aux)
@@ -150,8 +149,8 @@ class iconPickerModalViewController: UIViewController {
         allStack.translatesAutoresizingMaskIntoConstraints = false
         allStack.axis = .vertical
         allStack.setCustomSpacing(5, after: topStackView)
-        allStack.setCustomSpacing(60, after: separator)
-        allStack.setCustomSpacing(80, after: firstStack)
+        allStack.setCustomSpacing(26, after: separator)
+        allStack.setCustomSpacing(26, after: firstStack)
         view.addSubview(allStack)
         
 
@@ -167,6 +166,11 @@ class iconPickerModalViewController: UIViewController {
 
         ])
         
+    }
+    @objc func changeIcon(_ sender: Icon) {
+        print("Mudando icone")
+        iconPickerRoot.iconView.image = sender.imageView.image
+        dismiss(animated: true, completion: nil)
     }
 }
 
