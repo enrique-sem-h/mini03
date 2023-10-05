@@ -159,7 +159,7 @@ class iconPickerModalViewController: UIViewController {
             separator.heightAnchor.constraint(equalToConstant: 1),
             
             allStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            allStack.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -28)
+            allStack.centerYAnchor.constraint(equalTo: view.centerYAnchor)
             
         ])
         
@@ -170,7 +170,6 @@ class iconPickerModalViewController: UIViewController {
     }
     
     @objc func changeIcon(_ sender: Icon) {
-        print("Mudando icone")
         iconPickerRoot.iconView.image = sender.imageView.image
         dismiss(animated: true, completion: nil)
     }

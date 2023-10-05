@@ -30,8 +30,18 @@ class AddTaskViewModel {
     }
     
     func choosePet() {
-        print("Escolhendo o pet")
-        // Implementar função de escolher pet
+        let vc = addPetToTaskModalViewController()
+        
+        let navVC = UINavigationController(rootViewController: vc)
+        navVC.setNavigationBarHidden(true, animated: false)
+        
+        if let sheet = navVC.sheetPresentationController {
+            sheet.preferredCornerRadius = 12
+            sheet.detents = [.custom(resolver: { context in
+                262
+            })]
+        }
+        viewController?.present(navVC, animated: true)
     }
     
     func addTask(icon: UIImage?, title: String?, dogs: NSSet?, date: Date?, frequency: TasksManager.Frequency?, notes: String?) {
