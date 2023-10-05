@@ -95,6 +95,7 @@ class iconPickerModalViewController: UIViewController {
         // Configuração do botão de fechar modal
         closeModalButton.translatesAutoresizingMaskIntoConstraints = false
         closeModalButton.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
+        closeModalButton.addTarget(self, action: #selector(closeModalButtonTapped), for: .touchUpInside)
         view.addSubview(closeModalButton)
         
         // Separador
@@ -112,8 +113,6 @@ class iconPickerModalViewController: UIViewController {
         // Configurações das Stacks
         let firstStack = UIStackView()
         let secondStack = UIStackView()
-        
-        
         
         // Icones
         for icon in Icons.allCases {
@@ -162,11 +161,14 @@ class iconPickerModalViewController: UIViewController {
             allStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             allStack.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -28)
             
-            
-
         ])
         
     }
+    
+    @objc func closeModalButtonTapped() {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @objc func changeIcon(_ sender: Icon) {
         print("Mudando icone")
         iconPickerRoot.iconView.image = sender.imageView.image
