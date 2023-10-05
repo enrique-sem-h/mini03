@@ -8,6 +8,16 @@
 import Foundation
 import UIKit
 
+protocol HomeViewDelegate: AnyObject {
+
+   func dayView(dayView: HomeView, didTapTimelineAt date: Date)
+   func dayView(dayView: HomeView, didLongPressTimelineAt date: Date)
+   func dayViewDidBeginDragging(dayView: HomeView)
+   func dayViewDidTransitionCancel(dayView: HomeView)
+   func dayView(dayView: HomeView, willMoveTo date: Date)
+   func dayView(dayView: HomeView, didMoveTo  date: Date)
+}
+
 class HomeView: UIView {
     let dateLabel = UILabel()
     
@@ -19,13 +29,27 @@ class HomeView: UIView {
     
     let celulas = [CustomTaskCell(), CustomTaskCell(), CustomTaskCell(), CustomTaskCell(), CustomTaskCell(), CustomTaskCell(), CustomTaskCell()] // Dados da TableView temporários
     
+    let swipeLabel = SwipeLabelView()
+    
     let tasksTableView = UITableView()
     
     func setup() {
+        
+        // colocando o calendario
+        configure()
+        
         self.backgroundColor = .systemBackground
         // Configuração da Label da data
+        
+        let currentDate = Date()
+        
+        // Configurar um DateFormatter para exibir apenas o mês
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM yyyy"
+        let monthString = dateFormatter.string(from: currentDate)
+        
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
-        dateLabel.text = "Setembro de 2023"
+        dateLabel.text = monthString
         dateLabel.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
         self.addSubview(dateLabel)
         
@@ -54,6 +78,8 @@ class HomeView: UIView {
         tasksTableView.register(CustomTaskCell.self, forCellReuseIdentifier: "CustomTaskCell")
         self.tasksTableView.separatorStyle = .none
         
+        buttonStackView.isHidden = true
+        
         // Botão de adicionar tarefa
         addTaskButton.translatesAutoresizingMaskIntoConstraints = false
         addTaskButton.setImage(UIImage(named: "addTaskButton"), for: .normal)
@@ -79,6 +105,89 @@ class HomeView: UIView {
             addTaskButton.trailingAnchor.constraint(equalTo: self.layoutMarginsGuide.trailingAnchor),
             addTaskButton.bottomAnchor.constraint(equalTo: self.layoutMarginsGuide.bottomAnchor)
         ])
+    }
+    // a partir daq é só maluquice do samuel
+    
+    public weak var delegate: HomeViewDelegate?
+    
+    /// Hides or shows header view
+    public var isHeaderViewVisible = true {
+        didSet {
+            headerHeight = isHeaderViewVisible ? HomeView.headerVisibleHeight : 0
+            dayHeaderView.isHidden = !isHeaderViewVisible
+            setNeedsLayout()
+            configureLayout()
+        }
+    }
+    
+    
+    private static let headerVisibleHeight: Double = 88
+    public var headerHeight: Double = headerVisibleHeight
+    public let dayHeaderView: DayHeaderView
+    
+    public var state: DayViewState? {
+        didSet {
+            dayHeaderView.state = state
+        }
+    }
+    
+    public var calendar: Calendar = Calendar.autoupdatingCurrent
+    
+    private var style = CalendarStyle()
+    
+    public init(calendar: Calendar = Calendar.autoupdatingCurrent) {
+        self.calendar = calendar
+        self.dayHeaderView = DayHeaderView(calendar: calendar)
+        super.init(frame: .zero)
+        configure()
+    }
+    
+    override public init(frame: CGRect) {
+        self.dayHeaderView = DayHeaderView(calendar: calendar)
+        super.init(frame: frame)
+        configure()
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        self.dayHeaderView = DayHeaderView(calendar: calendar)
+        super.init(coder: aDecoder)
+        configure()
+    }
+    
+    //colocando o setup na view
+    func configure() {
+        addSubview(dayHeaderView)
+        configureLayout()
+        
+        if state == nil {
+            let newState = DayViewState(date: Date(), calendar: calendar)
+            newState.move(to: Date())
+            state = newState
+        }
+    }
+    
+    
+    //configurando o setup
+    func configureLayout() {
+        dayHeaderView.translatesAutoresizingMaskIntoConstraints = false
+        
+        dayHeaderView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
+        dayHeaderView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
+        dayHeaderView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        let heightConstraint = dayHeaderView.heightAnchor.constraint(equalToConstant: headerHeight)
+        heightConstraint.priority = .defaultLow
+        heightConstraint.isActive = true
+        
+    }
+    
+    public func updateStyle(_ newStyle: CalendarStyle) {
+        style = newStyle
+        dayHeaderView.updateStyle(style.header)
+    }
+    
+    public func transitionToHorizontalSizeClass(_ sizeClass: UIUserInterfaceSizeClass) {
+        dayHeaderView.transitionToHorizontalSizeClass(sizeClass)
+        updateStyle(style)
     }
 }
 
