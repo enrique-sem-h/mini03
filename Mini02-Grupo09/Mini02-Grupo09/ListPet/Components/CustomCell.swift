@@ -9,23 +9,13 @@ import UIKit
 
 class CustomCell: UITableViewCell {
     
-    var data: PetData? {
-        didSet {
-            guard let data = data else { return }
-            self.name.text = data.name
-            self.size.text = data.size
-            self.age.text = data.age
-            self.weight.text = data.weight
-            self.nameDesc.text = data.name
-            self.myImageView.image = data.picture
-        }
-    }
+    var dog: Dog
+    var isOpened = false
     
     //MARK: Itens a serem preenchidos pelo usuário
     let myImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
-        iv.image = UIImage(named: "dog")
         iv.tintColor = .label
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
@@ -43,7 +33,6 @@ class CustomCell: UITableViewCell {
     let name: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 24, weight: .heavy)
-        label.text = " "
         label.textColor = .black
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -53,7 +42,6 @@ class CustomCell: UITableViewCell {
     let nameDesc: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        label.text = " "
         label.textColor = .black
         label.numberOfLines = -1
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -64,7 +52,6 @@ class CustomCell: UITableViewCell {
     let size: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        label.text = " "
         label.textColor = .black
         label.numberOfLines = -1
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -74,7 +61,6 @@ class CustomCell: UITableViewCell {
     let age: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        label.text = " "
         label.textColor = .black
         label.numberOfLines = -1
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -84,7 +70,6 @@ class CustomCell: UITableViewCell {
     let weight: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        label.text = " "
         label.textColor = .black
         label.numberOfLines = -1
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -185,9 +170,25 @@ class CustomCell: UITableViewCell {
         return stack
     }()
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    init(reuseIdentifier: String?, dog: Dog) {
+        self.dog = dog
+        super.init(style: .default, reuseIdentifier: reuseIdentifier)
         
+        setupLabels()
+        
+        setupView()
+    }
+    
+    func setupLabels(){
+        myImageView.image = UIImage(data: (dog.image)!)
+        name.text = dog.name
+        nameDesc.text = dog.name
+        size.text = dog.size
+        age.text = "\(dog.age)"
+        weight.text = "\(dog.weight)"
+    }
+    
+    func setupView(){
         contentView.addSubview(container)
 
         stackTop.addArrangedSubview(myImageView)
@@ -265,7 +266,6 @@ class CustomCell: UITableViewCell {
             button.heightAnchor.constraint(equalToConstant: 20),
 
         ])
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
