@@ -29,6 +29,10 @@ class HomeViewController: UIViewController {
         
         // Configurando botõe da view
         newView.addTaskButton.addTarget(self, action: #selector(showAddTaskView), for: .touchUpInside)
+        
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        
+        title = "Tarefas"
     }
     
     @objc func showAddTaskView() {

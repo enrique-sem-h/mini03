@@ -9,13 +9,13 @@ import Foundation
 import UIKit
 
 protocol HomeViewDelegate: AnyObject {
-
-   func dayView(dayView: HomeView, didTapTimelineAt date: Date)
-   func dayView(dayView: HomeView, didLongPressTimelineAt date: Date)
-   func dayViewDidBeginDragging(dayView: HomeView)
-   func dayViewDidTransitionCancel(dayView: HomeView)
-   func dayView(dayView: HomeView, willMoveTo date: Date)
-   func dayView(dayView: HomeView, didMoveTo  date: Date)
+    
+    func dayView(dayView: HomeView, didTapTimelineAt date: Date)
+    func dayView(dayView: HomeView, didLongPressTimelineAt date: Date)
+    func dayViewDidBeginDragging(dayView: HomeView)
+    func dayViewDidTransitionCancel(dayView: HomeView)
+    func dayView(dayView: HomeView, willMoveTo date: Date)
+    func dayView(dayView: HomeView, didMoveTo  date: Date)
 }
 
 class HomeView: UIView {
@@ -49,9 +49,10 @@ class HomeView: UIView {
         let monthString = dateFormatter.string(from: currentDate)
         
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
-        dateLabel.text = monthString
-        dateLabel.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
+        dateLabel.text = "Tarefas"
+        dateLabel.font = UIFont.systemFont(ofSize: 50, weight: .semibold)
         self.addSubview(dateLabel)
+        
         
         // Botão do calendário
         calendarButton.setImage(UIImage(systemName: "calendar"), for: .normal)
@@ -96,16 +97,25 @@ class HomeView: UIView {
             buttonStackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -18),
             
             // Constraints da TableView de tarefas
-            tasksTableView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 30),
+            tasksTableView.topAnchor.constraint(equalTo: dayHeaderView.bottomAnchor, constant: 16),
             tasksTableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             tasksTableView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             tasksTableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
             // Constraints do botão de adicionar tarefa
             addTaskButton.trailingAnchor.constraint(equalTo: self.layoutMarginsGuide.trailingAnchor),
-            addTaskButton.bottomAnchor.constraint(equalTo: self.layoutMarginsGuide.bottomAnchor)
+            addTaskButton.bottomAnchor.constraint(equalTo: self.layoutMarginsGuide.bottomAnchor),
+            
+            
+            // Constraints do calendario
+            dayHeaderView.leadingAnchor.constraint(equalTo: self.leadingAnchor), // Ou ajuste conforme necessário
+            dayHeaderView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 16),
+            dayHeaderView.widthAnchor.constraint(equalTo: self.widthAnchor),
+            dayHeaderView.heightAnchor.constraint(equalToConstant: 90) // Ou ajuste conforme necessário
         ])
     }
+    
+    
     // a partir daq é só maluquice do samuel
     
     public weak var delegate: HomeViewDelegate?
