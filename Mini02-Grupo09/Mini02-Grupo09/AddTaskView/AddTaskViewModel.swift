@@ -37,9 +37,7 @@ class AddTaskViewModel {
         
         if let sheet = navVC.sheetPresentationController {
             sheet.preferredCornerRadius = 12
-            sheet.detents = [.custom(resolver: { context in
-                262
-            })]
+            sheet.detents = [.large()]
         }
         viewController?.present(navVC, animated: true)
     }

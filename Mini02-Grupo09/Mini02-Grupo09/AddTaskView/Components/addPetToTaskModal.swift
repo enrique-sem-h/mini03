@@ -65,8 +65,13 @@ class addPetToTaskModalViewController: UIViewController {
             separator.widthAnchor.constraint(equalToConstant: 316),
             separator.heightAnchor.constraint(equalToConstant: 1),
             
-            allStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            allStack.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -28)
+            allStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            allStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            allStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            
+            petsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            petsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            petsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
     }
@@ -79,12 +84,11 @@ class addPetToTaskModalViewController: UIViewController {
 extension addPetToTaskModalViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let dogManager = DogManager()
-        return dogManager.dogs.count
+        return 5
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = CustomAddPetToTaskCell(style: .default, reuseIdentifier: "CustomAddPetToTaskCell", dogImage: UIImage(named: "dogImage"), dogName: "Rex", petSelected: true)
-
+        let cell = CustomAddPetToTaskCell(style: .default, reuseIdentifier: "CustomCell", dogImage: UIImage(named: "dogImage"), dogName: "Rex", petSelected: true)
         
         return cell
     }

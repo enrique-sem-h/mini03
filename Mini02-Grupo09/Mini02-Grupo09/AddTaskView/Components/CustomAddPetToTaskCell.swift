@@ -45,7 +45,8 @@ class CustomAddPetToTaskCell: UITableViewCell {
         
         let nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.text = dogName
+        nameLabel.text = "Teste"
+        contentView.addSubview(nameLabel)
         
         NSLayoutConstraint.activate([
 //            dogImage.leadingAnchor.constraint(equalTo: leadingAnchor),
