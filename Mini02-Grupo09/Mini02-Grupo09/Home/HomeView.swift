@@ -41,12 +41,6 @@ class HomeView: UIView {
         self.backgroundColor = .systemBackground
         // Configuração da Label da data
         
-        let currentDate = Date()
-        
-        // Configurar um DateFormatter para exibir apenas o mês
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM yyyy"
-        let monthString = dateFormatter.string(from: currentDate)
         
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
         dateLabel.text = "Tarefas"
@@ -80,6 +74,7 @@ class HomeView: UIView {
         self.tasksTableView.separatorStyle = .none
         
         buttonStackView.isHidden = true
+        dateLabel.isHidden = true
         
         // Botão de adicionar tarefa
         addTaskButton.translatesAutoresizingMaskIntoConstraints = false
@@ -109,9 +104,9 @@ class HomeView: UIView {
             
             // Constraints do calendario
             dayHeaderView.leadingAnchor.constraint(equalTo: self.leadingAnchor), // Ou ajuste conforme necessário
-            dayHeaderView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 16),
+            dayHeaderView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             dayHeaderView.widthAnchor.constraint(equalTo: self.widthAnchor),
-            dayHeaderView.heightAnchor.constraint(equalToConstant: 90) // Ou ajuste conforme necessário
+            dayHeaderView.heightAnchor.constraint(equalToConstant: 70) // Ou ajuste conforme necessário
         ])
     }
     

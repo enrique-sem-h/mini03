@@ -56,7 +56,7 @@ public struct DaySymbolsStyle {
 
 public struct SwipeLabelStyle {
     public var textColor = SystemColors.label
-    public var font = UIFont.systemFont(ofSize: 15)
+    public var font = UIFont.systemFont(ofSize: 24)
     public init() {}
 }
 
@@ -68,9 +68,4 @@ public struct CurrentTimeIndicatorStyle {
     public init() {}
 }
 
-public struct AllDayViewStyle {
-    public var backgroundColor: UIColor = SystemColors.systemGray4
-    public var allDayFont = UIFont.systemFont(ofSize: 12.0)
-    public var allDayColor: UIColor = SystemColors.label
-    public init() {}
-}
+
