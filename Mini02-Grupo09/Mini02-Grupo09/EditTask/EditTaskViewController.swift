@@ -73,6 +73,7 @@ class EditTaskViewController: UIViewController {
         let alert = UIAlertController(title: String(localized: "Oops! A Paw-sible Mishap 🐾"), message: String(localized: "It seems there was a little error while editing your task. Please check all the fields, and give it another 'bark'!"), preferredStyle: .alert)
         alert.addAction(.init(title: "OK", style: .default))
         self.present(alert, animated: true)
+        HapticsManager.shared.vibrate(for: .warning)
     }
     
     func editSetup(){
