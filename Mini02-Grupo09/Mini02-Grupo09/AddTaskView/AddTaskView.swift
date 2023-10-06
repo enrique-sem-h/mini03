@@ -13,7 +13,7 @@ class AddTaskView: UIView {
     let closeModalButton = UIButton() // Botão para fechar a modal
     
     let taskTitleTF = UITextField() // TextField do título da tarefa
-    let iconPicker = UIButton(type: .custom) // Picker de ícones
+    let iconPicker = IconPicker() // Picker de ícones
     let addPetButton = UIButton(type: .custom) // Botão para adicionar pet
     let datePicker = UIDatePicker() // Picker de data
     let frequencyPicker = UISegmentedControl(items: TasksManager().fetchEnum) // Picker da frequência
@@ -48,8 +48,7 @@ class AddTaskView: UIView {
         self.addSubview(tarefaLabel)
         
         // Configuração do iconPicker
-        iconPicker.translatesAutoresizingMaskIntoConstraints = false
-        iconPicker.setImage(UIImage(named: "iconPicker"), for: .normal)
+        iconPicker.viewController = self.viewController
         self.addSubview(iconPicker)
         
         // Configuração do TextField do título
@@ -92,7 +91,6 @@ class AddTaskView: UIView {
         datePicker.preferredDatePickerStyle = .compact
         datePicker.minimumDate = Calendar.current.date(byAdding: .day, value: 0, to: Date())
         datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: 1, to: Date())
-//        datePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
         self.addSubview(datePicker)
         
         // Configuração do frequencyPicker
@@ -118,7 +116,7 @@ class AddTaskView: UIView {
         
         
         NSLayoutConstraint.activate([
-            
+                
             // Constraints do botão de fechar modal
             closeModalButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 28),
             closeModalButton.centerYAnchor.constraint(equalTo: viewTitle.centerYAnchor),
@@ -134,6 +132,9 @@ class AddTaskView: UIView {
             tarefaLabel.leadingAnchor.constraint(equalTo: iconPicker.leadingAnchor),
             
             // Constraints da StackView do iconPicker e do taskTitleTF e seus elementos
+            iconPicker.widthAnchor.constraint(equalToConstant: 54),
+            iconPicker.heightAnchor.constraint(equalToConstant: 50),
+            
             taskTitleTF.widthAnchor.constraint(equalToConstant: 265),
             
             iPtTStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
