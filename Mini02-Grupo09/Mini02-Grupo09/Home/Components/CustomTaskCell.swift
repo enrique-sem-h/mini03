@@ -13,6 +13,8 @@ class CustomTaskCell: UITableViewCell {
     let iconImage = UIView()
     let titleLabel = UILabel()
     let check = Checkbox()
+    
+    let tasksManager = TasksManager()
 
         override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)

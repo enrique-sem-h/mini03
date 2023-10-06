@@ -106,7 +106,7 @@ class HomeView: UIView {
             dayHeaderView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             dayHeaderView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             dayHeaderView.widthAnchor.constraint(equalTo: self.widthAnchor),
-            dayHeaderView.heightAnchor.constraint(equalToConstant: 70)
+            dayHeaderView.heightAnchor.constraint(equalToConstant: 90)
         ])
     }
     

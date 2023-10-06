@@ -26,7 +26,7 @@ public final class DayHeaderView: UIView, DaySelectorDelegate, DayViewStateUpdat
 
     private var currentWeekdayIndex = -1
 
-    private var daySymbolsViewHeight: Double = 20
+    private var daySymbolsViewHeight: Double = 25
     private var pagingScrollViewHeight: Double = 50
     private var swipeLabelViewHeight: Double = 10
 
@@ -111,11 +111,11 @@ public final class DayHeaderView: UIView, DaySelectorDelegate, DayViewStateUpdat
 
     override public func layoutSubviews() {
         super.layoutSubviews()
-        daySymbolsView.frame = CGRect(origin: .zero,
+        daySymbolsView.frame = CGRect(origin: CGPoint(x: .zero, y: daySymbolsViewHeight),
                                       size: CGSize(width: bounds.width, height: daySymbolsViewHeight))
-        pagingViewController.view?.frame = CGRect(origin: CGPoint(x: 0, y: daySymbolsViewHeight),
+        pagingViewController.view?.frame = CGRect(origin: CGPoint(x: 0, y:  pagingScrollViewHeight),
                                                   size: CGSize(width: bounds.width, height: pagingScrollViewHeight))
-        swipeLabelView.frame = CGRect(origin: CGPoint(x: -95, y: daySymbolsViewHeight),
+        swipeLabelView.frame = CGRect(origin: CGPoint(x: -95, y: .zero),
                                       size: CGSize(width: bounds.width, height: 24))
 
         let separatorHeight = 1 / UIScreen.main.scale
