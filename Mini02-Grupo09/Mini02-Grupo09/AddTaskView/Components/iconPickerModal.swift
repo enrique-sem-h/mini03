@@ -89,7 +89,7 @@ class iconPickerModalViewController: UIViewController {
         
         // Titulo da modal
         iconsLabel.translatesAutoresizingMaskIntoConstraints = false
-        iconsLabel.text = "Ícones"
+        iconsLabel.text = String(localized: "Icons")
         iconsLabel.font = UIFont.systemFont(ofSize: 28, weight: .heavy)
         
         // Configuração do botão de fechar modal

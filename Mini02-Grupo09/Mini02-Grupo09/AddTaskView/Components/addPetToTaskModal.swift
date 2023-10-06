@@ -22,7 +22,7 @@ class addPetToTaskModalViewController: UIViewController {
         
         // Titulo da modal
         modalLabel.translatesAutoresizingMaskIntoConstraints = false
-        modalLabel.text = "Selecione o(s) pet(s)"
+        modalLabel.text = String(localized: "Select the pet")
         modalLabel.font = UIFont.systemFont(ofSize: 28, weight: .heavy)
         
         // Configuração do botão de fechar modal
