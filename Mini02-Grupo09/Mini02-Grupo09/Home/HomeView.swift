@@ -29,7 +29,7 @@ class HomeView: UIView {
     
     let celulas = [CustomTaskCell(), CustomTaskCell(), CustomTaskCell(), CustomTaskCell(), CustomTaskCell(), CustomTaskCell(), CustomTaskCell()] // Dados da TableView temporários
     
-    let swipeLabel = SwipeLabelView()
+    let dayState = DayViewState()
     
     let tasksTableView = UITableView()
     
