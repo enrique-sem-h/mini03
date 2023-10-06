@@ -26,6 +26,7 @@ class AddDogViewController: UIViewController{
         self.view = newView // changing the view controller's view
         
         newView.button.addTarget(self, action: #selector(buttonFunc), for: .touchDown) // attaching target to button in this view controller
+        newView.agePicker.addTarget(self, action: #selector(ageCalculator), for: .valueChanged)
         newView.ageTF.inputAccessoryView = createToolbar() // creating the done button
         newView.sizeTF.inputAccessoryView = createToolbar() // creating the done toolbar
         newView.weightTF.inputAccessoryView = createToolbar() // reating done btn
@@ -39,6 +40,23 @@ class AddDogViewController: UIViewController{
     
     @objc func buttonFunc() { // defining the submit button (add button) func
         viewModel.addDog(image: newView.imgButton.image!, name: newView.nameTF.text, age: newView.ageTF.text ?? "", weight: newView.weightTF.text ?? "", size: newView.sizeTF.text ?? "", viewController: self)
+    }
+    
+    @objc func ageCalculator(){
+        let ageTF = newView.ageTF
+        let agePicker = newView.agePicker
+        
+        let calendar = Calendar.current // defining calendar
+        let currentDate = Date() // defining current date
+        let selectedDate = agePicker.date // defining picked date
+        
+        let ageComponents = calendar.dateComponents([.year], from: selectedDate, to: currentDate) // returning the diference between the year picked and the current
+        
+        if let years = ageComponents.year { // safely unwrapping the year for age component
+            ageTF.text = "\(years)" // attributing it to the textField
+        } else {
+            print("Invalid Date") // in case of failure to unwrap the year (probably won't happen)
+        }
     }
     
     @objc func imgButtonFunc(){ // presenting the image picker
@@ -123,12 +141,15 @@ extension AddDogViewController: UIPickerViewDelegate, UIPickerViewDataSource, UI
         dismiss(animated: true) // dismissing image picker
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool { // called when user press return on keyboard
         textField.resignFirstResponder()
         return true
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { // called when clicking on screen
+        if newView.sizeTF.isFirstResponder{
+            viewModel.sizeReturner(newView.sizeTF)
+        }
         view.endEditing(true)
     }
     

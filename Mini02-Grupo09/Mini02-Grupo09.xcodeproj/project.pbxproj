@@ -51,6 +51,9 @@
 		D3622D182AC9DC220063FAAE /* EditTaskModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D172AC9DC220063FAAE /* EditTaskModalView.swift */; };
 		D3622D1A2AC9DC3D0063FAAE /* EditTaskModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D192AC9DC3D0063FAAE /* EditTaskModalViewController.swift */; };
 		D3622D1C2AC9DC560063FAAE /* EditTaskModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D1B2AC9DC560063FAAE /* EditTaskModalViewModel.swift */; };
+		D3622D3E2ACC9FCE0063FAAE /* iconPickerModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D3D2ACC9FCE0063FAAE /* iconPickerModal.swift */; };
+		D3622D402ACF3A250063FAAE /* addPetToTaskModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D3F2ACF3A250063FAAE /* addPetToTaskModal.swift */; };
+		D3622D422ACF3C180063FAAE /* CustomAddPetToTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D412ACF3C180063FAAE /* CustomAddPetToTaskCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +103,9 @@
 		D3622D172AC9DC220063FAAE /* EditTaskModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskModalView.swift; sourceTree = "<group>"; };
 		D3622D192AC9DC3D0063FAAE /* EditTaskModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskModalViewController.swift; sourceTree = "<group>"; };
 		D3622D1B2AC9DC560063FAAE /* EditTaskModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskModalViewModel.swift; sourceTree = "<group>"; };
+		D3622D3D2ACC9FCE0063FAAE /* iconPickerModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iconPickerModal.swift; sourceTree = "<group>"; };
+		D3622D3F2ACF3A250063FAAE /* addPetToTaskModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addPetToTaskModal.swift; sourceTree = "<group>"; };
+		D3622D412ACF3C180063FAAE /* CustomAddPetToTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAddPetToTaskCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +272,9 @@
 			isa = PBXGroup;
 			children = (
 				D3622D052AC8A4F20063FAAE /* iconPicker.swift */,
+				D3622D3D2ACC9FCE0063FAAE /* iconPickerModal.swift */,
+				D3622D3F2ACF3A250063FAAE /* addPetToTaskModal.swift */,
+				D3622D412ACF3C180063FAAE /* CustomAddPetToTaskCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -373,7 +382,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3622D3E2ACC9FCE0063FAAE /* iconPickerModal.swift in Sources */,
 				D3622D002AC76B220063FAAE /* AddTaskView.swift in Sources */,
+				D3622D422ACF3C180063FAAE /* CustomAddPetToTaskCell.swift in Sources */,
 				D3622D1A2AC9DC3D0063FAAE /* EditTaskModalViewController.swift in Sources */,
 				556F17952ACE01EF0067DBC0 /* DaySymbolsView.swift in Sources */,
 				D3622D102AC9DB400063FAAE /* HomeViewModel.swift in Sources */,
@@ -400,6 +411,7 @@
 				2E6B49B32ABE266A00DB149B /* ListViewController.swift in Sources */,
 				2ECC586E2AC61523009BF6DD /* ListViewModel.swift in Sources */,
 				2ECC58642AC4C249009BF6DD /* ListModel.swift in Sources */,
+				D3622D402ACF3A250063FAAE /* addPetToTaskModal.swift in Sources */,
 				31B21E7C2ABE059A0096F1AB /* AppDelegate.swift in Sources */,
 				556F179B2ACE024D0067DBC0 /* DayViewState.swift in Sources */,
 				31C2C5382AC7667800276D67 /* HapticsManager.swift in Sources */,

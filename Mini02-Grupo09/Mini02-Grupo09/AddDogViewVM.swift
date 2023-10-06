@@ -30,28 +30,20 @@ class AddDogViewModel{
         if nameTF.isFirstResponder { // bool for name textfield's first responder
             nameTF.resignFirstResponder() // dismiss first responder for name textfield
         } else if ageTF.isFirstResponder {// bool for age textfield's first responder
-            let calendar = Calendar.current // defining calendar
-            let currentDate = Date() // defining current date
-            let selectedDate = agePicker.date // defining picked date
-            
-            let ageComponents = calendar.dateComponents([.year], from: selectedDate, to: currentDate) // returning the diference between the year picked and the current
-            
-            if let years = ageComponents.year { // safely unwrapping the year for age component
-                ageTF.text = "\(years)" // attributing it to the textField
-            } else {
-                print("Invalid Date") // in case of failure to unwrap the year (probably won't happen)
-            }
-            
             ageTF.resignFirstResponder() // resigning it when clicking done
         } else if sizeTF.isFirstResponder { // bool for size textfield's first responder
-            if sizeTF.text == ""{
-                sizeTF.text = dogManager.fetchEnum.first?.rawValue
-            }
+            sizeReturner(sizeTF)
             sizeTF.resignFirstResponder() // resigning the first responder (picker)
         } else if weightTF.isFirstResponder { // bool for weight textfield's first responder
             weightTF.resignFirstResponder() // resigning the first responder (picker)
         }
         HapticsManager.shared.vibrate(for: .success)
+    }
+    
+    func sizeReturner(_ sizeTF:UITextField){
+        if sizeTF.text == ""{
+            sizeTF.text = dogManager.fetchEnum.first?.rawValue
+        }
     }
     
 }

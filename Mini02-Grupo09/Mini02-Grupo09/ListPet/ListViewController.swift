@@ -3,11 +3,7 @@ import UIKit
 
 class ListViewController: UIViewController {
     
-    var data = [
-        PetData(name: "Kalel", size: "Giant", age: "2", weight: "60"),
-        PetData(name: "Rodrigo", size: "Mini", age: "1", weight: "5"),
-        PetData(name: "Haguna", size: "Mini", age: "2", weight: "3")
-    ]
+    var dogManager = DogManager()
 
     var selectedIndex: IndexPath = IndexPath(row: 0, section: 0)
     
