@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class CustomAddPetToTaskCell: UITableViewCell {
-    let dogManager = DogManager()
+    let dogManager = DogManager.shared
     
     let dogImage: UIImageView = UIImageView()
     let dogName: String?
