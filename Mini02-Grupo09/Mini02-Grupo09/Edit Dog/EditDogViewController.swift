@@ -12,6 +12,7 @@ class EditDogViewController: UIViewController {
     
     var newView = EditDogView() // defining view
     var dog: Dog
+    weak var listViewController: ListViewController?
     
     private let viewModel = EditDogViewModel() // creating a viewModel
     
@@ -49,7 +50,7 @@ class EditDogViewController: UIViewController {
     // MARK: beginning of function declarations
     
     @objc func buttonFunc() { // defining the submit button (add button) func
-        viewModel.editDog(image: newView.imgButton.image!, name: newView.nameTF.text, age: newView.ageTF.text ?? "", weight: newView.weightTF.text ?? "", size: newView.sizeTF.text ?? "", viewController: self)
+        viewModel.editDog(image: newView.imgButton.image!, name: newView.nameTF.text, age: newView.ageTF.text ?? "", weight: newView.weightTF.text ?? "", size: newView.sizeTF.text ?? "", viewController: listViewController)
     }
     
     @objc func imgButtonFunc(){ // presenting the image picker
@@ -109,7 +110,7 @@ class EditDogViewController: UIViewController {
     }
     
     func editSetup(){
-        newView.imgButton.image = UIImage(data: dog.image)
+        newView.imgButton.image = UIImage(data: dog.image!)
         newView.nameTF.text = dog.name
         newView.ageTF.text = "\(dog.age)"
         newView.sizeTF.text = dog.size
@@ -117,3 +118,39 @@ class EditDogViewController: UIViewController {
         
     }
 }
+
+// MARK: making the view controller conform to protocols
+
+extension EditDogViewController: UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate{ // extending the view so it conforms to a few protocols
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1 // returning the num. of components for every picker (only used for size picker)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 5 // returning the num. of rows for the main picker component (only used for size picker)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return viewModel.dogManager.fetchEnum[row].localized // returning each text for picker rows (only used for size picker)
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        newView.sizeTF.text = viewModel.dogManager.fetchEnum[row].rawValue // binding picker's component to the text field
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        newView.imgButton.image = info[.originalImage] as? UIImage // setting the image to the image button
+        dismiss(animated: true) // dismissing image picker
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+}
+

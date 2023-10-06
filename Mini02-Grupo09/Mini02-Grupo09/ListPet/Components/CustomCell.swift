@@ -9,12 +9,11 @@ import UIKit
 
 class CustomCell: UITableViewCell {
     
-    var listController = ListViewController()
-    
     var dog: Dog
+    var listViewController: ListViewController
     var isOpened = true
     
-    //MARK: itens a serem preenchidos pelo usuário
+    //MARK: Itens a serem preenchidos pelo usuário
     let myImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
@@ -172,13 +171,15 @@ class CustomCell: UITableViewCell {
         return stack
     }()
     
-    init(reuseIdentifier: String?, dog: Dog) {
+    init(reuseIdentifier: String?, dog: Dog, listViewController: ListViewController) {
         self.dog = dog
+        self.listViewController = listViewController
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         
         setupLabels()
-        
         setupView()
+        
+        button.addTarget(self, action: #selector(editButtonTapped), for: .touchUpInside)
     }
     
     func setupLabels(){
@@ -190,11 +191,8 @@ class CustomCell: UITableViewCell {
         weight.text = "\(dog.weight)"
     }
     
-    
     func setupView(){
         contentView.addSubview(container)
-
-        button.addTarget(self, action: #selector(listController.editButtonTapped), for: .touchUpInside)
 
         stackTop.addArrangedSubview(myImageView)
         stackTop.addArrangedSubview(name)
@@ -272,6 +270,28 @@ class CustomCell: UITableViewCell {
 
         ])
     }
+    
+    @objc func editButtonTapped() {
+        // Obtém a referência à superview até chegar à UITableView
+        var responder: UIResponder? = self
+        while responder != nil && !(responder is UITableView) {
+            responder = responder?.next
+        }
+
+        // Verifica se a superview é uma UITableView e obtém a célula selecionada
+        if let tableView = responder as? UITableView, let indexPath = tableView.indexPath(for: self) {
+            // Obtém a referência à UIViewController que contém a UITableView
+            if let viewController = tableView.delegate as? UIViewController {
+                // Cria a EditDogView e passa o objeto 'dog'
+                let editDogViewController = EditDogViewController(dog: dog)
+                editDogViewController.listViewController = self.listViewController
+                
+
+                viewController.navigationController?.pushViewController(editDogViewController, animated: true)
+            }
+        }
+    }
+
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -3,7 +3,9 @@ import UIKit
 
 class ListViewController: UIViewController {
     
-    var dogManager = DogManager()
+    var editButtonCallback: (() -> Void)?
+    
+    var dogManager = DogManager.shared
 
     var selectedIndex: IndexPath = IndexPath(row: 0, section: 0)
     
@@ -18,11 +20,6 @@ class ListViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         
-    }
-    
-    @objc func editButtonTapped() {
-        let editViewController = EditDogViewController(dog: ) // Substitua EditViewController pelo nome real da sua EditView
-        navigationController?.pushViewController(editViewController, animated: true)
     }
     
     func setupTableView() {
@@ -45,7 +42,7 @@ class ListViewController: UIViewController {
 
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = CustomCell(reuseIdentifier: "cell", dog: dogManager.dogs[indexPath.row])
+        let cell = CustomCell(reuseIdentifier: "cell", dog: dogManager.dogs[indexPath.row], listViewController: self)
         
         cell.dog = dogManager.dogs[indexPath.row]
         cell.selectionStyle = .none
