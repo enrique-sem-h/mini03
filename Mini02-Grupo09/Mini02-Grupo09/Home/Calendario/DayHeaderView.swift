@@ -109,6 +109,7 @@ public final class DayHeaderView: UIView, DaySelectorDelegate, DayViewStateUpdat
         separator.backgroundColor = style.separatorColor
     }
 
+    // aqui organiza a posicao dos negocios do calendario
     override public func layoutSubviews() {
         super.layoutSubviews()
         daySymbolsView.frame = CGRect(origin: CGPoint(x: .zero, y: daySymbolsViewHeight),

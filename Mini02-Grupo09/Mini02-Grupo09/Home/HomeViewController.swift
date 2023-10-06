@@ -30,7 +30,9 @@ class HomeViewController: UIViewController {
         // Configurando botõe da view
         newView.addTaskButton.addTarget(self, action: #selector(showAddTaskView), for: .touchUpInside)
         
+        // configurando o titulo da navigation view
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.barTintColor = .gray
         
         title = "Tarefas"
     }
