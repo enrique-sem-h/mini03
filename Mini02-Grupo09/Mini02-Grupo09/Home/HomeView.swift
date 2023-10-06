@@ -56,7 +56,7 @@ class HomeView: UIView {
         
         // Botão de adicionar tarefa
         addTaskButton.translatesAutoresizingMaskIntoConstraints = false
-        addTaskButton.setImage(UIImage(named: "addTaskButton"), for: .normal)
+        addTaskButton.setImage(UIImage(named: "AddTaskButton"), for: .normal)
         addTaskButton.frame = CGRect(x: 0, y: 0, width: 47, height: 47)
         self.addSubview(addTaskButton)
         
