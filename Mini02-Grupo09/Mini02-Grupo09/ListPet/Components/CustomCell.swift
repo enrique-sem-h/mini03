@@ -9,10 +9,12 @@ import UIKit
 
 class CustomCell: UITableViewCell {
     
-    var dog: Dog
-    var isOpened = false
+    var listController = ListViewController()
     
-    //MARK: Itens a serem preenchidos pelo usuário
+    var dog: Dog
+    var isOpened = true
+    
+    //MARK: itens a serem preenchidos pelo usuário
     let myImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
@@ -188,8 +190,11 @@ class CustomCell: UITableViewCell {
         weight.text = "\(dog.weight)"
     }
     
+    
     func setupView(){
         contentView.addSubview(container)
+
+        button.addTarget(self, action: #selector(listController.editButtonTapped), for: .touchUpInside)
 
         stackTop.addArrangedSubview(myImageView)
         stackTop.addArrangedSubview(name)

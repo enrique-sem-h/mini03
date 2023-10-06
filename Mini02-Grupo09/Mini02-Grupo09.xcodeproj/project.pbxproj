@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2E6B49B32ABE266A00DB149B /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6B49B22ABE266A00DB149B /* ListViewController.swift */; };
-		2ECC58642AC4C249009BF6DD /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECC58632AC4C249009BF6DD /* ListModel.swift */; };
 		2ECC58662AC5A2F7009BF6DD /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECC58652AC5A2F7009BF6DD /* CustomCell.swift */; };
 		2ECC586E2AC61523009BF6DD /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECC586D2AC61523009BF6DD /* ListViewModel.swift */; };
+		2ECC587A2AD0806F009BF6DD /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECC58792AD0806F009BF6DD /* EditViewController.swift */; };
+		2ECC587C2AD082B8009BF6DD /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECC587B2AD082B8009BF6DD /* ListView.swift */; };
 		318640A02ACCDB75007E6B43 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 3186409E2ACCDB75007E6B43 /* Localizable.xcstrings */; };
 		318640A12ACCDB75007E6B43 /* EnumLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3186409F2ACCDB75007E6B43 /* EnumLocalization.swift */; };
 		318640A72ACCE0AD007E6B43 /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318640A42ACCE0AD007E6B43 /* EditTaskView.swift */; };
@@ -43,9 +44,10 @@
 
 /* Begin PBXFileReference section */
 		2E6B49B22ABE266A00DB149B /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		2ECC58632AC4C249009BF6DD /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		2ECC58652AC5A2F7009BF6DD /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		2ECC586D2AC61523009BF6DD /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		2ECC58792AD0806F009BF6DD /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		2ECC587B2AD082B8009BF6DD /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		3186409E2ACCDB75007E6B43 /* Localizable.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		3186409F2ACCDB75007E6B43 /* EnumLocalization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumLocalization.swift; sourceTree = "<group>"; };
 		318640A42ACCE0AD007E6B43 /* EditTaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
@@ -94,7 +96,7 @@
 			children = (
 				2E6B49B22ABE266A00DB149B /* ListViewController.swift */,
 				2ECC586D2AC61523009BF6DD /* ListViewModel.swift */,
-				2ECC58632AC4C249009BF6DD /* ListModel.swift */,
+				2ECC587B2AD082B8009BF6DD /* ListView.swift */,
 				2ECC58702ACB4164009BF6DD /* Components */,
 			);
 			path = ListPet;
@@ -148,6 +150,7 @@
 			children = (
 				31B21E7B2ABE059A0096F1AB /* AppDelegate.swift */,
 				31B21E7D2ABE059A0096F1AB /* SceneDelegate.swift */,
+				2ECC58792AD0806F009BF6DD /* EditViewController.swift */,
 				D3622D0A2AC9DAF70063FAAE /* Home */,
 				2E6B49B62AC219A300DB149B /* ListPet */,
 				D3622CFC2AC74FA20063FAAE /* AddTaskView */,
@@ -323,6 +326,7 @@
 			files = (
 				D3622D002AC76B220063FAAE /* AddTaskView.swift in Sources */,
 				D3622D1A2AC9DC3D0063FAAE /* EditTaskModalViewController.swift in Sources */,
+				2ECC587C2AD082B8009BF6DD /* ListView.swift in Sources */,
 				D3622D102AC9DB400063FAAE /* HomeViewModel.swift in Sources */,
 				D3622D022AC76B2F0063FAAE /* AddTaskViewModel.swift in Sources */,
 				D3622D182AC9DC220063FAAE /* EditTaskModalView.swift in Sources */,
@@ -341,7 +345,7 @@
 				31E9E45C2AC2242C00AECCEB /* DogManager.swift in Sources */,
 				2E6B49B32ABE266A00DB149B /* ListViewController.swift in Sources */,
 				2ECC586E2AC61523009BF6DD /* ListViewModel.swift in Sources */,
-				2ECC58642AC4C249009BF6DD /* ListModel.swift in Sources */,
+				2ECC587A2AD0806F009BF6DD /* EditViewController.swift in Sources */,
 				31B21E7C2ABE059A0096F1AB /* AppDelegate.swift in Sources */,
 				31C2C5382AC7667800276D67 /* HapticsManager.swift in Sources */,
 				D3622D1C2AC9DC560063FAAE /* EditTaskModalViewModel.swift in Sources */,
@@ -493,7 +497,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HX623XK8T6;
+				DEVELOPMENT_TEAM = J7Y95G67T3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Mini02-Grupo09/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -520,7 +524,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HX623XK8T6;
+				DEVELOPMENT_TEAM = J7Y95G67T3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Mini02-Grupo09/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
