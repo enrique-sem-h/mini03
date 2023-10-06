@@ -27,6 +27,18 @@
 		31D1B8362AC4579200EE0C69 /* AddDogViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D1B8352AC4579200EE0C69 /* AddDogViewVM.swift */; };
 		31E9E45A2AC222EB00AECCEB /* AppModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 31E9E4582AC222EB00AECCEB /* AppModel.xcdatamodeld */; };
 		31E9E45C2AC2242C00AECCEB /* DogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9E45B2AC2242C00AECCEB /* DogManager.swift */; };
+		556F17832ACE005A0067DBC0 /* Array+Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F17822ACE005A0067DBC0 /* Array+Shift.swift */; };
+		556F17852ACE00890067DBC0 /* UIColor+SystemColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F17842ACE00890067DBC0 /* UIColor+SystemColor.swift */; };
+		556F17872ACE00EC0067DBC0 /* CalendarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F17862ACE00EC0067DBC0 /* CalendarStyle.swift */; };
+		556F17892ACE012D0067DBC0 /* Date+DateOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F17882ACE012D0067DBC0 /* Date+DateOnly.swift */; };
+		556F178B2ACE01520067DBC0 /* DateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F178A2ACE01520067DBC0 /* DateLabel.swift */; };
+		556F178F2ACE01920067DBC0 /* DayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F178E2ACE01920067DBC0 /* DayHeaderView.swift */; };
+		556F17912ACE01B20067DBC0 /* DaySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F17902ACE01B20067DBC0 /* DaySelector.swift */; };
+		556F17932ACE01D70067DBC0 /* DaySelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F17922ACE01D70067DBC0 /* DaySelectorController.swift */; };
+		556F17952ACE01EF0067DBC0 /* DaySymbolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F17942ACE01EF0067DBC0 /* DaySymbolsView.swift */; };
+		556F17992ACE02320067DBC0 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F17982ACE02320067DBC0 /* DayViewController.swift */; };
+		556F179B2ACE024D0067DBC0 /* DayViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F179A2ACE024D0067DBC0 /* DayViewState.swift */; };
+		556F179D2ACE026A0067DBC0 /* SwipeLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F179C2ACE026A0067DBC0 /* SwipeLabelView.swift */; };
 		D3622D002AC76B220063FAAE /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622CFF2AC76B220063FAAE /* AddTaskView.swift */; };
 		D3622D022AC76B2F0063FAAE /* AddTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D012AC76B2F0063FAAE /* AddTaskViewModel.swift */; };
 		D3622D042AC76C2B0063FAAE /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D032AC76C2B0063FAAE /* AddTaskViewController.swift */; };
@@ -67,6 +79,18 @@
 		31D1B8352AC4579200EE0C69 /* AddDogViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDogViewVM.swift; sourceTree = "<group>"; };
 		31E9E4592AC222EB00AECCEB /* DogModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DogModel.xcdatamodel; sourceTree = "<group>"; };
 		31E9E45B2AC2242C00AECCEB /* DogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogManager.swift; sourceTree = "<group>"; };
+		556F17822ACE005A0067DBC0 /* Array+Shift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Shift.swift"; sourceTree = "<group>"; };
+		556F17842ACE00890067DBC0 /* UIColor+SystemColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+SystemColor.swift"; sourceTree = "<group>"; };
+		556F17862ACE00EC0067DBC0 /* CalendarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStyle.swift; sourceTree = "<group>"; };
+		556F17882ACE012D0067DBC0 /* Date+DateOnly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DateOnly.swift"; sourceTree = "<group>"; };
+		556F178A2ACE01520067DBC0 /* DateLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLabel.swift; sourceTree = "<group>"; };
+		556F178E2ACE01920067DBC0 /* DayHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayHeaderView.swift; sourceTree = "<group>"; };
+		556F17902ACE01B20067DBC0 /* DaySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySelector.swift; sourceTree = "<group>"; };
+		556F17922ACE01D70067DBC0 /* DaySelectorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySelectorController.swift; sourceTree = "<group>"; };
+		556F17942ACE01EF0067DBC0 /* DaySymbolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySymbolsView.swift; sourceTree = "<group>"; };
+		556F17982ACE02320067DBC0 /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
+		556F179A2ACE024D0067DBC0 /* DayViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewState.swift; sourceTree = "<group>"; };
+		556F179C2ACE026A0067DBC0 /* SwipeLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeLabelView.swift; sourceTree = "<group>"; };
 		D3622CFF2AC76B220063FAAE /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		D3622D012AC76B2F0063FAAE /* AddTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewModel.swift; sourceTree = "<group>"; };
 		D3622D032AC76C2B0063FAAE /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +230,33 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		556F17802ACDFFFB0067DBC0 /* Calendario */ = {
+			isa = PBXGroup;
+			children = (
+				556F17812ACE00400067DBC0 /* Extensions */,
+				556F17862ACE00EC0067DBC0 /* CalendarStyle.swift */,
+				556F178A2ACE01520067DBC0 /* DateLabel.swift */,
+				556F178E2ACE01920067DBC0 /* DayHeaderView.swift */,
+				556F17902ACE01B20067DBC0 /* DaySelector.swift */,
+				556F17922ACE01D70067DBC0 /* DaySelectorController.swift */,
+				556F17942ACE01EF0067DBC0 /* DaySymbolsView.swift */,
+				556F17982ACE02320067DBC0 /* DayViewController.swift */,
+				556F179A2ACE024D0067DBC0 /* DayViewState.swift */,
+				556F179C2ACE026A0067DBC0 /* SwipeLabelView.swift */,
+			);
+			path = Calendario;
+			sourceTree = "<group>";
+		};
+		556F17812ACE00400067DBC0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				556F17822ACE005A0067DBC0 /* Array+Shift.swift */,
+				556F17842ACE00890067DBC0 /* UIColor+SystemColor.swift */,
+				556F17882ACE012D0067DBC0 /* Date+DateOnly.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		D3622CFC2AC74FA20063FAAE /* AddTaskView */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +282,7 @@
 		D3622D0A2AC9DAF70063FAAE /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				556F17802ACDFFFB0067DBC0 /* Calendario */,
 				D3622D0B2AC9DB180063FAAE /* HomeView.swift */,
 				D3622D0D2AC9DB2E0063FAAE /* HomeViewController.swift */,
 				D3622D0F2AC9DB400063FAAE /* HomeViewModel.swift */,
@@ -334,19 +386,25 @@
 				D3622D002AC76B220063FAAE /* AddTaskView.swift in Sources */,
 				D3622D422ACF3C180063FAAE /* CustomAddPetToTaskCell.swift in Sources */,
 				D3622D1A2AC9DC3D0063FAAE /* EditTaskModalViewController.swift in Sources */,
+				556F17952ACE01EF0067DBC0 /* DaySymbolsView.swift in Sources */,
 				D3622D102AC9DB400063FAAE /* HomeViewModel.swift in Sources */,
 				D3622D022AC76B2F0063FAAE /* AddTaskViewModel.swift in Sources */,
+				556F17832ACE005A0067DBC0 /* Array+Shift.swift in Sources */,
 				D3622D182AC9DC220063FAAE /* EditTaskModalView.swift in Sources */,
 				31D1B8362AC4579200EE0C69 /* AddDogViewVM.swift in Sources */,
+				556F17932ACE01D70067DBC0 /* DaySelectorController.swift in Sources */,
 				D3622D0E2AC9DB2E0063FAAE /* HomeViewController.swift in Sources */,
+				556F178F2ACE01920067DBC0 /* DayHeaderView.swift in Sources */,
 				D3622D152AC9DB7A0063FAAE /* CustomTaskCell.swift in Sources */,
 				31A569092AC4B06400DBBEB1 /* AddDogView.swift in Sources */,
 				318640A12ACCDB75007E6B43 /* EnumLocalization.swift in Sources */,
 				D3622D062AC8A4F20063FAAE /* iconPicker.swift in Sources */,
 				31E9E45A2AC222EB00AECCEB /* AppModel.xcdatamodeld in Sources */,
 				318640A72ACCE0AD007E6B43 /* EditTaskView.swift in Sources */,
+				556F178B2ACE01520067DBC0 /* DateLabel.swift in Sources */,
 				318640A92ACCE0AD007E6B43 /* EditTaskViewModel.swift in Sources */,
 				31D1B8342AC4578700EE0C69 /* AddDogViewController.swift in Sources */,
+				556F17912ACE01B20067DBC0 /* DaySelector.swift in Sources */,
 				318640A82ACCE0AD007E6B43 /* EditTaskViewController.swift in Sources */,
 				31C2C5342AC762F200276D67 /* TasksManager.swift in Sources */,
 				31E9E45C2AC2242C00AECCEB /* DogManager.swift in Sources */,
@@ -355,13 +413,19 @@
 				2ECC58642AC4C249009BF6DD /* ListModel.swift in Sources */,
 				D3622D402ACF3A250063FAAE /* addPetToTaskModal.swift in Sources */,
 				31B21E7C2ABE059A0096F1AB /* AppDelegate.swift in Sources */,
+				556F179B2ACE024D0067DBC0 /* DayViewState.swift in Sources */,
 				31C2C5382AC7667800276D67 /* HapticsManager.swift in Sources */,
 				D3622D1C2AC9DC560063FAAE /* EditTaskModalViewModel.swift in Sources */,
+				556F17872ACE00EC0067DBC0 /* CalendarStyle.swift in Sources */,
 				D3622D0C2AC9DB180063FAAE /* HomeView.swift in Sources */,
 				D3622D132AC9DB640063FAAE /* CheckboxView.swift in Sources */,
+				556F17852ACE00890067DBC0 /* UIColor+SystemColor.swift in Sources */,
+				556F17992ACE02320067DBC0 /* DayViewController.swift in Sources */,
+				556F17892ACE012D0067DBC0 /* Date+DateOnly.swift in Sources */,
 				2ECC58662AC5A2F7009BF6DD /* CustomCell.swift in Sources */,
 				31B21E7E2ABE059A0096F1AB /* SceneDelegate.swift in Sources */,
 				D3622D042AC76C2B0063FAAE /* AddTaskViewController.swift in Sources */,
+				556F179D2ACE026A0067DBC0 /* SwipeLabelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
