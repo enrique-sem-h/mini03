@@ -96,8 +96,8 @@ extension addPetToTaskModalViewController: UITableViewDataSource, UITableViewDel
     
     // Função que define a quantidade de linhas na tableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let dogManager = DogManager()
-        return dogManager.dogs.count
+        let dogManager = DogManager.shared
+        return 5
     }
 
     // Função que chama a célula

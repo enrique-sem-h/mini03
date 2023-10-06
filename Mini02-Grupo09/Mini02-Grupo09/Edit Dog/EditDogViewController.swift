@@ -1,25 +1,37 @@
 //
-//  AddDogView.swift
-//  UIKit2
+//  EditViewController.swift
+//  Mini02-Grupo09
 //
-//  Created by Enrique Carvalho on 26/09/23.
+//  Created by GABRIEL Ferreira Cardoso on 06/10/23.
 //
 
 import Foundation
 import UIKit
-import PhotosUI
 
-class AddDogViewController: UIViewController{
+class EditDogViewController: UIViewController {
     
-    var newView = AddDogView() // defining view
+    var newView = EditDogView() // defining view
+    var dog: Dog
+    weak var listViewController: ListViewController?
     
-    private let viewModel = AddDogViewModel(dogManager: DogManager()) // creating a viewModel
+    private let viewModel = EditDogViewModel() // creating a viewModel
+    
+    init(dog: Dog) {
+        self.dog = dog // initializing CD manager
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() { // default viewDidLoad func
         super.viewDidLoad()
+        viewModel.controller = self
+        
         voiceOverSetup()
         
-        viewModel.controller = self
+        editSetup()
         
         newView.frame = self.view.frame
         
@@ -39,7 +51,7 @@ class AddDogViewController: UIViewController{
     // MARK: beginning of function declarations
     
     @objc func buttonFunc() { // defining the submit button (add button) func
-        viewModel.addDog(image: newView.imgButton.image!, name: newView.nameTF.text, age: newView.ageTF.text ?? "", weight: newView.weightTF.text ?? "", size: newView.sizeTF.text ?? "", viewController: self)
+        viewModel.editDog(image: newView.imgButton.image!, name: newView.nameTF.text, age: newView.ageTF.text ?? "", weight: newView.weightTF.text ?? "", size: newView.sizeTF.text ?? "", viewController: listViewController)
     }
     
     @objc func ageCalculator(){
@@ -115,11 +127,19 @@ class AddDogViewController: UIViewController{
         
     }
     
+    func editSetup(){
+        newView.imgButton.image = UIImage(data: dog.image!)
+        newView.nameTF.text = dog.name
+        newView.ageTF.text = "\(dog.age)"
+        newView.sizeTF.text = dog.size
+        newView.weightTF.text = "\(dog.weight)"
+        
+    }
 }
 
 // MARK: making the view controller conform to protocols
 
-extension AddDogViewController: UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate{ // extending the view so it conforms to a few protocols
+extension EditDogViewController: UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate{ // extending the view so it conforms to a few protocols
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1 // returning the num. of components for every picker (only used for size picker)
     }
@@ -154,3 +174,4 @@ extension AddDogViewController: UIPickerViewDelegate, UIPickerViewDataSource, UI
     }
     
 }
+
