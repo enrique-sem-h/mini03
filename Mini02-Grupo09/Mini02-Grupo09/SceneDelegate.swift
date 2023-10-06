@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: appWindow)
         
-        let navigationController = UINavigationController(rootViewController: HomeViewController())
+        let navigationController = UINavigationController(rootViewController: AddDogViewController())
         
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
