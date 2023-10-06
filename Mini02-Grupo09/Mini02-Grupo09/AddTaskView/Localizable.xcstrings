@@ -28,7 +28,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Diária"
+            "value" : "Diaria"
           }
         }
       }
@@ -74,26 +74,6 @@
         }
       }
     },
-    "It seems there was a little 'fetch' error while adding your new furry friend. Please 'paws' for a moment, check all the fields, and give it another 'bark'!" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Parece que algo deu 'patada' ao adicionar o seu novo amiguinho de quatro patas. Por favor, dê uma olhada nos campos e tente novamente!"
-          }
-        }
-      }
-    },
-    "It seems there was a little error while adding your new friend. Please 'paws' for a moment, and try again!" : {
-
-    },
-    "It seems there was a little error while adding your task. Please check all the fields, and give it another 'bark'!" : {
-
-    },
-    "It seems there was a little error while editing your task. Please check all the fields, and give it another 'bark'!" : {
-
-    },
     "Mid-Sized" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -101,17 +81,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Médio"
-          }
-        }
-      }
-    },
-    "Mini" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mini"
           }
         }
       }
@@ -138,14 +107,7 @@
       }
     },
     "New Dog" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Novo Cachorro"
-          }
-        }
-      }
+
     },
     "New Task" : {
       "localizations" : {
@@ -168,16 +130,6 @@
         }
       }
     },
-    "Oops! A Paw-sible Mishap 🐾" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Au-au! Algo Inesperado Aconteceu 🐾"
-          }
-        }
-      }
-    },
     "Pets" : {
       "localizations" : {
         "pt-BR" : {
@@ -193,7 +145,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Porte"
+            "value" : "Tamanho"
           }
         }
       }
@@ -234,7 +186,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Insira suas anotações aqui"
+            "value" : "Insira suas anotações"
           }
         }
       }

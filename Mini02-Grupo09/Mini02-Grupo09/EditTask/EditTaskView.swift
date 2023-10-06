@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-class AddTaskView: UIView {
+class EditTaskView: UIView {
     let viewTitle = UILabel() // Título da view (Criar tarefa ou Editar tarefa)
     let closeModalButton = UIButton() // Botão para fechar a modal
     
     let taskTitleTF = UITextField() // TextField do título da tarefa
-    let iconPicker = IconPicker() // Picker de ícones
+    let iconPicker = UIButton(type: .custom) // Picker de ícones
     let addPetButton = UIButton(type: .custom) // Botão para adicionar pet
     let datePicker = UIDatePicker() // Picker de data
     let frequencyPicker = UISegmentedControl(items: TasksManager().fetchEnum) // Picker da frequência
@@ -21,14 +21,14 @@ class AddTaskView: UIView {
     
     let doneButton = UIButton(type: .custom)
     
-    weak var viewController: AddTaskViewController?
+    weak var viewController: EditTaskViewController?
     
     func setup() {
         self.backgroundColor = .systemBackground
         
         // Configuração do título da view
         viewTitle.translatesAutoresizingMaskIntoConstraints = false
-        viewTitle.text = String(localized: "New Task")
+        viewTitle.text = String(localized: "Edit Task")
         viewTitle.font = UIFont.systemFont(ofSize: 24, weight: .heavy)
         viewTitle.textAlignment = .center
         viewTitle.backgroundColor = .gray
@@ -48,7 +48,8 @@ class AddTaskView: UIView {
         self.addSubview(tarefaLabel)
         
         // Configuração do iconPicker
-        iconPicker.viewController = self.viewController
+        iconPicker.translatesAutoresizingMaskIntoConstraints = false
+        iconPicker.setImage(UIImage(named: "iconPicker"), for: .normal)
         self.addSubview(iconPicker)
         
         // Configuração do TextField do título
@@ -91,6 +92,7 @@ class AddTaskView: UIView {
         datePicker.preferredDatePickerStyle = .compact
         datePicker.minimumDate = Calendar.current.date(byAdding: .day, value: 0, to: Date())
         datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: 1, to: Date())
+//        datePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
         self.addSubview(datePicker)
         
         // Configuração do frequencyPicker
@@ -116,7 +118,7 @@ class AddTaskView: UIView {
         
         
         NSLayoutConstraint.activate([
-                
+            
             // Constraints do botão de fechar modal
             closeModalButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 28),
             closeModalButton.centerYAnchor.constraint(equalTo: viewTitle.centerYAnchor),
@@ -132,9 +134,6 @@ class AddTaskView: UIView {
             tarefaLabel.leadingAnchor.constraint(equalTo: iconPicker.leadingAnchor),
             
             // Constraints da StackView do iconPicker e do taskTitleTF e seus elementos
-            iconPicker.widthAnchor.constraint(equalToConstant: 54),
-            iconPicker.heightAnchor.constraint(equalToConstant: 50),
-            
             taskTitleTF.widthAnchor.constraint(equalToConstant: 265),
             
             iPtTStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),

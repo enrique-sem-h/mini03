@@ -8,24 +8,33 @@
 import Foundation
 import UIKit
 
-class AddTaskViewController: UIViewController {
-    let newView = AddTaskView()
-    let viewModel = AddTaskViewModel()
+class EditTaskViewController: UIViewController {
+    let newView = EditTaskView() // configuring view for display
+    let viewModel = EditTaskViewModel() // calling an instance of the view model
+    var task: DogTask // calling the task to be edited
+    
+    init(task: DogTask) { // initializing the task
+        self.task = task
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad() // calling superview func
         
-        self.viewModel.viewController = self
+        self.viewModel.viewController = self // assigning self as the view model's view controller
     
-        // Configuração da view
+        // View settings
         newView.frame = view.frame
         self.view = newView
         newView.setup()
+        editSetup()
         
-        newView.taskTitleTF.delegate = self
-        newView.notesTF.delegate = self
-        
-        // Configuração dos botões da view
+        // View button settings
         newView.closeModalButton.addTarget(self, action: #selector(closeModalButtonTapped), for: .touchUpInside)
         
         newView.iconPicker.addTarget(self, action: #selector(iconPickerTapped), for: .touchUpInside)
@@ -40,7 +49,7 @@ class AddTaskViewController: UIViewController {
     }
     
     @objc func iconPickerTapped() {
-        viewModel.chooseIcon(iconPickerRoot: newView.iconPicker)
+        viewModel.chooseIcon()
     }
     
     @objc func addPetButtonTapped() {
@@ -57,18 +66,41 @@ class AddTaskViewController: UIViewController {
             return
         }
         
-        viewModel.addTask(icon: newView.iconPicker.iconView.image, title: newView.taskTitleTF.text, dogs: nil, date: newView.datePicker.date, frequency: TasksManager.Frequency(rawValue: frequencyRV), notes: newView.notesTF.text)
+//        viewModel.editTask(icon: newView.iconPicker.image(for: .normal), title: newView.taskTitleTF.text, dogs: nil, date: newView.datePicker.date, frequency: TasksManager.Frequency(rawValue: frequencyRV), notes: newView.notesTF.text)
     }
     
     func errorAlert (){
-        let alert = UIAlertController(title: String(localized: "Oops! A Paw-sible Mishap 🐾"), message: String(localized: "It seems there was a little error while adding your task. Please check all the fields, and give it another 'bark'!"), preferredStyle: .alert)
+        let alert = UIAlertController(title: String(localized: "Oops! A Paw-sible Mishap 🐾"), message: String(localized: "It seems there was a little error while editing your task. Please check all the fields, and give it another 'bark'!"), preferredStyle: .alert)
         alert.addAction(.init(title: "OK", style: .default))
         self.present(alert, animated: true)
         HapticsManager.shared.vibrate(for: .warning)
     }
+    
+    func editSetup(){
+        var index: Int{
+            get{
+                for i in 0..<viewModel.tasksManager.fetchEnum.count{
+                    if task.frequency == viewModel.tasksManager.fetchEnum[i]{
+                        return i
+                    }
+                }
+                return 0
+            }
+        }
+        
+        newView.taskTitleTF.delegate = self
+        newView.taskTitleTF.text = task.title
+        
+        newView.datePicker.date = task.date!
+        
+        newView.frequencyPicker.selectedSegmentIndex = index
+        
+        newView.notesTF.delegate = self
+        newView.notesTF.text = task.notes
+    }
 }
 
-extension AddTaskViewController: UITextFieldDelegate, UITextViewDelegate {
+extension EditTaskViewController: UITextFieldDelegate, UITextViewDelegate {
     
     // Essa função faz o teclado dar dismiss ao apertar a tecla return no TextField
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -85,15 +117,5 @@ extension AddTaskViewController: UITextFieldDelegate, UITextViewDelegate {
             }
         }
         return true
-    }
-}
-
-extension UITextField {
-    func addBottomBorderWithColor(color: UIColor) {
-        self.borderStyle = .none
-        let border = CALayer()
-        border.backgroundColor = color.cgColor
-        border.frame = CGRect(x: 0, y: self.frame.height, width: self.frame.size.width, height: 1)
-        self.layer.addSublayer(border)
     }
 }

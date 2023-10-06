@@ -11,6 +11,11 @@
 		2ECC58642AC4C249009BF6DD /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECC58632AC4C249009BF6DD /* ListModel.swift */; };
 		2ECC58662AC5A2F7009BF6DD /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECC58652AC5A2F7009BF6DD /* CustomCell.swift */; };
 		2ECC586E2AC61523009BF6DD /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECC586D2AC61523009BF6DD /* ListViewModel.swift */; };
+		318640A02ACCDB75007E6B43 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 3186409E2ACCDB75007E6B43 /* Localizable.xcstrings */; };
+		318640A12ACCDB75007E6B43 /* EnumLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3186409F2ACCDB75007E6B43 /* EnumLocalization.swift */; };
+		318640A72ACCE0AD007E6B43 /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318640A42ACCE0AD007E6B43 /* EditTaskView.swift */; };
+		318640A82ACCE0AD007E6B43 /* EditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318640A52ACCE0AD007E6B43 /* EditTaskViewController.swift */; };
+		318640A92ACCE0AD007E6B43 /* EditTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318640A62ACCE0AD007E6B43 /* EditTaskViewModel.swift */; };
 		31A569092AC4B06400DBBEB1 /* AddDogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A569082AC4B06400DBBEB1 /* AddDogView.swift */; };
 		31B21E7C2ABE059A0096F1AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B21E7B2ABE059A0096F1AB /* AppDelegate.swift */; };
 		31B21E7E2ABE059A0096F1AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B21E7D2ABE059A0096F1AB /* SceneDelegate.swift */; };
@@ -44,6 +49,11 @@
 		2ECC58632AC4C249009BF6DD /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		2ECC58652AC5A2F7009BF6DD /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		2ECC586D2AC61523009BF6DD /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		3186409E2ACCDB75007E6B43 /* Localizable.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		3186409F2ACCDB75007E6B43 /* EnumLocalization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumLocalization.swift; sourceTree = "<group>"; };
+		318640A42ACCE0AD007E6B43 /* EditTaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
+		318640A52ACCE0AD007E6B43 /* EditTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTaskViewController.swift; sourceTree = "<group>"; };
+		318640A62ACCE0AD007E6B43 /* EditTaskViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTaskViewModel.swift; sourceTree = "<group>"; };
 		31A569082AC4B06400DBBEB1 /* AddDogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDogView.swift; sourceTree = "<group>"; };
 		31B21E782ABE059A0096F1AB /* Mini02-Grupo09.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mini02-Grupo09.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31B21E7B2ABE059A0096F1AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +114,25 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		318640A22ACCDB7C007E6B43 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				3186409F2ACCDB75007E6B43 /* EnumLocalization.swift */,
+				3186409E2ACCDB75007E6B43 /* Localizable.xcstrings */,
+			);
+			name = Localization;
+			sourceTree = "<group>";
+		};
+		318640A32ACCE067007E6B43 /* EditTask */ = {
+			isa = PBXGroup;
+			children = (
+				318640A42ACCE0AD007E6B43 /* EditTaskView.swift */,
+				318640A52ACCE0AD007E6B43 /* EditTaskViewController.swift */,
+				318640A62ACCE0AD007E6B43 /* EditTaskViewModel.swift */,
+			);
+			path = EditTask;
+			sourceTree = "<group>";
+		};
 		31B21E6F2ABE059A0096F1AB = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +158,7 @@
 				2E6B49B62AC219A300DB149B /* ListPet */,
 				D3622CFC2AC74FA20063FAAE /* AddTaskView */,
 				D3622D162AC9DC080063FAAE /* EditTaskModal */,
+				318640A32ACCE067007E6B43 /* EditTask */,
 				31D1B8372AC4579600EE0C69 /* Add Dog */,
 				31E9E4572AC221D200AECCEB /* Model */,
 				31C2C5352AC7664B00276D67 /* Utils */,
@@ -151,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				31C2C5372AC7667800276D67 /* HapticsManager.swift */,
+				318640A22ACCDB7C007E6B43 /* Localization */,
 			);
 			name = Haptics;
 			sourceTree = "<group>";
@@ -269,6 +300,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 31B21E6F2ABE059A0096F1AB;
 			productRefGroup = 31B21E792ABE059A0096F1AB /* Products */;
@@ -287,6 +319,7 @@
 			files = (
 				31B21E882ABE059B0096F1AB /* LaunchScreen.storyboard in Resources */,
 				31B21E852ABE059B0096F1AB /* Assets.xcassets in Resources */,
+				318640A02ACCDB75007E6B43 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,9 +341,13 @@
 				D3622D0E2AC9DB2E0063FAAE /* HomeViewController.swift in Sources */,
 				D3622D152AC9DB7A0063FAAE /* CustomTaskCell.swift in Sources */,
 				31A569092AC4B06400DBBEB1 /* AddDogView.swift in Sources */,
+				318640A12ACCDB75007E6B43 /* EnumLocalization.swift in Sources */,
 				D3622D062AC8A4F20063FAAE /* iconPicker.swift in Sources */,
 				31E9E45A2AC222EB00AECCEB /* AppModel.xcdatamodeld in Sources */,
+				318640A72ACCE0AD007E6B43 /* EditTaskView.swift in Sources */,
+				318640A92ACCE0AD007E6B43 /* EditTaskViewModel.swift in Sources */,
 				31D1B8342AC4578700EE0C69 /* AddDogViewController.swift in Sources */,
+				318640A82ACCE0AD007E6B43 /* EditTaskViewController.swift in Sources */,
 				31C2C5342AC762F200276D67 /* TasksManager.swift in Sources */,
 				31E9E45C2AC2242C00AECCEB /* DogManager.swift in Sources */,
 				2E6B49B32ABE266A00DB149B /* ListViewController.swift in Sources */,
