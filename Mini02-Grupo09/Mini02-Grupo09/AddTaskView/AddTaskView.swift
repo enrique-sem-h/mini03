@@ -21,6 +21,8 @@ class AddTaskView: UIView {
     
     let doneButton = UIButton(type: .custom)
     
+    let petsStackView = UIStackView()
+    
     weak var viewController: AddTaskViewController?
     
     func setup() {
@@ -80,7 +82,7 @@ class AddTaskView: UIView {
         self.addSubview(addPetButton)
         
         // StackView dos Pets (Quando um pet for adicionado, ele deve ser adicionado na view dentro dessa stackview. Tem que dar um jeito de scrollar ela também)
-        let petsStackView = UIStackView(arrangedSubviews: [addPetButton])
+        petsStackView.addArrangedSubview(addPetButton)
         petsStackView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(petsStackView)
         

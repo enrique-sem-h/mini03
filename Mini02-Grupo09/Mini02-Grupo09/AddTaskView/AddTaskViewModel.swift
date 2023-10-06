@@ -30,7 +30,7 @@ class AddTaskViewModel {
     }
     
     func choosePet() {
-        let vc = addPetToTaskModalViewController()
+        let vc = addPetToTaskModalViewController(superViewController: viewController)
         
         let navVC = UINavigationController(rootViewController: vc)
         navVC.setNavigationBarHidden(true, animated: false)
