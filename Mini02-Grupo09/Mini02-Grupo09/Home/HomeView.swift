@@ -103,19 +103,18 @@ class HomeView: UIView {
             
             
             // Constraints do calendario
-            dayHeaderView.leadingAnchor.constraint(equalTo: self.leadingAnchor), // Ou ajuste conforme necessário
+            dayHeaderView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             dayHeaderView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             dayHeaderView.widthAnchor.constraint(equalTo: self.widthAnchor),
-            dayHeaderView.heightAnchor.constraint(equalToConstant: 70) // Ou ajuste conforme necessário
+            dayHeaderView.heightAnchor.constraint(equalToConstant: 70)
         ])
     }
     
     
-    // a partir daq é só maluquice do samuel
+    // calendario
     
     public weak var delegate: HomeViewDelegate?
     
-    /// Hides or shows header view
     public var isHeaderViewVisible = true {
         didSet {
             headerHeight = isHeaderViewVisible ? HomeView.headerVisibleHeight : 0
@@ -124,7 +123,6 @@ class HomeView: UIView {
             configureLayout()
         }
     }
-    
     
     private static let headerVisibleHeight: Double = 88
     public var headerHeight: Double = headerVisibleHeight
@@ -179,9 +177,9 @@ class HomeView: UIView {
         dayHeaderView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
         dayHeaderView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
         dayHeaderView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-        let heightConstraint = dayHeaderView.heightAnchor.constraint(equalToConstant: headerHeight)
-        heightConstraint.priority = .defaultLow
-        heightConstraint.isActive = true
+//        let heightConstraint = dayHeaderView.heightAnchor.constraint(equalToConstant: headerHeight)
+//        heightConstraint.priority = .defaultLow
+//        heightConstraint.isActive = true
         
     }
     

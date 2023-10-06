@@ -32,7 +32,6 @@
 		556F17872ACE00EC0067DBC0 /* CalendarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F17862ACE00EC0067DBC0 /* CalendarStyle.swift */; };
 		556F17892ACE012D0067DBC0 /* Date+DateOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F17882ACE012D0067DBC0 /* Date+DateOnly.swift */; };
 		556F178B2ACE01520067DBC0 /* DateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F178A2ACE01520067DBC0 /* DateLabel.swift */; };
-		556F178D2ACE01720067DBC0 /* DayDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F178C2ACE01720067DBC0 /* DayDateCell.swift */; };
 		556F178F2ACE01920067DBC0 /* DayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F178E2ACE01920067DBC0 /* DayHeaderView.swift */; };
 		556F17912ACE01B20067DBC0 /* DaySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F17902ACE01B20067DBC0 /* DaySelector.swift */; };
 		556F17932ACE01D70067DBC0 /* DaySelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F17922ACE01D70067DBC0 /* DaySelectorController.swift */; };
@@ -82,7 +81,6 @@
 		556F17862ACE00EC0067DBC0 /* CalendarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStyle.swift; sourceTree = "<group>"; };
 		556F17882ACE012D0067DBC0 /* Date+DateOnly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DateOnly.swift"; sourceTree = "<group>"; };
 		556F178A2ACE01520067DBC0 /* DateLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLabel.swift; sourceTree = "<group>"; };
-		556F178C2ACE01720067DBC0 /* DayDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDateCell.swift; sourceTree = "<group>"; };
 		556F178E2ACE01920067DBC0 /* DayHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayHeaderView.swift; sourceTree = "<group>"; };
 		556F17902ACE01B20067DBC0 /* DaySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySelector.swift; sourceTree = "<group>"; };
 		556F17922ACE01D70067DBC0 /* DaySelectorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySelectorController.swift; sourceTree = "<group>"; };
@@ -232,7 +230,6 @@
 				556F17812ACE00400067DBC0 /* Extensions */,
 				556F17862ACE00EC0067DBC0 /* CalendarStyle.swift */,
 				556F178A2ACE01520067DBC0 /* DateLabel.swift */,
-				556F178C2ACE01720067DBC0 /* DayDateCell.swift */,
 				556F178E2ACE01920067DBC0 /* DayHeaderView.swift */,
 				556F17902ACE01B20067DBC0 /* DaySelector.swift */,
 				556F17922ACE01D70067DBC0 /* DaySelectorController.swift */,
@@ -414,7 +411,6 @@
 				556F17992ACE02320067DBC0 /* DayViewController.swift in Sources */,
 				556F17892ACE012D0067DBC0 /* Date+DateOnly.swift in Sources */,
 				2ECC58662AC5A2F7009BF6DD /* CustomCell.swift in Sources */,
-				556F178D2ACE01720067DBC0 /* DayDateCell.swift in Sources */,
 				31B21E7E2ABE059A0096F1AB /* SceneDelegate.swift in Sources */,
 				D3622D042AC76C2B0063FAAE /* AddTaskViewController.swift in Sources */,
 				556F179D2ACE026A0067DBC0 /* SwipeLabelView.swift in Sources */,

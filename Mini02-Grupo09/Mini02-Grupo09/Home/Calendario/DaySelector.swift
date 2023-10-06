@@ -156,12 +156,9 @@ public final class DaySelector: UIView {
     }
     
     public func transitionToHorizontalSizeClass(_ sizeClass: UIUserInterfaceSizeClass) {
-        switch sizeClass {
-        case .regular:
-            initializeViews(viewType: DayDateCell.self)
-        default:
+
             initializeViews(viewType: DateLabel.self)
-        }
+
     }
     
     @objc private func dateLabelDidTap(_ sender: UITapGestureRecognizer) {
