@@ -83,7 +83,7 @@ class addPetToTaskModalViewController: UIViewController {
 
 extension addPetToTaskModalViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let dogManager = DogManager()
+        let dogManager = DogManager.shared
         return 5
     }
 

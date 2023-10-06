@@ -26,7 +26,7 @@ class AddDogViewController: UIViewController{
         self.view = newView // changing the view controller's view
         
         newView.button.addTarget(self, action: #selector(buttonFunc), for: .touchDown) // attaching target to button in this view controller
-        newView.agePicker.addTarget(self, action: #selector(ageCalculator), for: .valueChanged)
+        newView.agePicker.addTarget(self, action: #selector(ageCalculator), for: .valueChanged) // adding target to apply changes on value change
         newView.ageTF.inputAccessoryView = createToolbar() // creating the done button
         newView.sizeTF.inputAccessoryView = createToolbar() // creating the done toolbar
         newView.weightTF.inputAccessoryView = createToolbar() // reating done btn
