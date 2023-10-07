@@ -11,10 +11,17 @@ import UIKit
 class Event {
     var title: String
     var date: Date
+    var frequency: String
+    var id: UUID
+    var notes: String
+    
 
-    init(title: String, date: Date) {
+    init(title: String, date: Date, frequency: String, id: UUID, notes:String) {
         self.title = title
         self.date = date
+        self.frequency = frequency
+        self.id = id
+        self.notes = notes
     }
 }
 
@@ -50,9 +57,9 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func loadEvents() {
        
         events = [
-            Event(title: "Evento 1", date: Date()),
-            Event(title: "Evento 2", date: Date()),
-            Event(title: "Evento 3", date: Date()),
+//            Event(title: "Evento 1", date: Date(), frequency: "daily", id: <#UUID#>, id: , notes:"a"),
+//            Event(title: "Evento 2", date: Date(), frequency: "daily", id: <#UUID#>, id: , notes:"a"),
+//            Event(title: "Evento 3", date: Date(), frequency: "daily", id: <#UUID#>, id: , notes:"a"),
            
         ]
 
