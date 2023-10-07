@@ -16,7 +16,7 @@ class AddTaskView: UIView {
     let iconPicker = IconPicker() // Picker de ícones
     let addPetButton = UIButton(type: .custom) // Botão para adicionar pet
     let datePicker = UIDatePicker() // Picker de data
-    let frequencyPicker = UISegmentedControl(items: TasksManager().fetchEnum) // Picker da frequência
+    let frequencyPicker = UISegmentedControl(items: TasksManager.shared.fetchEnum) // Picker da frequência
     let notesTF = UITextField() // TextField das anotações
     
     let doneButton = UIButton(type: .custom)

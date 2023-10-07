@@ -9,12 +9,9 @@ import Foundation
 import UIKit
 
 class AddDogViewModel{
-    let dogManager: DogManager // defining core data manager
     weak var controller: AddDogViewController?
+    let dogManager = DogManager.shared // defining core data manager
     
-    init(dogManager: DogManager) {
-        self.dogManager = dogManager // initializing CD manager
-    }
     
     func addDog(image: UIImage, name: String?, age: String, weight: String, size: String, viewController: UIViewController) {
         guard let name = name, let age = Int(age), let weight = Float(weight), let size = DogManager.Size(rawValue: size) else {

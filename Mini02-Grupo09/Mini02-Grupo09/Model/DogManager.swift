@@ -12,11 +12,7 @@ import UIKit
 class DogManager: ObservableObject{ // handling the core data stuff
     static let shared = DogManager()
     
-    private let container = NSPersistentContainer(name: "AppModel") // defining the container with the model name
-    
-    private var context: NSManagedObjectContext{
-        return container.viewContext
-    } // defining the context
+    private var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var dogs: [Dog]{
         let array = fetch() // fetching all dogs from core data to the array
@@ -41,13 +37,6 @@ class DogManager: ObservableObject{ // handling the core data stuff
         return sizes
     }
     
-    init(){ // initializing the class
-        container.loadPersistentStores { _, error in // loading the persistent stores and fetching any errors
-            if let error = error{ // handling errors
-                print("Error creating the container - \(error.localizedDescription)")
-            }
-        }
-    }
     
     func save(){ // saving the object to the model
         do{

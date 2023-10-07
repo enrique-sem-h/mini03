@@ -10,6 +10,7 @@ import UIKit
 
 class addPetToTaskModalViewController: UIViewController {
     let superViewController: AddTaskViewController?
+    let dogManager = DogManager.shared
     
     let modalLabel = UILabel()
     let closeModalButton = UIButton()
@@ -102,7 +103,7 @@ extension addPetToTaskModalViewController: UITableViewDataSource, UITableViewDel
 
     // Função que chama a célula
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let dogManager = DogManager()
+        
         let dog = dogManager.dogs[indexPath.row] // Definindo o cachorro pela ordem do array de cachorros salvos
         let cell = CustomAddPetToTaskCell(style: .default, reuseIdentifier: "CustomAddPetToTaskCell", dogImage: UIImage(data: dog.image!), dogName: dog.name, petSelected: true)
         
@@ -115,7 +116,6 @@ extension addPetToTaskModalViewController: UITableViewDataSource, UITableViewDel
             celula.petSelected?.toggle()
             
             // Resgatando o cachorro na ordem da lista
-            let dogManager = DogManager()
             let dog = dogManager.dogs[indexPath.row] // Definindo o cachorro pela ordem do array de cachorros salvos
             
             // Passando a imagem

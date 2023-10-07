@@ -12,7 +12,7 @@ class AddTaskViewModel {
     weak var viewController: AddTaskViewController?
     weak var view: AddTaskView?
     
-    let tasksManager = TasksManager()
+    let tasksManager = TasksManager.shared
     
     func chooseIcon(iconPickerRoot: IconPicker) {
         let vc = iconPickerModalViewController(iconPickerRoot: iconPickerRoot)

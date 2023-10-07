@@ -6,14 +6,20 @@
 //
 
 import UIKit
+import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var persistentContainer = NSPersistentContainer(name: "AppModel")
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        persistentContainer.loadPersistentStores { _, error in // loading the persistent stores and fetching any errors
+            if let error = error{ // handling errors
+                print("Error creating the container - \(error.localizedDescription)")
+            }
+        }
         return true
     }
 

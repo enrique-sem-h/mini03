@@ -14,7 +14,7 @@ class CustomTaskCell: UITableViewCell {
     let titleLabel = UILabel()
     let check = Checkbox()
     
-    let tasksManager = TasksManager()
+    let tasksManager = TasksManager.shared
 
         override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
