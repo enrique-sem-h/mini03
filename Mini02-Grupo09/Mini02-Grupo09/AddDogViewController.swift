@@ -13,7 +13,7 @@ class AddDogViewController: UIViewController{
     
     var newView = AddDogView() // defining view
     
-    private let viewModel = AddDogViewModel(dogManager: DogManager()) // creating a viewModel
+    private let viewModel = AddDogViewModel() // creating a viewModel
     
     override func viewDidLoad() { // default viewDidLoad func
         super.viewDidLoad()

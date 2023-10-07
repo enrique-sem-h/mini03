@@ -11,20 +11,46 @@ import UIKit
 class CustomAddPetToTaskCell: UITableViewCell {
     let dogManager = DogManager.shared
     
-    let dogImage: UIImageView = UIImageView()
-    let dogName: String?
-    let petSelected: Bool?
+    let dogImage: UIImageView = {
+        let dogImage = UIImageView()
+        dogImage.translatesAutoresizingMaskIntoConstraints = false
+        dogImage.contentMode = .scaleAspectFill // scale mode
+        dogImage.layer.cornerRadius = 37 // 74 (Tamanho do círculo) / 2
+        dogImage.clipsToBounds = true
+        return dogImage
+    }()
+    
+    let dogName: UILabel = {
+        let dogName = UILabel()
+        dogName.translatesAutoresizingMaskIntoConstraints = false
+        dogName.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+        return dogName
+    }()
+    
+    var petSelected: Bool? {
+        didSet {
+            symbolSelected.isHidden.toggle()
+        }
+    }
+    
+    let symbolSelected: UIImageView = {
+        let symbolSelected = UIImageView()
+        symbolSelected.translatesAutoresizingMaskIntoConstraints = false
+        symbolSelected.image = UIImage(systemName: "checkmark.circle")
+        symbolSelected.isHidden = true
+        return symbolSelected
+    }()
 
     init(style: UITableViewCell.CellStyle, reuseIdentifier: String?, dogImage: UIImage?, dogName: String?, petSelected: Bool?) {
         self.dogImage.image = dogImage
-            self.dogName = dogName
-            self.petSelected = petSelected
+        self.dogName.text = dogName
+        self.petSelected = petSelected
 
-            super.init(style: style, reuseIdentifier: reuseIdentifier)
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-            // Configurar a célula com os dados passados nos parâmetros
-            setup()
-        }
+        // Configurar a célula com os dados passados nos parâmetros
+        setup()
+    }
     
 
     required init?(coder aDecoder: NSCoder) {
@@ -32,32 +58,26 @@ class CustomAddPetToTaskCell: UITableViewCell {
     }
     
     private func setup() {
+        self.selectionStyle = .none // Desligando a animação da seleção da célula
         
-        
-        dogImage.image = UIImage(systemName: "square.and.arrow.up")
-        dogImage.translatesAutoresizingMaskIntoConstraints = false
-        dogImage.contentMode = .scaleAspectFill // scale mode
-        dogImage.layer.masksToBounds = false // disabling mask to bounds
-        dogImage.clipsToBounds = true // enabling bound clipping
-        dogImage.translatesAutoresizingMaskIntoConstraints = false // disabling autoresize mask to const.
-        dogImage.layer.cornerRadius = UIDevice.current.userInterfaceIdiom == .phone ? 130 / 10 : 170 / 10
         contentView.addSubview(dogImage)
         
-        let nameLabel = UILabel()
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.text = "Teste"
-        contentView.addSubview(nameLabel)
+        contentView.addSubview(dogName)
+        
+        contentView.addSubview(symbolSelected)
         
         NSLayoutConstraint.activate([
-//            dogImage.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            dogImage.bottomAnchor.constraint(equalTo: bottomAnchor),
-//            dogImage.trailingAnchor.constraint(equalTo: trailingAnchor),
-//            dogImage.topAnchor.constraint(equalTo: topAnchor),
-//            dogImage.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-//            dogImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             
-            nameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            dogImage.widthAnchor.constraint(equalToConstant: 74),
+            dogImage.heightAnchor.constraint(equalToConstant: 74),
+            dogImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            dogImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            
+            dogName.leadingAnchor.constraint(equalTo: dogImage.trailingAnchor, constant: 70),
+            dogName.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            
+            symbolSelected.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -52),
+            symbolSelected.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
     }
 }
