@@ -11,12 +11,15 @@ import UIKit
 class HomeViewModel {
     weak var viewController: HomeViewController?
     
+    // Função que chama a célula
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTaskCell", for: indexPath)
+        let tasksManager = TasksManager.shared
+        let task = tasksManager.tasks[indexPath.row] // Definindo a task
+        let cell = CustomTaskCell(style: .default, reuseIdentifier: "CustomTaskCell", date: task.date!, icon: task.icon!, taskTitle: task.title!)
         
-        return cell
-    }
+        return cell    }
     
+    // Função para quando uma célula é selecionada
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let celula = tableView.cellForRow(at: indexPath) as? CustomTaskCell {
             let vc = EditTaskModalViewController(hour: celula.hourLabel.text!, title: celula.titleLabel.text!)
