@@ -18,7 +18,7 @@ class CustomTaskCell: UITableViewCell {
     let iconCircle: UIView = {
         let iconCircle = UIView()
         iconCircle.backgroundColor = UIColor.blue
-        iconCircle.layer.cornerRadius = 21
+        iconCircle.layer.cornerRadius = 23
         iconCircle.clipsToBounds = true
         iconCircle.translatesAutoresizingMaskIntoConstraints = false
         return iconCircle
@@ -26,7 +26,7 @@ class CustomTaskCell: UITableViewCell {
     let iconView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     let titleLabel: UILabel = {
@@ -73,8 +73,8 @@ class CustomTaskCell: UITableViewCell {
             // Constraints do ícone
             iconCircle.leadingAnchor.constraint(equalTo: hourLabel.trailingAnchor, constant: 10),
             iconCircle.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            iconCircle.widthAnchor.constraint(equalToConstant: 42),
-            iconCircle.heightAnchor.constraint(equalToConstant: 42),
+            iconCircle.widthAnchor.constraint(equalToConstant: 46),
+            iconCircle.heightAnchor.constraint(equalToConstant: 46),
             iconView.leadingAnchor.constraint(equalTo: iconCircle.leadingAnchor),
             iconView.trailingAnchor.constraint(equalTo: iconCircle.trailingAnchor),
             iconView.topAnchor.constraint(equalTo: iconCircle.topAnchor),
