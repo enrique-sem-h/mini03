@@ -17,7 +17,8 @@ class HomeViewModel {
         let task = tasksManager.tasks[indexPath.row] // Definindo a task
         let cell = CustomTaskCell(style: .default, reuseIdentifier: "CustomTaskCell", date: task.date!, icon: task.icon!, taskTitle: task.title!)
         
-        return cell    }
+        return cell
+    }
     
     // Função para quando uma célula é selecionada
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
