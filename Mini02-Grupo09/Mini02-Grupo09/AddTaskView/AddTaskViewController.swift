@@ -12,7 +12,7 @@ class AddTaskViewController: UIViewController {
     let newView = AddTaskView()
     let viewModel = AddTaskViewModel()
     
-    
+    var dogsArray: [Dog] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +59,7 @@ class AddTaskViewController: UIViewController {
             return
         }
         
-        viewModel.addTask(icon: newView.iconPicker.iconView.image, title: newView.taskTitleTF.text, dogs: nil, date: newView.datePicker.date, frequency: TasksManager.Frequency(rawValue: frequencyRV), notes: newView.notesTF.text)
+        viewModel.addTask(icon: newView.iconPicker.iconView.image, title: newView.taskTitleTF.text, dogs: NSSet(array: dogsArray), date: newView.datePicker.date, frequency: TasksManager.Frequency(rawValue: frequencyRV), notes: newView.notesTF.text)
     }
     
     func errorAlert (){

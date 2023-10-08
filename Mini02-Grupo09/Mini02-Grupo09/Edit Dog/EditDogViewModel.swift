@@ -1,29 +1,28 @@
 //
-//  AddDogViewVM.swift
+//  EditDogViewModel.swift
 //  Mini02-Grupo09
 //
-//  Created by Enrique Carvalho on 27/09/23.
+//  Created by Enrique Carvalho on 06/10/23.
 //
 
 import Foundation
 import UIKit
 
-class AddDogViewModel{
-    let dogManager: DogManager // defining core data manager
-    weak var controller: AddDogViewController?
+class EditDogViewModel{
+    let dogManager = DogManager.shared // defining core data manager
+    weak var controller: EditDogViewController?
     
-    init(dogManager: DogManager) {
-        self.dogManager = dogManager // initializing CD manager
-    }
-    
-    func addDog(image: UIImage, name: String?, age: String, weight: String, size: String, viewController: UIViewController) {
-        guard let name = name, let age = Int(age), let weight = Float(weight), let size = DogManager.Size(rawValue: size) else {
+    func editDog(image: UIImage, name: String?, age: String, weight: String, size: String, viewController: ListViewController?) {
+        guard let name = name, let age = Int(age), let weight = Float(weight), let size = DogManager.Size(rawValue: size), let controller = self.controller else {
             controller?.errorAlert()
             return
         } // safely unwrapping each parameter
-        dogManager.newDog(image: image, name: name, age: age, weight: weight, size: size) // adding new dog to core data
+        dogManager.edit(image: image, dog: controller.dog, name: name, age: age, size: size, weight: weight) // adding new dog to core data
         HapticsManager.shared.vibrate(for: .success) // triggering system's default vibration for success
-        viewController.dismiss(animated: true) // going back to previous view
+        if let viewController = viewController{
+            viewController.navigationController?.popViewController(animated: true) // going back to previous view
+            viewController.tableView.reloadData()
+        }
     }
     
     func firstResponderHandler(nameTF: UITextField, ageTF: UITextField, sizeTF: UITextField, weightTF: UITextField, agePicker: UIDatePicker){ // handling first responder function for view controller

@@ -16,10 +16,12 @@ class AddTaskView: UIView {
     let iconPicker = IconPicker() // Picker de ícones
     let addPetButton = UIButton(type: .custom) // Botão para adicionar pet
     let datePicker = UIDatePicker() // Picker de data
-    let frequencyPicker = UISegmentedControl(items: TasksManager().fetchEnum) // Picker da frequência
+    let frequencyPicker = UISegmentedControl(items: TasksManager.shared.fetchEnum) // Picker da frequência
     let notesTF = UITextField() // TextField das anotações
     
     let doneButton = UIButton(type: .custom)
+    
+    let petsStackView = UIStackView()
     
     weak var viewController: AddTaskViewController?
     
@@ -80,7 +82,7 @@ class AddTaskView: UIView {
         self.addSubview(addPetButton)
         
         // StackView dos Pets (Quando um pet for adicionado, ele deve ser adicionado na view dentro dessa stackview. Tem que dar um jeito de scrollar ela também)
-        let petsStackView = UIStackView(arrangedSubviews: [addPetButton])
+        petsStackView.addArrangedSubview(addPetButton)
         petsStackView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(petsStackView)
         

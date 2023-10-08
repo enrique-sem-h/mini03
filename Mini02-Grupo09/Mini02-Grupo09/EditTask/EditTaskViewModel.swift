@@ -11,7 +11,7 @@ import UIKit
 class EditTaskViewModel {
     weak var viewController: EditTaskViewController?
     
-    let tasksManager = TasksManager()
+    let tasksManager = TasksManager.shared
     
     func chooseIcon() {
         print("Escolhendo icone")

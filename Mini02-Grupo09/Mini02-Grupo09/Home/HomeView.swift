@@ -27,9 +27,7 @@ class HomeView: UIView {
     let configButton = UIButton(type: .system)
     let addTaskButton = UIButton(type: .custom)
     
-    let celulas = [CustomTaskCell(), CustomTaskCell(), CustomTaskCell(), CustomTaskCell(), CustomTaskCell(), CustomTaskCell(), CustomTaskCell()] // Dados da TableView temporários
-    
-    let dayState = DayViewState()
+    let swipeLabel = SwipeLabelView()
     
     let tasksTableView = UITableView()
     

@@ -10,13 +10,9 @@ import CoreData
 import UIKit
 
 class TasksManager: ObservableObject{ // handling the core data stuff
-    let container = NSPersistentContainer(name: "AppModel") // defining the container with the model name
+    static let shared = TasksManager()
     
-   
-    
-    var context: NSManagedObjectContext{
-        return container.viewContext
-    } // defining the context as a computed property
+    private var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var tasks : [DogTask] {
         let array = fetch() // fetching all tasks from core data to the array
@@ -94,13 +90,6 @@ class TasksManager: ObservableObject{ // handling the core data stuff
         return frequencies // returning it
     }
     
-    init(){
-        container.loadPersistentStores { _, error in
-            if let error = error{
-                print("Error creating the container - \(error.localizedDescription)")
-            }
-        }
-    }
     
     func save(){ // saving the object to the model
         do{

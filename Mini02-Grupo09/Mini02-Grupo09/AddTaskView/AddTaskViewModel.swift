@@ -12,7 +12,7 @@ class AddTaskViewModel {
     weak var viewController: AddTaskViewController?
     weak var view: AddTaskView?
     
-    let tasksManager = TasksManager()
+    let tasksManager = TasksManager.shared
     
    
     
@@ -32,7 +32,7 @@ class AddTaskViewModel {
     }
     
     func choosePet() {
-        let vc = addPetToTaskModalViewController()
+        let vc = addPetToTaskModalViewController(superViewController: viewController)
         
         let navVC = UINavigationController(rootViewController: vc)
         navVC.setNavigationBarHidden(true, animated: false)
