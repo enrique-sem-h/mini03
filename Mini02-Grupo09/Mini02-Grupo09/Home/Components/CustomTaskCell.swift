@@ -26,6 +26,7 @@ class CustomTaskCell: UITableViewCell {
     let iconView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     let titleLabel: UILabel = {
@@ -40,9 +41,12 @@ class CustomTaskCell: UITableViewCell {
     
     init(style: UITableViewCell.CellStyle, reuseIdentifier: String?, date: Date, icon: Data, taskTitle: String) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         self.hourLabel.text = formattedDate(date: date)
         self.iconView.image = UIImage(data: icon)
         self.titleLabel.text = taskTitle
+        
+        setup()
     }
     
     func setup() {
@@ -62,33 +66,30 @@ class CustomTaskCell: UITableViewCell {
         check.addTarget(self, action: #selector(updateTitleLabel), for: .valueChanged)
         
         NSLayoutConstraint.activate([
-//            // Constraints do horário
-//            hourLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 60),
-//            hourLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-//            
-//            // Constraints do ícone
-//            iconCircle.leadingAnchor.constraint(equalTo: hourLabel.trailingAnchor, constant: 10),
-//            iconCircle.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-//            iconCircle.widthAnchor.constraint(equalToConstant: 42),
-//            iconCircle.heightAnchor.constraint(equalToConstant: 42),
-//            iconView.leadingAnchor.constraint(equalTo: iconCircle.leadingAnchor),
-//            iconView.trailingAnchor.constraint(equalTo: iconCircle.trailingAnchor),
-//            iconView.topAnchor.constraint(equalTo: iconCircle.topAnchor),
-//            iconView.bottomAnchor.constraint(equalTo: iconCircle.bottomAnchor),
-//            
-//            // Constraints do título
-//            titleLabel.leadingAnchor.constraint(equalTo: iconCircle.trailingAnchor, constant: 8),
-//            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-//            
-//            // Constraints do check
-//            check.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -60),
-//            check.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-//            
-//            // Constraints da célula
-//            contentView.heightAnchor.constraint(equalToConstant: 126) // Altura de cada célula
-            titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
-
+            // Constraints do horário
+            hourLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 60),
+            hourLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            
+            // Constraints do ícone
+            iconCircle.leadingAnchor.constraint(equalTo: hourLabel.trailingAnchor, constant: 10),
+            iconCircle.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            iconCircle.widthAnchor.constraint(equalToConstant: 42),
+            iconCircle.heightAnchor.constraint(equalToConstant: 42),
+            iconView.leadingAnchor.constraint(equalTo: iconCircle.leadingAnchor),
+            iconView.trailingAnchor.constraint(equalTo: iconCircle.trailingAnchor),
+            iconView.topAnchor.constraint(equalTo: iconCircle.topAnchor),
+            iconView.bottomAnchor.constraint(equalTo: iconCircle.bottomAnchor),
+            
+            // Constraints do título
+            titleLabel.leadingAnchor.constraint(equalTo: iconCircle.trailingAnchor, constant: 8),
+            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            
+            // Constraints do check
+            check.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -60),
+            check.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            
+            // Constraints da célula
+            contentView.heightAnchor.constraint(equalToConstant: 126) // Altura de cada célula
         ])
     }
     

@@ -19,12 +19,7 @@ protocol HomeViewDelegate: AnyObject {
 }
 
 class HomeView: UIView {
-    let dateLabel = UILabel()
     
-    let calendarButton = UIButton(type: .system)
-    let filterButton = UIButton(type: .system)
-    let petsButton = UIButton(type: .system)
-    let configButton = UIButton(type: .system)
     let addTaskButton = UIButton(type: .custom)
     
     let swipeLabel = SwipeLabelView()
@@ -37,42 +32,12 @@ class HomeView: UIView {
         configure()
         
         self.backgroundColor = .systemBackground
-        // Configuração da Label da data
-        
-        
-        dateLabel.translatesAutoresizingMaskIntoConstraints = false
-        dateLabel.text = "Tarefas"
-        dateLabel.font = UIFont.systemFont(ofSize: 50, weight: .semibold)
-        self.addSubview(dateLabel)
-        
-        
-        // Botão do calendário
-        calendarButton.setImage(UIImage(systemName: "calendar"), for: .normal)
-        
-        // Botão do filtro
-        filterButton.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
-        
-        // Botão dos pets
-        petsButton.setImage(UIImage(systemName: "pawprint"), for: .normal)
-        
-        // Botão da config
-        configButton.setImage(UIImage(systemName: "gear"), for: .normal)
-        
-        // StackView dos botões
-        let buttonStackView = UIStackView(arrangedSubviews: [calendarButton, filterButton, petsButton, configButton])
-        buttonStackView.translatesAutoresizingMaskIntoConstraints = false
-        buttonStackView.axis = .horizontal
-        buttonStackView.distribution = .equalSpacing
-        self.addSubview(buttonStackView)
         
         tasksTableView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(tasksTableView)
         
         tasksTableView.register(CustomTaskCell.self, forCellReuseIdentifier: "CustomTaskCell")
         self.tasksTableView.separatorStyle = .none
-        
-        buttonStackView.isHidden = true
-        dateLabel.isHidden = true
         
         // Botão de adicionar tarefa
         addTaskButton.translatesAutoresizingMaskIntoConstraints = false
@@ -81,13 +46,6 @@ class HomeView: UIView {
         self.addSubview(addTaskButton)
         
         NSLayoutConstraint.activate([
-            // Constraints da data
-            dateLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 14),
-            dateLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            
-            // Constraints da StackView dos botões do topo
-            buttonStackView.centerYAnchor.constraint(equalTo: dateLabel.centerYAnchor),
-            buttonStackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -18),
             
             // Constraints da TableView de tarefas
             tasksTableView.topAnchor.constraint(equalTo: dayHeaderView.bottomAnchor, constant: 16),
