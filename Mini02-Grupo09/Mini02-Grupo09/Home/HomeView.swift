@@ -16,6 +16,7 @@ protocol HomeViewDelegate: AnyObject {
     func dayViewDidTransitionCancel(dayView: HomeView)
     func dayView(dayView: HomeView, willMoveTo date: Date)
     func dayView(dayView: HomeView, didMoveTo  date: Date)
+    
 }
 
 class HomeView: UIView {

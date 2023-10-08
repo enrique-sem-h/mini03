@@ -14,6 +14,8 @@ class AddTaskViewModel {
     
     let tasksManager = TasksManager.shared
     
+   
+    
     func chooseIcon(iconPickerRoot: IconPicker) {
         let vc = iconPickerModalViewController(iconPickerRoot: iconPickerRoot)
         
