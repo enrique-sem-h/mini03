@@ -57,10 +57,10 @@ class Icon: UIControl {
             backgroundView.heightAnchor.constraint(equalToConstant: 56),
             
             
-            imageView.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
-            imageView.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
-            imageView.widthAnchor.constraint(equalToConstant: 20),
-            imageView.heightAnchor.constraint(equalToConstant: 20),
+            imageView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 16),
+            imageView.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 12),
+            imageView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -16),
+            imageView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -12)
         ])
         backgroundView.contentMode = .scaleAspectFit
     }
