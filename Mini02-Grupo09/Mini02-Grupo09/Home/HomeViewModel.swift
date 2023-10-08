@@ -40,6 +40,7 @@ class HomeViewModel {
     
     func showAddTaskView() {
         let vc = AddTaskViewController()
+        vc.viewControllerpai = viewController
         
         let navVC = UINavigationController(rootViewController: vc)
         navVC.setNavigationBarHidden(true, animated: false)

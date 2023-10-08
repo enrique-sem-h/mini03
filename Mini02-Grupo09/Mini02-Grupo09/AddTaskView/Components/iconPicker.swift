@@ -9,14 +9,14 @@ import Foundation
 import UIKit
 
 enum Icons: String, CaseIterable {
-    case vaccine = "VaccineImage"
-    case remedy = "RemedyImage"
-    case food = "FoodImage"
-    case tour = "TourImage"
-    case bath = "BathImage"
+    case ball = "BallImage"
     case brush = "BrushImage"
-    case play = "PlayImage"
-    case bandaid = "BandaidImage"
+    case food = "FoodImage"
+    case leash = "LeashImage"
+    case remedy = "RemedyImage"
+    case scissors = "ScissorsImage"
+    case shampoo = "ShampooImage"
+    case vaccine = "VaccineImage"
 }
 
 class IconPicker: UIControl {

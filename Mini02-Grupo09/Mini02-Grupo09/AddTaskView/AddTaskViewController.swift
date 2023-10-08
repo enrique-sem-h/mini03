@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class AddTaskViewController: UIViewController {
+    weak var viewControllerpai: HomeViewController?
     let newView = AddTaskView()
     let viewModel = AddTaskViewModel()
     
@@ -60,6 +61,7 @@ class AddTaskViewController: UIViewController {
         }
         
         viewModel.addTask(icon: newView.iconPicker.iconView.image, title: newView.taskTitleTF.text, dogs: NSSet(array: dogsArray), date: newView.datePicker.date, frequency: TasksManager.Frequency(rawValue: frequencyRV), notes: newView.notesTF.text)
+        viewControllerpai?.newView.tasksTableView.reloadData()
     }
     
     func errorAlert (){
