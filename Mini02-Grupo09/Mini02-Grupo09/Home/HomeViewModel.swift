@@ -51,4 +51,28 @@ class HomeViewModel {
         }
         viewController?.present(navVC, animated: true)
     }
+    
+    func showListView(){
+        let vc = ListViewController()
+        
+        let navVC = UINavigationController(rootViewController: vc)
+        
+        if let sheet = navVC.sheetPresentationController {
+            sheet.preferredCornerRadius = 12
+            sheet.detents = [.large()]
+        }
+        viewController?.present(navVC, animated: true)
+    }
+    
+    func showCreditsView(){
+        let vc = CreditsView()
+        
+        let navVC = UINavigationController(rootViewController: vc)
+        
+        if let sheet = navVC.sheetPresentationController {
+            sheet.preferredCornerRadius = 12
+            sheet.detents = [.large()]
+        }
+        viewController?.present(navVC, animated: true)
+    }
 }

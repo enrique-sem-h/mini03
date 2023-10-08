@@ -187,8 +187,16 @@ class CustomCell: UITableViewCell {
         name.text = dog.name
         nameDesc.text = dog.name
         size.text = dog.size
-        age.text = "\(dog.age)"
-        weight.text = "\(dog.weight)"
+        age.text = "\(dog.age) " + String(localized: "years")
+        weight.text = weightCalc()
+    }
+    
+    func weightCalc() -> String{
+        if dog.weight > 1{
+            return "\(dog.weight) Kg"
+        } else {
+            return "\(dog.weight * 1000) g"
+        }
     }
     
     func setupView(){
@@ -283,10 +291,10 @@ class CustomCell: UITableViewCell {
             // Obtém a referência à UIViewController que contém a UITableView
             if let viewController = tableView.delegate as? UIViewController {
                 // Cria a EditDogView e passa o objeto 'dog'
-                let editDogViewController = EditDogViewController(dog: dog)
+                let editDogViewController = AddDogViewController(with: dog)
                 editDogViewController.listViewController = self.listViewController
                 
-
+                viewController.navigationController?.isNavigationBarHidden = true
                 viewController.navigationController?.pushViewController(editDogViewController, animated: true)
             }
         }

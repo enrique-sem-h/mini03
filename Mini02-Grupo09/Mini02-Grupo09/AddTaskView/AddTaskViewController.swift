@@ -17,6 +17,7 @@ class AddTaskViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        voiceOverSetup()
         
         self.viewModel.viewController = self
     
@@ -51,13 +52,13 @@ class AddTaskViewController: UIViewController {
     }
     
     @objc func doneButtonTapped() {
-        var frequencyRV = ""
-        let index = newView.frequencyPicker.selectedSegmentIndex
-        if index <= 4 && index >= 0{
-            frequencyRV = newView.frequencyPicker.titleForSegment(at: index)!
+        var frequencyRV = "" // creating a string variable to make things easier
+        let index = newView.frequencyPicker.selectedSegmentIndex // retrieving index from segmented control
+        if index <= 4 && index >= 0{ // making sure the segmented control was selected
+            frequencyRV = newView.frequencyPicker.titleForSegment(at: index)! // retrieving the seg control option
         } else {
-            errorAlert()
-            return
+            errorAlert() // displaying error alert
+            return // returning
         }
         
         viewModel.addTask(icon: newView.iconPicker.iconView.image, title: newView.taskTitleTF.text, dogs: NSSet(array: dogsArray), date: newView.datePicker.date, frequency: TasksManager.Frequency(rawValue: frequencyRV), notes: newView.notesTF.text)
@@ -65,11 +66,21 @@ class AddTaskViewController: UIViewController {
     }
     
     func errorAlert (){
-        let alert = UIAlertController(title: String(localized: "Oops! A Paw-sible Mishap 🐾"), message: String(localized: "It seems there was a little error while adding your task. Please check all the fields, and give it another 'bark'!"), preferredStyle: .alert)
-        alert.addAction(.init(title: "OK", style: .default))
-        self.present(alert, animated: true)
-        HapticsManager.shared.vibrate(for: .warning)
+        let alert = UIAlertController(title: String(localized: "Oops! A Paw-sible Mishap 🐾"), message: String(localized: "It seems there was a little error while adding your task. Please check all the fields, and give it another 'bark'!"), preferredStyle: .alert) // defining an error alert
+        alert.addAction(.init(title: "OK", style: .default)) // defining an ok button to dismiss the alert
+        self.present(alert, animated: true) // presenting it
+        HapticsManager.shared.vibrate(for: .warning) // triggering a warning haptic
     }
+    
+    func voiceOverSetup(){
+        newView.viewTitle.isAccessibilityElement = true
+        newView.viewTitle.accessibilityTraits = .header
+        newView.viewTitle.accessibilityHint = "header"
+        
+        newView.iconPicker.isAccessibilityElement = true
+        newView.iconPicker.accessibilityHint = "click to select task icon"
+    }
+    
 }
 
 extension AddTaskViewController: UITextFieldDelegate, UITextViewDelegate {

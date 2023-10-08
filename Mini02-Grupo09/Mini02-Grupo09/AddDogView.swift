@@ -10,6 +10,19 @@ import UIKit
 
 class AddDogView: UIView{
     // MARK: setting all view components
+    let backButton: UIButton = {
+        let btn = UIButton()
+        let img = UIImage(systemName: "chevron.left")
+        
+        img?.withRenderingMode(.alwaysTemplate)
+        btn.setTitle("Your Pets", for: .normal)
+        btn.setImage(img, for: .normal)
+        btn.tintColor = .red
+        btn.setTitleColor(.red, for: .normal)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
     let title = UILabel() // creating title for the view
     let sizePicker = UIPickerView() // defining picker for the dog's size (enum)
     let stack = UIStackView() // creating stack for all text fields
@@ -43,7 +56,7 @@ class AddDogView: UIView{
         
         stack.axis = .vertical // setting it as a VStack
         stack.distribution = .fillEqually // defining its distribution
-        stack.spacing = 10 // defining its spacing
+        stack.spacing = 30 // defining its spacing
         stack.translatesAutoresizingMaskIntoConstraints = false // disabling autoresizing mask translation
                 
         imgButton.image = UIImage(named: "placeholder") // defining placeholder for img
@@ -80,25 +93,28 @@ class AddDogView: UIView{
         sizeTF.borderStyle = .roundedRect // rounding its borders
         sizeTF.translatesAutoresizingMaskIntoConstraints = false // disabling autoresizing mask translation
         
-        weightTF.placeholder = String(localized: "Weight") // weight textfield's placeholder
+        weightTF.placeholder = String(localized: "Weight in Kg") // weight textfield's placeholder
         weightTF.keyboardType = .decimalPad // setting its keyboard type
         weightTF.borderStyle = .roundedRect // rounding its borders
         
         weightTF.translatesAutoresizingMaskIntoConstraints = false // disabling autoresizing mask translation
-                
-        button.backgroundColor = UIColor.gray
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor.yellow
         button.setTitle(String(localized: "Done"), for: .normal) // setting a text to it
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 32, weight: .heavy)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        button.titleLabel?.textColor = UIColor.black
         button.layer.cornerRadius = 14
         
         
         self.addSubview(title) // adding the title as a subview
+        self.addSubview(backButton) // adding the back button as a subview
         self.addSubview(imgButton) // adding the image as a subview
+        self.addSubview(button) // adding the done button as a subview
         stack.addArrangedSubview(nameTF) // adding the name textfield as a stack's arranged subview
         stack.addArrangedSubview(ageTF) // adding the age textfield as a stack's arranged subview
         stack.addArrangedSubview(sizeTF) // adding the size textfield as a stack's arranged subview
         stack.addArrangedSubview(weightTF) // adding the weight textfield as a stack's arranged subview
-        stack.addArrangedSubview(button) // adding the submit button as a stack's arranged subview
         
         self.addSubview(stack) // adding the stack itself as a subview
         
@@ -108,20 +124,28 @@ class AddDogView: UIView{
                 title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
                 title.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
                 title.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
-                title.heightAnchor.constraint(equalToConstant: 74),
+                title.bottomAnchor.constraint(equalTo: self.topAnchor, constant: 68),
                 
-                nameTF.heightAnchor.constraint(equalToConstant: 70), // configuring the textfields sizes
+                backButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
+                backButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 23),
+                
+                nameTF.heightAnchor.constraint(equalToConstant: 80), // configuring the textfields sizes
                 
                 imgButton.widthAnchor.constraint(equalToConstant: 115), // defining image's size
                 imgButton.heightAnchor.constraint(equalToConstant: 130), // defining image's size
                 
                 imgButton.centerXAnchor.constraint(equalTo: self.centerXAnchor), // defining image's position
-                imgButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 0), // defining image's position
+                imgButton.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 32), // defining image's position
                 
                 stack.topAnchor.constraint(equalTo: imgButton.bottomAnchor, constant: 20), // setting stack's position
                 stack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -50), // setting stack's position
                 stack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 50), // setting stack's position
-                stack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -200), // setting stack's position
+                stack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -136), // setting stack's position
+                
+                button.topAnchor.constraint(equalTo: stack.bottomAnchor, constant: 30), // setting button's position
+                button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 117.5), // setting button's position
+                button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -117.5), // setting button's position
+                button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -65) // setting button's position
             ])
         }else{
             // Constraints for the iPad
