@@ -8,24 +8,6 @@
 import Foundation
 import UIKit
 
-struct Task {
-    var title: String
-    var icon: UIImage
-    var dogs: NSSet
-    var date: Date
-    var frequency: TasksManager.Frequency
-    var id: UUID
-    var notes: String
-    
-    
-    init(title: String, date: Date, frequency: TasksManager.Frequency, id: UUID, notes:String) {
-        self.title = title
-        self.date = date
-        self.frequency = frequency
-        self.id = id
-        self.notes = notes
-    }
-}
 
 class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
