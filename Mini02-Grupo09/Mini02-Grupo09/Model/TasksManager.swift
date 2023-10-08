@@ -12,6 +12,8 @@ import UIKit
 class TasksManager: ObservableObject{ // handling the core data stuff
     let container = NSPersistentContainer(name: "AppModel") // defining the container with the model name
     
+    var arrayTasks:[Task] = []
+    
     var context: NSManagedObjectContext{
         return container.viewContext
     } // defining the context as a computed property
@@ -119,6 +121,7 @@ class TasksManager: ObservableObject{ // handling the core data stuff
         newTask.frequency = frequency.rawValue
         newTask.notes = notes
         
+        arrayTasks.append(newTask)
         save()
     }
     

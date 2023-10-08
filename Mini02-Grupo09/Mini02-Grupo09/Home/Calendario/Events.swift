@@ -8,15 +8,17 @@
 import Foundation
 import UIKit
 
-class Event {
+struct Task {
     var title: String
+    var icon: UIImage
+    var dogs: NSSet
     var date: Date
-    var frequency: String
+    var frequency: TasksManager.Frequency
     var id: UUID
     var notes: String
     
     
-    init(title: String, date: Date, frequency: String, id: UUID, notes:String) {
+    init(title: String, date: Date, frequency: TasksManager.Frequency, id: UUID, notes:String) {
         self.title = title
         self.date = date
         self.frequency = frequency
@@ -29,12 +31,14 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var daySelector = DaySelector()
     var selectedDate = Date()
-    var events: [Event] = []
+    var tasks: [Task] = []
     
-    init(daySelector: DaySelector = DaySelector(), selectedDate: Date, events: [Event]) {
+    
+    
+    
+    init(daySelector: DaySelector = DaySelector(), selectedDate: Date, tasks: [Task]) {
         self.daySelector = daySelector
         self.selectedDate = daySelector.selectedDate!
-        self.events = events
     }
     
     required init?(coder: NSCoder) {
@@ -42,12 +46,12 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
-    func filterEvents(forDate selectedDate: Date) -> [Event] {
+    func filterEvents(forDate selectedDate: Date) -> [Task] {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let selectedDateString = dateFormatter.string(from: selectedDate)
         
-        let filteredEvents = events.filter { event in
+        let filteredEvents = tasks.filter { event in
             let eventDateString = dateFormatter.string(from: event.date)
             return eventDateString == selectedDateString
         }
@@ -63,12 +67,9 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func loadEvents() {
         
-        events = [
-            //            Event(title: "Evento 1", date: Date(), frequency: "daily", id: <#UUID#>, id: , notes:"a"),
-            //            Event(title: "Evento 2", date: Date(), frequency: "daily", id: <#UUID#>, id: , notes:"a"),
-            //            Event(title: "Evento 3", date: Date(), frequency: "daily", id: <#UUID#>, id: , notes:"a"),
-            
-        ]
+        if Task.date == selectedDate {
+            filterEvents(forDate: selectedDate)
+        }
         
         
     }
