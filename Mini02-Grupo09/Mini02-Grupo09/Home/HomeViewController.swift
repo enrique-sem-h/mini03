@@ -13,6 +13,9 @@ class HomeViewController: UIViewController {
     
     let newView = HomeView()
     let viewModel = HomeViewModel()
+    
+    var filteredTasks: [DogTask]?
+    let daySelector = DaySelector()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +27,8 @@ class HomeViewController: UIViewController {
         
         newView.tasksTableView.dataSource = self
         newView.tasksTableView.delegate = self
+        
+        
         
         self.viewModel.viewController = self
         
@@ -40,11 +45,20 @@ class HomeViewController: UIViewController {
     @objc func showAddTaskView() {
         viewModel.showAddTaskView()
     }
+    
+    func filterTasks(by date: Date) {
+        let calendar = Calendar.current
+        filteredTasks = filteredTasks!.filter { task in
+            return calendar.isDate(task.date!, inSameDayAs: daySelector.selectedDate!)
+        }
+        newView.tasksTableView.reloadData() // Atualize a tabela para exibir as tarefas filtradas
+    }
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        newView.celulas.count
+        let tasksManager = TasksManager.shared
+        return tasksManager.tasks.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,6 +67,16 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.tableView(tableView, didSelectRowAt: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0 // Altura desejada para a célula
+    }
+}
+
+extension HomeViewController: DayViewStateUpdating {
+    func move(from oldDate: Date, to newDate: Date) {
+        filterTasks(by: newDate)
     }
 }
 

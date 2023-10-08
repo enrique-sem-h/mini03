@@ -110,6 +110,7 @@ class TasksManager: ObservableObject{ // handling the core data stuff
         newTask.frequency = frequency.rawValue
         newTask.notes = notes
         
+       
         save()
     }
     
