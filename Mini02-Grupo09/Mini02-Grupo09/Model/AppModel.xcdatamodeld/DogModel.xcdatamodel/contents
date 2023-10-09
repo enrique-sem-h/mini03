@@ -12,7 +12,6 @@
     </entity>
     <entity name="DogTask" representedClassName="DogTask" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="frequency" optional="YES" attributeType="String"/>
         <attribute name="icon" optional="YES" attributeType="Binary"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
