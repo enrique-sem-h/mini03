@@ -16,9 +16,13 @@ class HomeViewController: UIViewController {
     
     var filteredTasks: [DogTask]?
     let daySelector = DaySelector()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "pawprint"), style: .plain, target: self, action: #selector(showListView))
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "info.circle"), style: .plain, target: self, action: #selector(showCredits))
         
         // Configuração da view
         newView.frame = view.frame
@@ -44,6 +48,14 @@ class HomeViewController: UIViewController {
     
     @objc func showAddTaskView() {
         viewModel.showAddTaskView()
+    }
+    
+    @objc func showListView(){
+        viewModel.showListView()
+    }
+    
+    @objc func showCredits(){
+        viewModel.showCreditsView()
     }
     
     func filterTasks(by date: Date) {

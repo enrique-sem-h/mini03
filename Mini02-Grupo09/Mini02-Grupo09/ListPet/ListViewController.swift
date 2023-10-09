@@ -20,6 +20,16 @@ class ListViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus.circle"), style: .plain, target: self, action: #selector(showAddDogView))
+    }
+    
+    @objc func showAddDogView(){
+        let vc = AddDogViewController()
+        
+//        let nvC = UINavigationController(rootViewController: vc)
+        
+        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func setupTableView() {
