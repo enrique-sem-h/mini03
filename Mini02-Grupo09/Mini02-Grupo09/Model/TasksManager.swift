@@ -104,7 +104,7 @@ class TasksManager: ObservableObject{ // handling the core data stuff
         
         newTask.id = UUID()
         newTask.title = title
-        newTask.icon = icon.jpegData(compressionQuality: 0.8)
+        newTask.icon = icon.pngData()
         newTask.dogs = dogs
         newTask.date = date
         newTask.frequency = frequency.rawValue
@@ -137,7 +137,7 @@ class TasksManager: ObservableObject{ // handling the core data stuff
             dogTask.dogs = dogs
         }
         
-        if let icon = icon?.jpegData(compressionQuality: 0.8) { // if the user input the name, edit it here
+        if let icon = icon?.pngData() { // if the user input the name, edit it here
             dogTask.icon = icon
         }
         if let date = date { // if the user input the age, edit it age

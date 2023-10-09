@@ -55,7 +55,13 @@ class AddTaskViewModel {
         }
     }
     
-    func firstResponderHandler() { // handling first responder function for view controller
+    func editTask(icon: UIImage?, title: String?, dogs: NSSet, date: Date?, frequency: TasksManager.Frequency?, notes: String?) {
+        if let task = viewController?.task, let icon = icon, let title = title, let date = date, let frequency = frequency{
+            tasksManager.edit(dogTask: task, title: title, icon: icon, dogs: dogs, date: date, frequency: frequency, notes: notes)
+            self.viewController?.dismiss(animated: true) // going back to previous view
+        } else {
+            viewController?.errorAlert()
+        }
     }
     
     func closeModal() {
