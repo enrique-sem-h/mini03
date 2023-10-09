@@ -51,7 +51,7 @@ class DogManager: ObservableObject{ // handling the core data stuff
         
         newDog.id = UUID()
         newDog.dateAdded = Date()
-        newDog.image = image.jpegData(compressionQuality: 0.8)
+        newDog.image = image.pngData()
         newDog.name = name
         newDog.age = Int64(age)
         newDog.size = size.rawValue

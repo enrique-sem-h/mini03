@@ -105,6 +105,7 @@
       }
     },
     "It seems there was a little error while editing your task. Please check all the fields, and give it another 'bark'!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {

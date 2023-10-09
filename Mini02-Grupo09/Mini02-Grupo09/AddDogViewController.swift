@@ -20,6 +20,7 @@ class AddDogViewController: UIViewController{
         super.init(nibName: nil, bundle: nil)
         self.dog = dog
         if let dog = dog{
+            newView.title.text = "Edit Dog"
             newView.imgButton.image = UIImage(data: dog.image!)
             newView.nameTF.text = dog.name
             newView.ageTF.text = "\(dog.age)"
