@@ -9,6 +9,8 @@ class ListViewController: UIViewController {
 
     var selectedIndex: IndexPath = IndexPath(row: 0, section: 0)
     
+    let ttitle = UILabel()
+    
     let tableView:UITableView = {
        let tb = UITableView()
         tb.translatesAutoresizingMaskIntoConstraints = false
@@ -19,28 +21,42 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus.circle"), style: .plain, target: self, action: #selector(showAddDogView))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus.circle.fill"), style: .plain, target: self, action: #selector(showAddDogView))
+        navigationItem.rightBarButtonItem?.tintColor = .systemRed
     }
     
     @objc func showAddDogView(){
         let vc = AddDogViewController()
-        
-//        let nvC = UINavigationController(rootViewController: vc)
-        
         self.navigationController?.navigationBar.isHidden = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func setupTableView() {
         view.addSubview(tableView)
+        view.addSubview(ttitle)
+        
+        ttitle.translatesAutoresizingMaskIntoConstraints = false
+        ttitle.text = String(localized: "List")
+        ttitle.font = UIFont.systemFont(ofSize: 24, weight: .heavy)
+        ttitle.textAlignment = .center
+        ttitle.backgroundColor = .gray
+        
+        view.backgroundColor = .systemBackground
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            
+            ttitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            ttitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            ttitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            ttitle.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 68),
+            
+            tableView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 90),
             tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
+        
+        
         
         tableView.register(CustomCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
@@ -60,10 +76,21 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 20
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let cell = tableView.cellForRow(at: indexPath) as? CustomCell else { return 130 }
-//        return dogManager.dogs.isOpened ? 400 : 130
-        return cell.isOpened ? 130 : 400
+//        return cell.isOpened ? 130 : 400
+        if cell.isOpened{
+            UIView.animate(withDuration: 0.3) {
+                cell.button.isHidden = true
+            }
+            return 130
+        } else {
+            return 400
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

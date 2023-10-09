@@ -100,7 +100,7 @@ class AddDogView: UIView{
         weightTF.translatesAutoresizingMaskIntoConstraints = false // disabling autoresizing mask translation
         
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor.yellow
+        button.backgroundColor = UIColor.systemYellow
         button.setTitle(String(localized: "Done"), for: .normal) // setting a text to it
         button.titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         button.titleLabel?.textColor = UIColor.black

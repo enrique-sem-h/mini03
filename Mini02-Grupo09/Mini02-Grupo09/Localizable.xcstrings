@@ -114,6 +114,9 @@
         }
       }
     },
+    "List" : {
+
+    },
     "Mid-Sized" : {
       "extractionState" : "manual",
       "localizations" : {
