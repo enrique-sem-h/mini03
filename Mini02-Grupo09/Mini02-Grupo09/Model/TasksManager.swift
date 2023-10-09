@@ -109,6 +109,7 @@ class TasksManager: ObservableObject{ // handling the core data stuff
         newTask.date = date
         newTask.frequency = frequency.rawValue
         newTask.notes = notes
+        newTask.isDone = false
         
        
         save()
@@ -149,6 +150,8 @@ class TasksManager: ObservableObject{ // handling the core data stuff
         if let notes = notes { // if the user input the weight, edit it weight
             dogTask.notes = notes
         }
+        
+        dogTask.isDone = false
         
         save()
     }
