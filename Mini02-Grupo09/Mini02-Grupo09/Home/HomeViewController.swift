@@ -14,6 +14,8 @@ class HomeViewController: UIViewController {
     let newView = HomeView()
     let viewModel = HomeViewModel()
     
+    let tasksManager = TasksManager.shared
+    
     var filteredTasks: [DogTask]?
     let daySelector = DaySelector()
 
@@ -28,7 +30,7 @@ class HomeViewController: UIViewController {
         newView.tasksTableView.dataSource = self
         newView.tasksTableView.delegate = self
         
-        
+        viewModel.daySelector = self.daySelector
         
         self.viewModel.viewController = self
         
@@ -45,19 +47,17 @@ class HomeViewController: UIViewController {
     @objc func showAddTaskView() {
         viewModel.showAddTaskView()
     }
-    
-    func filterTasks(by date: Date) {
-        let calendar = Calendar.current
-        filteredTasks = filteredTasks!.filter { task in
-            return calendar.isDate(task.date!, inSameDayAs: daySelector.selectedDate!)
-        }
-        newView.tasksTableView.reloadData() // Atualize a tabela para exibir as tarefas filtradas
-    }
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let tasksManager = TasksManager.shared
+        
+        var count = 0
+        for task in tasksManager.tasks {
+            if Calendar.current.isDate(task.date!, inSameDayAs: daySelector.selectedDate ?? daySelector.startDate){
+                count += 1
+            }
+        }
         return tasksManager.tasks.count
     }
 
@@ -76,7 +76,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension HomeViewController: DayViewStateUpdating {
     func move(from oldDate: Date, to newDate: Date) {
-        filterTasks(by: newDate)
+        newView.tasksTableView.reloadData()
     }
 }
 
