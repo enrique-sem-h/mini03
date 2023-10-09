@@ -13,9 +13,9 @@ class HomeViewController: UIViewController {
     
     let newView = HomeView()
     let viewModel = HomeViewModel()
+    let daySelector = DaySelector()
     
     var filteredTasks: [DogTask]?
-    let daySelector = DaySelector()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +70,15 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let tasksManager = TasksManager.shared
-        return tasksManager.tasks.count
+        var count = 0
+        
+        for task in tasksManager.tasks {
+            if Calendar.current.isDate(task.date!, inSameDayAs: daySelector.selectedDate ?? Date()){
+                count += 1
+            }
+        }
+        
+        return count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

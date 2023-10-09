@@ -20,6 +20,8 @@ public protocol DaySelectorDelegate: AnyObject {
 }
 
 public final class DaySelector: UIView {
+    weak var view: HomeView?
+    
     public weak var delegate: DaySelectorDelegate?
     
     public var calendar = Calendar.autoupdatingCurrent {
@@ -56,11 +58,13 @@ public final class DaySelector: UIView {
     
     public var selectedDate: Date? {
         get {
-            items.filter{$0.selected == true}.first?.date as Date?
+            let date = items.filter{$0.selected == true}.first?.date as Date?
+            return date
         }
         set(newDate) {
             if let newDate {
                 selectedIndex = calendar.dateComponents([.day], from: startDate, to: newDate).day!
+                view?.tasksTableView.reloadData()
             }
         }
     }
