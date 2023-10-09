@@ -10,15 +10,20 @@ import UIKit
 
 class HomeViewModel {
     weak var viewController: HomeViewController?
-    var filteredTasks: [DogTask]? 
+    let daySelector = DaySelector()
+    let tasksManager = TasksManager.shared
     
     // Função que chama a célula
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let tasksManager = TasksManager.shared
+        
+        if Calendar.current.isDate(tasksManager.tasks[indexPath.row].date!, inSameDayAs: daySelector.startDate){
+                
         let task = tasksManager.tasks[indexPath.row] // Definindo a task
         let cell = CustomTaskCell(style: .default, reuseIdentifier: "CustomTaskCell", date: task.date!, icon: task.icon!, taskTitle: task.title!)
         
         return cell
+        }
+        return UITableViewCell()
     }
     
     // Função para quando uma célula é selecionada
