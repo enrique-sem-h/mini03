@@ -13,6 +13,8 @@ public final class DayHeaderView: UIView, DaySelectorDelegate, DayViewStateUpdat
 
     private var style = DayHeaderStyle()
     private var currentSizeClass = UIUserInterfaceSizeClass.compact
+    
+
 
     public weak var state: DayViewState? {
         willSet(newValue) {
@@ -26,9 +28,14 @@ public final class DayHeaderView: UIView, DaySelectorDelegate, DayViewStateUpdat
 
     private var currentWeekdayIndex = -1
 
-    private var daySymbolsViewHeight: Double = 25
-    private var pagingScrollViewHeight: Double = 50
-    private var swipeLabelViewHeight: Double = 10
+    private var daySymbolsViewHeightEN: Double = 25
+    private var pagingScrollViewHeightEN: Double = 50
+    private var swipeLabelViewHeightEN: Double = 10
+    
+    private var daySymbolsViewHeightPT: Double = 25
+    private var pagingScrollViewHeightPT: Double = 50
+    private var swipeLabelViewHeightPT: Double = 10
+
 
     private let daySymbolsView: DaySymbolsView
     private var pagingViewController = UIPageViewController(transitionStyle: .scroll,
@@ -112,18 +119,34 @@ public final class DayHeaderView: UIView, DaySelectorDelegate, DayViewStateUpdat
     // aqui organiza a posicao dos negocios do calendario
     override public func layoutSubviews() {
         super.layoutSubviews()
-        daySymbolsView.frame = CGRect(origin: CGPoint(x: .zero, y: daySymbolsViewHeight),
-                                      size: CGSize(width: bounds.width, height: daySymbolsViewHeight))
-        pagingViewController.view?.frame = CGRect(origin: CGPoint(x: 0, y:  pagingScrollViewHeight),
-                                                  size: CGSize(width: bounds.width, height: pagingScrollViewHeight))
-        swipeLabelView.frame = CGRect(origin: CGPoint(x: -95, y: .zero),
-                                      size: CGSize(width: bounds.width, height: 24))
-
-        let separatorHeight = 1 / UIScreen.main.scale
-        separator.frame = CGRect(origin: CGPoint(x: 0, y: bounds.height - separatorHeight),
-                                 size: CGSize(width: bounds.width, height: separatorHeight))
+        
+        let preferredLanguages = Locale.preferredLanguages.first ?? "en"
+        
+        if preferredLanguages.hasPrefix("en") {
+            daySymbolsView.frame = CGRect(origin: CGPoint(x: .zero, y: daySymbolsViewHeightEN),
+                                          size: CGSize(width: bounds.width, height: daySymbolsViewHeightEN))
+            pagingViewController.view?.frame = CGRect(origin: CGPoint(x: 0, y:  pagingScrollViewHeightEN),
+                                                      size: CGSize(width: bounds.width, height: pagingScrollViewHeightEN))
+            swipeLabelView.frame = CGRect(origin: CGPoint(x: -85, y: .zero),
+                                          size: CGSize(width: bounds.width, height: 24))
+            
+            let separatorHeight = 1 / UIScreen.main.scale
+            separator.frame = CGRect(origin: CGPoint(x: 0, y: bounds.height - separatorHeight),
+                                     size: CGSize(width: bounds.width, height: separatorHeight))
+            
+        } else if preferredLanguages.hasPrefix("pt"){
+            daySymbolsView.frame = CGRect(origin: CGPoint(x: .zero, y: daySymbolsViewHeightPT),
+                                          size: CGSize(width: bounds.width, height: daySymbolsViewHeightPT))
+            pagingViewController.view?.frame = CGRect(origin: CGPoint(x: 0, y:  pagingScrollViewHeightPT),
+                                                      size: CGSize(width: bounds.width, height: pagingScrollViewHeightPT))
+            swipeLabelView.frame = CGRect(origin: CGPoint(x: -55, y: .zero),
+                                          size: CGSize(width: bounds.width, height: 24))
+            
+            let separatorHeight = 1 / UIScreen.main.scale
+            separator.frame = CGRect(origin: CGPoint(x: 0, y: bounds.height - separatorHeight),
+                                     size: CGSize(width: bounds.width, height: separatorHeight))
+        }
     }
-
     public func transitionToHorizontalSizeClass(_ sizeClass: UIUserInterfaceSizeClass) {
         currentSizeClass = sizeClass
         daySymbolsView.isHidden = sizeClass == .regular
