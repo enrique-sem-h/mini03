@@ -49,10 +49,10 @@ class IconPicker: UIControl {
             iconPicker.trailingAnchor.constraint(equalTo: trailingAnchor),
             iconPicker.topAnchor.constraint(equalTo: topAnchor),
             
-            iconView.centerXAnchor.constraint(equalTo: iconPicker.centerXAnchor),
-            iconView.centerYAnchor.constraint(equalTo: iconPicker.centerYAnchor),
-            iconView.widthAnchor.constraint(equalToConstant: 20),
-            iconView.heightAnchor.constraint(equalToConstant: 20)
+            iconView.leadingAnchor.constraint(equalTo: iconPicker.leadingAnchor, constant: 16),
+            iconView.topAnchor.constraint(equalTo: iconPicker.topAnchor, constant: 12),
+            iconView.trailingAnchor.constraint(equalTo: iconPicker.trailingAnchor, constant: -16),
+            iconView.bottomAnchor.constraint(equalTo: iconPicker.bottomAnchor, constant: -12)
         ])
     }    
 }

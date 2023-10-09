@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class EditTaskModalView: UIView {
-    let iconImage = UIView()
+    let iconView = UIImageView()
     let hourLabel = UILabel()
     let titleLabel = UILabel()
     let closeModalButton = UIButton()
@@ -21,11 +21,8 @@ class EditTaskModalView: UIView {
         self.backgroundColor = .white
         
         // Configuração da label do ícone (Necessita de alteração pós asset)
-        iconImage.translatesAutoresizingMaskIntoConstraints = false
-        iconImage.backgroundColor = UIColor.blue
-        iconImage.layer.cornerRadius = 21
-        iconImage.clipsToBounds = true
-        self.addSubview(iconImage)
+        iconView.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(iconView)
         
         // Configuração da label do horário
         hourLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -51,7 +48,7 @@ class EditTaskModalView: UIView {
         
         
         // Configuração da StackView que abriga icone, StackView de horário e título e botão de fechar
-        let topStackView = UIStackView(arrangedSubviews: [iconImage, hourTitleStackView, closeModalButton])
+        let topStackView = UIStackView(arrangedSubviews: [iconView, hourTitleStackView, closeModalButton])
         topStackView.translatesAutoresizingMaskIntoConstraints = false
         topStackView.axis = .horizontal
         topStackView.spacing = 24
@@ -94,8 +91,8 @@ class EditTaskModalView: UIView {
         NSLayoutConstraint.activate([
             
             // Constraints do icon (necessita alteração pós asset)
-            iconImage.widthAnchor.constraint(equalToConstant: 42), // Necessita de alteração pós asset
-            iconImage.heightAnchor.constraint(equalToConstant: 42), // Necessita de alteração pós asset
+            iconView.widthAnchor.constraint(equalToConstant: 21), // Necessita de alteração pós asset
+            iconView.heightAnchor.constraint(equalToConstant: 21), // Necessita de alteração pós asset
             
             // Constraints do botão de editar tarefa
             editButton.heightAnchor.constraint(equalToConstant: 56),

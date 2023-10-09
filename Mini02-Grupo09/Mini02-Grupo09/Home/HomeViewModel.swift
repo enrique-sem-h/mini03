@@ -29,7 +29,7 @@ class HomeViewModel {
     // Função para quando uma célula é selecionada
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let celula = tableView.cellForRow(at: indexPath) as? CustomTaskCell {
-            let vc = EditTaskModalViewController(hour: celula.hourLabel.text!, title: celula.titleLabel.text!)
+            let vc = EditTaskModalViewController(hour: celula.hourLabel.text!, iconViewImage: celula.iconView.image!, title: celula.titleLabel.text!)
             
             let navVC = UINavigationController(rootViewController: vc)
             navVC.setNavigationBarHidden(true, animated: false)

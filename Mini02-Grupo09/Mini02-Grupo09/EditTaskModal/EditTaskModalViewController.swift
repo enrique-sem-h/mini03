@@ -14,7 +14,8 @@ class EditTaskModalViewController: UIViewController {
     let viewModel = EditTaskModalViewModel()
     
     // Esse init vai receber as informações da view anterior e passar para a modal
-    init(hour: String, title: String) {
+    init(hour: String, iconViewImage: UIImage, title: String) {
+        newView.iconView.image = iconViewImage
         newView.titleLabel.text = title
         newView.hourLabel.text = hour
         super.init(nibName: nil, bundle: nil)
