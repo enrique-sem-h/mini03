@@ -9,58 +9,21 @@ class ListViewController: UIViewController {
 
     var selectedIndex: IndexPath = IndexPath(row: 0, section: 0)
     
-    let ttitle = UILabel()
+    let listView = ListView()
     
-    let tableView:UITableView = {
-       let tb = UITableView()
-        tb.translatesAutoresizingMaskIntoConstraints = false
-        tb.separatorStyle = .none
-        return tb
-    }()
+    var listViewModel = ListViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
+        listView.listViewController = self
+        listViewModel.listViewController = self
+        self.view = listView
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus.circle.fill"), style: .plain, target: self, action: #selector(showAddDogView))
         navigationItem.rightBarButtonItem?.tintColor = .systemRed
     }
     
     @objc func showAddDogView(){
-        let vc = AddDogViewController()
-        self.navigationController?.navigationBar.isHidden = true
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func setupTableView() {
-        view.addSubview(tableView)
-        view.addSubview(ttitle)
-        
-        ttitle.translatesAutoresizingMaskIntoConstraints = false
-        ttitle.text = String(localized: "List")
-        ttitle.font = UIFont.systemFont(ofSize: 24, weight: .heavy)
-        ttitle.textAlignment = .center
-        ttitle.backgroundColor = .gray
-        
-        view.backgroundColor = .systemBackground
-        
-        NSLayoutConstraint.activate([
-            
-            ttitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            ttitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            ttitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
-            ttitle.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 68),
-            
-            tableView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 90),
-            tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
-        ])
-        
-        
-        
-        tableView.register(CustomCell.self, forCellReuseIdentifier: "cell")
-        tableView.delegate = self
-        tableView.dataSource = self
+        listViewModel.showAddDogView()
     }
 
 
