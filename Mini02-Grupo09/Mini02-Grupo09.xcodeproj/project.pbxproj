@@ -14,9 +14,6 @@
 		3124EC092AD369CC008873F9 /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3124EC082AD369CC008873F9 /* CreditsView.swift */; };
 		318640A02ACCDB75007E6B43 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 3186409E2ACCDB75007E6B43 /* Localizable.xcstrings */; };
 		318640A12ACCDB75007E6B43 /* EnumLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3186409F2ACCDB75007E6B43 /* EnumLocalization.swift */; };
-		318640A72ACCE0AD007E6B43 /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318640A42ACCE0AD007E6B43 /* EditTaskView.swift */; };
-		318640A82ACCE0AD007E6B43 /* EditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318640A52ACCE0AD007E6B43 /* EditTaskViewController.swift */; };
-		318640A92ACCE0AD007E6B43 /* EditTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318640A62ACCE0AD007E6B43 /* EditTaskViewModel.swift */; };
 		31A569092AC4B06400DBBEB1 /* AddDogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A569082AC4B06400DBBEB1 /* AddDogView.swift */; };
 		31B21E7C2ABE059A0096F1AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B21E7B2ABE059A0096F1AB /* AppDelegate.swift */; };
 		31B21E7E2ABE059A0096F1AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B21E7D2ABE059A0096F1AB /* SceneDelegate.swift */; };
@@ -65,9 +62,6 @@
 		3124EC082AD369CC008873F9 /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 		3186409E2ACCDB75007E6B43 /* Localizable.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		3186409F2ACCDB75007E6B43 /* EnumLocalization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumLocalization.swift; sourceTree = "<group>"; };
-		318640A42ACCE0AD007E6B43 /* EditTaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
-		318640A52ACCE0AD007E6B43 /* EditTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTaskViewController.swift; sourceTree = "<group>"; };
-		318640A62ACCE0AD007E6B43 /* EditTaskViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTaskViewModel.swift; sourceTree = "<group>"; };
 		31A569082AC4B06400DBBEB1 /* AddDogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDogView.swift; sourceTree = "<group>"; };
 		31B21E782ABE059A0096F1AB /* Mini02-Grupo09.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mini02-Grupo09.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31B21E7B2ABE059A0096F1AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,16 +151,6 @@
 			name = Localization;
 			sourceTree = "<group>";
 		};
-		318640A32ACCE067007E6B43 /* EditTask */ = {
-			isa = PBXGroup;
-			children = (
-				318640A42ACCE0AD007E6B43 /* EditTaskView.swift */,
-				318640A52ACCE0AD007E6B43 /* EditTaskViewController.swift */,
-				318640A62ACCE0AD007E6B43 /* EditTaskViewModel.swift */,
-			);
-			path = EditTask;
-			sourceTree = "<group>";
-		};
 		31B21E6F2ABE059A0096F1AB = {
 			isa = PBXGroup;
 			children = (
@@ -193,7 +177,6 @@
 				2E6B49B62AC219A300DB149B /* ListPet */,
 				D3622CFC2AC74FA20063FAAE /* AddTaskView */,
 				D3622D162AC9DC080063FAAE /* EditTaskModal */,
-				318640A32ACCE067007E6B43 /* EditTask */,
 				31D1B8372AC4579600EE0C69 /* Add Dog */,
 				31E9E4572AC221D200AECCEB /* Model */,
 				31C2C5352AC7664B00276D67 /* Utils */,
@@ -413,12 +396,9 @@
 				318640A12ACCDB75007E6B43 /* EnumLocalization.swift in Sources */,
 				D3622D062AC8A4F20063FAAE /* iconPicker.swift in Sources */,
 				31E9E45A2AC222EB00AECCEB /* AppModel.xcdatamodeld in Sources */,
-				318640A72ACCE0AD007E6B43 /* EditTaskView.swift in Sources */,
 				556F178B2ACE01520067DBC0 /* DateLabel.swift in Sources */,
-				318640A92ACCE0AD007E6B43 /* EditTaskViewModel.swift in Sources */,
 				31D1B8342AC4578700EE0C69 /* AddDogViewController.swift in Sources */,
 				556F17912ACE01B20067DBC0 /* DaySelector.swift in Sources */,
-				318640A82ACCE0AD007E6B43 /* EditTaskViewController.swift in Sources */,
 				31C2C5342AC762F200276D67 /* TasksManager.swift in Sources */,
 				31E9E45C2AC2242C00AECCEB /* DogManager.swift in Sources */,
 				2E6B49B32ABE266A00DB149B /* ListViewController.swift in Sources */,
