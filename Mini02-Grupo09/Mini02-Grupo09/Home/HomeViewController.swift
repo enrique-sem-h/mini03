@@ -47,11 +47,13 @@ class HomeViewController: UIViewController {
     }
     
     func filterTasks(by date: Date) {
-        let calendar = Calendar.current
+        let selectedDate = daySelector.selectedDate
         filteredTasks = filteredTasks!.filter { task in
             return calendar.isDate(task.date!, inSameDayAs: daySelector.selectedDate!)
         }
+        
         newView.tasksTableView.reloadData() // Atualize a tabela para exibir as tarefas filtradas
+        viewModel.filteredTasks = filteredTasks
     }
 }
 
@@ -62,6 +64,8 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
         return viewModel.tableView(tableView, cellForRowAt: indexPath)
     }
     

@@ -10,6 +10,7 @@ import UIKit
 
 class HomeViewModel {
     weak var viewController: HomeViewController?
+    var filteredTasks: [DogTask]? 
     
     // Função que chama a célula
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
