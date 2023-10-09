@@ -39,10 +39,6 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 20
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let cell = tableView.cellForRow(at: indexPath) as? CustomCell else { return 130 }
 //        return cell.isOpened ? 130 : 400

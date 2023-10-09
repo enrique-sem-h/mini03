@@ -392,7 +392,7 @@ class CustomCell: UITableViewCell {
         }
         
         // Verifica se a superview é uma UITableView e obtém a célula selecionada
-        if let tableView = responder as? UITableView, let indexPath = tableView.indexPath(for: self) {
+        if let tableView = responder as? UITableView{
             // Obtém a referência à UIViewController que contém a UITableView
             if let viewController = tableView.delegate as? UIViewController {
                 // Cria a EditDogView e passa o objeto 'dog'

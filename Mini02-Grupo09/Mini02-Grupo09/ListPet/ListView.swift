@@ -47,7 +47,6 @@ class ListView: UIView {
         ])
         
         
-        
         tableView.register(CustomCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = listViewController
         tableView.dataSource = listViewController

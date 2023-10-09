@@ -94,18 +94,10 @@ class AddTaskViewController: UIViewController {
     }
     
     @objc func doneButtonTapped() {
-        var frequencyRV = "" // creating a string variable to make things easier
-        let index = newView.frequencyPicker.selectedSegmentIndex // retrieving index from segmented control
-        if index <= 4 && index >= 0{ // making sure the segmented control was selected
-            frequencyRV = newView.frequencyPicker.titleForSegment(at: index)! // retrieving the seg control option
-        } else {
-            errorAlert() // displaying error alert
-            return // returning
-        }
         if task == nil{
-            viewModel.addTask(icon: newView.iconPicker.iconView.image, title: newView.taskTitleTF.text, dogs: NSSet(array: dogsArray), date: newView.datePicker.date, frequency: TasksManager.Frequency(rawValue: frequencyRV), notes: newView.notesTF.text)
+            viewModel.addTask(icon: newView.iconPicker.iconView.image, title: newView.taskTitleTF.text, dogs: NSSet(array: dogsArray), date: newView.datePicker.date, notes: newView.notesTF.text)
         } else {
-            viewModel.editTask(icon: newView.iconPicker.iconView.image, title: newView.taskTitleTF.text, dogs: NSSet(array: dogsArray), date: newView.datePicker.date, frequency: TasksManager.Frequency(rawValue: frequencyRV), notes: newView.notesTF.text)
+            viewModel.editTask(icon: newView.iconPicker.iconView.image, title: newView.taskTitleTF.text, dogs: NSSet(array: dogsArray), date: newView.datePicker.date, notes: newView.notesTF.text)
         }
         viewControllerpai?.newView.tasksTableView.reloadData()
     }

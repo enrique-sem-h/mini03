@@ -16,6 +16,11 @@ class AddDogViewController: UIViewController{
     private let viewModel = AddDogViewModel() // creating a viewModel
     weak var listViewController: ListViewController?
     
+    init(){
+        self.dog = nil
+        super.init(nibName: nil, bundle: nil)
+    }
+    
     init(with dog: Dog?) {
         super.init(nibName: nil, bundle: nil)
         self.dog = dog
@@ -27,11 +32,6 @@ class AddDogViewController: UIViewController{
             newView.sizeTF.text = dog.size
             newView.weightTF.text = "\(dog.weight)"
         }
-    }
-    
-    init(){
-        self.dog = nil
-        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
