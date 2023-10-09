@@ -66,11 +66,11 @@ class HomeViewController: UIViewController {
         let tasks = DogTask(context: self.context)
         let taskDate = tasks.date
         
-        let filteredTasks = viewModel.filteredTasks?.filter { task in
-            return Calendar.current.isDate(taskDate!, inSameDayAs: selectedDate)
-            }
+//        let filteredTasks = viewModel.filteredTasks?.filter { task in
+//            return Calendar.current.isDate(taskDate!, inSameDayAs: selectedDate)
+//            }
         newView.tasksTableView.reloadData() // Atualize a tabela para exibir as tarefas filtradas
-        viewModel.filteredTasks = filteredTasks
+     
     }
 }
 
