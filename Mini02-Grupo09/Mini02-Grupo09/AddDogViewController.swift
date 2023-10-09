@@ -11,9 +11,32 @@ import PhotosUI
 
 class AddDogViewController: UIViewController{
     
+    var dog: Dog?
     var newView = AddDogView() // defining view
-    
     private let viewModel = AddDogViewModel() // creating a viewModel
+    weak var listViewController: ListViewController?
+    
+    init(with dog: Dog?) {
+        super.init(nibName: nil, bundle: nil)
+        self.dog = dog
+        if let dog = dog{
+            newView.title.text = "Edit Dog"
+            newView.imgButton.image = UIImage(data: dog.image!)
+            newView.nameTF.text = dog.name
+            newView.ageTF.text = "\(dog.age)"
+            newView.sizeTF.text = dog.size
+            newView.weightTF.text = "\(dog.weight)"
+        }
+    }
+    
+    init(){
+        self.dog = nil
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() { // default viewDidLoad func
         super.viewDidLoad()
@@ -25,6 +48,7 @@ class AddDogViewController: UIViewController{
         
         self.view = newView // changing the view controller's view
         
+        newView.backButton.addTarget(self, action: #selector(goBack), for: .touchUpInside) // adding target to go back button
         newView.button.addTarget(self, action: #selector(buttonFunc), for: .touchDown) // attaching target to button in this view controller
         newView.agePicker.addTarget(self, action: #selector(ageCalculator), for: .valueChanged) // adding target to apply changes on value change
         newView.ageTF.inputAccessoryView = createToolbar() // creating the done button
@@ -39,7 +63,15 @@ class AddDogViewController: UIViewController{
     // MARK: beginning of function declarations
     
     @objc func buttonFunc() { // defining the submit button (add button) func
-        viewModel.addDog(image: newView.imgButton.image!, name: newView.nameTF.text, age: newView.ageTF.text ?? "", weight: newView.weightTF.text ?? "", size: newView.sizeTF.text ?? "", viewController: self)
+        if dog != nil{
+            viewModel.editDog(image: newView.imgButton.image!, name: newView.nameTF.text, age: newView.ageTF.text ?? "", weight: newView.weightTF.text ?? "", size: newView.sizeTF.text ?? "", viewController: listViewController)
+        } else {
+            viewModel.addDog(image: newView.imgButton.image!, name: newView.nameTF.text, age: newView.ageTF.text ?? "", weight: newView.weightTF.text ?? "", size: newView.sizeTF.text ?? "", viewController: self)
+        }
+    }
+    
+    @objc func goBack(){
+        viewModel.goBack() // calling the pop view func
     }
     
     @objc func ageCalculator(){

@@ -105,6 +105,7 @@
       }
     },
     "It seems there was a little error while editing your task. Please check all the fields, and give it another 'bark'!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
@@ -113,6 +114,9 @@
           }
         }
       }
+    },
+    "List" : {
+
     },
     "Mid-Sized" : {
       "extractionState" : "manual",
@@ -281,6 +285,7 @@
       }
     },
     "Weight" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
@@ -290,6 +295,9 @@
         }
       }
     },
+    "Weight in Kg" : {
+
+    },
     "Yearly" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -297,6 +305,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Anual"
+          }
+        }
+      }
+    },
+    "years" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "anos"
           }
         }
       }

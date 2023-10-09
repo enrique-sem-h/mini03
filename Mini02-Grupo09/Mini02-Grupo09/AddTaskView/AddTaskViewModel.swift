@@ -44,16 +44,24 @@ class AddTaskViewModel {
         viewController?.present(navVC, animated: true)
     }
     
-    func addTask(icon: UIImage?, title: String?, dogs: NSSet?, date: Date?, frequency: TasksManager.Frequency?, notes: String?) {
-        if let icon = icon, let title = title, let dogs = dogs, let date = date, let frequency = frequency{
-            tasksManager.newTask(title: title, icon: icon, dogs: dogs, date: date, frequency: frequency, notes: notes)
+    func addTask(icon: UIImage?, title: String?, dogs: NSSet?, date: Date?, frequency: TasksManager.Frequency?, notes: String?) { // adding task to core data database func
+        if let icon = icon, let title = title, let dogs = dogs, let date = date, let frequency = frequency{ // safe unwrapping all parameters for the add func
+            if dogs != NSSet(array: []) && title != ""{ // making sure dogs and task name are not empty
+                tasksManager.newTask(title: title, icon: icon, dogs: dogs, date: date, frequency: frequency, notes: notes) // saving task to database
+                self.viewController?.dismiss(animated: true) // going back to previous view
+            } else {
+                viewController?.errorAlert() // displaying error alert
+            }
+        }
+    }
+    
+    func editTask(icon: UIImage?, title: String?, dogs: NSSet, date: Date?, frequency: TasksManager.Frequency?, notes: String?) {
+        if let task = viewController?.task, let icon = icon, let title = title, let date = date, let frequency = frequency{
+            tasksManager.edit(dogTask: task, title: title, icon: icon, dogs: dogs, date: date, frequency: frequency, notes: notes)
             self.viewController?.dismiss(animated: true) // going back to previous view
         } else {
             viewController?.errorAlert()
         }
-    }
-    
-    func firstResponderHandler() { // handling first responder function for view controller
     }
     
     func closeModal() {

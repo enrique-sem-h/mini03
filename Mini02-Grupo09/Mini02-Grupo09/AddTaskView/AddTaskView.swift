@@ -74,6 +74,7 @@ class AddTaskView: UIView {
         petsLabel.translatesAutoresizingMaskIntoConstraints = false
         petsLabel.text = String(localized: "Pets")
         petsLabel.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
+        petsLabel.isAccessibilityElement = true
         self.addSubview(petsLabel)
         
         // Configuração do Botão de adicionar pet
@@ -171,8 +172,8 @@ class AddTaskView: UIView {
             doneButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
             
         ])
-        
-        
-        
     }
+    
+    
+    
 }
