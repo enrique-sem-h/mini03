@@ -8,17 +8,17 @@
 import Foundation
 import UIKit
 
-class CreditsView: UIViewController{
+class CreditsViewController: UIViewController{
     
     
 }
 
 // variables
-extension CreditsView{
+extension CreditsViewController{
 
 }
 
 // funcs
-extension CreditsView{
+extension CreditsViewController{
     
 }

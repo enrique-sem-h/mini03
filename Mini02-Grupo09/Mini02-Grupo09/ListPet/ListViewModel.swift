@@ -22,7 +22,13 @@ class ListViewModel {
     
     func showAddDogView(){
         let vc = AddDogViewController()
-        listViewController?.navigationController?.navigationBar.isHidden = true
-        listViewController?.navigationController?.pushViewController(vc, animated: true)
+        let navC = UINavigationController(rootViewController: vc)
+        
+        if let sheet = navC.sheetPresentationController {
+            sheet.preferredCornerRadius = 12
+            sheet.detents = [.large()]
+        }
+        
+        listViewController?.navigationController?.present(navC, animated: true)
     }
 }
