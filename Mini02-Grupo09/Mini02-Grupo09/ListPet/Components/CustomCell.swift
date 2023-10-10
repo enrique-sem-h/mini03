@@ -145,10 +145,9 @@ class CustomCell: UITableViewCell {
         button.tintColor = .systemRed
         button.layer.cornerRadius = 7
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.isHidden = false
         return button
     }()
-
+    
     
     //MARK: ESTRUTRA
     
@@ -212,6 +211,10 @@ class CustomCell: UITableViewCell {
         button.addTarget(self, action: #selector(editButtonTapped), for: .touchUpInside)
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func setupLabels(){
         myImageView.image = UIImage(data: (dog.image)!)
         name.text = dog.name
@@ -237,7 +240,6 @@ class CustomCell: UITableViewCell {
         }
         myImageView.layer.cornerRadius = 35
         
-        
         stackTop.addArrangedSubview(myImageView)
         stackTop.addArrangedSubview(name)
         stackTop.addArrangedSubview(chevronImage)
@@ -246,10 +248,10 @@ class CustomCell: UITableViewCell {
         
         container.addSubview(stackTop)
         container.addSubview(subcontainer)
-        container.addSubview(button)
         
         subcontainer.addSubview(stack)
         subcontainer.addSubview(stackTitle)
+        subcontainer.addSubview(button)
         
         stack.addArrangedSubview(nameDesc)
         stack.addArrangedSubview(size)
@@ -316,69 +318,68 @@ class CustomCell: UITableViewCell {
                 stack.trailingAnchor.constraint(equalTo: subcontainer.trailingAnchor, constant: -40),
                 
                 // botão de editar
-                button.bottomAnchor.constraint(equalTo: subcontainer.bottomAnchor, constant: 30),
-                button.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -50),
-//                button.widthAnchor.constraint(equalToConstant: 80),
-//                button.heightAnchor.constraint(equalToConstant: 20),
-                
+                button.topAnchor.constraint(equalTo: subcontainer.bottomAnchor, constant: 30),
+                button.trailingAnchor.constraint(equalTo: subcontainer.trailingAnchor, constant: -50),
             ])
+            
         } else {
             NSLayoutConstraint.activate([
+                
                 stackTop.topAnchor.constraint(equalTo: container.topAnchor, constant: 10),
-            stackTop.heightAnchor.constraint(equalToConstant: 75),
-            
-            //container fundo
-            container.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            container.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 20),
-            container.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
-            container.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            
-            //foto
-            myImageView.topAnchor.constraint(equalTo: container.topAnchor, constant: 8),
-            myImageView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 28),
-            myImageView.bottomAnchor.constraint(equalTo: subcontainer.topAnchor, constant: -24),
-            myImageView.trailingAnchor.constraint(equalTo: name.leadingAnchor, constant: -5),
-            myImageView.heightAnchor.constraint(equalToConstant: 70),
-            myImageView.widthAnchor.constraint(equalToConstant: 70),
-            
-            //nome do cachorro
-            name.topAnchor.constraint(equalTo: container.topAnchor, constant: 4),
-            name.leadingAnchor.constraint(equalTo: myImageView.trailingAnchor, constant: 5),
-            name.heightAnchor.constraint(equalToConstant: 40),
-            
-            //Chevron antes da expansão da célula
-            chevronImage.topAnchor.constraint(equalTo: container.topAnchor, constant: 10),
-            chevronImage.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20),
-            chevronImage.heightAnchor.constraint(equalToConstant: 20),
-            chevronImage.widthAnchor.constraint(equalToConstant: 20),
-            
-            //Chevron após expansão da célula
-            chevronDown.topAnchor.constraint(equalTo: container.topAnchor, constant: 10),
-            chevronDown.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20),
-            chevronDown.heightAnchor.constraint(equalToConstant: 20),
-            chevronDown.widthAnchor.constraint(equalToConstant: 20),
-            
-            //subcontainer
-            subcontainer.topAnchor.constraint(equalTo: container.topAnchor, constant: 105),
-            subcontainer.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 28),
-            subcontainer.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -64),
-            subcontainer.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -28),
-            
-            //Stack Title
-            stackTitle.topAnchor.constraint(equalTo: subcontainer.topAnchor, constant: 20),
-            stackTitle.leadingAnchor.constraint(equalTo: subcontainer.leadingAnchor, constant: 40),
-            stackTitle.trailingAnchor.constraint(equalTo: stack.trailingAnchor, constant: -100),
-            
-            //Stack
-            stack.topAnchor.constraint(equalTo: subcontainer.topAnchor, constant: 20),
-            stack.leadingAnchor.constraint(equalTo: stackTitle.leadingAnchor, constant: 100),
-            stack.trailingAnchor.constraint(equalTo: subcontainer.trailingAnchor, constant: -40),
-            
-            // botão de editar
-            button.bottomAnchor.constraint(equalTo: subcontainer.bottomAnchor, constant: 30),
-            button.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -50),
-            button.widthAnchor.constraint(equalToConstant: 80),
-            button.heightAnchor.constraint(equalToConstant: 20),
+                stackTop.heightAnchor.constraint(equalToConstant: 75),
+                
+                //container fundo
+                container.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+                container.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 20),
+                container.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
+                container.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+                
+                //foto
+                myImageView.topAnchor.constraint(equalTo: container.topAnchor, constant: 8),
+                myImageView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 28),
+                myImageView.bottomAnchor.constraint(equalTo: subcontainer.topAnchor, constant: -24),
+                myImageView.trailingAnchor.constraint(equalTo: name.leadingAnchor, constant: -5),
+                myImageView.heightAnchor.constraint(equalToConstant: 70),
+                myImageView.widthAnchor.constraint(equalToConstant: 70),
+                
+                //nome do cachorro
+                name.topAnchor.constraint(equalTo: container.topAnchor, constant: 4),
+                name.leadingAnchor.constraint(equalTo: myImageView.trailingAnchor, constant: 5),
+                name.heightAnchor.constraint(equalToConstant: 40),
+                
+                //Chevron antes da expansão da célula
+                chevronImage.topAnchor.constraint(equalTo: container.topAnchor, constant: 10),
+                chevronImage.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20),
+                chevronImage.heightAnchor.constraint(equalToConstant: 20),
+                chevronImage.widthAnchor.constraint(equalToConstant: 20),
+                
+                //Chevron após expansão da célula
+                chevronDown.topAnchor.constraint(equalTo: container.topAnchor, constant: 10),
+                chevronDown.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20),
+                chevronDown.heightAnchor.constraint(equalToConstant: 20),
+                chevronDown.widthAnchor.constraint(equalToConstant: 20),
+                
+                //subcontainer
+                subcontainer.topAnchor.constraint(equalTo: container.topAnchor, constant: 105),
+                subcontainer.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 28),
+                subcontainer.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -64),
+                subcontainer.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -28),
+                
+                //Stack Title
+                stackTitle.topAnchor.constraint(equalTo: subcontainer.topAnchor, constant: 20),
+                stackTitle.leadingAnchor.constraint(equalTo: subcontainer.leadingAnchor, constant: 40),
+                stackTitle.trailingAnchor.constraint(equalTo: stack.trailingAnchor, constant: -100),
+                
+                //Stack
+                stack.topAnchor.constraint(equalTo: subcontainer.topAnchor, constant: 20),
+                stack.leadingAnchor.constraint(equalTo: stackTitle.leadingAnchor, constant: 100),
+                stack.trailingAnchor.constraint(equalTo: subcontainer.trailingAnchor, constant: -40),
+                
+                // botão de editar
+                button.bottomAnchor.constraint(equalTo: subcontainer.bottomAnchor, constant: 30),
+                button.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -50),
+                button.widthAnchor.constraint(equalToConstant: 80),
+                button.heightAnchor.constraint(equalToConstant: 20),
             ])
         }
     }
@@ -405,8 +406,5 @@ class CustomCell: UITableViewCell {
         }
     }
     
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+
 }

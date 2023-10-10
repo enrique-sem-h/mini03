@@ -12,14 +12,21 @@ class ListView: UIView {
     
     let ttitle = UILabel()
     
-    weak var listViewController: ListViewController?
-    
     let tableView:UITableView = {
        let tb = UITableView()
         tb.translatesAutoresizingMaskIntoConstraints = false
         tb.separatorStyle = .none
         return tb
     }()
+    
+    init(){
+        super.init(frame: .zero)
+        setupTableView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     func setupTableView() {
         self.addSubview(tableView)
@@ -47,17 +54,6 @@ class ListView: UIView {
         ])
         
         
-        tableView.register(CustomCell.self, forCellReuseIdentifier: "cell")
-        tableView.delegate = listViewController
-        tableView.dataSource = listViewController
     }
     
-    init(){
-        super.init(frame: .zero)
-        setupTableView()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }

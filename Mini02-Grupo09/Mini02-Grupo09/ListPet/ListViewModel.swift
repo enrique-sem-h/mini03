@@ -11,9 +11,14 @@ import UIKit
 
 class ListViewModel {
     
+    var dogs: [Dog] = []
     weak var listViewController: ListViewController?
-    
-    
+
+    func fetchDogs() {
+        
+        self.dogs = DogManager.shared.fetch()
+        listViewController?.listView.tableView.reloadData()
+    }
     
     func showAddDogView(){
         let vc = AddDogViewController()

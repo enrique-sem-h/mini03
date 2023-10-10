@@ -14,10 +14,7 @@ class DogManager: ObservableObject{ // handling the core data stuff
     
     private var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    var dogs: [Dog]{
-        let array = fetch() // fetching all dogs from core data to the array
-        return array // returning the dog model array
-    }
+    var dogs: [Dog] = []
     
     enum Size: String, EnumLocalization{ // creating an enum with raw values to avoid typos
         case mini = "Mini"
@@ -28,15 +25,13 @@ class DogManager: ObservableObject{ // handling the core data stuff
     }
     
     var fetchEnum: [Size]{
-        var sizes: [Size] = []
         
-        for i in Size.allCases{
-            sizes.append(i)
-        }
-        
-        return sizes
+        return Size.allCases
     }
     
+    private init() {
+        self.dogs = fetch()
+    }
     
     func save(){ // saving the object to the model
         do{
@@ -69,7 +64,6 @@ class DogManager: ObservableObject{ // handling the core data stuff
         let request: NSFetchRequest<Dog> = Dog.fetchRequest() // creating the fetch request
         let sort = NSSortDescriptor(keyPath: \Dog.dateAdded, ascending: true) // creating sort
         request.sortDescriptors = [sort] // sorting the request with sort settings
-        
         return (try? context.fetch(request)) ?? [] // try returning the array, else return empty
     }
     

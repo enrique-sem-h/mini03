@@ -5,7 +5,7 @@ class ListViewController: UIViewController {
     
     var editButtonCallback: (() -> Void)?
     
-    var dogManager = DogManager.shared
+//    var dogManager = DogManager.shared
 
     var selectedIndex: IndexPath = IndexPath(row: 0, section: 0)
     
@@ -15,11 +15,17 @@ class ListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        listView.listViewController = self
+//        listView.listViewController = self
         listViewModel.listViewController = self
         self.view = listView
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus.circle.fill"), style: .plain, target: self, action: #selector(showAddDogView))
         navigationItem.rightBarButtonItem?.tintColor = .systemRed
+        
+        
+        listView.tableView.register(CustomCell.self, forCellReuseIdentifier: "cell")
+        listView.tableView.delegate = self
+        listView.tableView.dataSource = self
+        listViewModel.fetchDogs()
     }
     
     @objc func showAddDogView(){
@@ -31,9 +37,9 @@ class ListViewController: UIViewController {
 
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = CustomCell(reuseIdentifier: "cell", dog: dogManager.dogs[indexPath.row], listViewController: self)
-        
-        cell.dog = dogManager.dogs[indexPath.row]
+        let cell = CustomCell(reuseIdentifier: "cell", dog: listViewModel.dogs[indexPath.row], listViewController: self)
+        print("funcionou porra")
+        cell.dog = listViewModel.dogs[indexPath.row]
         cell.selectionStyle = .none
         
         return cell
@@ -52,8 +58,12 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dogManager.dogs.count
+        return listViewModel.dogs.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
