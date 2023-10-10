@@ -58,7 +58,7 @@ class AddDogViewModel{
     }
     
     func goBack(){
-        controller?.navigationController?.popViewController(animated: true)
+        controller?.navigationController?.dismiss(animated: true)
     }
     
 }

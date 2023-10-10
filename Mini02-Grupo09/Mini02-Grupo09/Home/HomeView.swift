@@ -28,7 +28,6 @@ class HomeView: UIView {
     let tasksTableView: UITableView = {
         let tasksTableView = UITableView()
         tasksTableView.translatesAutoresizingMaskIntoConstraints = false
-        tasksTableView.backgroundColor = UIColor(named: <#T##String#>)
         return tasksTableView
     }()
     
