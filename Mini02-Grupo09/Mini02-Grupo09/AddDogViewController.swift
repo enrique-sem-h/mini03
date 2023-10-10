@@ -71,6 +71,7 @@ class AddDogViewController: UIViewController{
     }
     
     @objc func goBack(){
+        print("a")
         viewModel.goBack() // calling the pop view func
     }
     
