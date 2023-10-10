@@ -25,7 +25,12 @@ class HomeView: UIView {
     
     let swipeLabel = SwipeLabelView()
     
-    let tasksTableView = UITableView()
+    let tasksTableView: UITableView = {
+        let tasksTableView = UITableView()
+        tasksTableView.translatesAutoresizingMaskIntoConstraints = false
+        tasksTableView.backgroundColor = UIColor(named: <#T##String#>)
+        return tasksTableView
+    }()
     
     func setup() {
         
@@ -34,7 +39,7 @@ class HomeView: UIView {
         
         self.backgroundColor = .systemBackground
         
-        tasksTableView.translatesAutoresizingMaskIntoConstraints = false
+        
         self.addSubview(tasksTableView)
         
         tasksTableView.register(CustomTaskCell.self, forCellReuseIdentifier: "CustomTaskCell")
@@ -57,7 +62,6 @@ class HomeView: UIView {
             // Constraints do botão de adicionar tarefa
             addTaskButton.trailingAnchor.constraint(equalTo: self.layoutMarginsGuide.trailingAnchor),
             addTaskButton.bottomAnchor.constraint(equalTo: self.layoutMarginsGuide.bottomAnchor),
-            
             
             // Constraints do calendario
             dayHeaderView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
