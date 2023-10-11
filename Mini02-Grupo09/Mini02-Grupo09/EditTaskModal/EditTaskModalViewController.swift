@@ -10,11 +10,17 @@ import UIKit
 
 class EditTaskModalViewController: UIViewController {
     
+    let task: DogTask?
     let newView = EditTaskModalView()
     let viewModel = EditTaskModalViewModel()
+    weak var tableView: UITableView?
+    
     
     // Esse init vai receber as informações da view anterior e passar para a modal
-    init(hour: String, iconViewImage: UIImage, title: String) {
+    init(task: DogTask, homeViewController: HomeViewController, hour: String, iconViewImage: UIImage, title: String) {
+        self.task = task
+        self.tableView = homeViewController.newView.tasksTableView
+        self.viewModel.homeViewController = homeViewController
         newView.iconView.image = iconViewImage
         newView.titleLabel.text = title
         newView.hourLabel.text = hour

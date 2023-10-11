@@ -11,6 +11,9 @@
         }
       }
     },
+    "Are you sure you want to delete this task?" : {
+
+    },
     "Big" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -111,17 +114,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Parece que houve um erro ao adicionar sua tarefa. Por favor, verifique todos os campos e tente novamente 🐾!"
-          }
-        }
-      }
-    },
-    "It seems there was a little error while editing your task. Please check all the fields, and give it another 'bark'!" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Parece que houve um erro ao editar sua tarefa. Por favor, verifique todos os campos e tente novamente 🐾!"
           }
         }
       }

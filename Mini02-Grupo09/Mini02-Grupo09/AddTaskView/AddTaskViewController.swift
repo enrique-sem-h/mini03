@@ -13,6 +13,7 @@ class AddTaskViewController: UIViewController {
     let newView = AddTaskView()
     private let viewModel = AddTaskViewModel()
     weak var viewControllerpai: HomeViewController?
+    weak var tableViewToReload: UITableView?
     
     var dogsArray: [Dog] = []
     
