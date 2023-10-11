@@ -22,8 +22,9 @@ class ListViewController: UIViewController {
     private func setupNavigationBar() {
         let image = UIImage(systemName: "plus.circle.fill")
         
+        navigationItem.title = String(localized: "List")
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(showAddDogView))
-        navigationItem.rightBarButtonItem?.tintColor = .black
+        navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "Red")
     }
     
     @objc
@@ -35,6 +36,12 @@ class ListViewController: UIViewController {
         listView.tableView.register(CustomCell.self, forCellReuseIdentifier: CustomCell.identifier)
         listView.tableView.delegate = self
         listView.tableView.dataSource = self
+    }
+    
+    func voiceOverSetup() {
+    
+        
+        
     }
 }
 

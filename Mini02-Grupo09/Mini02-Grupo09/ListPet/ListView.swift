@@ -14,6 +14,7 @@ class ListView: UIView {
         let tb = UITableView()
         tb.translatesAutoresizingMaskIntoConstraints = false
         tb.separatorStyle = .none
+        tb.backgroundColor = .clear
         
         return tb
     }()
@@ -30,7 +31,7 @@ class ListView: UIView {
     private func setupTableView() {
         self.addSubview(tableView)
 
-        self.backgroundColor = .systemBackground
+        self.backgroundColor = UIColor(named: "Background")
         
         NSLayoutConstraint.activate([
             

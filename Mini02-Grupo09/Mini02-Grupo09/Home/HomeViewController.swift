@@ -26,6 +26,8 @@ class HomeViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "info.circle"), style: .plain, target: self, action: #selector(showCredits))
         
+        navigationController?.navigationBar.tintColor = UIColor(named: "Red")
+        
         // Configuração da view
         newView.frame = view.frame
         self.view = newView

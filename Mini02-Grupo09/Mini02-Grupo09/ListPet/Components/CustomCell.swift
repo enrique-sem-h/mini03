@@ -230,6 +230,8 @@ class CustomCell: UITableViewCell {
     
     func setupView(){
         contentView.addSubview(container)
+        contentView.backgroundColor = .clear
+        self.backgroundColor = .clear
         
         if let imageData = dog.image {
             myImageView.image = UIImage(data: imageData)

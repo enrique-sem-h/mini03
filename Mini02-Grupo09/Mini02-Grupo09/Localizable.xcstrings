@@ -191,13 +191,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "List"
+            "value" : "Your Pets"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lista"
+            "state" : "needs_review",
+            "value" : "Meus pets"
           }
         }
       }
