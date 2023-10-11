@@ -46,6 +46,7 @@ class HomeViewModel {
                     226
                 })]
             }
+            tableView.deselectRow(at: indexPath, animated: true)
             viewController?.present(navVC, animated: true)
         }
     }
