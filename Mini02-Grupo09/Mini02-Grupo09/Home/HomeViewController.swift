@@ -11,13 +11,12 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    let newView = HomeView()
+    var newView : HomeView?
     let viewModel = HomeViewModel()
     
     let tasksManager = TasksManager.shared
     
     var filteredTasks: [DogTask]?
-    let daySelector = DaySelector()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,14 +26,15 @@ class HomeViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "info.circle"), style: .plain, target: self, action: #selector(showCredits))
         
         // Configuração da view
-        newView.frame = view.frame
+        newView = HomeView(calendar: Calendar.current, viewController: self)
+        guard let newView = newView else { fatalError() }
+        
+        newView.frame = self.view.frame
         self.view = newView
         newView.setup()
         
         newView.tasksTableView.dataSource = self
         newView.tasksTableView.delegate = self
-        
-        viewModel.daySelector = self.daySelector
         
         self.viewModel.viewController = self
         
@@ -59,21 +59,13 @@ class HomeViewController: UIViewController {
     @objc func showCredits(){
         viewModel.showCreditsView()
     }
-    
-//    func filterTasks(by date: Date) {
-//        let calendar = Calendar.current
-//        filteredTasks = filteredTasks!.filter { task in
-//            return calendar.isDate(task.date!, inSameDayAs: daySelector.selectedDate!)
-//        }
-//        newView.tasksTableView.reloadData() // Atualize a tabela para exibir as tarefas filtradas
-//    }
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count = 0
         for task in tasksManager.tasks {
-            if Calendar.current.isDate(task.date!, inSameDayAs: daySelector.startDate){
+            if Calendar.current.isDate(task.date!, inSameDayAs: newView?.dayHeaderView.daySelectorController.daySelector.selectedDate ?? Date()){
                 count += 1
             }
         }
@@ -95,8 +87,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension HomeViewController: DayViewStateUpdating {
     func move(from oldDate: Date, to newDate: Date) {
-//        filterTasks(by: newDate)
-        self.newView.tasksTableView.reloadData()
     }
 }
 

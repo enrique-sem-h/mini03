@@ -8,6 +8,10 @@
 import UIKit
 
 public final class DayHeaderView: UIView, DaySelectorDelegate, DayViewStateUpdating, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+    weak var viewController: HomeViewController?
+    
+    let daySelectorController = DaySelectorController()
+    
     public private(set) var daysInWeek = 7
     public let calendar: Calendar
 
@@ -41,7 +45,8 @@ public final class DayHeaderView: UIView, DaySelectorDelegate, DayViewStateUpdat
         return separator
     }()
 
-    public init(calendar: Calendar) {
+    init(calendar: Calendar, viewController: HomeViewController?) {
+        self.viewController = viewController
         self.calendar = calendar
         let symbols = DaySymbolsView(calendar: calendar)
         let swipeLabel = SwipeLabelView(calendar: calendar)
@@ -78,7 +83,7 @@ public final class DayHeaderView: UIView, DaySelectorDelegate, DayViewStateUpdat
     }
 
     private func makeSelectorController(startDate: Date) -> DaySelectorController {
-        let daySelectorController = DaySelectorController()
+        daySelectorController.viewController = viewController
         daySelectorController.calendar = calendar
         daySelectorController.transitionToHorizontalSizeClass(currentSizeClass)
         daySelectorController.updateStyle(style.daySelector)

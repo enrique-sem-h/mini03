@@ -20,6 +20,7 @@ protocol HomeViewDelegate: AnyObject {
 }
 
 class HomeView: UIView {
+    weak var viewController: HomeViewController?
     
     let addTaskButton = UIButton(type: .custom)
     
@@ -107,21 +108,22 @@ class HomeView: UIView {
     
     private var style = CalendarStyle()
     
-    public init(calendar: Calendar = Calendar.autoupdatingCurrent) {
+    public init(calendar: Calendar = Calendar.autoupdatingCurrent, viewController: HomeViewController) {
+        self.viewController = viewController
         self.calendar = calendar
-        self.dayHeaderView = DayHeaderView(calendar: calendar)
+        self.dayHeaderView = DayHeaderView(calendar: calendar, viewController: self.viewController!)
         super.init(frame: .zero)
         configure()
     }
     
     override public init(frame: CGRect) {
-        self.dayHeaderView = DayHeaderView(calendar: calendar)
+        self.dayHeaderView = DayHeaderView(calendar: calendar, viewController: nil)
         super.init(frame: frame)
         configure()
     }
     
     required public init?(coder aDecoder: NSCoder) {
-        self.dayHeaderView = DayHeaderView(calendar: calendar)
+        self.dayHeaderView = DayHeaderView(calendar: calendar, viewController: self.viewController!)
         super.init(coder: aDecoder)
         configure()
     }

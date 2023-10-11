@@ -16,7 +16,7 @@ class HomeViewModel {
     // Função que chama a célula
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let task = tasksManager.tasks[indexPath.row] // Definindo a task
-        if Calendar.current.isDate(task.date!, inSameDayAs: daySelector!.startDate){
+        if Calendar.current.isDate(task.date!, inSameDayAs: viewController?.newView?.dayHeaderView.daySelectorController.daySelector.selectedDate ?? Date()){
         let cell = CustomTaskCell(style: .default, reuseIdentifier: "CustomTaskCell", date: task.date!, icon: task.icon!, taskTitle: task.title!)
         
         return cell
