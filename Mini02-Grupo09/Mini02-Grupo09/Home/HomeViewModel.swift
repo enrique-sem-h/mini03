@@ -16,7 +16,7 @@ class HomeViewModel {
     // Função que chama a célula
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let task = tasksManager.tasks[indexPath.row] // Definindo a task
-        if Calendar.current.isDate(task.date!, inSameDayAs: daySelector!.selectedDate! ?? Date()){
+        if Calendar.current.isDate(task.date!, inSameDayAs: daySelector!.selectedDate ?? Date()){
         let cell = CustomTaskCell(style: .default, reuseIdentifier: "CustomTaskCell", date: task.date!, icon: task.icon!, taskTitle: task.title!)
         
         return cell
@@ -27,7 +27,7 @@ class HomeViewModel {
     // Função para quando uma célula é selecionada
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let celula = tableView.cellForRow(at: indexPath) as? CustomTaskCell {
-            let vc = EditTaskModalViewController(hour: celula.hourLabel.text!, iconViewImage: celula.iconView.image!, title: celula.titleLabel.text!)
+            let vc = EditTaskModalViewController(task: tasksManager.tasks[indexPath.row], homeViewController: self.viewController ?? HomeViewController(), hour: celula.hourLabel.text!, iconViewImage: celula.iconView.image!, title: celula.titleLabel.text!)
             
             let navVC = UINavigationController(rootViewController: vc)
             navVC.setNavigationBarHidden(true, animated: false)
