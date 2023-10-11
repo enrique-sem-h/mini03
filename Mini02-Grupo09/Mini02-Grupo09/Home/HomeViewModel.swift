@@ -14,14 +14,23 @@ class HomeViewModel {
     let tasksManager = TasksManager.shared
     
     // Função que chama a célula
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let task = tasksManager.tasks[indexPath.row] // Definindo a task
-//        if Calendar.current.isDate(task.date!, inSameDayAs: viewController?.newView?.dayHeaderView.daySelectorController.daySelector.selectedDate ?? Date()){
-//        let cell = CustomTaskCell(style: .default, reuseIdentifier: "CustomTaskCell", date: task.date!, icon: task.icon!, taskTitle: task.title!)
-//        
-//        return cell
-//        }
-//    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var taskIndices: [Int] = []
+        for (index, task) in tasksManager.tasks.enumerated() {
+            if Calendar.current.isDate(task.date!, inSameDayAs: viewController?.newView?.dayHeaderView.daySelectorController.daySelector.selectedDate ?? Date()) {
+                taskIndices.append(index)
+            }
+        }
+        
+        if indexPath.row < taskIndices.count {
+            let task = tasksManager.tasks[taskIndices[indexPath.row]]
+            let cell = CustomTaskCell(style: .default, reuseIdentifier: "CustomTaskCell", date: task.date!, icon: task.icon!, taskTitle: task.title!)
+            return cell
+        } else {
+            // Crie uma célula vazia para casos em que não há tarefas nesta data
+            return UITableViewCell()
+        }
+    }
     
     // Função para quando uma célula é selecionada
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -62,6 +62,7 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var taskIndices: [Int] = []
         for (index, task) in tasksManager.tasks.enumerated() {
@@ -73,35 +74,8 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var taskIndices: [Int] = []
-        for (index, task) in tasksManager.tasks.enumerated() {
-            if Calendar.current.isDate(task.date!, inSameDayAs: self.newView?.dayHeaderView.daySelectorController.daySelector.selectedDate ?? Date()) {
-                taskIndices.append(index)
-            }
-        }
-        
-        if indexPath.row < taskIndices.count {
-            let task = tasksManager.tasks[taskIndices[indexPath.row]]
-            let cell = CustomTaskCell(style: .default, reuseIdentifier: "CustomTaskCell", date: task.date!, icon: task.icon!, taskTitle: task.title!)
-            return cell
-        } else {
-            // Crie uma célula vazia para casos em que não há tarefas nesta data
-            return UITableViewCell()
-        }
+        return viewModel.tableView(tableView, cellForRowAt: indexPath)
     }
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        var count = 0
-//        for task in tasksManager.tasks {
-//            if Calendar.current.isDate(task.date!, inSameDayAs: newView?.dayHeaderView.daySelectorController.daySelector.selectedDate ?? Date()){
-//                count += 1
-//            }
-//        }
-//        return count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        return viewModel.tableView(tableView, cellForRowAt: indexPath)
-//    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.tableView(tableView, didSelectRowAt: indexPath)
