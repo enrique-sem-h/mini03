@@ -53,6 +53,17 @@
         }
       }
     },
+    "Edit Pet" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editar Pet"
+          }
+        }
+      }
+    },
     "Edit Task" : {
       "localizations" : {
         "pt-BR" : {
@@ -105,11 +116,29 @@
       }
     },
     "It seems there was a little error while editing your task. Please check all the fields, and give it another 'bark'!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Parece que houve um erro ao editar sua tarefa. Por favor, verifique todos os campos e tente novamente 🐾!"
+          }
+        }
+      }
+    },
+    "List" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "List"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lista"
           }
         }
       }
@@ -281,7 +310,6 @@
       }
     },
     "Weight" : {
-      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
@@ -292,7 +320,14 @@
       }
     },
     "Weight in Kg" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Peso em Kg"
+          }
+        }
+      }
     },
     "Yearly" : {
       "extractionState" : "manual",

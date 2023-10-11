@@ -19,7 +19,7 @@ class DogManager: ObservableObject{ // handling the core data stuff
         return array // returning the dog model array
     }
     
-    enum Size: String, EnumLocalization{ // creating an enum with raw values to avoid typos
+    enum Size: String, EnumLocalization { // creating an enum with raw values to avoid typos
         case mini = "Mini"
         case small = "Small"
         case midSized = "Mid-Sized"
@@ -37,7 +37,6 @@ class DogManager: ObservableObject{ // handling the core data stuff
         return sizes
     }
     
-    
     func save(){ // saving the object to the model
         do{
             try context.save() // try saving
@@ -51,7 +50,7 @@ class DogManager: ObservableObject{ // handling the core data stuff
         
         newDog.id = UUID()
         newDog.dateAdded = Date()
-        newDog.image = image.jpegData(compressionQuality: 0.8)
+        newDog.image = image.pngData()
         newDog.name = name
         newDog.age = Int64(age)
         newDog.size = size.rawValue
@@ -69,7 +68,6 @@ class DogManager: ObservableObject{ // handling the core data stuff
         let request: NSFetchRequest<Dog> = Dog.fetchRequest() // creating the fetch request
         let sort = NSSortDescriptor(keyPath: \Dog.dateAdded, ascending: true) // creating sort
         request.sortDescriptors = [sort] // sorting the request with sort settings
-        
         return (try? context.fetch(request)) ?? [] // try returning the array, else return empty
     }
     

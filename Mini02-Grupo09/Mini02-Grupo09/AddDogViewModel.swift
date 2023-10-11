@@ -33,7 +33,7 @@ class AddDogViewModel{
         HapticsManager.shared.vibrate(for: .success) // triggering system's default vibration for success
         if let viewController = viewController{
             viewController.navigationController?.popViewController(animated: true) // going back to previous view
-            viewController.tableView.reloadData()
+            viewController.listView.tableView.reloadData()
         }
     }
     

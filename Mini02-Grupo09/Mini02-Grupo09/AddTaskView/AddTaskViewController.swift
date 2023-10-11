@@ -9,11 +9,53 @@ import Foundation
 import UIKit
 
 class AddTaskViewController: UIViewController {
-    weak var viewControllerpai: HomeViewController?
+    var task: DogTask?
     let newView = AddTaskView()
-    let viewModel = AddTaskViewModel()
+    private let viewModel = AddTaskViewModel()
+    weak var viewControllerpai: HomeViewController?
     
     var dogsArray: [Dog] = []
+    
+    init(){
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    init(with task: DogTask?) {
+        super.init(nibName: nil, bundle: nil)
+        self.task = task
+        if let task = task{
+            newView.viewTitle.text = "Edit Task"
+            newView.iconPicker.iconView.image = UIImage(data: task.icon!)
+            newView.taskTitleTF.text = task.title
+            
+            task.dogs?.forEach({ dog in
+                var count = 0
+                if let dog = dog as? Dog{
+                    let pet: UIImageView = {
+                        let pet = UIImageView()
+                        pet.image = UIImage(data: dog.image!)
+                        pet.translatesAutoresizingMaskIntoConstraints = false
+                        pet.contentMode = .scaleAspectFill // scale mode
+                        pet.layer.cornerRadius = 24 // 48 (Tamanho do círculo) / 2
+                        pet.clipsToBounds = true
+                        NSLayoutConstraint.activate([
+                            pet.widthAnchor.constraint(equalToConstant: 48),
+                            pet.heightAnchor.constraint(equalToConstant: 48)])
+                        return pet
+                    }()
+                    newView.petsStackView.insertArrangedSubview(pet, at: count)
+                }
+                count += 1
+            })
+            
+            newView.datePicker.date = task.date!
+            newView.notesTF.text = task.notes
+        }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,16 +94,11 @@ class AddTaskViewController: UIViewController {
     }
     
     @objc func doneButtonTapped() {
-        var frequencyRV = "" // creating a string variable to make things easier
-        let index = newView.frequencyPicker.selectedSegmentIndex // retrieving index from segmented control
-        if index <= 4 && index >= 0{ // making sure the segmented control was selected
-            frequencyRV = newView.frequencyPicker.titleForSegment(at: index)! // retrieving the seg control option
+        if task == nil{
+            viewModel.addTask(icon: newView.iconPicker.iconView.image, title: newView.taskTitleTF.text, dogs: NSSet(array: dogsArray), date: newView.datePicker.date, notes: newView.notesTF.text)
         } else {
-            errorAlert() // displaying error alert
-            return // returning
+            viewModel.editTask(icon: newView.iconPicker.iconView.image, title: newView.taskTitleTF.text, dogs: NSSet(array: dogsArray), date: newView.datePicker.date, notes: newView.notesTF.text)
         }
-        
-        viewModel.addTask(icon: newView.iconPicker.iconView.image, title: newView.taskTitleTF.text, dogs: NSSet(array: dogsArray), date: newView.datePicker.date, frequency: TasksManager.Frequency(rawValue: frequencyRV), notes: newView.notesTF.text)
         viewControllerpai?.newView.tasksTableView.reloadData()
     }
     

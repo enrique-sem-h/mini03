@@ -14,8 +14,9 @@ class HomeViewController: UIViewController {
     let newView = HomeView()
     let viewModel = HomeViewModel()
     
-    private var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let tasksManager = TasksManager.shared
     
+    var filteredTasks: [DogTask]?
     let daySelector = DaySelector()
     
     var filteredTasks: [DogTask]?
@@ -35,7 +36,7 @@ class HomeViewController: UIViewController {
         newView.tasksTableView.dataSource = self
         newView.tasksTableView.delegate = self
         
-        
+        viewModel.daySelector = self.daySelector
         
         self.viewModel.viewController = self
         
@@ -61,17 +62,13 @@ class HomeViewController: UIViewController {
         viewModel.showCreditsView()
     }
     
-    func filterTasks(by date: Date) {
-        let selectedDate = daySelector.selectedDate!
-        let tasks = DogTask(context: self.context)
-        let taskDate = tasks.date
-        
-//        let filteredTasks = viewModel.filteredTasks?.filter { task in
-//            return Calendar.current.isDate(taskDate!, inSameDayAs: selectedDate)
-//            }
-        newView.tasksTableView.reloadData() // Atualize a tabela para exibir as tarefas filtradas
-     
-    }
+//    func filterTasks(by date: Date) {
+//        let calendar = Calendar.current
+//        filteredTasks = filteredTasks!.filter { task in
+//            return calendar.isDate(task.date!, inSameDayAs: daySelector.selectedDate!)
+//        }
+//        newView.tasksTableView.reloadData() // Atualize a tabela para exibir as tarefas filtradas
+//    }
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
@@ -80,7 +77,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         var count = 0
         
         for task in tasksManager.tasks {
-            if Calendar.current.isDate(task.date!, inSameDayAs: daySelector.selectedDate ?? Date()){
+            if Calendar.current.isDate(task.date!, inSameDayAs: daySelector.startDate){
                 count += 1
             }
         }
@@ -103,5 +100,10 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-
+extension HomeViewController: DayViewStateUpdating {
+    func move(from oldDate: Date, to newDate: Date) {
+//        filterTasks(by: newDate)
+        self.newView.tasksTableView.reloadData()
+    }
+}
 

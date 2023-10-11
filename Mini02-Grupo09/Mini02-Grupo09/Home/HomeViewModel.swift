@@ -10,7 +10,7 @@ import UIKit
 
 class HomeViewModel {
     weak var viewController: HomeViewController?
-    let daySelector = DaySelector()
+    weak var daySelector: DaySelector?
     let tasksManager = TasksManager.shared
     
     // Função que chama a célula
@@ -19,6 +19,7 @@ class HomeViewModel {
         if Calendar.current.isDate(tasksManager.tasks[indexPath.row].date!, inSameDayAs: daySelector.startDate){
                 
         let task = tasksManager.tasks[indexPath.row] // Definindo a task
+        if Calendar.current.isDate(task.date!, inSameDayAs: daySelector!.selectedDate! ?? Date()){
         let cell = CustomTaskCell(style: .default, reuseIdentifier: "CustomTaskCell", date: task.date!, icon: task.icon!, taskTitle: task.title!)
         
         return cell
@@ -61,24 +62,12 @@ class HomeViewModel {
     func showListView(){
         let vc = ListViewController()
         
-        let navVC = UINavigationController(rootViewController: vc)
-        
-        if let sheet = navVC.sheetPresentationController {
-            sheet.preferredCornerRadius = 12
-            sheet.detents = [.large()]
-        }
-        viewController?.present(navVC, animated: true)
+        viewController?.navigationController?.pushViewController(vc, animated: true)
     }
     
     func showCreditsView(){
-        let vc = CreditsView()
+        let vc = CreditsViewController()
         
-        let navVC = UINavigationController(rootViewController: vc)
-        
-        if let sheet = navVC.sheetPresentationController {
-            sheet.preferredCornerRadius = 12
-            sheet.detents = [.large()]
-        }
-        viewController?.present(navVC, animated: true)
+        viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -12,13 +12,11 @@ class AddDogView: UIView{
     // MARK: setting all view components
     let backButton: UIButton = {
         let btn = UIButton()
-        let img = UIImage(systemName: "chevron.left")
+        let img = UIImage(systemName: "chevron.down")
         
         img?.withRenderingMode(.alwaysTemplate)
-        btn.setTitle("Your Pets", for: .normal)
         btn.setImage(img, for: .normal)
-        btn.tintColor = .red
-        btn.setTitleColor(.red, for: .normal)
+        btn.tintColor = UIColor(named: "Red")
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
@@ -52,7 +50,7 @@ class AddDogView: UIView{
         title.text = String(localized: "New Dog")
         title.font = UIFont.systemFont(ofSize: 24, weight: .heavy)
         title.textAlignment = .center
-        title.backgroundColor = .gray
+        title.backgroundColor = UIColor(named: "Lilac")
         
         stack.axis = .vertical // setting it as a VStack
         stack.distribution = .fillEqually // defining its distribution
@@ -64,7 +62,7 @@ class AddDogView: UIView{
         imgButton.layer.masksToBounds = false // disabling mask to bounds
         imgButton.clipsToBounds = true // enabling bound clipping
         imgButton.translatesAutoresizingMaskIntoConstraints = false // disabling autoresize mask to const.
-        imgButton.layer.cornerRadius = UIDevice.current.userInterfaceIdiom == .phone ? 130 / 10 : 170 / 10 // rounding it (170 is its height and width constraints)
+        imgButton.layer.cornerRadius = UIDevice.current.userInterfaceIdiom == .phone ? 130 / 2 : 170 / 2 // rounding it (170 is its height and width constraints)
         
         imagePicker.allowsEditing = true // allowing the user to edit the image before inserting it
         imagePicker.sourceType = .photoLibrary // defining source type
@@ -100,10 +98,10 @@ class AddDogView: UIView{
         weightTF.translatesAutoresizingMaskIntoConstraints = false // disabling autoresizing mask translation
         
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor.yellow
+        button.backgroundColor = UIColor(named: "Yellow")
         button.setTitle(String(localized: "Done"), for: .normal) // setting a text to it
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-        button.titleLabel?.textColor = UIColor.black
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
+        button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 14
         
         
@@ -131,7 +129,7 @@ class AddDogView: UIView{
                 
                 nameTF.heightAnchor.constraint(equalToConstant: 80), // configuring the textfields sizes
                 
-                imgButton.widthAnchor.constraint(equalToConstant: 115), // defining image's size
+                imgButton.widthAnchor.constraint(equalToConstant: 130), // defining image's size
                 imgButton.heightAnchor.constraint(equalToConstant: 130), // defining image's size
                 
                 imgButton.centerXAnchor.constraint(equalTo: self.centerXAnchor), // defining image's position
@@ -157,7 +155,7 @@ class AddDogView: UIView{
                 
                 nameTF.heightAnchor.constraint(equalToConstant: 100), // configuring the textfields sizes
                 
-                imgButton.widthAnchor.constraint(equalToConstant: 150), // defining image's size
+                imgButton.widthAnchor.constraint(equalToConstant: 170), // defining image's size
                 imgButton.heightAnchor.constraint(equalToConstant: 170), // defining image's size
                 
                 imgButton.centerXAnchor.constraint(equalTo: self.centerXAnchor), // defining image's position
