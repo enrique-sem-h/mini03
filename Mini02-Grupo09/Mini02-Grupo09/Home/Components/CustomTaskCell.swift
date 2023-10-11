@@ -50,6 +50,9 @@ class CustomTaskCell: UITableViewCell {
     }
     
     func setup() {
+        contentView.backgroundColor = .clear
+        self.backgroundColor = .clear
+        
         // Configuração da label do horário
         contentView.addSubview(hourLabel)
         
