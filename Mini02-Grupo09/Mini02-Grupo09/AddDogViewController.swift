@@ -118,6 +118,7 @@ class AddDogViewController: UIViewController{
         let alert = UIAlertController(title: String(localized: "Oops! A Paw-sible Mishap 🐾"), message: String(localized: "It seems there was a little error while adding your new friend. Please 'paws' for a moment, and try again!"), preferredStyle: .alert)
         alert.addAction(.init(title: "OK", style: .default))
         self.present(alert, animated: true)
+        HapticsManager.shared.vibrate(for: .error)
     }
     
     func tapGesture(){ // defining tap gesture for image
@@ -142,23 +143,31 @@ class AddDogViewController: UIViewController{
         newView.title.isAccessibilityElement = true
         newView.title.accessibilityTraits = .header
         
+        newView.backButton.isAccessibilityElement = true
+        newView.backButton.accessibilityHint = String(localized: "click to go back")
+        
         newView.imgButton.isAccessibilityElement = true
         newView.imgButton.accessibilityTraits = .button
-        newView.imgButton.accessibilityHint = "click to add an image"
+        newView.imgButton.accessibilityLabel = String(localized: "click to add an image")
         
         newView.ageTF.isAccessibilityElement = true
-        newView.ageTF.accessibilityLabel = "date picker"
-        newView.ageTF.accessibilityHint = "double-tap to select a date"
+        newView.ageTF.accessibilityLabel = String(localized: "date picker")
+        newView.ageTF.accessibilityHint = String(localized: "double-tap to enter the date your dog was born")
         newView.ageTF.accessibilityTraits = .none
         
         newView.agePicker.isAccessibilityElement = true
-        newView.agePicker.accessibilityLabel = "date picker"
+        newView.agePicker.accessibilityLabel = String(localized: "date picker")
         newView.agePicker.accessibilityTraits = .none
         
         newView.sizeTF.isAccessibilityElement = true
-        newView.sizeTF.accessibilityLabel = "size picker"
-        newView.sizeTF.accessibilityHint = "double-tap to select a size"
+        newView.sizeTF.accessibilityLabel = String(localized: "size picker")
+        newView.sizeTF.accessibilityHint = String(localized: "double-tap to select a size")
         newView.sizeTF.accessibilityTraits = .none
+        
+        newView.weightTF.isAccessibilityElement = true
+        newView.weightTF.accessibilityLabel = String(localized: "weight picker")
+        newView.weightTF.accessibilityHint = String(localized: "double-tap to type a weight")
+        newView.weightTF.accessibilityTraits = .none
         
     }
     
