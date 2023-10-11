@@ -12,10 +12,12 @@ class AddDogView: UIView{
     // MARK: setting all view components
     let backButton: UIButton = {
         let btn = UIButton()
-        let img = UIImage(systemName: "chevron.down")
+        let img = UIImage(systemName: "chevron.left")
         
         img?.withRenderingMode(.alwaysTemplate)
         btn.setImage(img, for: .normal)
+        btn.setTitle(String(localized: "Your Pets"), for: .normal)
+        btn.setTitleColor(UIColor(named: "Red"), for: .normal)
         btn.tintColor = UIColor(named: "Red")
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
@@ -36,7 +38,7 @@ class AddDogView: UIView{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .systemBackground // defining bg color to adapt to dark mode
+        self.backgroundColor = UIColor(named: "Background") // defining bg color to adapt to dark mode
         configureStack() // configuring the whole view
     }
     
@@ -50,7 +52,6 @@ class AddDogView: UIView{
         title.text = String(localized: "New Dog")
         title.font = UIFont.systemFont(ofSize: 24, weight: .heavy)
         title.textAlignment = .center
-        title.backgroundColor = UIColor(named: "Lilac")
         
         stack.axis = .vertical // setting it as a VStack
         stack.distribution = .fillEqually // defining its distribution
@@ -119,13 +120,13 @@ class AddDogView: UIView{
         if UIDevice.current.userInterfaceIdiom == .phone{
             // Constraints for the iPhone
             NSLayoutConstraint.activate([
-                title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
-                title.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
-                title.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
-                title.bottomAnchor.constraint(equalTo: self.topAnchor, constant: 68),
+                title.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 0),
+                title.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: 0),
+                title.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 0),
+                title.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 68),
                 
                 backButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
-                backButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 23),
+                backButton.topAnchor.constraint(equalTo: title.topAnchor, constant: 23),
                 
                 nameTF.heightAnchor.constraint(equalToConstant: 80), // configuring the textfields sizes
                 
