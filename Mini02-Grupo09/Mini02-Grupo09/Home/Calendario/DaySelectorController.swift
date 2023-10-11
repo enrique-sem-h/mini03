@@ -56,6 +56,7 @@ public final class DaySelectorController: UIViewController {
             daySelector.selectedDate = newValue
             viewController?.newView.tasksTableView.reloadData()
             print(daySelector.selectedDate)
+            print()
         }
     }
     

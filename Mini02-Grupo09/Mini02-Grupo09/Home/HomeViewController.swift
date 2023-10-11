@@ -62,13 +62,7 @@ class HomeViewController: UIViewController {
         viewModel.showCreditsView()
     }
     
-//    func filterTasks(by date: Date) {
-//        let calendar = Calendar.current
-//        filteredTasks = filteredTasks!.filter { task in
-//            return calendar.isDate(task.date!, inSameDayAs: daySelector.selectedDate!)
-//        }
-//        newView.tasksTableView.reloadData() // Atualize a tabela para exibir as tarefas filtradas
-//    }
+
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
@@ -86,8 +80,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
         return viewModel.tableView(tableView, cellForRowAt: indexPath)
     }
     

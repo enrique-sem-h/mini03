@@ -12,6 +12,8 @@ class AddTaskViewModel {
     weak var viewController: AddTaskViewController?
     weak var view: AddTaskView?
     
+    weak var homeViewController: HomeViewController?
+    
     let tasksManager = TasksManager.shared
     
    

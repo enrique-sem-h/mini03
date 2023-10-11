@@ -83,6 +83,7 @@ class AddTaskViewController: UIViewController {
     
     @objc func closeModalButtonTapped() {
         viewModel.closeModal()
+        
     }
     
     @objc func iconPickerTapped() {
