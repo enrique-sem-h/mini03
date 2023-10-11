@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
     var filteredTasks: [DogTask]?
     let daySelector = DaySelector()
     
-    var filteredTasks: [DogTask]?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,7 +92,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.tableView(tableView, didSelectRowAt: indexPath)
+        viewModel.tableView(tableView, cellForRowAt: indexPath)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
