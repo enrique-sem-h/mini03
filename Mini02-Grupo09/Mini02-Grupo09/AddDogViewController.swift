@@ -16,6 +16,11 @@ class AddDogViewController: UIViewController{
     private let viewModel = AddDogViewModel() // creating a viewModel
     weak var listViewController: ListViewController?
     
+    init(){
+        self.dog = nil
+        super.init(nibName: nil, bundle: nil)
+    }
+    
     init(with dog: Dog?) {
         super.init(nibName: nil, bundle: nil)
         self.dog = dog
@@ -27,11 +32,6 @@ class AddDogViewController: UIViewController{
             newView.sizeTF.text = dog.size
             newView.weightTF.text = "\(dog.weight)"
         }
-    }
-    
-    init(){
-        self.dog = nil
-        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -60,6 +60,18 @@ class AddDogViewController: UIViewController{
         newView.createDelegate(delegate: self) // calling the create delegate function that is declared in the view
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.navigationBar.isHidden = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.isHidden = true
+    }
+    
     // MARK: beginning of function declarations
     
     @objc func buttonFunc() { // defining the submit button (add button) func
@@ -68,9 +80,12 @@ class AddDogViewController: UIViewController{
         } else {
             viewModel.addDog(image: newView.imgButton.image!, name: newView.nameTF.text, age: newView.ageTF.text ?? "", weight: newView.weightTF.text ?? "", size: newView.sizeTF.text ?? "", viewController: self)
         }
+        listViewController?.listView.tableView.reloadData()
+
     }
     
     @objc func goBack(){
+        print("a")
         viewModel.goBack() // calling the pop view func
     }
     

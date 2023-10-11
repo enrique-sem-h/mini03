@@ -16,7 +16,6 @@ class AddTaskView: UIView {
     let iconPicker = IconPicker() // Picker de ícones
     let addPetButton = UIButton(type: .custom) // Botão para adicionar pet
     let datePicker = UIDatePicker() // Picker de data
-    let frequencyPicker = UISegmentedControl(items: TasksManager.shared.fetchEnum) // Picker da frequência
     let notesTF = UITextField() // TextField das anotações
     
     let doneButton = UIButton(type: .custom)
@@ -96,9 +95,6 @@ class AddTaskView: UIView {
         datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: 1, to: Date())
         self.addSubview(datePicker)
         
-        // Configuração do frequencyPicker
-        frequencyPicker.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(frequencyPicker)
         
         // Configuração do TextField das anotações
         notesTF.translatesAutoresizingMaskIntoConstraints = false
@@ -155,13 +151,9 @@ class AddTaskView: UIView {
             datePicker.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             datePicker.topAnchor.constraint(equalTo: petsStackView.bottomAnchor, constant: 64),
             
-            // Constraints do frequencyPicker
-            frequencyPicker.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            frequencyPicker.topAnchor.constraint(equalTo: datePicker.bottomAnchor, constant: 64),
-            
             // Constraints do TextField das anotações
             notesTF.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            notesTF.topAnchor.constraint(equalTo: frequencyPicker.bottomAnchor, constant: 64),
+            notesTF.topAnchor.constraint(equalTo: datePicker.bottomAnchor, constant: 64),
             notesTF.widthAnchor.constraint(equalToConstant: 336),
             notesTF.heightAnchor.constraint(equalToConstant: 80),
             
