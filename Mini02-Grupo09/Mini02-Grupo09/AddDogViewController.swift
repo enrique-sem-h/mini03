@@ -60,6 +60,18 @@ class AddDogViewController: UIViewController{
         newView.createDelegate(delegate: self) // calling the create delegate function that is declared in the view
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.navigationBar.isHidden = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.isHidden = true
+    }
+    
     // MARK: beginning of function declarations
     
     @objc func buttonFunc() { // defining the submit button (add button) func
@@ -68,6 +80,8 @@ class AddDogViewController: UIViewController{
         } else {
             viewModel.addDog(image: newView.imgButton.image!, name: newView.nameTF.text, age: newView.ageTF.text ?? "", weight: newView.weightTF.text ?? "", size: newView.sizeTF.text ?? "", viewController: self)
         }
+        listViewController?.listView.tableView.reloadData()
+
     }
     
     @objc func goBack(){

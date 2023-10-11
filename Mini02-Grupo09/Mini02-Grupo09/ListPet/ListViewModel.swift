@@ -6,29 +6,26 @@
 //
 
 import Foundation
-import UIKit
-
 
 class ListViewModel {
     
-    var dogs: [Dog] = []
+    let dogManager = DogManager.shared
+    
+    var dogs: [Dog] {
+        dogManager.dogs
+    }
+    
     weak var listViewController: ListViewController?
 
     func fetchDogs() {
-        
-        self.dogs = DogManager.shared.fetch()
+//        self.dogs = dogManager.fetch()
         listViewController?.listView.tableView.reloadData()
     }
     
-    func showAddDogView(){
-        let vc = AddDogViewController()
-        let navC = UINavigationController(rootViewController: vc)
-        
-        if let sheet = navC.sheetPresentationController {
-            sheet.preferredCornerRadius = 12
-            sheet.detents = [.large()]
-        }
-        
-        listViewController?.navigationController?.present(navC, animated: true)
+    func showAddDogView(dog: Dog?) {
+        let vc = AddDogViewController(with: dog)
+        vc.listViewController = listViewController
+    
+        listViewController?.navigationController?.pushViewController(vc, animated: true)
     }
 }

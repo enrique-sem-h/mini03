@@ -14,9 +14,12 @@ class DogManager: ObservableObject{ // handling the core data stuff
     
     private var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    var dogs: [Dog] = []
+    var dogs: [Dog]{
+        let array = fetch() // fetching all dogs from core data to the array
+        return array // returning the dog model array
+    }
     
-    enum Size: String, EnumLocalization{ // creating an enum with raw values to avoid typos
+    enum Size: String, EnumLocalization { // creating an enum with raw values to avoid typos
         case mini = "Mini"
         case small = "Small"
         case midSized = "Mid-Sized"
@@ -25,12 +28,13 @@ class DogManager: ObservableObject{ // handling the core data stuff
     }
     
     var fetchEnum: [Size]{
+        var sizes: [Size] = []
         
-        return Size.allCases
-    }
-    
-    private init() {
-        self.dogs = fetch()
+        for i in Size.allCases{
+            sizes.append(i)
+        }
+        
+        return sizes
     }
     
     func save(){ // saving the object to the model

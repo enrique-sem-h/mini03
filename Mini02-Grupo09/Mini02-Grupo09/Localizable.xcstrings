@@ -53,6 +53,17 @@
         }
       }
     },
+    "Edit Pet" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editar Pet"
+          }
+        }
+      }
+    },
     "Edit Task" : {
       "localizations" : {
         "pt-BR" : {
@@ -116,7 +127,21 @@
       }
     },
     "List" : {
-
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "List"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lista"
+          }
+        }
+      }
     },
     "Mid-Sized" : {
       "extractionState" : "manual",
@@ -285,7 +310,6 @@
       }
     },
     "Weight" : {
-      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
@@ -296,7 +320,14 @@
       }
     },
     "Weight in Kg" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Peso em Kg"
+          }
+        }
+      }
     },
     "Yearly" : {
       "extractionState" : "manual",
