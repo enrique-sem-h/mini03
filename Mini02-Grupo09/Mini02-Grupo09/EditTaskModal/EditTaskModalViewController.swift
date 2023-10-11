@@ -19,7 +19,7 @@ class EditTaskModalViewController: UIViewController {
     // Esse init vai receber as informações da view anterior e passar para a modal
     init(task: DogTask, homeViewController: HomeViewController, hour: String, iconViewImage: UIImage, title: String) {
         self.task = task
-        self.tableView = homeViewController.newView.tasksTableView
+        self.tableView = homeViewController.newView?.tasksTableView
         self.viewModel.homeViewController = homeViewController
         newView.iconView.image = iconViewImage
         newView.titleLabel.text = title

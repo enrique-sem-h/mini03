@@ -19,7 +19,7 @@ class EditTaskModalViewModel {
     
     func editTask() {
         let vc = AddTaskViewController(with: viewController?.task)
-        vc.tableViewToReload = homeViewController?.newView.tasksTableView
+        vc.tableViewToReload = homeViewController?.newView?.tasksTableView
         viewController?.dismiss(animated: true)
         homeViewController?.navigationController?.pushViewController(vc, animated: true)
     }
