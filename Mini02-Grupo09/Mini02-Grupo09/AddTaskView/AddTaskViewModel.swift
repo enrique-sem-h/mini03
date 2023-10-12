@@ -12,7 +12,9 @@ class AddTaskViewModel {
     weak var viewController: AddTaskViewController?
     weak var view: AddTaskView?
     
-    let tasksManager = TasksManager()
+    let tasksManager = TasksManager.shared
+    
+   
     
     func chooseIcon(iconPickerRoot: IconPicker) {
         let vc = iconPickerModalViewController(iconPickerRoot: iconPickerRoot)
@@ -30,7 +32,7 @@ class AddTaskViewModel {
     }
     
     func choosePet() {
-        let vc = addPetToTaskModalViewController()
+        let vc = addPetToTaskModalViewController(superViewController: viewController)
         
         let navVC = UINavigationController(rootViewController: vc)
         navVC.setNavigationBarHidden(true, animated: false)
@@ -42,16 +44,29 @@ class AddTaskViewModel {
         viewController?.present(navVC, animated: true)
     }
     
-    func addTask(icon: UIImage?, title: String?, dogs: NSSet?, date: Date?, frequency: TasksManager.Frequency?, notes: String?) {
-        if let icon = icon, let title = title, let dogs = dogs, let date = date, let frequency = frequency{
-            tasksManager.newTask(title: title, icon: icon, dogs: dogs, date: date, frequency: frequency, notes: notes)
-            self.viewController?.dismiss(animated: true) // going back to previous view
-        } else {
-            viewController?.errorAlert()
+    func addTask(icon: UIImage?, title: String?, dogs: NSSet?, date: Date?, notes: String?) { // adding task to core data database func
+        if let icon = icon, let title = title, let dogs = dogs, let date = date{ // safe unwrapping all parameters for the add func
+            if dogs != NSSet(array: []) && title != ""{ // making sure dogs and task name are not empty
+                tasksManager.newTask(title: title, icon: icon, dogs: dogs, date: date, notes: notes) // saving task to database
+                self.viewController?.dismiss(animated: true) // going back to previous view
+            } else {
+                viewController?.errorAlert() // displaying error alert
+            }
         }
     }
     
-    func firstResponderHandler() { // handling first responder function for view controller
+    func editTask(icon: UIImage?, title: String?, dogs: NSSet, date: Date?, notes: String?) {
+        if let task = viewController?.task, let icon = icon, let title = title, let date = date{
+            tasksManager.edit(dogTask: task, title: title, icon: icon, dogs: dogs, date: date, notes: notes)
+            
+            if let tableViewToReload = viewController?.tableViewToReload{ // unwrapping any tableviews contained in view controller
+                tableViewToReload.reloadData() // if there is a table view to be reloaded in the container, do it here
+            }
+            
+            self.viewController?.navigationController?.popViewController(animated: true) // going back to previous view
+        } else {
+            viewController?.errorAlert()
+        }
     }
     
     func closeModal() {

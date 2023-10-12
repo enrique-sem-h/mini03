@@ -9,11 +9,23 @@ import Foundation
 import UIKit
 
 class addPetToTaskModalViewController: UIViewController {
+    let superViewController: AddTaskViewController?
+    let dogManager = DogManager.shared
     
     let modalLabel = UILabel()
     let closeModalButton = UIButton()
     
     let petsTableView = UITableView()
+    
+    init(superViewController: AddTaskViewController?) {
+        self.superViewController = superViewController
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         
@@ -82,19 +94,49 @@ class addPetToTaskModalViewController: UIViewController {
 }
 
 extension addPetToTaskModalViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    // Função que define a quantidade de linhas na tableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let dogManager = DogManager()
-        return 5
+        return dogManager.dogs.count
     }
 
+    // Função que chama a célula
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = CustomAddPetToTaskCell(style: .default, reuseIdentifier: "CustomCell", dogImage: UIImage(named: "dogImage"), dogName: "Rex", petSelected: true)
+        
+        let dog = dogManager.dogs[indexPath.row] // Definindo o cachorro pela ordem do array de cachorros salvos
+        let cell = CustomAddPetToTaskCell(style: .default, reuseIdentifier: "CustomAddPetToTaskCell", dogImage: UIImage(data: dog.image!), dogName: dog.name, petSelected: true)
         
         return cell
     }
     
+    // Função que define uma ação ao clicar na célula
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let celula = tableView.cellForRow(at: indexPath) as? CustomAddPetToTaskCell {
+            celula.petSelected?.toggle()
+            
+            // Resgatando o cachorro na ordem da lista
+            let dog = dogManager.dogs[indexPath.row] // Definindo o cachorro pela ordem do array de cachorros salvos
+            
+            // Passando a imagem
+            let pet: UIImageView = {
+                let pet = UIImageView()
+                pet.image = celula.dogImage.image
+                pet.translatesAutoresizingMaskIntoConstraints = false
+                pet.contentMode = .scaleAspectFill // scale mode
+                pet.layer.cornerRadius = 24 // 48 (Tamanho do círculo) / 2
+                pet.clipsToBounds = true
+                NSLayoutConstraint.activate([
+                    pet.widthAnchor.constraint(equalToConstant: 48),
+                    pet.heightAnchor.constraint(equalToConstant: 48)])
+                return pet
+            }()
+            superViewController?.newView.petsStackView.insertArrangedSubview(pet, at: 0)
+            superViewController?.dogsArray.append(dog)
         }
+    }
+    
+    // Função para definir a altura da célula
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100 // 76 (tamanho da célula em si) + 24 (espaçamento entre uma célula e outra)
     }
 }

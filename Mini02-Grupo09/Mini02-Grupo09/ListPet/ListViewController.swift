@@ -1,40 +1,123 @@
-
 import UIKit
 
 class ListViewController: UIViewController {
-    
-    var dogManager = DogManager()
 
-    var selectedIndex: IndexPath = IndexPath(row: 0, section: 0)
+    var selectedIndex: IndexPath?
     
-    let tableView:UITableView = {
-       let tb = UITableView()
-        tb.translatesAutoresizingMaskIntoConstraints = false
-        tb.separatorStyle = .none
-        return tb
-    }()
+    let listView = ListView()
+    let listViewModel = ListViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view = listView
+        
+        setupNavigationBar()
         setupTableView()
+        
+        listViewModel.listViewController = self
+        listViewModel.fetchDogs()
+    }
+    
+    private func setupNavigationBar() {
+        let image = UIImage(systemName: "plus.circle.fill")
+        
+        navigationItem.title = String(localized: "List")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(showAddDogView))
+        navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "Red")
+    }
+    
+    @objc
+    private func showAddDogView() {
+        listViewModel.showAddDogView(dog: nil)
+    }
+    
+    private func setupTableView() {
+        listView.tableView.register(CustomCell.self, forCellReuseIdentifier: CustomCell.identifier)
+        listView.tableView.delegate = self
+        listView.tableView.dataSource = self
+    }
+    
+    func voiceOverSetup() {
+    
+        
+        
+    }
+}
+
+extension ListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? CustomCell else { return }
+        
+        if let selectedIndex = selectedIndex {
+            
+            if selectedIndex == indexPath {
+                
+                self.selectedIndex = nil
+                
+                tableView.reloadRows(at: [indexPath], with: .none)
+                
+            } else {
+                
+                let oldSelectedIndex = selectedIndex
+                
+                self.selectedIndex = indexPath
+                
+                tableView.reloadRows(at: [indexPath,oldSelectedIndex], with: .none)
+            }
+            
+        } else {
+            
+            self.selectedIndex = indexPath
+            
+            tableView.reloadRows(at: [indexPath], with: .none)
+        }
         
     }
     
-    func setupTableView() {
-        view.addSubview(tableView)
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let cell = tableView.cellForRow(at: indexPath) as? CustomCell else { return 130 }
         
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
-        ])
-        
-        tableView.register(CustomCell.self, forCellReuseIdentifier: "cell")
-        tableView.delegate = self
-        tableView.dataSource = self
+        if selectedIndex == indexPath {
+            UIView.animate(withDuration: 0.3) {
+                cell.button.isHidden = true
+            }
+            return 400
+        } else {
+            return 130
+        }
     }
-
-
 }
 
+extension ListViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let dog = listViewModel.dogs[indexPath.row]
+        let cell = CustomCell(dog: dog)
+        
+        if selectedIndex == indexPath {
+            
+            cell.chevronImage.image = UIImage(systemName: "chevron.down")
+            
+        } else {
+            
+            cell.chevronImage.image = UIImage(systemName: "chevron.right")
+        }
+        
+        cell.editButtonCallback = { [weak self] in
+            self?.listViewModel.showAddDogView(dog: dog)
+        }
+        cell.selectionStyle = .none
+        
+        return cell
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return listViewModel.dogs.count
+    }
+}

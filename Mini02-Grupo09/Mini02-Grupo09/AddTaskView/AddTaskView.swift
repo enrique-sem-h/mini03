@@ -16,10 +16,11 @@ class AddTaskView: UIView {
     let iconPicker = IconPicker() // Picker de ícones
     let addPetButton = UIButton(type: .custom) // Botão para adicionar pet
     let datePicker = UIDatePicker() // Picker de data
-    let frequencyPicker = UISegmentedControl(items: TasksManager().fetchEnum) // Picker da frequência
     let notesTF = UITextField() // TextField das anotações
     
     let doneButton = UIButton(type: .custom)
+    
+    let petsStackView = UIStackView()
     
     weak var viewController: AddTaskViewController?
     
@@ -72,6 +73,7 @@ class AddTaskView: UIView {
         petsLabel.translatesAutoresizingMaskIntoConstraints = false
         petsLabel.text = String(localized: "Pets")
         petsLabel.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
+        petsLabel.isAccessibilityElement = true
         self.addSubview(petsLabel)
         
         // Configuração do Botão de adicionar pet
@@ -80,7 +82,7 @@ class AddTaskView: UIView {
         self.addSubview(addPetButton)
         
         // StackView dos Pets (Quando um pet for adicionado, ele deve ser adicionado na view dentro dessa stackview. Tem que dar um jeito de scrollar ela também)
-        let petsStackView = UIStackView(arrangedSubviews: [addPetButton])
+        petsStackView.addArrangedSubview(addPetButton)
         petsStackView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(petsStackView)
         
@@ -93,9 +95,6 @@ class AddTaskView: UIView {
         datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: 1, to: Date())
         self.addSubview(datePicker)
         
-        // Configuração do frequencyPicker
-        frequencyPicker.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(frequencyPicker)
         
         // Configuração do TextField das anotações
         notesTF.translatesAutoresizingMaskIntoConstraints = false
@@ -115,62 +114,109 @@ class AddTaskView: UIView {
         self.addSubview(doneButton)
         
         
-        NSLayoutConstraint.activate([
+        if UIDevice.current.userInterfaceIdiom == .phone{
+            NSLayoutConstraint.activate([
                 
-            // Constraints do botão de fechar modal
-            closeModalButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 28),
-            closeModalButton.centerYAnchor.constraint(equalTo: viewTitle.centerYAnchor),
-            
-            // Constraints do título da view
-            viewTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            viewTitle.topAnchor.constraint(equalTo: self.topAnchor),
-            viewTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            viewTitle.heightAnchor.constraint(equalToConstant: 74),
-            
-            // Constraints da Label "Tarefa"
-            tarefaLabel.topAnchor.constraint(equalTo: viewTitle.bottomAnchor, constant: 60),
-            tarefaLabel.leadingAnchor.constraint(equalTo: iconPicker.leadingAnchor),
-            
-            // Constraints da StackView do iconPicker e do taskTitleTF e seus elementos
-            iconPicker.widthAnchor.constraint(equalToConstant: 54),
-            iconPicker.heightAnchor.constraint(equalToConstant: 50),
-            
-            taskTitleTF.widthAnchor.constraint(equalToConstant: 265),
-            
-            iPtTStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            iPtTStackView.topAnchor.constraint(equalTo: tarefaLabel.bottomAnchor, constant: 10),
-            
-            // Constraints da Label "Pets"
-            petsLabel.topAnchor.constraint(equalTo: iPtTStackView.bottomAnchor, constant: 16),
-            petsLabel.leadingAnchor.constraint(equalTo: tarefaLabel.leadingAnchor),
-            
-            // Constraints da Stackview dos pets
-            petsStackView.leadingAnchor.constraint(equalTo: petsLabel.leadingAnchor),
-            petsStackView.topAnchor.constraint(equalTo: petsLabel.bottomAnchor, constant: 10),
-            
-            // Constraints do datePicker
-            datePicker.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            datePicker.topAnchor.constraint(equalTo: petsStackView.bottomAnchor, constant: 64),
-            
-            // Constraints do frequencyPicker
-            frequencyPicker.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            frequencyPicker.topAnchor.constraint(equalTo: datePicker.bottomAnchor, constant: 64),
-            
-            // Constraints do TextField das anotações
-            notesTF.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            notesTF.topAnchor.constraint(equalTo: frequencyPicker.bottomAnchor, constant: 64),
-            notesTF.widthAnchor.constraint(equalToConstant: 336),
-            notesTF.heightAnchor.constraint(equalToConstant: 80),
-            
-            // Constraints do botão de pronto
-            doneButton.widthAnchor.constraint(equalToConstant: 228),
-            doneButton.heightAnchor.constraint(equalToConstant: 60),
-            doneButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            doneButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
-            
-        ])
-        
-        
-        
+                // Constraints do botão de fechar modal
+                closeModalButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 28),
+                closeModalButton.centerYAnchor.constraint(equalTo: viewTitle.centerYAnchor),
+                
+                // Constraints do título da view
+                viewTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+                viewTitle.topAnchor.constraint(equalTo: self.topAnchor),
+                viewTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+                viewTitle.heightAnchor.constraint(equalToConstant: 74),
+                
+                // Constraints da Label "Tarefa"
+                tarefaLabel.topAnchor.constraint(equalTo: viewTitle.bottomAnchor, constant: 60),
+                tarefaLabel.leadingAnchor.constraint(equalTo: iconPicker.leadingAnchor),
+                
+                // Constraints da StackView do iconPicker e do taskTitleTF e seus elementos
+                iconPicker.widthAnchor.constraint(equalToConstant: 54),
+                iconPicker.heightAnchor.constraint(equalToConstant: 50),
+                
+                taskTitleTF.widthAnchor.constraint(equalToConstant: 265),
+                
+                iPtTStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                iPtTStackView.topAnchor.constraint(equalTo: tarefaLabel.bottomAnchor, constant: 10),
+                
+                // Constraints da Label "Pets"
+                petsLabel.topAnchor.constraint(equalTo: iPtTStackView.bottomAnchor, constant: 16),
+                petsLabel.leadingAnchor.constraint(equalTo: tarefaLabel.leadingAnchor),
+                
+                // Constraints da Stackview dos pets
+                petsStackView.leadingAnchor.constraint(equalTo: petsLabel.leadingAnchor),
+                petsStackView.topAnchor.constraint(equalTo: petsLabel.bottomAnchor, constant: 10),
+                
+                // Constraints do datePicker
+                datePicker.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                datePicker.topAnchor.constraint(equalTo: petsStackView.bottomAnchor, constant: 64),
+                
+                // Constraints do TextField das anotações
+                notesTF.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                notesTF.topAnchor.constraint(equalTo: datePicker.bottomAnchor, constant: 64),
+                notesTF.widthAnchor.constraint(equalToConstant: 336),
+                notesTF.heightAnchor.constraint(equalToConstant: 80),
+                
+                // Constraints do botão de pronto
+                doneButton.widthAnchor.constraint(equalToConstant: 228),
+                doneButton.heightAnchor.constraint(equalToConstant: 60),
+                doneButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                doneButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
+                
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                // Constraints do botão de fechar modal
+                closeModalButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 28),
+                closeModalButton.centerYAnchor.constraint(equalTo: viewTitle.centerYAnchor),
+                
+                // Constraints do título da view
+                viewTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+                viewTitle.topAnchor.constraint(equalTo: self.topAnchor),
+                viewTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+                viewTitle.heightAnchor.constraint(equalToConstant: 74),
+                
+                // Constraints da Label "Tarefa"
+                tarefaLabel.topAnchor.constraint(equalTo: viewTitle.bottomAnchor, constant: 36.89),
+                tarefaLabel.leadingAnchor.constraint(equalTo: iconPicker.leadingAnchor),
+                
+                // Constraints da StackView do iconPicker e do taskTitleTF e seus elementos
+                iconPicker.widthAnchor.constraint(equalToConstant: 54),
+                iconPicker.heightAnchor.constraint(equalToConstant: 50),
+                
+                taskTitleTF.widthAnchor.constraint(equalToConstant: 265),
+                
+                iPtTStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                iPtTStackView.topAnchor.constraint(equalTo: tarefaLabel.bottomAnchor, constant: 10),
+                
+                // Constraints da Label "Pets"
+                petsLabel.topAnchor.constraint(equalTo: iPtTStackView.bottomAnchor, constant: 16),
+                petsLabel.leadingAnchor.constraint(equalTo: tarefaLabel.leadingAnchor),
+                
+                // Constraints da Stackview dos pets
+                petsStackView.leadingAnchor.constraint(equalTo: petsLabel.leadingAnchor),
+                petsStackView.topAnchor.constraint(equalTo: petsLabel.bottomAnchor, constant: 10),
+                
+                // Constraints do datePicker
+                datePicker.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                datePicker.topAnchor.constraint(equalTo: petsStackView.bottomAnchor, constant: 64),
+                
+                // Constraints do TextField das anotações
+                notesTF.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                notesTF.topAnchor.constraint(equalTo: datePicker.bottomAnchor, constant: 64),
+                notesTF.widthAnchor.constraint(equalToConstant: 336),
+                notesTF.heightAnchor.constraint(equalToConstant: 80),
+                
+                // Constraints do botão de pronto
+                doneButton.widthAnchor.constraint(equalToConstant: 228),
+                doneButton.heightAnchor.constraint(equalToConstant: 60),
+                doneButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                doneButton.topAnchor.constraint(equalTo: notesTF.bottomAnchor, constant: 40)
+            ])
+        }
     }
+    
+    
+    
 }

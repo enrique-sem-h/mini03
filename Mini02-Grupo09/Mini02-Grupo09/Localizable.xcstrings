@@ -11,6 +11,16 @@
         }
       }
     },
+    "Are you sure you want to delete this task?" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tem certeza que deseja apagar essa tarefa?"
+          }
+        }
+      }
+    },
     "Big" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -22,6 +32,26 @@
         }
       }
     },
+    "click to add an image" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "clique para adicionar uma imagem"
+          }
+        }
+      }
+    },
+    "click to go back" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "clique para voltar"
+          }
+        }
+      }
+    },
     "Daily" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -29,6 +59,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Diária"
+          }
+        }
+      }
+    },
+    "date picker" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "seletor de datas"
           }
         }
       }
@@ -49,6 +89,47 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pronto"
+          }
+        }
+      }
+    },
+    "double-tap to enter the date your dog was born" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "clique duas vezes para selecionar a data que seu cachorro nasceu"
+          }
+        }
+      }
+    },
+    "double-tap to select a size" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "clique duas vezes para selecionar um porte"
+          }
+        }
+      }
+    },
+    "double-tap to type a weight" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "clique duas vezes para definir um peso"
+          }
+        }
+      }
+    },
+    "Edit Pet" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editar Pet"
           }
         }
       }
@@ -104,12 +185,19 @@
         }
       }
     },
-    "It seems there was a little error while editing your task. Please check all the fields, and give it another 'bark'!" : {
+    "List" : {
+      "extractionState" : "manual",
       "localizations" : {
-        "pt-BR" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Parece que houve um erro ao editar sua tarefa. Por favor, verifique todos os campos e tente novamente 🐾!"
+            "value" : "Your Pets"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Meus pets"
           }
         }
       }
@@ -228,6 +316,16 @@
         }
       }
     },
+    "size picker" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "seletor de tamanhos"
+          }
+        }
+      }
+    },
     "Small" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -290,6 +388,26 @@
         }
       }
     },
+    "Weight in Kg" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Peso em Kg"
+          }
+        }
+      }
+    },
+    "weight picker" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seletor de pesos"
+          }
+        }
+      }
+    },
     "Yearly" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -297,6 +415,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Anual"
+          }
+        }
+      }
+    },
+    "years" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "anos"
+          }
+        }
+      }
+    },
+    "Your Pets" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seus Pets"
           }
         }
       }

@@ -11,9 +11,32 @@ import PhotosUI
 
 class AddDogViewController: UIViewController{
     
+    var dog: Dog?
     var newView = AddDogView() // defining view
+    private let viewModel = AddDogViewModel() // creating a viewModel
+    weak var listViewController: ListViewController?
     
-    private let viewModel = AddDogViewModel(dogManager: DogManager()) // creating a viewModel
+    init(){
+        self.dog = nil
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    init(with dog: Dog?) {
+        super.init(nibName: nil, bundle: nil)
+        self.dog = dog
+        if let dog = dog{
+            newView.title.text = "Edit Dog"
+            newView.imgButton.image = UIImage(data: dog.image!)
+            newView.nameTF.text = dog.name
+            newView.ageTF.text = "\(dog.age)"
+            newView.sizeTF.text = dog.size
+            newView.weightTF.text = "\(dog.weight)"
+        }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() { // default viewDidLoad func
         super.viewDidLoad()
@@ -25,7 +48,9 @@ class AddDogViewController: UIViewController{
         
         self.view = newView // changing the view controller's view
         
+        newView.backButton.addTarget(self, action: #selector(goBack), for: .touchUpInside) // adding target to go back button
         newView.button.addTarget(self, action: #selector(buttonFunc), for: .touchDown) // attaching target to button in this view controller
+        newView.agePicker.addTarget(self, action: #selector(ageCalculator), for: .valueChanged) // adding target to apply changes on value change
         newView.ageTF.inputAccessoryView = createToolbar() // creating the done button
         newView.sizeTF.inputAccessoryView = createToolbar() // creating the done toolbar
         newView.weightTF.inputAccessoryView = createToolbar() // reating done btn
@@ -35,10 +60,50 @@ class AddDogViewController: UIViewController{
         newView.createDelegate(delegate: self) // calling the create delegate function that is declared in the view
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.navigationBar.isHidden = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.isHidden = true
+    }
+    
     // MARK: beginning of function declarations
     
     @objc func buttonFunc() { // defining the submit button (add button) func
-        viewModel.addDog(image: newView.imgButton.image!, name: newView.nameTF.text, age: newView.ageTF.text ?? "", weight: newView.weightTF.text ?? "", size: newView.sizeTF.text ?? "", viewController: self)
+        if dog != nil{
+            viewModel.editDog(image: newView.imgButton.image!, name: newView.nameTF.text, age: newView.ageTF.text ?? "", weight: newView.weightTF.text ?? "", size: newView.sizeTF.text ?? "", viewController: listViewController)
+        } else {
+            viewModel.addDog(image: newView.imgButton.image!, name: newView.nameTF.text, age: newView.ageTF.text ?? "", weight: newView.weightTF.text ?? "", size: newView.sizeTF.text ?? "", viewController: self)
+        }
+        listViewController?.listView.tableView.reloadData()
+
+    }
+    
+    @objc func goBack(){
+        print("a")
+        viewModel.goBack() // calling the pop view func
+    }
+    
+    @objc func ageCalculator(){
+        let ageTF = newView.ageTF
+        let agePicker = newView.agePicker
+        
+        let calendar = Calendar.current // defining calendar
+        let currentDate = Date() // defining current date
+        let selectedDate = agePicker.date // defining picked date
+        
+        let ageComponents = calendar.dateComponents([.year], from: selectedDate, to: currentDate) // returning the diference between the year picked and the current
+        
+        if let years = ageComponents.year { // safely unwrapping the year for age component
+            ageTF.text = "\(years)" // attributing it to the textField
+        } else {
+            print("Invalid Date") // in case of failure to unwrap the year (probably won't happen)
+        }
     }
     
     @objc func imgButtonFunc(){ // presenting the image picker
@@ -53,6 +118,7 @@ class AddDogViewController: UIViewController{
         let alert = UIAlertController(title: String(localized: "Oops! A Paw-sible Mishap 🐾"), message: String(localized: "It seems there was a little error while adding your new friend. Please 'paws' for a moment, and try again!"), preferredStyle: .alert)
         alert.addAction(.init(title: "OK", style: .default))
         self.present(alert, animated: true)
+        HapticsManager.shared.vibrate(for: .error)
     }
     
     func tapGesture(){ // defining tap gesture for image
@@ -77,23 +143,31 @@ class AddDogViewController: UIViewController{
         newView.title.isAccessibilityElement = true
         newView.title.accessibilityTraits = .header
         
+        newView.backButton.isAccessibilityElement = true
+        newView.backButton.accessibilityHint = String(localized: "click to go back")
+        
         newView.imgButton.isAccessibilityElement = true
         newView.imgButton.accessibilityTraits = .button
-        newView.imgButton.accessibilityHint = "click to add an image"
+        newView.imgButton.accessibilityLabel = String(localized: "click to add an image")
         
         newView.ageTF.isAccessibilityElement = true
-        newView.ageTF.accessibilityLabel = "date picker"
-        newView.ageTF.accessibilityHint = "double-tap to select a date"
+        newView.ageTF.accessibilityLabel = String(localized: "date picker")
+        newView.ageTF.accessibilityHint = String(localized: "double-tap to enter the date your dog was born")
         newView.ageTF.accessibilityTraits = .none
         
         newView.agePicker.isAccessibilityElement = true
-        newView.agePicker.accessibilityLabel = "date picker"
+        newView.agePicker.accessibilityLabel = String(localized: "date picker")
         newView.agePicker.accessibilityTraits = .none
         
         newView.sizeTF.isAccessibilityElement = true
-        newView.sizeTF.accessibilityLabel = "size picker"
-        newView.sizeTF.accessibilityHint = "double-tap to select a size"
+        newView.sizeTF.accessibilityLabel = String(localized: "size picker")
+        newView.sizeTF.accessibilityHint = String(localized: "double-tap to select a size")
         newView.sizeTF.accessibilityTraits = .none
+        
+        newView.weightTF.isAccessibilityElement = true
+        newView.weightTF.accessibilityLabel = String(localized: "weight picker")
+        newView.weightTF.accessibilityHint = String(localized: "double-tap to type a weight")
+        newView.weightTF.accessibilityTraits = .none
         
     }
     
@@ -123,12 +197,15 @@ extension AddDogViewController: UIPickerViewDelegate, UIPickerViewDataSource, UI
         dismiss(animated: true) // dismissing image picker
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool { // called when user press return on keyboard
         textField.resignFirstResponder()
         return true
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { // called when clicking on screen
+        if newView.sizeTF.isFirstResponder{
+            viewModel.sizeReturner(newView.sizeTF)
+        }
         view.endEditing(true)
     }
     

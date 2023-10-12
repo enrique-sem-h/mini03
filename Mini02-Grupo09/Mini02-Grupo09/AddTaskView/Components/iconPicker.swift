@@ -9,14 +9,14 @@ import Foundation
 import UIKit
 
 enum Icons: String, CaseIterable {
-    case vaccine = "VaccineImage"
-    case remedy = "RemedyImage"
-    case food = "FoodImage"
-    case tour = "TourImage"
-    case bath = "BathImage"
+    case ball = "BallImage"
     case brush = "BrushImage"
-    case play = "PlayImage"
-    case bandaid = "BandaidImage"
+    case food = "FoodImage"
+    case leash = "LeashImage"
+    case remedy = "RemedyImage"
+    case scissors = "ScissorsImage"
+    case shampoo = "ShampooImage"
+    case vaccine = "VaccineImage"
 }
 
 class IconPicker: UIControl {
@@ -49,10 +49,10 @@ class IconPicker: UIControl {
             iconPicker.trailingAnchor.constraint(equalTo: trailingAnchor),
             iconPicker.topAnchor.constraint(equalTo: topAnchor),
             
-            iconView.centerXAnchor.constraint(equalTo: iconPicker.centerXAnchor),
-            iconView.centerYAnchor.constraint(equalTo: iconPicker.centerYAnchor),
-            iconView.widthAnchor.constraint(equalToConstant: 20),
-            iconView.heightAnchor.constraint(equalToConstant: 20)
+            iconView.leadingAnchor.constraint(equalTo: iconPicker.leadingAnchor, constant: 16),
+            iconView.topAnchor.constraint(equalTo: iconPicker.topAnchor, constant: 12),
+            iconView.trailingAnchor.constraint(equalTo: iconPicker.trailingAnchor, constant: -16),
+            iconView.bottomAnchor.constraint(equalTo: iconPicker.bottomAnchor, constant: -12)
         ])
     }    
 }
