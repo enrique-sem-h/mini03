@@ -17,14 +17,14 @@ class EditTaskModalViewController: UIViewController {
     
     
     // Esse init vai receber as informações da view anterior e passar para a modal
-    init(task: DogTask, homeViewController: HomeViewController, hour: String, iconViewImage: UIImage, title: String) {
+    init(task: DogTask, homeViewController: HomeViewController) {
         self.task = task
         self.tableView = homeViewController.newView?.tasksTableView
         self.viewModel.homeViewController = homeViewController
-        newView.iconView.image = iconViewImage
-        newView.titleLabel.text = title
-        newView.hourLabel.text = hour
         super.init(nibName: nil, bundle: nil)
+        newView.iconView.image = UIImage(data: task.icon!)
+        newView.titleLabel.text = task.title
+        newView.hourLabel.text = formattedDate(date: task.date!)
     }
     
     required init?(coder: NSCoder) {
@@ -47,6 +47,16 @@ class EditTaskModalViewController: UIViewController {
         newView.deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
         
         newView.closeModalButton.addTarget(self, action: #selector(closeModalButtonTapped), for: .touchUpInside)
+    }
+    
+    private func formattedDate(date: Date) -> String {
+            let timezone = Calendar.autoupdatingCurrent.timeZone
+            let formatter = DateFormatter()
+            formatter.dateStyle = .none
+            formatter.timeStyle = .short
+            formatter.timeZone = timezone
+            formatter.locale = Locale.init(identifier: Locale.preferredLanguages[0])
+            return formatter.string(from: date)
     }
     
     @objc func editButtonTapped() {

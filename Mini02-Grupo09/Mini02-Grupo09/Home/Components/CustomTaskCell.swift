@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class CustomTaskCell: UITableViewCell {
+    let task: DogTask?
+    
     let hourLabel: UILabel = {
         let hourLabel = UILabel()
         hourLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -39,12 +41,12 @@ class CustomTaskCell: UITableViewCell {
     
     let tasksManager = TasksManager.shared
     
-    init(style: UITableViewCell.CellStyle, reuseIdentifier: String?, date: Date, icon: Data, taskTitle: String) {
+    init(style: UITableViewCell.CellStyle, reuseIdentifier: String?, task: DogTask) {
+        self.task = task
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        self.hourLabel.text = formattedDate(date: date)
-        self.iconView.image = UIImage(data: icon)
-        self.titleLabel.text = taskTitle
+        self.hourLabel.text = formattedDate(date: task.date!)
+        self.iconView.image = UIImage(data: task.icon!)
+        self.titleLabel.text = task.title
         
         setup()
     }
