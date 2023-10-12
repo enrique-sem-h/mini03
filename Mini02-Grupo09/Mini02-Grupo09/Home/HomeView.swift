@@ -20,6 +20,7 @@ protocol HomeViewDelegate: AnyObject {
 }
 
 class HomeView: UIView {
+    weak var viewController: HomeViewController?
     
     let addTaskButton = UIButton(type: .custom)
     
@@ -28,6 +29,7 @@ class HomeView: UIView {
     let tasksTableView: UITableView = {
         let tasksTableView = UITableView()
         tasksTableView.translatesAutoresizingMaskIntoConstraints = false
+        tasksTableView.backgroundColor = .clear
         return tasksTableView
     }()
     
@@ -38,8 +40,17 @@ class HomeView: UIView {
         
         self.backgroundColor = .systemBackground
         
-        
         self.addSubview(tasksTableView)
+        if UITraitCollection.current.userInterfaceStyle == .dark {
+            let gradient = CAGradientLayer()
+            gradient.frame = self.bounds
+            gradient.colors = [
+                UIColor(red: 52 / 255, green: 46 / 255, blue: 77 / 255, alpha: 0.3).cgColor,
+                UIColor(red: 54 / 255, green: 46 / 255, blue: 77 / 255, alpha: 1.0).cgColor
+            ]
+            gradient.zPosition = -1
+            tasksTableView.layer.addSublayer(gradient)
+        }
         
         tasksTableView.register(CustomTaskCell.self, forCellReuseIdentifier: "CustomTaskCell")
         self.tasksTableView.separatorStyle = .none
@@ -98,21 +109,22 @@ class HomeView: UIView {
     
     private var style = CalendarStyle()
     
-    public init(calendar: Calendar = Calendar.autoupdatingCurrent) {
+    public init(calendar: Calendar = Calendar.autoupdatingCurrent, viewController: HomeViewController) {
+        self.viewController = viewController
         self.calendar = calendar
-        self.dayHeaderView = DayHeaderView(calendar: calendar)
+        self.dayHeaderView = DayHeaderView(calendar: calendar, viewController: self.viewController!)
         super.init(frame: .zero)
         configure()
     }
     
     override public init(frame: CGRect) {
-        self.dayHeaderView = DayHeaderView(calendar: calendar)
+        self.dayHeaderView = DayHeaderView(calendar: calendar, viewController: nil)
         super.init(frame: frame)
         configure()
     }
     
     required public init?(coder aDecoder: NSCoder) {
-        self.dayHeaderView = DayHeaderView(calendar: calendar)
+        self.dayHeaderView = DayHeaderView(calendar: calendar, viewController: self.viewController!)
         super.init(coder: aDecoder)
         configure()
     }

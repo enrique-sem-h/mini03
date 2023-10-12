@@ -13,7 +13,9 @@ class Checkbox: UIControl {
     private weak var imageView: UIImageView!
     
     private var image: UIImage {
-        return checked ? UIImage(systemName: "checkmark.circle.fill")! : UIImage(systemName: "circle")!
+        let button = checked ? UIImage(systemName: "checkmark.circle.fill")! : UIImage(systemName: "circle")!
+        
+        return button
     }
     
     public var checked:Bool = false {

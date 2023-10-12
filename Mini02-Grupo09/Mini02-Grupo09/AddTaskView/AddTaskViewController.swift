@@ -100,7 +100,7 @@ class AddTaskViewController: UIViewController {
         } else {
             viewModel.editTask(icon: newView.iconPicker.iconView.image, title: newView.taskTitleTF.text, dogs: NSSet(array: dogsArray), date: newView.datePicker.date, notes: newView.notesTF.text)
         }
-        viewControllerpai?.newView.tasksTableView.reloadData()
+        viewControllerpai?.newView?.tasksTableView.reloadData()
     }
     
     func errorAlert (){

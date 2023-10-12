@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 
 public final class DaySelectorController: UIViewController {
+    
+    weak var viewController: HomeViewController?
+    
     public private(set) lazy var daySelector = DaySelector()
     
     public var delegate: DaySelectorDelegate? {
@@ -53,6 +56,7 @@ public final class DaySelectorController: UIViewController {
         }
         set {
             daySelector.selectedDate = newValue
+            viewController?.newView?.tasksTableView.reloadData()
         }
     }
     

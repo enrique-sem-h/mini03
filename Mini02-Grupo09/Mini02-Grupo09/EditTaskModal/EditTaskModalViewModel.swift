@@ -19,7 +19,7 @@ class EditTaskModalViewModel {
     
     func editTask() {
         let vc = AddTaskViewController(with: viewController?.task)
-        vc.tableViewToReload = homeViewController?.newView.tasksTableView
+        vc.tableViewToReload = homeViewController?.newView?.tasksTableView
         viewController?.dismiss(animated: true)
         
         // Update navigation bar appearance for the HomeViewController
@@ -43,7 +43,7 @@ class EditTaskModalViewModel {
             if let task = self.viewController?.task{
                 self.tasksManager.delete(task: task)
             }
-            self.viewController?.tableView?.reloadData()
+            self.homeViewController?.newView?.tasksTableView.reloadData()
             self.viewController?.dismiss(animated: true)
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel)
