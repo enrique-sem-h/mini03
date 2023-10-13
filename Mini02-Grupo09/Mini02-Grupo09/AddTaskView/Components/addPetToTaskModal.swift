@@ -35,11 +35,11 @@ class addPetToTaskModalViewController: UIViewController {
         // Titulo da modal
         modalLabel.translatesAutoresizingMaskIntoConstraints = false
         modalLabel.text = String(localized: "Select the pet")
-        modalLabel.font = UIFont.systemFont(ofSize: 28, weight: .heavy)
+        modalLabel.font = UIFont(name: "Animal-Bold", size: 24)
         
         // Configuração do botão de fechar modal
         closeModalButton.translatesAutoresizingMaskIntoConstraints = false
-        closeModalButton.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
+        closeModalButton.setImage(UIImage(named: "CloseModalButtonX"), for: .normal)
         closeModalButton.addTarget(self, action: #selector(closeModalButtonTapped), for: .touchUpInside)
         view.addSubview(closeModalButton)
         
