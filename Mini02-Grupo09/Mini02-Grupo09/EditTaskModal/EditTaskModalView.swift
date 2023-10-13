@@ -49,10 +49,10 @@ class EditTaskModalView: UIView {
         
         
         // Configuração da StackView que abriga icone, StackView de horário e título e botão de fechar
-        let topStackView = UIStackView(arrangedSubviews: [iconView, hourTitleStackView, closeModalButton])
+        let topStackView = UIStackView(arrangedSubviews: [iconView, hourTitleStackView, UIView(), closeModalButton])
         topStackView.translatesAutoresizingMaskIntoConstraints = false
         topStackView.axis = .horizontal
-        topStackView.spacing = 24
+        topStackView.setCustomSpacing(14, after: iconView)
         self.addSubview(topStackView)
         
         // Configuração do separador
