@@ -37,6 +37,9 @@
 		556F17992ACE02320067DBC0 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F17982ACE02320067DBC0 /* DayViewController.swift */; };
 		556F179B2ACE024D0067DBC0 /* DayViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F179A2ACE024D0067DBC0 /* DayViewState.swift */; };
 		556F179D2ACE026A0067DBC0 /* SwipeLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F179C2ACE026A0067DBC0 /* SwipeLabelView.swift */; };
+		D30DBFF62AD9B8F80056A39D /* Animal-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D30DBFF32AD9B8F80056A39D /* Animal-Regular.otf */; };
+		D30DBFF72AD9B8F80056A39D /* Animal-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D30DBFF42AD9B8F80056A39D /* Animal-Bold.otf */; };
+		D30DBFF82AD9B8F80056A39D /* Animal-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D30DBFF52AD9B8F80056A39D /* Animal-Light.otf */; };
 		D3622D002AC76B220063FAAE /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622CFF2AC76B220063FAAE /* AddTaskView.swift */; };
 		D3622D022AC76B2F0063FAAE /* AddTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D012AC76B2F0063FAAE /* AddTaskViewModel.swift */; };
 		D3622D042AC76C2B0063FAAE /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3622D032AC76C2B0063FAAE /* AddTaskViewController.swift */; };
@@ -87,6 +90,9 @@
 		556F17982ACE02320067DBC0 /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
 		556F179A2ACE024D0067DBC0 /* DayViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewState.swift; sourceTree = "<group>"; };
 		556F179C2ACE026A0067DBC0 /* SwipeLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeLabelView.swift; sourceTree = "<group>"; };
+		D30DBFF32AD9B8F80056A39D /* Animal-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Animal-Regular.otf"; sourceTree = "<group>"; };
+		D30DBFF42AD9B8F80056A39D /* Animal-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Animal-Bold.otf"; sourceTree = "<group>"; };
+		D30DBFF52AD9B8F80056A39D /* Animal-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Animal-Light.otf"; sourceTree = "<group>"; };
 		D3622CFF2AC76B220063FAAE /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		D3622D012AC76B2F0063FAAE /* AddTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewModel.swift; sourceTree = "<group>"; };
 		D3622D032AC76C2B0063FAAE /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +186,7 @@
 				31D1B8372AC4579600EE0C69 /* Add Dog */,
 				31E9E4572AC221D200AECCEB /* Model */,
 				31C2C5352AC7664B00276D67 /* Utils */,
+				D30DBFF22AD9B8F80056A39D /* Fonts */,
 				31B21E842ABE059B0096F1AB /* Assets.xcassets */,
 				31B21E862ABE059B0096F1AB /* LaunchScreen.storyboard */,
 				31B21E892ABE059B0096F1AB /* Info.plist */,
@@ -249,6 +256,16 @@
 				556F17882ACE012D0067DBC0 /* Date+DateOnly.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D30DBFF22AD9B8F80056A39D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D30DBFF32AD9B8F80056A39D /* Animal-Regular.otf */,
+				D30DBFF42AD9B8F80056A39D /* Animal-Bold.otf */,
+				D30DBFF52AD9B8F80056A39D /* Animal-Light.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		D3622CFC2AC74FA20063FAAE /* AddTaskView */ = {
@@ -365,7 +382,10 @@
 			files = (
 				31B21E882ABE059B0096F1AB /* LaunchScreen.storyboard in Resources */,
 				31B21E852ABE059B0096F1AB /* Assets.xcassets in Resources */,
+				D30DBFF82AD9B8F80056A39D /* Animal-Light.otf in Resources */,
+				D30DBFF62AD9B8F80056A39D /* Animal-Regular.otf in Resources */,
 				318640A02ACCDB75007E6B43 /* Localizable.xcstrings in Resources */,
+				D30DBFF72AD9B8F80056A39D /* Animal-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

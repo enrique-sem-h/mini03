@@ -14,13 +14,13 @@ class CustomTaskCell: UITableViewCell {
     let hourLabel: UILabel = {
         let hourLabel = UILabel()
         hourLabel.translatesAutoresizingMaskIntoConstraints = false
-        hourLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)
+        hourLabel.font = UIFont(name: "Animal-Bold", size: 16)
         return hourLabel
     }()
     let iconCircle: UIView = {
         let iconCircle = UIView()
-        iconCircle.backgroundColor = UIColor.blue
-        iconCircle.layer.cornerRadius = 23
+        iconCircle.backgroundColor = UIColor(named: "Yellow")
+        iconCircle.layer.cornerRadius = 23 // Metade do tamanho do círculo
         iconCircle.clipsToBounds = true
         iconCircle.translatesAutoresizingMaskIntoConstraints = false
         return iconCircle
@@ -34,7 +34,8 @@ class CustomTaskCell: UITableViewCell {
     let titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        titleLabel.numberOfLines = 2
+        titleLabel.font = UIFont(name: "Animal-Regular", size: 18)
         return titleLabel
     }()
     let check = Checkbox()
@@ -72,11 +73,11 @@ class CustomTaskCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             // Constraints do horário
-            hourLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 60),
+            hourLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 40),
             hourLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             
             // Constraints do ícone
-            iconCircle.leadingAnchor.constraint(equalTo: hourLabel.trailingAnchor, constant: 10),
+            iconCircle.leadingAnchor.constraint(equalTo: hourLabel.trailingAnchor, constant: 12),
             iconCircle.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             iconCircle.widthAnchor.constraint(equalToConstant: 46),
             iconCircle.heightAnchor.constraint(equalToConstant: 46),
@@ -86,12 +87,13 @@ class CustomTaskCell: UITableViewCell {
             iconView.bottomAnchor.constraint(equalTo: iconCircle.bottomAnchor),
             
             // Constraints do título
-            titleLabel.leadingAnchor.constraint(equalTo: iconCircle.trailingAnchor, constant: 8),
+            titleLabel.leadingAnchor.constraint(equalTo: iconCircle.trailingAnchor, constant: 12),
             titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: check.leadingAnchor, constant: 24),
             
             // Constraints do check
-            check.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -60),
             check.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            check.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -60),
             
             // Constraints da célula
             contentView.heightAnchor.constraint(equalToConstant: 126) // Altura de cada célula
