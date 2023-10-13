@@ -35,6 +35,7 @@ class CustomTaskCell: UITableViewCell {
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.numberOfLines = 2
+        titleLabel.lineBreakMode = .byTruncatingMiddle
         titleLabel.font = UIFont(name: "Animal-Regular", size: 18)
         return titleLabel
     }()
@@ -89,11 +90,14 @@ class CustomTaskCell: UITableViewCell {
             // Constraints do título
             titleLabel.leadingAnchor.constraint(equalTo: iconCircle.trailingAnchor, constant: 12),
             titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: check.leadingAnchor, constant: 24),
+            titleLabel.trailingAnchor.constraint(equalTo: check.leadingAnchor, constant: -24),
             
             // Constraints do check
+            check.widthAnchor.constraint(equalToConstant: 24), // Largura desejada
+            check.heightAnchor.constraint(equalToConstant: 24), // Altura desejada
+            check.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             check.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            check.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -60),
+            check.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40),
             
             // Constraints da célula
             contentView.heightAnchor.constraint(equalToConstant: 126) // Altura de cada célula
