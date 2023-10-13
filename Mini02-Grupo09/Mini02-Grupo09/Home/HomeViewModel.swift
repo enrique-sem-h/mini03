@@ -34,21 +34,25 @@ class HomeViewModel {
     
     // Função para quando uma célula é selecionada
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let celula = tableView.cellForRow(at: indexPath) as? CustomTaskCell {
-            let vc = EditTaskModalViewController(task: tasksManager.tasks[indexPath.row], homeViewController: self.viewController ?? HomeViewController())
-            
-            let navVC = UINavigationController(rootViewController: vc)
-            navVC.setNavigationBarHidden(true, animated: false)
-            
-            if let sheet = navVC.sheetPresentationController {
-                sheet.preferredCornerRadius = 12
-                sheet.detents = [.custom(resolver: { context in
-                    226
-                })]
+        var taskIndices: [Int] = []
+        for (index, task) in tasksManager.tasks.enumerated() {
+            if Calendar.current.isDate(task.date!, inSameDayAs: viewController?.newView?.dayHeaderView.daySelectorController.daySelector.selectedDate ?? Date()) {
+                taskIndices.append(index)
             }
-            tableView.deselectRow(at: indexPath, animated: true)
-            viewController?.present(navVC, animated: true)
         }
+        let vc = EditTaskModalViewController(task: tasksManager.tasks[taskIndices[indexPath.row]], homeViewController: self.viewController ?? HomeViewController())
+        
+        let navVC = UINavigationController(rootViewController: vc)
+        navVC.setNavigationBarHidden(true, animated: false)
+        
+        if let sheet = navVC.sheetPresentationController {
+            sheet.preferredCornerRadius = 12
+            sheet.detents = [.custom(resolver: { context in
+                226
+            })]
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+        viewController?.present(navVC, animated: true)
     }
     
     func showAddTaskView() {
