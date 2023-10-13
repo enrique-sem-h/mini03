@@ -50,7 +50,7 @@ class HomeViewController: UIViewController {
             .foregroundColor: UIColor(named: "HomeViewTitle")!
         ]
         self.navigationController?.navigationBar.largeTitleTextAttributes = largeTitleTextAttributes
-        title = "Tarefas"
+        title = String(localized: "Tasks")
     }
     
     @objc func showAddTaskView() {
