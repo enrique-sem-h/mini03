@@ -53,6 +53,11 @@ class HomeViewController: UIViewController {
         title = String(localized: "Tasks")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
+    
     @objc func showAddTaskView() {
         viewModel.showAddTaskView()
     }

@@ -29,7 +29,6 @@ class AddTaskView: UIView {
         
         // Configuração do título da view
         viewTitle.translatesAutoresizingMaskIntoConstraints = false
-        viewTitle.text = String(localized: "New Task")
         viewTitle.font = UIFont(name: "Animal-Bold", size: 24)
         viewTitle.textColor = UIColor(named: "HeaderTitle")
         viewTitle.textAlignment = .center
@@ -129,7 +128,7 @@ class AddTaskView: UIView {
                 
                 // Constraints do título da view
                 viewTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-                viewTitle.topAnchor.constraint(equalTo: self.topAnchor),
+                viewTitle.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
                 viewTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor),
                 viewTitle.heightAnchor.constraint(equalToConstant: 74),
                 
@@ -179,7 +178,7 @@ class AddTaskView: UIView {
                 
                 // Constraints do título da view
                 viewTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-                viewTitle.topAnchor.constraint(equalTo: self.topAnchor),
+                viewTitle.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
                 viewTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor),
                 viewTitle.heightAnchor.constraint(equalToConstant: 74),
                 

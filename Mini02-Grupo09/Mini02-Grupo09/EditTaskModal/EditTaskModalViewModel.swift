@@ -24,14 +24,14 @@ class EditTaskModalViewModel {
         
         // Update navigation bar appearance for the HomeViewController
            if let homeNavController = homeViewController?.navigationController {
-               homeNavController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "Red")!]
-               homeNavController.navigationBar.barTintColor = .white // Set the background color if needed
-               
-               // If you want to set the tab bar tint color:
-               if let tabBarController = homeNavController.tabBarController {
-                   tabBarController.tabBar.tintColor = UIColor(named: "Red")
-               }
-               
+//               homeNavController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "Red")!]
+//               homeNavController.navigationBar.barTintColor = .white // Set the background color if needed
+//               
+//               // If you want to set the tab bar tint color:
+//               if let tabBarController = homeNavController.tabBarController {
+//                   tabBarController.tabBar.tintColor = UIColor(named: "Red")
+//               }
+//               homeNavController.isNavigationBarHidden = true
                homeNavController.pushViewController(vc, animated: true)
            }
         
