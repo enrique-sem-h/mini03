@@ -93,6 +93,7 @@ class AddTaskView: UIView {
         datePicker.locale = .autoupdatingCurrent
         datePicker.datePickerMode = .dateAndTime // Altere para .time ou .dateAndTime conforme necessário
         datePicker.preferredDatePickerStyle = .compact
+        datePicker.tintColor = UIColor(named: "Yellow")
         datePicker.minimumDate = Calendar.current.date(byAdding: .day, value: 0, to: Date())
         datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: 1, to: Date())
         self.addSubview(datePicker)
@@ -109,9 +110,10 @@ class AddTaskView: UIView {
         
         // Configuração do botão de pronto
         doneButton.translatesAutoresizingMaskIntoConstraints = false
-        doneButton.backgroundColor = UIColor.gray
+        doneButton.backgroundColor = UIColor(named: "Yellow")
         doneButton.setTitle(String(localized: "Done"), for: .normal)
-        doneButton.titleLabel?.font = UIFont.systemFont(ofSize: 32, weight: .heavy)
+        doneButton.titleLabel?.font = UIFont(name: "Animal-Bold", size: 24)
+        doneButton.setTitleColor(UIColor.black, for: .normal)
         doneButton.layer.cornerRadius = 14
         self.addSubview(doneButton)
         

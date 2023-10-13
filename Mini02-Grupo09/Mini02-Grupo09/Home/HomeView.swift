@@ -42,14 +42,14 @@ class HomeView: UIView {
         
         self.addSubview(tasksTableView)
         
-        let gradient = CAGradientLayer()
-        gradient.frame = self.bounds
-        gradient.colors = [
-            UIColor(named: "HomeTableTopGradient")!.withAlphaComponent(0.3).cgColor,
-            UIColor(named: "HomeTableBotGradient")!.withAlphaComponent(1.0).cgColor
-        ]
-        gradient.zPosition = -1
-        tasksTableView.layer.addSublayer(gradient)
+//        let gradient = CAGradientLayer()
+//        gradient.frame = self.bounds
+//        gradient.colors = [
+//            UIColor(named: "HomeTableTopGradient")!.withAlphaComponent(0.3).cgColor,
+//            UIColor(named: "HomeTableBotGradient")!.withAlphaComponent(1.0).cgColor
+//        ]
+//        gradient.zPosition = -1
+//        tasksTableView.layer.addSublayer(gradient)
         
         
         tasksTableView.register(CustomTaskCell.self, forCellReuseIdentifier: "CustomTaskCell")
