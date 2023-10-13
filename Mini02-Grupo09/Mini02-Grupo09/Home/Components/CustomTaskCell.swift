@@ -15,6 +15,7 @@ class CustomTaskCell: UITableViewCell {
         let hourLabel = UILabel()
         hourLabel.translatesAutoresizingMaskIntoConstraints = false
         hourLabel.font = UIFont(name: "Animal-Bold", size: 16)
+        hourLabel.textColor = UIColor(named: "TaskCellText")
         return hourLabel
     }()
     let iconCircle: UIView = {
@@ -37,6 +38,7 @@ class CustomTaskCell: UITableViewCell {
         titleLabel.numberOfLines = 2
         titleLabel.lineBreakMode = .byTruncatingMiddle
         titleLabel.font = UIFont(name: "Animal-Regular", size: 18)
+        titleLabel.textColor = UIColor(named: "TaskCellText")
         return titleLabel
     }()
     let check = Checkbox()
@@ -93,8 +95,8 @@ class CustomTaskCell: UITableViewCell {
             titleLabel.trailingAnchor.constraint(equalTo: check.leadingAnchor, constant: -24),
             
             // Constraints do check
-            check.widthAnchor.constraint(equalToConstant: 24), // Largura desejada
-            check.heightAnchor.constraint(equalToConstant: 24), // Altura desejada
+            check.widthAnchor.constraint(equalToConstant: 24),
+            check.heightAnchor.constraint(equalToConstant: 24),
             check.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             check.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             check.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40),

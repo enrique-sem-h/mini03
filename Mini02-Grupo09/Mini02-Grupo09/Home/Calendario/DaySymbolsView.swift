@@ -48,7 +48,7 @@ public final class DaySymbolsView: UIView {
     
     private func configure() {
         
-        let brazilianVeryShortWeekdaySymbols = ["D", "S", "T", "Q", "Q", "S", "S"]
+        let brazilianVeryShortWeekdaySymbols = ["DOM", "SEG", "TER", "QUA", "QUI", "SEX", "SÁB"]
         
         let daySymbols = /*calendar.veryShortWeekdaySymbols*/brazilianVeryShortWeekdaySymbols
         let weekendMask = [true] + [Bool](repeating: false, count: 5) + [true]

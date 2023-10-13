@@ -45,8 +45,11 @@ class HomeViewController: UIViewController {
         
         // configurando o titulo da navigation view
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.barTintColor = .gray
-        
+        let largeTitleTextAttributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont(name: "Animal-Bold", size: 34)!,
+            .foregroundColor: UIColor(named: "HomeViewTitle")!
+        ]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = largeTitleTextAttributes
         title = "Tarefas"
     }
     

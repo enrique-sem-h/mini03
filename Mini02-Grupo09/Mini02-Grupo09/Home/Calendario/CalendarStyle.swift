@@ -30,16 +30,16 @@ public struct DayHeaderStyle {
 }
 
 public struct DaySelectorStyle {
-    public var activeTextColor = SystemColors.systemBackground
-    public var selectedBackgroundColor = SystemColors.label
+    public var activeTextColor = UIColor.black
+    public var selectedBackgroundColor = UIColor(named: "Yellow")
 
     public var weekendTextColor = SystemColors.secondaryLabel
     public var inactiveTextColor = SystemColors.label
     public var inactiveBackgroundColor = UIColor.clear
 
-    public var todayInactiveTextColor = SystemColors.systemRed
-    public var todayActiveTextColor = UIColor.white
-    public var todayActiveBackgroundColor = SystemColors.systemRed
+    public var todayInactiveTextColor = SystemColors.label
+    public var todayActiveTextColor = UIColor.black
+    public var todayActiveBackgroundColor = UIColor(named: "Yellow")
     
     public var font = UIFont.systemFont(ofSize: 18)
     public var todayFont = UIFont.boldSystemFont(ofSize: 18)
@@ -50,7 +50,7 @@ public struct DaySelectorStyle {
 public struct DaySymbolsStyle {
     public var weekendColor = SystemColors.secondaryLabel
     public var weekDayColor = SystemColors.label
-    public var font = UIFont.systemFont(ofSize: 10)
+    public var font = UIFont(name: "Animal-Bold", size: 12)
     public init() {}
 }
 
