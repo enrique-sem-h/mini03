@@ -17,7 +17,7 @@ class Icon: UIControl {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isUserInteractionEnabled = false
-        view.backgroundColor = .gray
+        view.backgroundColor = UIColor(named: "Yellow")
         view.layer.cornerRadius = 8
         return view
     }()
@@ -90,11 +90,11 @@ class iconPickerModalViewController: UIViewController {
         // Titulo da modal
         iconsLabel.translatesAutoresizingMaskIntoConstraints = false
         iconsLabel.text = String(localized: "Icons")
-        iconsLabel.font = UIFont.systemFont(ofSize: 28, weight: .heavy)
+        iconsLabel.font = UIFont(name: "Animal-Bold", size: 30)
         
         // Configuração do botão de fechar modal
         closeModalButton.translatesAutoresizingMaskIntoConstraints = false
-        closeModalButton.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
+        closeModalButton.setImage(UIImage(named: "CloseModalButtonX"), for: .normal)
         closeModalButton.addTarget(self, action: #selector(closeModalButtonTapped), for: .touchUpInside)
         view.addSubview(closeModalButton)
         

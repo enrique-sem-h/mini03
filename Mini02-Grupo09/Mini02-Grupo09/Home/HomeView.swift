@@ -41,16 +41,16 @@ class HomeView: UIView {
         self.backgroundColor = .systemBackground
         
         self.addSubview(tasksTableView)
-        if UITraitCollection.current.userInterfaceStyle == .dark {
-            let gradient = CAGradientLayer()
-            gradient.frame = self.bounds
-            gradient.colors = [
-                UIColor(red: 52 / 255, green: 46 / 255, blue: 77 / 255, alpha: 0.3).cgColor,
-                UIColor(red: 54 / 255, green: 46 / 255, blue: 77 / 255, alpha: 1.0).cgColor
-            ]
-            gradient.zPosition = -1
-            tasksTableView.layer.addSublayer(gradient)
-        }
+        
+//        let gradient = CAGradientLayer()
+//        gradient.frame = self.bounds
+//        gradient.colors = [
+//            UIColor(named: "HomeTableTopGradient")!.withAlphaComponent(0.3).cgColor,
+//            UIColor(named: "HomeTableBotGradient")!.withAlphaComponent(1.0).cgColor
+//        ]
+//        gradient.zPosition = -1
+//        tasksTableView.layer.addSublayer(gradient)
+        
         
         tasksTableView.register(CustomTaskCell.self, forCellReuseIdentifier: "CustomTaskCell")
         self.tasksTableView.separatorStyle = .none

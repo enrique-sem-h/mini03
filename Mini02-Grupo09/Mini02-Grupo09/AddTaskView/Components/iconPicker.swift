@@ -21,7 +21,15 @@ enum Icons: String, CaseIterable {
 
 class IconPicker: UIControl {
     weak var viewController: AddTaskViewController?
-    private var iconPicker = UIImageView()
+    private let iconPicker: UIView = {
+        let iconPicker = UIView()
+        iconPicker.backgroundColor = UIColor(named: "Yellow")
+        iconPicker.layer.cornerRadius = 27 // Metade do tamanho do círculo
+        iconPicker.clipsToBounds = true
+        iconPicker.isUserInteractionEnabled = false
+        iconPicker.translatesAutoresizingMaskIntoConstraints = false
+        return iconPicker
+    }()
     var iconView: UIImageView = UIImageView()
     
     override init(frame: CGRect) {
@@ -36,7 +44,7 @@ class IconPicker: UIControl {
     private func setup() {
         
         iconPicker.translatesAutoresizingMaskIntoConstraints = false
-        iconPicker.image = UIImage(named: "iconPicker")
+        iconPicker.contentMode = .scaleAspectFit
         addSubview(iconPicker)
         
         iconView.translatesAutoresizingMaskIntoConstraints = false
@@ -44,10 +52,8 @@ class IconPicker: UIControl {
         iconPicker.addSubview(iconView)
         
         NSLayoutConstraint.activate([
-            iconPicker.leadingAnchor.constraint(equalTo: leadingAnchor),
-            iconPicker.bottomAnchor.constraint(equalTo: bottomAnchor),
-            iconPicker.trailingAnchor.constraint(equalTo: trailingAnchor),
-            iconPicker.topAnchor.constraint(equalTo: topAnchor),
+            iconPicker.widthAnchor.constraint(equalToConstant: 54),
+            iconPicker.heightAnchor.constraint(equalToConstant: 54),
             
             iconView.leadingAnchor.constraint(equalTo: iconPicker.leadingAnchor, constant: 16),
             iconView.topAnchor.constraint(equalTo: iconPicker.topAnchor, constant: 12),

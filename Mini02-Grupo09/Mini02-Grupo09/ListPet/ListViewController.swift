@@ -12,19 +12,23 @@ class ListViewController: UIViewController {
         
         self.view = listView
         
-        setupNavigationBar()
         setupTableView()
         
         listViewModel.listViewController = self
         listViewModel.fetchDogs()
+        
+        listView.backButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
+        listView.addDogButton.addTarget(self, action: #selector(showAddDogView), for: .touchUpInside)
     }
     
-    private func setupNavigationBar() {
-        let image = UIImage(systemName: "plus.circle.fill")
-        
-        navigationItem.title = String(localized: "List")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(showAddDogView))
-        navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "Red")
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    @objc
+    private func backButtonPressed() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc

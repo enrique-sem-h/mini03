@@ -19,13 +19,14 @@ class AddTaskViewController: UIViewController {
     
     init(){
         super.init(nibName: nil, bundle: nil)
+        newView.viewTitle.text = String(localized: "New Task")
     }
     
     init(with task: DogTask?) {
         super.init(nibName: nil, bundle: nil)
         self.task = task
         if let task = task{
-            newView.viewTitle.text = "Edit Task"
+            newView.viewTitle.text = String(localized: "Edit Task")
             newView.iconPicker.iconView.image = UIImage(data: task.icon!)
             newView.taskTitleTF.text = task.title
             
@@ -51,6 +52,8 @@ class AddTaskViewController: UIViewController {
             
             newView.datePicker.date = task.date!
             newView.notesTF.text = task.notes
+            
+            newView.closeModalButton.isHidden = true
         }
     }
     
@@ -80,6 +83,11 @@ class AddTaskViewController: UIViewController {
         newView.addPetButton.addTarget(self, action: #selector(addPetButtonTapped), for: .touchUpInside)
         
         newView.doneButton.addTarget(self, action: #selector(doneButtonTapped), for: .touchUpInside)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
     }
     
     @objc func closeModalButtonTapped() {

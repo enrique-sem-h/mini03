@@ -144,6 +144,17 @@
         }
       }
     },
+    "FRI" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SEX"
+          }
+        }
+      }
+    },
     "Giant" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -202,17 +213,6 @@
         }
       }
     },
-    "Mid-Sized" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Médio"
-          }
-        }
-      }
-    },
     "Mini" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -220,6 +220,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mini"
+          }
+        }
+      }
+    },
+    "MON" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SEG"
           }
         }
       }
@@ -296,6 +307,17 @@
         }
       }
     },
+    "SAT" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SÁB"
+          }
+        }
+      }
+    },
     "Select the pet" : {
       "localizations" : {
         "pt-BR" : {
@@ -337,12 +359,56 @@
         }
       }
     },
+    "SUN" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Médio"
+          }
+        }
+      }
+    },
     "Task" : {
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tarefa"
+          }
+        }
+      }
+    },
+    "Tasks" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tarefas"
+          }
+        }
+      }
+    },
+    "THU" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QUI"
+          }
+        }
+      }
+    },
+    "TUE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TER"
           }
         }
       }
@@ -363,6 +429,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Insira suas anotações aqui"
+          }
+        }
+      }
+    },
+    "WED" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QUA"
           }
         }
       }

@@ -23,11 +23,11 @@ class CustomAddPetToTaskCell: UITableViewCell {
     let dogName: UILabel = {
         let dogName = UILabel()
         dogName.translatesAutoresizingMaskIntoConstraints = false
-        dogName.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+        dogName.font = UIFont(name: "Animal-Bold", size: 26)
         return dogName
     }()
     
-    var petSelected: Bool? {
+    var petSelected: Bool = false {
         didSet {
             symbolSelected.isHidden.toggle()
         }
@@ -37,11 +37,12 @@ class CustomAddPetToTaskCell: UITableViewCell {
         let symbolSelected = UIImageView()
         symbolSelected.translatesAutoresizingMaskIntoConstraints = false
         symbolSelected.image = UIImage(systemName: "checkmark.circle")
+        symbolSelected.tintColor = UIColor(named: "Red")
         symbolSelected.isHidden = true
         return symbolSelected
     }()
 
-    init(style: UITableViewCell.CellStyle, reuseIdentifier: String?, dogImage: UIImage?, dogName: String?, petSelected: Bool?) {
+    init(style: UITableViewCell.CellStyle, reuseIdentifier: String?, dogImage: UIImage?, dogName: String?, petSelected: Bool) {
         self.dogImage.image = dogImage
         self.dogName.text = dogName
         self.petSelected = petSelected
@@ -76,7 +77,9 @@ class CustomAddPetToTaskCell: UITableViewCell {
             dogName.leadingAnchor.constraint(equalTo: dogImage.trailingAnchor, constant: 70),
             dogName.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             
-            symbolSelected.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -52),
+            symbolSelected.widthAnchor.constraint(equalToConstant: 38),
+            symbolSelected.heightAnchor.constraint(equalToConstant: 38),
+            symbolSelected.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
             symbolSelected.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
     }

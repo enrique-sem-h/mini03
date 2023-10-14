@@ -45,9 +45,17 @@ class HomeViewController: UIViewController {
         
         // configurando o titulo da navigation view
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.barTintColor = .gray
-        
-        title = "Tarefas"
+        let largeTitleTextAttributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont(name: "Animal-Bold", size: 34)!,
+            .foregroundColor: UIColor(named: "HomeViewTitle")!
+        ]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = largeTitleTextAttributes
+        title = String(localized: "Tasks")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
     }
     
     @objc func showAddTaskView() {

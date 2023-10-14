@@ -29,23 +29,24 @@ class AddTaskView: UIView {
         
         // Configuração do título da view
         viewTitle.translatesAutoresizingMaskIntoConstraints = false
-        viewTitle.text = String(localized: "New Task")
-        viewTitle.font = UIFont.systemFont(ofSize: 24, weight: .heavy)
+        viewTitle.font = UIFont(name: "Animal-Bold", size: 24)
+        viewTitle.textColor = UIColor(named: "HeaderTitle")
         viewTitle.textAlignment = .center
-        viewTitle.backgroundColor = .gray
+        viewTitle.backgroundColor = UIColor(named: "ViewHeader")
         self.addSubview(viewTitle)
         
         // Configuração do botão de fechar modal
         closeModalButton.translatesAutoresizingMaskIntoConstraints = false
         closeModalButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
-        closeModalButton.tintColor = .black
+        closeModalButton.tintColor = UIColor(named: "Red")
         self.addSubview(closeModalButton)
         
         // Tarefa Label
         let tarefaLabel = UILabel()
         tarefaLabel.translatesAutoresizingMaskIntoConstraints = false
         tarefaLabel.text = String(localized: "Task")
-        tarefaLabel.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
+        tarefaLabel.font = UIFont(name: "Animal-Bold", size: 20)
+        tarefaLabel.textColor = UIColor(named: "NegativeBackground")
         self.addSubview(tarefaLabel)
         
         // Configuração do iconPicker
@@ -72,7 +73,7 @@ class AddTaskView: UIView {
         let petsLabel = UILabel()
         petsLabel.translatesAutoresizingMaskIntoConstraints = false
         petsLabel.text = String(localized: "Pets")
-        petsLabel.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
+        petsLabel.font = UIFont(name: "Animal-Bold", size: 20)
         petsLabel.isAccessibilityElement = true
         self.addSubview(petsLabel)
         
@@ -91,6 +92,7 @@ class AddTaskView: UIView {
         datePicker.locale = .autoupdatingCurrent
         datePicker.datePickerMode = .dateAndTime // Altere para .time ou .dateAndTime conforme necessário
         datePicker.preferredDatePickerStyle = .compact
+        datePicker.tintColor = UIColor(named: "Yellow")
         datePicker.minimumDate = Calendar.current.date(byAdding: .day, value: 0, to: Date())
         datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: 1, to: Date())
         self.addSubview(datePicker)
@@ -107,9 +109,10 @@ class AddTaskView: UIView {
         
         // Configuração do botão de pronto
         doneButton.translatesAutoresizingMaskIntoConstraints = false
-        doneButton.backgroundColor = UIColor.gray
+        doneButton.backgroundColor = UIColor(named: "Yellow")
         doneButton.setTitle(String(localized: "Done"), for: .normal)
-        doneButton.titleLabel?.font = UIFont.systemFont(ofSize: 32, weight: .heavy)
+        doneButton.titleLabel?.font = UIFont(name: "Animal-Bold", size: 24)
+        doneButton.setTitleColor(UIColor.black, for: .normal)
         doneButton.layer.cornerRadius = 14
         self.addSubview(doneButton)
         
@@ -118,12 +121,14 @@ class AddTaskView: UIView {
             NSLayoutConstraint.activate([
                 
                 // Constraints do botão de fechar modal
+                closeModalButton.widthAnchor.constraint(equalToConstant: 20),
+                closeModalButton.heightAnchor.constraint(equalToConstant: 22),
                 closeModalButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 28),
                 closeModalButton.centerYAnchor.constraint(equalTo: viewTitle.centerYAnchor),
                 
                 // Constraints do título da view
                 viewTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-                viewTitle.topAnchor.constraint(equalTo: self.topAnchor),
+                viewTitle.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
                 viewTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor),
                 viewTitle.heightAnchor.constraint(equalToConstant: 74),
                 
@@ -168,12 +173,14 @@ class AddTaskView: UIView {
         } else {
             NSLayoutConstraint.activate([
                 // Constraints do botão de fechar modal
+                closeModalButton.widthAnchor.constraint(equalToConstant: 20),
+                closeModalButton.heightAnchor.constraint(equalToConstant: 22),
                 closeModalButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 28),
                 closeModalButton.centerYAnchor.constraint(equalTo: viewTitle.centerYAnchor),
                 
                 // Constraints do título da view
                 viewTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-                viewTitle.topAnchor.constraint(equalTo: self.topAnchor),
+                viewTitle.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
                 viewTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor),
                 viewTitle.heightAnchor.constraint(equalToConstant: 74),
                 

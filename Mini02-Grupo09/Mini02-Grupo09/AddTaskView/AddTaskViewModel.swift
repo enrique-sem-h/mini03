@@ -62,7 +62,6 @@ class AddTaskViewModel {
             if let tableViewToReload = viewController?.tableViewToReload{ // unwrapping any tableviews contained in view controller
                 tableViewToReload.reloadData() // if there is a table view to be reloaded in the container, do it here
             }
-            
             self.viewController?.navigationController?.popViewController(animated: true) // going back to previous view
         } else {
             viewController?.errorAlert()

@@ -47,6 +47,7 @@ class Checkbox: UIControl {
         ])
                 
         imageView.image = UIImage(systemName: "circle")
+        imageView.tintColor = UIColor(named: "NegativeBackground")
         imageView.contentMode = .scaleAspectFit
         
         self.imageView = imageView
