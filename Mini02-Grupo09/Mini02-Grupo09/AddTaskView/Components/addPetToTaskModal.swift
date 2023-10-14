@@ -17,6 +17,8 @@ class addPetToTaskModalViewController: UIViewController {
     
     let petsTableView = UITableView()
     
+    var selectedIndices: Set<Int> = Set()
+    
     init(superViewController: AddTaskViewController?) {
         self.superViewController = superViewController
         
@@ -89,6 +91,23 @@ class addPetToTaskModalViewController: UIViewController {
     }
     
     @objc func closeModalButtonTapped() {
+        for index in self.selectedIndices {
+            let dog = self.dogManager.dogs[index]
+            let pet: UIImageView = {
+                let pet = UIImageView()
+                pet.image = UIImage(data: dog.image!)
+                pet.translatesAutoresizingMaskIntoConstraints = false
+                pet.contentMode = .scaleAspectFill // scale mode
+                pet.layer.cornerRadius = 24 // 48 (Tamanho do círculo) / 2
+                pet.clipsToBounds = true
+                NSLayoutConstraint.activate([
+                    pet.widthAnchor.constraint(equalToConstant: 48),
+                    pet.heightAnchor.constraint(equalToConstant: 48)])
+                return pet
+            }()
+            superViewController?.newView.petsStackView.insertArrangedSubview(pet, at: 0)
+            superViewController?.dogsArray.append(dog)
+        }
         dismiss(animated: true, completion: nil)
     }
 }
@@ -112,26 +131,13 @@ extension addPetToTaskModalViewController: UITableViewDataSource, UITableViewDel
     // Função que define uma ação ao clicar na célula
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let celula = tableView.cellForRow(at: indexPath) as? CustomAddPetToTaskCell {
-            celula.petSelected?.toggle()
+            celula.petSelected.toggle()
             
-            // Resgatando o cachorro na ordem da lista
-            let dog = dogManager.dogs[indexPath.row] // Definindo o cachorro pela ordem do array de cachorros salvos
-            
-            // Passando a imagem
-            let pet: UIImageView = {
-                let pet = UIImageView()
-                pet.image = celula.dogImage.image
-                pet.translatesAutoresizingMaskIntoConstraints = false
-                pet.contentMode = .scaleAspectFill // scale mode
-                pet.layer.cornerRadius = 24 // 48 (Tamanho do círculo) / 2
-                pet.clipsToBounds = true
-                NSLayoutConstraint.activate([
-                    pet.widthAnchor.constraint(equalToConstant: 48),
-                    pet.heightAnchor.constraint(equalToConstant: 48)])
-                return pet
-            }()
-            superViewController?.newView.petsStackView.insertArrangedSubview(pet, at: 0)
-            superViewController?.dogsArray.append(dog)
+            if !celula.petSelected {
+                selectedIndices.insert(indexPath.row)
+            } else {
+                selectedIndices.remove(indexPath.row)
+            }
         }
     }
     

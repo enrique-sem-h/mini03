@@ -27,7 +27,7 @@ class CustomAddPetToTaskCell: UITableViewCell {
         return dogName
     }()
     
-    var petSelected: Bool? {
+    var petSelected: Bool = false {
         didSet {
             symbolSelected.isHidden.toggle()
         }
@@ -42,7 +42,7 @@ class CustomAddPetToTaskCell: UITableViewCell {
         return symbolSelected
     }()
 
-    init(style: UITableViewCell.CellStyle, reuseIdentifier: String?, dogImage: UIImage?, dogName: String?, petSelected: Bool?) {
+    init(style: UITableViewCell.CellStyle, reuseIdentifier: String?, dogImage: UIImage?, dogName: String?, petSelected: Bool) {
         self.dogImage.image = dogImage
         self.dogName.text = dogName
         self.petSelected = petSelected
