@@ -173,6 +173,8 @@ class AddTaskView: UIView {
         } else {
             NSLayoutConstraint.activate([
                 // Constraints do botão de fechar modal
+                closeModalButton.widthAnchor.constraint(equalToConstant: 20),
+                closeModalButton.heightAnchor.constraint(equalToConstant: 22),
                 closeModalButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 28),
                 closeModalButton.centerYAnchor.constraint(equalTo: viewTitle.centerYAnchor),
                 

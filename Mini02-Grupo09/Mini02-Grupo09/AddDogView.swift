@@ -50,7 +50,7 @@ class AddDogView: UIView{
     private func configureStack(){
         title.translatesAutoresizingMaskIntoConstraints = false
         title.text = String(localized: "New Dog")
-        title.font = UIFont.systemFont(ofSize: 24, weight: .heavy)
+        title.font = UIFont(name: "Animal-Bold", size: 24)
         title.textAlignment = .center
         
         stack.axis = .vertical // setting it as a VStack

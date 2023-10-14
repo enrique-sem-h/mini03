@@ -41,7 +41,7 @@ class CustomCell: UITableViewCell {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
         iv.image = UIImage(systemName: "chevron.down")
-        iv.tintColor = .label
+        iv.tintColor = UIColor(named: "Red")
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()

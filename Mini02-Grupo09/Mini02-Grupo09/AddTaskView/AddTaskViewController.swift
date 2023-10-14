@@ -52,6 +52,8 @@ class AddTaskViewController: UIViewController {
             
             newView.datePicker.date = task.date!
             newView.notesTF.text = task.notes
+            
+            newView.closeModalButton.isHidden = true
         }
     }
     
