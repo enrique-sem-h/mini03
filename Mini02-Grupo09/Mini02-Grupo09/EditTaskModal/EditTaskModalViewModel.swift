@@ -29,18 +29,33 @@ class EditTaskModalViewModel {
     }
     
     func deleteTask() {
-        let alert = UIAlertController(title: "Deleting task", message: String(localized: "Are you sure you want to delete this task?"), preferredStyle: .actionSheet)
-        let delete = UIAlertAction(title: "Delete", style: .destructive) { _ in
-            if let task = self.viewController?.task{
-                self.tasksManager.delete(task: task)
+        if UIDevice.current.userInterfaceIdiom == .phone{
+            let alert = UIAlertController(title: "Deleting task", message: String(localized: "Are you sure you want to delete this task?"), preferredStyle: .actionSheet)
+            let delete = UIAlertAction(title: "Delete", style: .destructive) { _ in
+                if let task = self.viewController?.task{
+                    self.tasksManager.delete(task: task)
+                }
+                self.homeViewController?.newView?.tasksTableView.reloadData()
+                self.viewController?.dismiss(animated: true)
             }
-            self.homeViewController?.newView?.tasksTableView.reloadData()
-            self.viewController?.dismiss(animated: true)
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+            alert.addAction(delete)
+            alert.addAction(cancel)
+            self.viewController?.present(alert, animated: true)
+        } else {
+            let alert = UIAlertController(title: "Deleting task", message: String(localized: "Are you sure you want to delete this task?"), preferredStyle: .alert)
+            let delete = UIAlertAction(title: "Delete", style: .destructive) { _ in
+                if let task = self.viewController?.task{
+                    self.tasksManager.delete(task: task)
+                }
+                self.homeViewController?.newView?.tasksTableView.reloadData()
+                self.viewController?.dismiss(animated: true)
+            }
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+            alert.addAction(delete)
+            alert.addAction(cancel)
+            self.viewController?.present(alert, animated: true)
         }
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
-        alert.addAction(delete)
-        alert.addAction(cancel)
-        self.viewController?.present(alert, animated: true)
     }
     
     func closeModal() {

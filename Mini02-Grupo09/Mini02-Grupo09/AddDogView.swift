@@ -55,7 +55,7 @@ class AddDogView: UIView{
         
         stack.axis = .vertical // setting it as a VStack
         stack.distribution = .fillEqually // defining its distribution
-        stack.spacing = 30 // defining its spacing
+        stack.spacing = 15 // defining its spacing
         stack.translatesAutoresizingMaskIntoConstraints = false // disabling autoresizing mask translation
                 
         imgButton.image = UIImage(named: "placeholder") // defining placeholder for img
@@ -151,8 +151,11 @@ class AddDogView: UIView{
             NSLayoutConstraint.activate([
                 title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
                 title.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
-                title.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
+                title.topAnchor.constraint(equalTo: self.topAnchor, constant: 23),
                 title.heightAnchor.constraint(equalToConstant: 74),
+                
+                backButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
+                backButton.topAnchor.constraint(equalTo: title.topAnchor, constant: 23),
                 
                 nameTF.heightAnchor.constraint(equalToConstant: 100), // configuring the textfields sizes
                 
@@ -160,11 +163,17 @@ class AddDogView: UIView{
                 imgButton.heightAnchor.constraint(equalToConstant: 170), // defining image's size
                 
                 imgButton.centerXAnchor.constraint(equalTo: self.centerXAnchor), // defining image's position
-                imgButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 30), // defining image's position
+                imgButton.topAnchor.constraint(equalTo: self.title.bottomAnchor, constant: 30), // defining image's position
                 
                 stack.topAnchor.constraint(equalTo: imgButton.bottomAnchor, constant: 20), // setting stack's position
-                stack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -70), // setting stack's position
-                stack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 70), // setting stack's position
+                stack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -140), // setting stack's position
+                stack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 140), // setting stack's position
+                stack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -240), // setting stack's position
+                
+                button.topAnchor.constraint(equalTo: stack.bottomAnchor, constant: 30), // setting button's position
+                button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 278.5), // setting button's position
+                button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -278.5), // setting button's position
+                button.bottomAnchor.constraint(equalTo: button.topAnchor, constant: 81) // setting button's position
             ])
         }
     }
