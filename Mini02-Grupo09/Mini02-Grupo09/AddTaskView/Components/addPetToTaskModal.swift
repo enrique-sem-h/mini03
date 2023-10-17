@@ -93,20 +93,22 @@ class addPetToTaskModalViewController: UIViewController {
     @objc func closeModalButtonTapped() {
         for index in self.selectedIndices {
             let dog = self.dogManager.dogs[index]
-            let pet: UIImageView = {
-                let pet = UIImageView()
-                pet.image = UIImage(data: dog.image!)
-                pet.translatesAutoresizingMaskIntoConstraints = false
-                pet.contentMode = .scaleAspectFill // scale mode
-                pet.layer.cornerRadius = 24 // 48 (Tamanho do círculo) / 2
-                pet.clipsToBounds = true
-                NSLayoutConstraint.activate([
-                    pet.widthAnchor.constraint(equalToConstant: 48),
-                    pet.heightAnchor.constraint(equalToConstant: 48)])
-                return pet
-            }()
-            superViewController?.newView.petsStackView.insertArrangedSubview(pet, at: 0)
-            superViewController?.dogsArray.append(dog)
+            if !superViewController!.dogsArray.contains(dog) {
+                let pet: UIImageView = {
+                    let pet = UIImageView()
+                    pet.image = UIImage(data: dog.image!)
+                    pet.translatesAutoresizingMaskIntoConstraints = false
+                    pet.contentMode = .scaleAspectFill // scale mode
+                    pet.layer.cornerRadius = 24 // 48 (Tamanho do círculo) / 2
+                    pet.clipsToBounds = true
+                    NSLayoutConstraint.activate([
+                        pet.widthAnchor.constraint(equalToConstant: 48),
+                        pet.heightAnchor.constraint(equalToConstant: 48)])
+                    return pet
+                }()
+                superViewController?.newView.petsStackView.insertArrangedSubview(pet, at: 0)
+                superViewController?.dogsArray.append(dog)
+            }
         }
         dismiss(animated: true, completion: nil)
     }
