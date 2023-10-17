@@ -176,12 +176,13 @@
         }
       }
     },
-    "It seems there was a little error while adding your new friend. Please 'paws' for a moment, and try again!" : {
+    "It seems there was a little error while adding your new friend. Please fill out all fields correctly and try again!" : {
+      "extractionState" : "manual",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Parece que houve um erro ao adicionar seu amiguinho. Por favor, verifique todos os campos e tente novamente 🐾!"
+            "value" : "Parece que houve um erro ao adicionar seu amiguinho. Por favor, preencha todos os campos corretamente e tente novamente 🐾!"
           }
         }
       }
@@ -207,7 +208,7 @@
         },
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Meus pets"
           }
         }
